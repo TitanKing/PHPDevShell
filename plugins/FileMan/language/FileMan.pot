@@ -1,0 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: FileMan\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-05 09:54+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugins/FileMan/includes/fileManager.class.php:650
+#, php-format
+msgid "File %s is larger (%s) then the allowed size %s."
+msgstr ""
+
+#: plugins/FileMan/includes/fileManager.class.php:659
+#, php-format
+msgid "Extention type %s not allowed, allowed extention/s : %s"
+msgstr ""
+
+#: plugins/FileMan/includes/fileManager.class.php:667
+#, php-format
+msgid "Too many files uploaded already, maximum allowed file count is : %s"
+msgstr ""
+
+#: plugins/FileMan/includes/fileManager.class.php:849
+msgid "Bytes"
+msgstr ""
+
+#: plugins/FileMan/includes/fileManager.class.php:849
+msgid "Kb"
+msgstr ""
+
+#: plugins/FileMan/includes/fileManager.class.php:849
+msgid "Mb"
+msgstr ""
+
+#: plugins/FileMan/includes/fileManager.class.php:849
+msgid "Gb"
+msgstr ""
+
+#: plugins/FileMan/includes/fileManager.class.php:849
+msgid "Tb"
+msgstr ""
+
+#: plugins/FileMan/includes/fileManager.class.php:849
+msgid "Pb"
+msgstr ""
+
+#: plugins/FileMan/includes/fileManager.class.php:1037
+msgid "Oops cURL is not installed on your server, I cannot continue."
+msgstr ""
+
+#: plugins/FileMan/includes/fileManager.class.php:1043
+#, php-format
+msgid "File %s could not be written to %s, please check permission, directories and if file exists."
+msgstr ""
+
+#: plugins/FileMan/includes/fileManager.class.php:1052
+#, php-format
+msgid "There was a cURL error : %s when I tried to copy to : %s"
+msgstr ""
+
+#: plugins/FileMan/includes/fileManager.class.php:1214
+#, php-format
+msgid "I could not connect to local ftp server %s, user %s."
+msgstr ""
+
+#: plugins/FileMan/includes/fileManager.class.php:1219
+#, php-format
+msgid "I could not connect using SSL to local ftp server %s, user %s."
+msgstr ""
+
+#: plugins/FileMan/includes/fileManager.class.php:1232
+#, php-format
+msgid "Incorrect login for local ftp server %s, user %s."
+msgstr ""
+
+#: plugins/FileMan/includes/fileManager.class.php:1262
+#, php-format
+msgid "There was a problem copying file %s"
+msgstr ""

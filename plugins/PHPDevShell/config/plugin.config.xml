@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!--
+What changes to addapt in database.
+@TODO: Add option PHPDevShell_resize_adaptive_dimension
+@TODO: Add indexes in alias and multiple other fields.
+-->
+<!-- Please see http://phpdevshell.org for documentation on plugin config xml files. -->
+<!-- Download DummyPlugin from http://phpdevshell.org for a detailed example plugin. -->
+<!--  This plugin does not contain all the values needed for a normal plugin. -->
+<config type="plugin">
+
+	<!-- Use a proper plugin name without using special characters. -->
+	<name>PHPDevShell</name>
+
+	<!-- Human readable version number of your plugin. -->
+	<version>4.0.0-Stable</version>
+
+	<!-- a Short description of your plugin. -->
+	<description>PHPDevShell, allows you to administer core functions of PHPDevShell using a UI.</description>
+
+	<!-- If the plugin/script is modification by you, place the original authors names here. -->
+	<founder>Jason Schoeman</founder>
+
+	<!-- Name of the developer for this plugin. -->
+	<author>Jason Schoeman</author>
+
+	<!-- Email address of the developer for this plugin. -->
+	<email>titan@phpdevshell.org</email>
+
+	<!-- Plugin developers web address. -->
+	<homepage>http://www.phpdevshell.org</homepage>
+
+	<!-- Date the plugin was developed, modified etc, this is up to you. -->
+	<date>09 May 2012</date>
+
+	<!-- Copyright notice you would like to amend to your plugin. -->
+	<copyright>Copyright (c) 2010 PHPDevShell.org All rights reserved.</copyright>
+
+	<!-- License this plugin is released under. -->
+	<license>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html GNU/LGPL</license>
+
+	<!-- Detailed information and help for this plugin. -->
+	<info>
+		<![CDATA[
+			Thank you for using PHPDevShell for your application development.<br>
+			Think of us when your ship comes sailing in :)<br>
+			Visit http://www.phpdevshell.org to get information on using PHPDevShell.
+		]]>
+	</info>
+
+	<!-- Code Version XML URL check. -->
+	<!-- Version (current) below is used to check for new releases and has little to do with database version. -->
+	<versionurl current="314">http://version.phpdevshell.org/PHPDevShell.xml</versionurl>
+	<!-- Version here represents the database version that should be install. -->
+	<!-- If your database version needs no update, this number can stay the same. -->
+	<!-- Upgrades further down will only be executed up to this number. -->
+	<install version="3140">
+		<menus>
+            <!--
+            [contains][Menu items can be contained in itself, this will create a menu tree.]
+			[param][menuid][string/id][not-mandatory][The id to identify this menu by, if none is provided, a dedicated id will be generated.]
+            [param][name][string][not-mandatory][The name of the menu item, if empty the menu.lang.php will be used.]
+            [param][type][int][not-mandatory][There are 8 menu types, 1 is the default if left empty.]
+                    [1][Plugin script] normal plugin menu item in your plugin folder.
+                    [2][Link existing menu] item while staying in its own menu group when clicked.
+                    [3][Link existing menu] item while jumping to original scripts menu group when clicked.
+                    [4][External file] Include external PHP web applications into PHPDevShell.
+                    [5][HTTP URL] Normal url to outside web.
+                    [6][Empty Place Holder] This item will only serve as a unclickable menu place holder.
+                    [7][iFrame] Link url to both external url or onsite url.
+                    [8][Cronjob Menu Type] The same as a plugin script but is set as cronjob.
+					[9][HTML Ajax Widget] Use widgets to load module inside an existing page, it is usually called with a metod. a Calendar would be a widget.
+					[10][HTML Ajax] When wanting to reuse ajax over multiple nodes, create an Ajax call with this node type.
+					[11][HTML Ajax Lightbox] Floats overtop of web page like a fancy popup effect while darkening the background web page.
+					[12][RAW Ajax] For raw ajax controller calls (json,xml,text etc), wont add any html or styling.
+            [param][link][string][mandatory][The url, script location or symlink holder will be entered here depending on type.]
+            [param][hide][int][not-mandatory][There are 4 hide types, 0 is the default if left empty.]
+                    [0] Do not hide menu item.
+                    [1] Hide menu item from both Menu System and Control Panel.
+                    [2] Hide menu item from Control Panel only.
+                    [3] Hide menu item from Menu System only.
+                    [4] Hide menu item when inactive only.
+            [param][rank][string][not-mandatory][If you want to ensure ranking positions, will auto rank if left empty.]
+                    [int] Can be ranked with integer.
+                    [last] Will be ranked last in a menu group.
+                    [first] Will be ranked first in a menu group.
+            [param][newwindow][int][not-mandatory][To make item open in new window set to 1, will not open in new if left empty.]
+            [param][plugin][string][not-mandatory][Plugin name, use to install menu item to a different plugins menu structure.]
+            [param][alias][string][not-mandatory][When switching on friendly urls in the settings and renaming rename.htaccess in the root, sef url will use this alias.]
+            [param][parentlink][string][not-mandatory][Use with [param][plugin] or without to install in different structure.]
+            [param][symlink][string][not-mandatory][Url or location with [param][plugin] or without to link to another menu item duplicating its use.]
+                    [note][Symlink is mandatory for menu types 1,2,6]
+            [param][template][string][not-mandatory][Set template to use with plugin, if template is unavailable it will be installed.]
+            [param][height][string][not-mandatory][Set the height of an iframe menu type.]
+            [param][layout][string][not-mandatory][Set a custom template.tpl location for a certain script.]
+                    [note][Height is mandatory for menu types 7]
+            [param][noautopermission][int][not-mandatory][Set to 1 to not add the installer of the plugin to permit menu item access.]
+			[param][param][string][not-mandatory][Param field can be used to store additional data in the menu for customization purposes.]
+            -->
+			<menu name="Readme" link="user/readme.php" rank="1" />
+			<menu name="Register Account" link="user/register.php" noautopermission="1" rank="2" />
+			<menu name="Lost Password" link="user/lost-password.php" noautopermission="1" rank="3" />
+			<menu name="Log In|Out" link="user/login-page.php" rank="4" alias="login" />
+			<menu name="Contact Admin" link="user/email-admin.php" rank="5" />
+			<menu name="User Preferences" link="user/edit-preferences.php" rank="6">
+				<menu name="New Password" link="user/new-password.php" noautopermission="1" rank="1" />
+			</menu>
+			<menu name="Dashboard" link="user/control-panel.php" hide="1" rank="7" alias="cp" />
+			<menu name="Finish Registration" link="user/register-finalize.php" hide="1" noautopermission="1" rank="8" />
+			<menu name="System Management" link="user/control-panel.system-admin" type="2" symlink="user/control-panel.php" rank="10">
+				<menu name="System Status" link="system-admin/admin.php.link" type="2" hide="2" symlink="system-admin/admin.php" rank="1">
+					<menu name="System Info" link="system-admin/admin.php" rank="1" />
+					<menu name="System Logs" link="logs-admin/system-logs.php" rank="2" />
+					<menu name="Access Logs" link="logs-admin/menu-access-logs.php" rank="3" />
+					<menu name="Upload Logs" link="logs-admin/fileupload-logs.php" rank="4" />
+					<menu name="File Log Viewer" link="logs-admin/file-log-viewer.php" rank="5" />
+				</menu>
+				<menu name="System Admin" link="system-admin/general-settings.php.link" type="2" hide="2" symlink="system-admin/general-settings.php" rank="2">
+					<menu name="System Settings" link="system-admin/general-settings.php" rank="1" />
+					<menu name="Config Manager" link="system-admin/config-manager.php" rank="2" />
+					<menu name="Plugins Admin" link="plugin-admin/plugin-activation.php" rank="3" />
+					<menu name="Class Registry" link="plugin-admin/class-registry.php" rank="4" />
+					<menu name="Theme Admin" link="template-admin/template-admin-list.php" rank="5" />
+				</menu>
+				<menu name="Cronjob Admin" link="cron-admin/cronjob-admin-list.php.link" type="2" hide="2" symlink="cron-admin/cronjob-admin-list.php" rank="3">
+					<menu name="Manage Cronjobs" link="cron-admin/cronjob-admin-list.php" rank="1" />
+					<menu name="Edit Cronjob" link="cron-admin/cronjob-admin.php" hide="4" rank="2" />
+					<menu name="System Cronjob" link="cron-admin/run-cron.php" hide="1" rank="3" />
+					<menu name="Trim Logs" link="cron/trim-logs.php" type="8" hide="1" rank="4" />
+					<menu name="Repair Database" link="cron/repair-database.php" type="8" hide="1" rank="5" />
+					<menu name="Optimize Database" link="cron/optimize-database.php" type="8" hide="1" rank="6" />
+				</menu>
+				<menu name="Menu Admin" link="menu-admin/menu-item-admin-list.php.link" type="2" hide="2" symlink="menu-admin/menu-item-admin-list.php" rank="5">
+					<menu name="Manage Menus" link="menu-admin/menu-item-admin-list.php" rank="1" />
+					<menu name="New Menu" link="menu-admin/menu-item-admin.php" rank="2" />
+					<menu name="Edit Menu" link="menu-admin/menu-item-admin.link" type="2" hide="4" symlink="menu-admin/menu-item-admin.php" rank="3" />
+					<menu name="Access Control" link="menu-admin/menu-item-admin-permissions.link" type="2" symlink="menu-admin/menu-item-admin-permissions.php" rank="4" />
+				</menu>
+				<menu name="Policy Admin" link="user/control-panel.user-control" type="2" symlink="user/control-panel.php" rank="6">
+					<menu name="Access Control" link="menu-admin/menu-item-admin-permissions.php" rank="1" />
+					<menu name="User Admin" link="user-admin/user-admin-list.php.link" type="2" hide="2" symlink="user-admin/user-admin-list.php" rank="2">
+						<menu name="Manage Users" link="user-admin/user-admin-list.php" rank="1" />
+						<menu name="New User" link="user-admin/user-admin.php" rank="2" />
+						<menu name="Edit User" link="user-admin/user-admin.link" type="2" hide="4" symlink="user-admin/user-admin.php" rank="3" />
+						<menu name="Pending Users" link="user-admin/user-admin-pending.php" rank="4" />
+						<menu name="Import Users" link="user-admin/user-admin-import.php" rank="5" />
+					</menu>
+					<menu name="Role Admin" link="user-admin/user-role-admin-list.php.link" type="2" hide="2" symlink="user-admin/user-role-admin-list.php" rank="3">
+						<menu name="Manage Roles" link="user-admin/user-role-admin-list.php" rank="1" />
+						<menu name="New Role" link="user-admin/user-role-admin.php" rank="2" />
+						<menu name="Edit Role" link="user-admin/user-role-admin.link" type="2" hide="4" symlink="user-admin/user-role-admin.php" rank="3" />
+					</menu>
+					<menu name="Group Admin" link="user-admin/user-group-admin-list.php.link" type="2" hide="2" symlink="user-admin/user-group-admin-list.php" rank="4">
+						<menu name="Manage Groups" link="user-admin/user-group-admin-list.php" rank="1" />
+						<menu name="New Group" link="user-admin/user-group-admin.php" rank="2" />
+						<menu name="Edit Group" link="user-admin/user-group-admin.link" type="2" hide="4" symlink="user-admin/user-group-admin.php" rank="3" />
+					</menu>
+					<menu name="Token Admin" link="registration-token-admin/registration-token-admin-list.php.link" type="2" hide="2" symlink="registration-token-admin/registration-token-admin-list.php" rank="5">
+						<menu name="Manage Tokens" link="registration-token-admin/registration-token-admin-list.php" rank="1" />
+						<menu name="New Token" link="registration-token-admin/registration-token-admin.php" rank="2" />
+						<menu name="Edit Token" link="registration-token-admin/registration-token-admin.link" type="2" hide="4" symlink="registration-token-admin/registration-token-admin.php" rank="3" />
+						<menu name="Email Token" link="registration-token-admin/email-token.php" hide="4" rank="4" />
+					</menu>
+					<menu name="Manage Tags" link="tagger-admin/tagger-admin.php" rank="6" />
+				</menu>
+			</menu>
+		</menus>
+		<dependencies>
+			<dependence class="controlPanel" plugin="ControlPanel" />
+			<dependence class="views" plugin="Smarty"  />
+			<dependence class="fileManager" plugin="FileMan" />
+			<dependence class="imaging" plugin="PHPThumbs" />
+			<dependence class="mailer" plugin="PHPMailer" />
+			<dependence class="wysiwygEditor" plugin="TinyMCE" />
+			<dependence class="pagination" plugin="Pagination" />
+			<dependence class="crud" plugin="CRUD" />
+			<dependence class="botBlock" plugin="BotBlock" />
+			<!-- <dependence class="someOtherCall" plugin="Smarty" /> -->
+		</dependencies>
+		<!--
+		[contains][Register classes to be publicly available and shared. There can be multiple classes of the same name in different plugins, they can overwrite each other by rank.]
+		[note][Class name must be the same as what the file is called, groupTree.class.php and must be containded within includes folder.]
+		[param][name][string][mandatory][The name of the class to be called by factory('groupTree') and the filename that contains the class groupTree.class.php]
+		[param][alias][string][mandatory][Alternative callname for factory('PHPDS_groupTree'), will call same class though.]
+		[param][plugin][string][mandatory][The plugin name/folder where the class belongs to.]
+		[param][rank][mixed][not-mandatory][The lower in integer the rank the higher the chance is that this class will overwrite classes of the same names.]
+			   [int] Can be ranked with integer.
+			   [last] Will be ranked last and any preceding class will overwrite it.
+               [first] Will be ranked first and will be overwriting lower ranked classes.
+		-->
+		<classes>
+			<class name="groupTree" alias="PHPDS_groupTree" plugin="PHPDevShell" rank="last" />
+			<class name="iana" alias="PHPDS_iana" plugin="PHPDevShell" rank="last" />
+			<class name="menuArray" alias="PHPDS_menuArray" plugin="PHPDevShell" rank="last" />
+			<class name="menuStructure" alias="PHPDS_menuStructure" plugin="PHPDevShell" rank="last" />
+			<class name="pluginManager" alias="PHPDS_pluginManager" plugin="PHPDevShell" rank="last" />
+			<class name="timeZone" alias="PHPDS_timeZone" plugin="PHPDevShell" rank="last" />
+			<class name="userPending" alias="PHPDS_user_pending" plugin="PHPDevShell" rank="last" />
+		</classes>
+	</install>
+	<uninstall>
+	</uninstall>
+</config>

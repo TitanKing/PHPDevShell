@@ -1,0 +1,53 @@
+/**
+ * PHPDevShell is a RAD Framework aimed at developing administrative applications.
+ *
+ * @package PHPDevShell
+ * @link http://www.phpdevshell.org
+ * @copyright Copyright (C) 2011 Jason Schoeman, All rights reserved.
+ * @license GNU/LGPL, see readme/licensed_under_lgpl or http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+ * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
+ *
+ * Copyright notice: See readme/notice
+ * By using PHPDevShell you agree to notice and license, if you dont agree to this notice/license you are not allowed to use PHPDevShell.
+ */
+
+Thank you for downloading and trying PHPDevShell!
+To develop your own plugins please see http://phpdevshell.org/plugin_development
+
+Requirements;
+-------------
+You need the following on your Apache server for PHPDevShell to work correctly.
+PHP: Greater then PHP 5.2.x is minimum from PHPDevShell V 2.5.1.
+PHPDevShell was developed on MySQL 5.0.x, I believe older versions above MySQL 4.1 should work fine.
+Apache: PHPDevShell was developed on Apache 2.x, 1.x should work fine though.
+
+Please note, documentation is not up to date, this will be done before final V3 release.
+
+Installation of PHPDevShell is extremely easy;
+----------------------------------------------
+(Installing PHPDevShell means that you agreed to the terms of the GNU/LGPL license.)
+1. Extract the downloaded compressed file of the PHPDevShell package.
+2. Create a Mysql database (Character set : UTF-8 Unicode and Collation : utf8_general_ci) note the database name, username and password.
+3. Rename /config/single-site.config.php.RENAME to /config/single-site.config.php and change the settings.
+4. Upload the complete PHPDevShell directory to your web server including your modified setup files.
+5. Make the whole "write" and sub folders writable (if default else make custom folders writable).
+6. Browse to the http://localhost/other/service/service.php (directory where you uploaded PHPDevShell), a Database install script will appear, complete this as the final installation step.
+7. Follow instructions on database install script that loads when you open PHPDevShell in your browser...
+
+[Optional Cronjobs]
+-------------------
+Create cronjob to run [http://[install location]/index.php?m=742061208 every 10 minutes or lower (if automated file execution is required).
+
+[Optional Cache, Gzip, Friendly URLs]
+-------------------------------------
+If your server support mod_rewrite and mod_expires you can rename rename.htaccess to .htaccess to gain cache, gzip performance and friendly urls.
+PS: Remember to switch friendly urls on in the gui to make it work.
+
+[Optional Multiple Domains]
+---------------------------
+For multiple domains working from the same directory with different databases for each package, modify multi-host.config.php.UNUSED and add configuration domains and files as required.
+
+***************************
+For more detailed instructions see our documentation.
+
+Enjoy all our hard work! :)

@@ -1,0 +1,590 @@
+
+
+FILE: .../PHPDS-dev-trunk/stable/phpdevshell/includes/PHPDS_controller.class.php
+--------------------------------------------------------------------------------
+FOUND 5 ERROR(S) AND 4 WARNING(S) AFFECTING 9 LINE(S)
+--------------------------------------------------------------------------------
+ 23 | ERROR   | Protected member variable "_POST" must not be prefixed with an
+    |         | underscore
+ 24 | ERROR   | Protected member variable "_GET" must not be prefixed with an
+    |         | underscore
+ 45 | ERROR   | Public method name "PHPDS_controller::POST" is not in camel
+    |         | caps format
+ 50 | WARNING | Inline control structures are discouraged
+ 51 | WARNING | Inline control structures are discouraged
+ 68 | ERROR   | Public method name "PHPDS_controller::GET" is not in camel caps
+    |         | format
+ 73 | WARNING | Inline control structures are discouraged
+ 74 | WARNING | Inline control structures are discouraged
+ 86 | ERROR   | Space before opening parenthesis of function call prohibited
+--------------------------------------------------------------------------------
+
+
+FILE: ...kspace/PHPDS-dev-trunk/stable/phpdevshell/includes/PHPDS_core.class.php
+--------------------------------------------------------------------------------
+FOUND 12 ERROR(S) AND 16 WARNING(S) AFFECTING 20 LINE(S)
+--------------------------------------------------------------------------------
+  14 | ERROR   | Opening brace of a class must be on the line after the
+     |         | definition
+ 104 | WARNING | Inline control structures are discouraged
+ 127 | WARNING | Inline control structures are discouraged
+ 164 | WARNING | Inline control structures are discouraged
+ 218 | WARNING | Inline control structures are discouraged
+ 220 | WARNING | Inline control structures are discouraged
+ 221 | WARNING | Inline control structures are discouraged
+ 223 | WARNING | Inline control structures are discouraged
+ 224 | WARNING | Inline control structures are discouraged
+ 411 | ERROR   | Space after opening parenthesis of function call prohibited
+ 432 | ERROR   | Public method name "PHPDS_core::LoadPluginClasses" is not in
+     |         | camel caps format
+ 480 | WARNING | Inline control structures are discouraged
+ 501 | WARNING | Inline control structures are discouraged
+ 514 | WARNING | Inline control structures are discouraged
+ 514 | ERROR   | "require_once" is a statement, not a function; no parentheses
+     |         | are required
+ 514 | ERROR   | File is being conditionally included; use "include_once"
+     |         | instead
+ 514 | WARNING | Inline control structures are discouraged
+ 514 | ERROR   | "require" is a statement, not a function; no parentheses are
+     |         | required
+ 514 | ERROR   | File is being conditionally included; use "include" instead
+ 516 | WARNING | Inline control structures are discouraged
+ 516 | ERROR   | "include_once" is a statement, not a function; no parentheses
+     |         | are required
+ 516 | WARNING | Inline control structures are discouraged
+ 516 | ERROR   | "include" is a statement, not a function; no parentheses are
+     |         | required
+ 519 | WARNING | Inline control structures are discouraged
+ 543 | ERROR   | Public method name "PHPDS_core::SearchAndReplaceBetween" is
+     |         | not in camel caps format
+ 546 | WARNING | Inline control structures are discouraged
+ 566 | ERROR   | Method name "PHPDS_core::__" is invalid; only PHP magic
+     |         | methods should be prefixed with a double underscore
+ 568 | ERROR   | Space before opening parenthesis of function call prohibited
+--------------------------------------------------------------------------------
+
+
+FILE: ...orkspace/PHPDS-dev-trunk/stable/phpdevshell/includes/PHPDS_db.class.php
+--------------------------------------------------------------------------------
+FOUND 3 ERROR(S) AND 7 WARNING(S) AFFECTING 10 LINE(S)
+--------------------------------------------------------------------------------
+ 155 | WARNING | Inline control structures are discouraged
+ 195 | WARNING | Inline control structures are discouraged
+ 196 | WARNING | Comment refers to a TODO task "give the proper connector based
+     |         | the query needs"
+ 197 | WARNING | Inline control structures are discouraged
+ 256 | ERROR   | Private method name "PHPDS_db::debugConfig" must be prefixed
+     |         | with an underscore
+ 286 | WARNING | Inline control structures are discouraged
+ 299 | WARNING | Inline control structures are discouraged
+ 381 | ERROR   | Arguments with default values must be at the end of the
+     |         | argument list
+ 395 | ERROR   | Arguments with default values must be at the end of the
+     |         | argument list
+ 658 | WARNING | Inline control structures are discouraged
+--------------------------------------------------------------------------------
+
+
+FILE: ...PHPDS-dev-trunk/stable/phpdevshell/includes/PHPDS_dbConnector.class.php
+--------------------------------------------------------------------------------
+FOUND 3 ERROR(S) AND 14 WARNING(S) AFFECTING 17 LINE(S)
+--------------------------------------------------------------------------------
+  41 | WARNING | Comment refers to a TODO task "the inter-connection between
+     |         | this and $db is not really clean, but this aim is to make the
+     |         | whole process cleaner"
+  55 | ERROR   | Private member variable "link" must be prefixed with an
+     |         | underscore
+  60 | ERROR   | Private member variable "result" must be prefixed with an
+     |         | underscore
+  96 | WARNING | Comment refers to a TODO task "get our independance from db
+     |         | parameters and get our own"
+ 106 | WARNING | Inline control structures are discouraged
+ 127 | WARNING | Inline control structures are discouraged
+ 132 | WARNING | Comment refers to a TODO task "this should NOT rely on
+     |         | template"
+ 146 | WARNING | Comment refers to a TODO task "check result validity for
+     |         | non-select requests"
+ 180 | WARNING | Inline control structures are discouraged
+ 181 | WARNING | Inline control structures are discouraged
+ 196 | WARNING | Inline control structures are discouraged
+ 197 | WARNING | Inline control structures are discouraged
+ 211 | WARNING | Inline control structures are discouraged
+ 212 | WARNING | Inline control structures are discouraged
+ 267 | ERROR   | Opening brace should be on a new line
+ 281 | WARNING | Inline control structures are discouraged
+ 282 | WARNING | Inline control structures are discouraged
+--------------------------------------------------------------------------------
+
+
+FILE: ...space/PHPDS-dev-trunk/stable/phpdevshell/includes/PHPDS_debug.class.php
+--------------------------------------------------------------------------------
+FOUND 3 ERROR(S) AND 9 WARNING(S) AFFECTING 12 LINE(S)
+--------------------------------------------------------------------------------
+  84 | ERROR   | Expected "foreach (...) {\n"; found "foreach(...) {\n"
+ 110 | WARNING | Inline control structures are discouraged
+ 127 | ERROR   | Method name "PHPDS_debug::__invoke" is invalid; only PHP magic
+     |         | methods should be prefixed with a double underscore
+ 140 | WARNING | Inline control structures are discouraged
+ 142 | WARNING | Inline control structures are discouraged
+ 154 | WARNING | Inline control structures are discouraged
+ 156 | WARNING | Inline control structures are discouraged
+ 169 | WARNING | Inline control structures are discouraged
+ 181 | WARNING | Inline control structures are discouraged
+ 193 | WARNING | Inline control structures are discouraged
+ 214 | WARNING | Inline control structures are discouraged
+ 234 | ERROR   | A closing tag is not permitted at the end of a PHP file
+--------------------------------------------------------------------------------
+
+
+FILE: ...HPDS-dev-trunk/stable/phpdevshell/includes/PHPDS_errorHandler.class.php
+--------------------------------------------------------------------------------
+FOUND 19 ERROR(S) AND 54 WARNING(S) AFFECTING 64 LINE(S)
+--------------------------------------------------------------------------------
+  19 | ERROR   | File is being unconditionally included; use "require_once"
+     |         | instead
+  64 | WARNING | Inline control structures are discouraged
+  66 | WARNING | Inline control structures are discouraged
+  67 | WARNING | Inline control structures are discouraged
+  68 | WARNING | Inline control structures are discouraged
+  69 | WARNING | Inline control structures are discouraged
+  72 | WARNING | Inline control structures are discouraged
+  73 | WARNING | Inline control structures are discouraged
+  73 | WARNING | Comment refers to a TODO task "check file is writable"
+  74 | WARNING | Inline control structures are discouraged
+  75 | WARNING | Inline control structures are discouraged
+  76 | WARNING | Inline control structures are discouraged
+  79 | ERROR   | "require_once" is a statement, not a function; no parentheses
+     |         | are required
+  79 | ERROR   | File is being conditionally included; use "include_once"
+     |         | instead
+ 109 | WARNING | Inline control structures are discouraged
+ 113 | WARNING | Inline control structures are discouraged
+ 125 | WARNING | Inline control structures are discouraged
+ 126 | WARNING | Inline control structures are discouraged
+ 140 | ERROR   | Expected "if (...) {\n"; found "if (...)	{\n"
+ 151 | WARNING | Inline control structures are discouraged
+ 198 | WARNING | Inline control structures are discouraged
+ 205 | WARNING | Inline control structures are discouraged
+ 206 | WARNING | Inline control structures are discouraged
+ 225 | WARNING | Inline control structures are discouraged
+ 234 | WARNING | Inline control structures are discouraged
+ 234 | ERROR   | No space found after comma in function call
+ 235 | WARNING | Inline control structures are discouraged
+ 238 | WARNING | Inline control structures are discouraged
+ 240 | WARNING | Inline control structures are discouraged
+ 245 | WARNING | Inline control structures are discouraged
+ 245 | ERROR   | No space found after comma in function call
+ 246 | WARNING | Inline control structures are discouraged
+ 249 | WARNING | Inline control structures are discouraged
+ 251 | WARNING | Inline control structures are discouraged
+ 256 | WARNING | Inline control structures are discouraged
+ 256 | ERROR   | No space found after comma in function call
+ 257 | WARNING | Inline control structures are discouraged
+ 260 | WARNING | Inline control structures are discouraged
+ 262 | WARNING | Inline control structures are discouraged
+ 267 | WARNING | Inline control structures are discouraged
+ 267 | ERROR   | No space found after comma in function call
+ 268 | WARNING | Inline control structures are discouraged
+ 271 | WARNING | Inline control structures are discouraged
+ 273 | WARNING | Inline control structures are discouraged
+ 298 | ERROR   | Method name "PHPDS_errorHandler::error_log" is not in camel
+     |         | caps format
+ 300 | WARNING | Inline control structures are discouraged
+ 300 | WARNING | Inline control structures are discouraged
+ 301 | WARNING | Inline control structures are discouraged
+ 337 | WARNING | Inline control structures are discouraged
+ 360 | WARNING | Inline control structures are discouraged
+ 377 | WARNING | Inline control structures are discouraged
+ 380 | WARNING | Inline control structures are discouraged
+ 391 | ERROR   | File is being conditionally included; use "include_once"
+     |         | instead
+ 413 | WARNING | Inline control structures are discouraged
+ 424 | WARNING | Inline control structures are discouraged
+ 430 | WARNING | Inline control structures are discouraged
+ 431 | WARNING | Inline control structures are discouraged
+ 432 | ERROR   | Space found before comma in function call
+ 432 | ERROR   | No space found after comma in function call
+ 439 | ERROR   | Expected "foreach (...) {\n"; found "foreach(...) {\n"
+ 451 | ERROR   | Expected "foreach (...) {\n"; found "foreach(...) {\n"
+ 471 | WARNING | Inline control structures are discouraged
+ 484 | WARNING | Inline control structures are discouraged
+ 490 | WARNING | Inline control structures are discouraged
+ 491 | WARNING | Inline control structures are discouraged
+ 492 | ERROR   | Space found before comma in function call
+ 492 | ERROR   | No space found after comma in function call
+ 502 | ERROR   | Expected "foreach (...) {\n"; found "foreach(...) {\n"
+ 520 | ERROR   | Expected "foreach (...) {\n"; found "foreach(...) {\n"
+ 548 | ERROR   | Expected "for (...) {\n"; found "for(...) {\n"
+ 554 | WARNING | Inline control structures are discouraged
+ 560 | WARNING | Inline control structures are discouraged
+ 572 | WARNING | Inline control structures are discouraged
+--------------------------------------------------------------------------------
+
+
+FILE: ...e/PHPDS-dev-trunk/stable/phpdevshell/includes/PHPDS_exception.class.php
+--------------------------------------------------------------------------------
+FOUND 0 ERROR(S) AND 8 WARNING(S) AFFECTING 8 LINE(S)
+--------------------------------------------------------------------------------
+  30 | WARNING | Inline control structures are discouraged
+  31 | WARNING | Inline control structures are discouraged
+  32 | WARNING | Inline control structures are discouraged
+  80 | WARNING | Inline control structures are discouraged
+  81 | WARNING | Inline control structures are discouraged
+  82 | WARNING | Inline control structures are discouraged
+  83 | WARNING | Inline control structures are discouraged
+ 156 | WARNING | Inline control structures are discouraged
+--------------------------------------------------------------------------------
+
+
+FILE: .../PHPDS-dev-trunk/stable/phpdevshell/includes/PHPDS_navigation.class.php
+--------------------------------------------------------------------------------
+FOUND 4 ERROR(S) AND 20 WARNING(S) AFFECTING 24 LINE(S)
+--------------------------------------------------------------------------------
+  55 | WARNING | Inline control structures are discouraged
+  56 | WARNING | Inline control structures are discouraged
+  57 | WARNING | Inline control structures are discouraged
+ 187 | WARNING | Inline control structures are discouraged
+ 250 | WARNING | Inline control structures are discouraged
+ 261 | ERROR   | Private method name "PHPDS_navigation::callbackParentItem"
+     |         | must be prefixed with an underscore
+ 297 | WARNING | Inline control structures are discouraged
+ 321 | WARNING | Inline control structures are discouraged
+ 323 | WARNING | Inline control structures are discouraged
+ 329 | WARNING | Inline control structures are discouraged
+ 336 | WARNING | Inline control structures are discouraged
+ 339 | WARNING | Inline control structures are discouraged
+ 341 | WARNING | Inline control structures are discouraged
+ 357 | WARNING | Inline control structures are discouraged
+ 383 | WARNING | Inline control structures are discouraged
+ 427 | WARNING | Inline control structures are discouraged
+ 430 | ERROR   | Expected "if (...) {\n"; found "if(...) {\n"
+ 433 | ERROR   | Expected "if (...) {\n"; found "if(...) {\n"
+ 442 | ERROR   | No space found after comma in function call
+ 463 | WARNING | Inline control structures are discouraged
+ 464 | WARNING | Inline control structures are discouraged
+ 469 | WARNING | Inline control structures are discouraged
+ 471 | WARNING | Inline control structures are discouraged
+ 472 | WARNING | Inline control structures are discouraged
+--------------------------------------------------------------------------------
+
+
+FILE: ...space/PHPDS-dev-trunk/stable/phpdevshell/includes/PHPDS_query.class.php
+--------------------------------------------------------------------------------
+FOUND 12 ERROR(S) AND 40 WARNING(S) AFFECTING 49 LINE(S)
+--------------------------------------------------------------------------------
+  97 | ERROR   | Private member variable "connector" must be prefixed with an
+     |         | underscore
+ 168 | WARNING | Inline control structures are discouraged
+ 170 | WARNING | Inline control structures are discouraged
+ 172 | WARNING | Inline control structures are discouraged
+ 174 | WARNING | Inline control structures are discouraged
+ 176 | WARNING | Inline control structures are discouraged
+ 182 | WARNING | Inline control structures are discouraged
+ 202 | WARNING | Inline control structures are discouraged
+ 207 | WARNING | Inline control structures are discouraged
+ 209 | WARNING | Inline control structures are discouraged
+ 214 | WARNING | Inline control structures are discouraged
+ 257 | WARNING | Comment refers to a TODO task "get that from the debug object"
+ 321 | WARNING | Inline control structures are discouraged
+ 346 | WARNING | Inline control structures are discouraged
+ 349 | WARNING | Comment refers to a TODO task "Currently breaks code as we do
+     |         | double protection in security.class.php"
+ 350 | WARNING | Inline control structures are discouraged
+ 354 | WARNING | Comment refers to a TODO task "is parameters is neither scalar
+     |         | nor array what should we do?"
+ 357 | ERROR   | Space found before comma in function call
+ 357 | ERROR   | No space found after comma in function call
+ 375 | WARNING | Inline control structures are discouraged
+ 376 | WARNING | Inline control structures are discouraged
+ 377 | WARNING | Inline control structures are discouraged
+ 378 | WARNING | Inline control structures are discouraged
+ 397 | WARNING | Inline control structures are discouraged
+ 398 | WARNING | Inline control structures are discouraged
+ 398 | WARNING | Inline control structures are discouraged
+ 401 | WARNING | Inline control structures are discouraged
+ 414 | WARNING | Inline control structures are discouraged
+ 430 | ERROR   | Expected "foreach (...) {\n"; found "foreach(...) {\n"
+ 465 | WARNING | Inline control structures are discouraged
+ 492 | WARNING | Inline control structures are discouraged
+ 492 | WARNING | Inline control structures are discouraged
+ 508 | WARNING | Inline control structures are discouraged
+ 555 | WARNING | Inline control structures are discouraged
+ 558 | WARNING | Inline control structures are discouraged
+ 561 | WARNING | Inline control structures are discouraged
+ 565 | WARNING | Inline control structures are discouraged
+ 590 | WARNING | Inline control structures are discouraged
+ 591 | WARNING | Inline control structures are discouraged
+ 616 | WARNING | Inline control structures are discouraged
+ 642 | WARNING | Inline control structures are discouraged
+ 643 | WARNING | Inline control structures are discouraged
+ 644 | WARNING | Inline control structures are discouraged
+ 668 | WARNING | Comment refers to a TODO task "check parameter"
+ 717 | ERROR   | Public method name "PHPDS_query::extra_build" is not in camel
+     |         | caps format
+ 732 | ERROR   | Public method name "PHPDS_query::protect_array" is not in
+     |         | camel caps format
+ 746 | ERROR   | Public method name "PHPDS_query::get_key" is not in camel caps
+     |         | format
+ 762 | ERROR   | Public method name "PHPDS_query::as_whole" is not in camel
+     |         | caps format
+ 789 | ERROR   | Public method name "PHPDS_query::get_results" is not in camel
+     |         | caps format
+ 806 | ERROR   | Public method name "PHPDS_query::as_array" is not in camel
+     |         | caps format
+ 828 | ERROR   | Public method name "PHPDS_query::as_line" is not in camel caps
+     |         | format
+ 850 | ERROR   | Public method name "PHPDS_query::as_one" is not in camel caps
+     |         | format
+--------------------------------------------------------------------------------
+
+
+FILE: ...ce/PHPDS-dev-trunk/stable/phpdevshell/includes/PHPDS_security.class.php
+--------------------------------------------------------------------------------
+FOUND 3 ERROR(S) AND 5 WARNING(S) AFFECTING 8 LINE(S)
+--------------------------------------------------------------------------------
+ 107 | WARNING | Inline control structures are discouraged
+ 108 | WARNING | Inline control structures are discouraged
+ 109 | WARNING | Inline control structures are discouraged
+ 110 | WARNING | Inline control structures are discouraged
+ 111 | WARNING | Inline control structures are discouraged
+ 181 | ERROR   | TRUE, FALSE and NULL must be lowercase; expected "true" but
+     |         | found "TRUE"
+ 200 | ERROR   | TRUE, FALSE and NULL must be lowercase; expected "true" but
+     |         | found "TRUE"
+ 475 | ERROR   | TRUE, FALSE and NULL must be lowercase; expected "true" but
+     |         | found "TRUE"
+--------------------------------------------------------------------------------
+
+
+FILE: ...pace/PHPDS-dev-trunk/stable/phpdevshell/includes/PHPDS_tagger.class.php
+--------------------------------------------------------------------------------
+FOUND 10 ERROR(S) AND 3 WARNING(S) AFFECTING 13 LINE(S)
+--------------------------------------------------------------------------------
+  15 | ERROR   | Class constants must be uppercase; expected TAG_USER but found
+     |         | tag_user
+  16 | ERROR   | Class constants must be uppercase; expected TAG_MENU but found
+     |         | tag_menu
+  17 | ERROR   | Class constants must be uppercase; expected TAG_ROLE but found
+     |         | tag_role
+  18 | ERROR   | Class constants must be uppercase; expected TAG_GROUP but
+     |         | found tag_group
+  51 | WARNING | Inline control structures are discouraged
+  64 | ERROR   | Constants must be uppercase; expected TAG_USER but found
+     |         | tag_user
+  76 | WARNING | Inline control structures are discouraged
+  77 | ERROR   | Constants must be uppercase; expected TAG_USER but found
+     |         | tag_user
+  89 | ERROR   | Constants must be uppercase; expected TAG_MENU but found
+     |         | tag_menu
+ 101 | WARNING | Inline control structures are discouraged
+ 102 | ERROR   | Constants must be uppercase; expected TAG_MENU but found
+     |         | tag_menu
+ 114 | ERROR   | Constants must be uppercase; expected TAG_ROLE but found
+     |         | tag_role
+ 126 | ERROR   | Constants must be uppercase; expected TAG_GROUP but found
+     |         | tag_group
+--------------------------------------------------------------------------------
+
+
+FILE: ...ce/PHPDS-dev-trunk/stable/phpdevshell/includes/PHPDS_template.class.php
+--------------------------------------------------------------------------------
+FOUND 8 ERROR(S) AND 6 WARNING(S) AFFECTING 13 LINE(S)
+--------------------------------------------------------------------------------
+  170 | ERROR   | Opening brace should be on a new line
+  179 | ERROR   | Opening brace should be on a new line
+  188 | ERROR   | Opening brace should be on a new line
+  197 | ERROR   | Opening brace should be on a new line
+  206 | ERROR   | Opening brace should be on a new line
+  216 | ERROR   | Opening brace should be on a new line
+  417 | WARNING | Inline control structures are discouraged
+  679 | WARNING | Inline control structures are discouraged
+ 1200 | WARNING | Inline control structures are discouraged
+ 1245 | WARNING | Inline control structures are discouraged
+ 1251 | WARNING | Inline control structures are discouraged
+ 1252 | WARNING | Inline control structures are discouraged
+ 1291 | ERROR   | Expected "if (...) {\n"; found "if (...){\n"
+ 1291 | ERROR   | There must be a single space between the closing parenthesis
+      |         | and the opening brace of a multi-line IF statement; found 0
+      |         | spaces
+--------------------------------------------------------------------------------
+
+
+FILE: ...kspace/PHPDS-dev-trunk/stable/phpdevshell/includes/PHPDS_user.class.php
+--------------------------------------------------------------------------------
+FOUND 2 ERROR(S) AND 1 WARNING(S) AFFECTING 3 LINE(S)
+--------------------------------------------------------------------------------
+ 110 | ERROR   | Arguments with default values must be at the end of the
+     |         | argument list
+ 123 | ERROR   | Arguments with default values must be at the end of the
+     |         | argument list
+ 127 | WARNING | Inline control structures are discouraged
+--------------------------------------------------------------------------------
+
+
+FILE: ...rkspace/PHPDS-dev-trunk/stable/phpdevshell/includes/PHPDS_utils.inc.php
+--------------------------------------------------------------------------------
+FOUND 16 ERROR(S) AND 39 WARNING(S) AFFECTING 53 LINE(S)
+--------------------------------------------------------------------------------
+  23 | ERROR   | Function name "PU_BuildGETArray" is invalid; consider
+     |         | "PU_buildGETArray" instead
+  26 | WARNING | Inline control structures are discouraged
+  27 | WARNING | Inline control structures are discouraged
+  31 | WARNING | Inline control structures are discouraged
+  32 | WARNING | Inline control structures are discouraged
+  45 | ERROR   | Function name "PU_BuildGETString" is invalid; consider
+     |         | "PU_buildGETString" instead
+  50 | WARNING | Inline control structures are discouraged
+  64 | ERROR   | Function name "PU_BuildGET" is invalid; consider "PU_buildGET"
+     |         | instead
+  79 | ERROR   | Function name "PU_BuildAttrString" is invalid; consider
+     |         | "PU_buildAttrString" instead
+  82 | WARNING | Inline control structures are discouraged
+  84 | WARNING | Inline control structures are discouraged
+  98 | WARNING | Inline control structures are discouraged
+ 100 | WARNING | Inline control structures are discouraged
+ 101 | WARNING | Inline control structures are discouraged
+ 102 | WARNING | Inline control structures are discouraged
+ 102 | WARNING | Inline control structures are discouraged
+ 103 | WARNING | Inline control structures are discouraged
+ 104 | WARNING | Inline control structures are discouraged
+ 105 | WARNING | Inline control structures are discouraged
+ 106 | WARNING | Inline control structures are discouraged
+ 107 | WARNING | Inline control structures are discouraged
+ 107 | WARNING | Inline control structures are discouraged
+ 112 | WARNING | Inline control structures are discouraged
+ 115 | WARNING | Inline control structures are discouraged
+ 117 | WARNING | Inline control structures are discouraged
+ 135 | ERROR   | Function name "PU_BuildURL" is invalid; consider "PU_buildURL"
+     |         | instead
+ 137 | WARNING | Inline control structures are discouraged
+ 138 | WARNING | Inline control structures are discouraged
+ 140 | WARNING | Inline control structures are discouraged
+ 162 | ERROR   | Function name "PU_BuildHREF" is invalid; consider
+     |         | "PU_buildHREF" instead
+ 181 | ERROR   | Function name "PU_CleanString" is invalid; consider
+     |         | "PU_cleanString" instead
+ 184 | WARNING | Inline control structures are discouraged
+ 196 | ERROR   | Function name "PU_MakeString" is invalid; consider
+     |         | "PU_makeString" instead
+ 213 | ERROR   | Function name "PU_ArraySearch" is invalid; consider
+     |         | "PU_arraySearch" instead
+ 228 | WARNING | Inline control structures are discouraged
+ 248 | ERROR   | Function name "__" is invalid; only PHP magic methods should
+     |         | be prefixed with a double underscore
+ 266 | ERROR   | Function name "___" is invalid; only PHP magic methods should
+     |         | be prefixed with a double underscore
+ 286 | ERROR   | Function name "__e" is invalid; only PHP magic methods should
+     |         | be prefixed with a double underscore
+ 303 | ERROR   | Function name "_" is not valid; name appears incomplete
+ 308 | ERROR   | Function name "__" is invalid; only PHP magic methods should
+     |         | be prefixed with a double underscore
+ 318 | ERROR   | Function name "__e" is invalid; only PHP magic methods should
+     |         | be prefixed with a double underscore
+ 341 | WARNING | Inline control structures are discouraged
+ 343 | WARNING | Inline control structures are discouraged
+ 345 | WARNING | Inline control structures are discouraged
+ 349 | WARNING | Inline control structures are discouraged
+ 410 | ERROR   | Function name "PU_array_compact" is invalid; consider
+     |         | "PU_Array_compact" instead
+ 480 | WARNING | Inline control structures are discouraged
+ 483 | WARNING | Inline control structures are discouraged
+ 553 | WARNING | Inline control structures are discouraged
+ 569 | WARNING | Inline control structures are discouraged
+ 571 | WARNING | Inline control structures are discouraged
+ 584 | WARNING | Inline control structures are discouraged
+ 586 | WARNING | Inline control structures are discouraged
+ 598 | WARNING | Inline control structures are discouraged
+ 599 | WARNING | Inline control structures are discouraged
+--------------------------------------------------------------------------------
+
+
+FILE: ...reg/workspace/PHPDS-dev-trunk/stable/phpdevshell/includes/PHPDS.inc.php
+--------------------------------------------------------------------------------
+FOUND 21 ERROR(S) AND 41 WARNING(S) AFFECTING 61 LINE(S)
+--------------------------------------------------------------------------------
+  179 | WARNING | Inline control structures are discouraged
+  202 | WARNING | Inline control structures are discouraged
+  218 | ERROR   | Expected "foreach (...) {\n"; found "foreach(...) {\n"
+  308 | WARNING | Comment refers to a TODO task "deal with empty session"
+  310 | WARNING | Inline control structures are discouraged
+  312 | WARNING | Inline control structures are discouraged
+  315 | WARNING | Inline control structures are discouraged
+  317 | WARNING | Inline control structures are discouraged
+  347 | WARNING | Inline control structures are discouraged
+  382 | WARNING | Inline control structures are discouraged
+  466 | ERROR   | "include_once" is a statement, not a function; no parentheses
+      |         | are required
+  479 | WARNING | Comment refers to a TODO task "maybe we should hardcode the
+      |         | ones we're using??"
+  547 | WARNING | Comment refers to a TODO task "check we don't run an embebbed
+      |         | instance"
+  579 | ERROR   | Public method name "PHPDS::_factory" must not be prefixed
+      |         | with an underscore
+  581 | WARNING | Inline control structures are discouraged
+  582 | WARNING | Inline control structures are discouraged
+  590 | WARNING | Inline control structures are discouraged
+  627 | ERROR   | Public method name "PHPDS::PHPDS_configuration" is not in
+      |         | camel caps format
+  632 | WARNING | Inline control structures are discouraged
+  650 | ERROR   | Public method name "PHPDS::PHPDS_errorHandler" is not in
+      |         | camel caps format
+  654 | WARNING | Inline control structures are discouraged
+  671 | ERROR   | Public method name "PHPDS::PHPDS_core" is not in camel caps
+      |         | format
+  675 | WARNING | Inline control structures are discouraged
+  692 | ERROR   | Public method name "PHPDS::PHPDS_user" is not in camel caps
+      |         | format
+  696 | WARNING | Inline control structures are discouraged
+  715 | ERROR   | Public method name "PHPDS::PHPDS_debug" is not in camel caps
+      |         | format
+  733 | WARNING | Inline control structures are discouraged
+  735 | WARNING | Inline control structures are discouraged
+  744 | ERROR   | Public method name "PHPDS::_log" must not be prefixed with an
+      |         | underscore
+  761 | ERROR   | Public method name "PHPDS::PHPDS_navigation" is not in camel
+      |         | caps format
+  765 | WARNING | Inline control structures are discouraged
+  782 | ERROR   | Public method name "PHPDS::PHPDS_db" is not in camel caps
+      |         | format
+  786 | WARNING | Inline control structures are discouraged
+  803 | ERROR   | Public method name "PHPDS::PHPDS_security" is not in camel
+      |         | caps format
+  807 | WARNING | Inline control structures are discouraged
+  826 | ERROR   | Public method name "PHPDS::PHPDS_template" is not in camel
+      |         | caps format
+  830 | WARNING | Inline control structures are discouraged
+  848 | ERROR   | Public method name "PHPDS::PHPDS_tagger" is not in camel caps
+      |         | format
+  868 | ERROR   | Public method name "PHPDS::PHPDS_lang" is not in camel caps
+      |         | format
+  872 | WARNING | Inline control structures are discouraged
+  923 | WARNING | Inline control structures are discouraged
+  923 | WARNING | Inline control structures are discouraged
+  936 | ERROR   | Public method name "PHPDS::sneak_class" is not in camel caps
+      |         | format
+  953 | ERROR   | "include_once" is a statement, not a function; no parentheses
+      |         | are required
+  976 | ERROR   | Method name "PHPDS::PHPDS_autoloader" is not in camel caps
+      |         | format
+ 1001 | WARNING | Inline control structures are discouraged
+ 1018 | WARNING | Inline control structures are discouraged
+ 1024 | WARNING | Inline control structures are discouraged
+ 1030 | WARNING | Inline control structures are discouraged
+ 1058 | ERROR   | Private member variable "debugInstance" must be prefixed with
+      |         | an underscore
+ 1081 | WARNING | Inline control structures are discouraged
+ 1112 | ERROR   | Public method name "PHPDS_dependant::PHPDS_dependance" is not
+      |         | in camel caps format
+ 1117 | WARNING | Inline control structures are discouraged
+ 1137 | WARNING | Inline control structures are discouraged
+ 1140 | WARNING | Inline control structures are discouraged
+ 1155 | WARNING | Inline control structures are discouraged
+ 1173 | WARNING | Inline control structures are discouraged
+ 1195 | WARNING | Inline control structures are discouraged
+ 1214 | WARNING | Inline control structures are discouraged
+ 1215 | WARNING | Inline control structures are discouraged
+ 1223 | ERROR   | Public method name "PHPDS_dependant::_log" must not be
+      |         | prefixed with an underscore
+ 1277 | WARNING | Inline control structures are discouraged
+--------------------------------------------------------------------------------
+

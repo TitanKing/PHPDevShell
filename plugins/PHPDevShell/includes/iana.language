@@ -1,0 +1,2607 @@
+File-Date: 2007-11-06
+%%
+Type: language
+Subtag: aa
+Description: Afar
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ab
+Description: Abkhazian
+Added: 2005-10-16
+Suppress-Script: Cyrl
+%%
+Type: language
+Subtag: ae
+Description: Avestan
+Added: 2005-10-16
+%%
+Type: language
+Subtag: af
+Description: Afrikaans
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: ak
+Description: Akan
+Added: 2005-10-16
+%%
+Type: language
+Subtag: am
+Description: Amharic
+Added: 2005-10-16
+Suppress-Script: Ethi
+%%
+Type: language
+Subtag: an
+Description: Aragonese
+Added: 2005-10-16
+%%
+Type: language
+Subtag: anp
+Description: Angika
+Added: 2006-03-08
+%%
+Type: language
+Subtag: ar
+Description: Arabic
+Added: 2005-10-16
+Suppress-Script: Arab
+%%
+Type: language
+Subtag: as
+Description: Assamese
+Added: 2005-10-16
+Suppress-Script: Beng
+%%
+Type: language
+Subtag: av
+Description: Avaric
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ay
+Description: Aymara
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: az
+Description: Azerbaijani
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ba
+Description: Bashkir
+Added: 2005-10-16
+%%
+Type: language
+Subtag: be
+Description: Belarusian
+Added: 2005-10-16
+Suppress-Script: Cyrl
+%%
+Type: language
+Subtag: bg
+Description: Bulgarian
+Added: 2005-10-16
+Suppress-Script: Cyrl
+%%
+Type: language
+Subtag: bh
+Description: Bihari
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bi
+Description: Bislama
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bm
+Description: Bambara
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bn
+Description: Bengali
+Added: 2005-10-16
+Suppress-Script: Beng
+%%
+Type: language
+Subtag: bo
+Description: Tibetan
+Added: 2005-10-16
+%%
+Type: language
+Subtag: br
+Description: Breton
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bs
+Description: Bosnian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: ca
+Description: Catalan, Valencian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: ce
+Description: Chechen
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ch
+Description: Chamorro
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: co
+Description: Corsican
+Added: 2005-10-16
+%%
+Type: language
+Subtag: cr
+Description: Cree
+Added: 2005-10-16
+%%
+Type: language
+Subtag: cs
+Description: Czech
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: cu
+Description: Old [Slavonic, Bulgarian, Slavonic]
+Added: 2005-10-16
+%%
+Type: language
+Subtag: cv
+Description: Chuvash
+Added: 2005-10-16
+%%
+Type: language
+Subtag: cy
+Description: Welsh
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: da
+Description: Danish
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: de
+Description: German
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: dv
+Description: Divehi, Dhivehi, Maldivian
+Added: 2005-10-16
+Suppress-Script: Thaa
+%%
+Type: language
+Subtag: dz
+Description: Dzongkha
+Added: 2005-10-16
+Suppress-Script: Tibt
+%%
+Type: language
+Subtag: ee
+Description: Ewe
+Added: 2005-10-16
+%%
+Type: language
+Subtag: el
+Description: Greek, Modern (1453-)
+Added: 2005-10-16
+Suppress-Script: Grek
+%%
+Type: language
+Subtag: en
+Description: English
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: eo
+Description: Esperanto
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: es
+Description: Spanish, Castilian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: et
+Description: Estonian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: eu
+Description: Basque
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: fa
+Description: Persian
+Added: 2005-10-16
+Suppress-Script: Arab
+%%
+Type: language
+Subtag: ff
+Description: Fulah
+Added: 2005-10-16
+%%
+Type: language
+Subtag: fi
+Description: Finnish
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: fj
+Description: Fijian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: fo
+Description: Faroese
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: fr
+Description: French
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: frr
+Description: Northern Frisian
+Added: 2006-03-08
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: fy
+Description: Western Frisian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: ga
+Description: Irish
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: gd
+Description: Gaelic, Scottish Gaelic
+Added: 2005-10-16
+%%
+Type: language
+Subtag: gl
+Description: Galician
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: gn
+Description: Guarani
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: gu
+Description: Gujarati
+Added: 2005-10-16
+Suppress-Script: Gujr
+%%
+Type: language
+Subtag: gv
+Description: Manx
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: ha
+Description: Hausa
+Added: 2005-10-16
+%%
+Type: language
+Subtag: he
+Description: Hebrew
+Added: 2005-10-16
+Suppress-Script: Hebr
+%%
+Type: language
+Subtag: hi
+Description: Hindi
+Added: 2005-10-16
+Suppress-Script: Deva
+%%
+Type: language
+Subtag: ho
+Description: Hiri Motu
+Added: 2005-10-16
+%%
+Type: language
+Subtag: hr
+Description: Croatian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: ht
+Description: Haitian, Haitian Creole
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: hu
+Description: Hungarian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: hy
+Description: Armenian
+Added: 2005-10-16
+Suppress-Script: Armn
+%%
+Type: language
+Subtag: hz
+Description: Herero
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ia
+Description: Interlingua (International Auxiliary Language Association)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: id
+Description: Indonesian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: ie
+Description: Interlingue
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ig
+Description: Igbo
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ii
+Description: Sichuan Yi
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ik
+Description: Inupiaq
+Added: 2005-10-16
+%%
+Type: language
+Subtag: in
+Description: Indonesian
+Added: 2005-10-16
+Preferred-Value: id
+Deprecated: 1989-01-01
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: io
+Description: Ido
+Added: 2005-10-16
+%%
+Type: language
+Subtag: is
+Description: Icelandic
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: it
+Description: Italian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: iu
+Description: Inuktitut
+Added: 2005-10-16
+%%
+Type: language
+Subtag: iw
+Description: Hebrew
+Added: 2005-10-16
+Preferred-Value: he
+Deprecated: 1989-01-01
+Suppress-Script: Hebr
+%%
+Type: language
+Subtag: ja
+Description: Japanese
+Added: 2005-10-16
+Suppress-Script: Jpan
+%%
+Type: language
+Subtag: ji
+Description: Yiddish
+Added: 2005-10-16
+Preferred-Value: yi
+Deprecated: 1989-01-01
+%%
+Type: language
+Subtag: jv
+Description: Javanese
+Added: 2005-10-16
+%%
+Type: language
+Subtag: jw
+Description: Javanese
+Added: 2005-10-16
+Preferred-Value: jv
+Deprecated: 2001-08-13
+Comments: published by error in Table 1 of ISO 639:1988
+%%
+Type: language
+Subtag: ka
+Description: Georgian
+Added: 2005-10-16
+Suppress-Script: Geor
+%%
+Type: language
+Subtag: kg
+Description: Kongo
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ki
+Description: Kikuyu, Gikuyu
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kj
+Description: Kuanyama, Kwanyama
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kk
+Description: Kazakh
+Added: 2005-10-16
+Suppress-Script: Cyrl
+%%
+Type: language
+Subtag: kl
+Description: Kalaallisut, Greenlandic
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: km
+Description: Central Khmer
+Added: 2005-10-16
+Suppress-Script: Khmr
+%%
+Type: language
+Subtag: kn
+Description: Kannada
+Added: 2005-10-16
+Suppress-Script: Knda
+%%
+Type: language
+Subtag: ko
+Description: Korean
+Added: 2005-10-16
+Suppress-Script: Kore
+%%
+Type: language
+Subtag: kr
+Description: Kanuri
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ks
+Description: Kashmiri
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ku
+Description: Kurdish
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kv
+Description: Komi
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kw
+Description: Cornish
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ky
+Description: Kyrgyz, Kirghiz
+Added: 2005-10-16
+%%
+Type: language
+Subtag: la
+Description: Latin
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: lb
+Description: Luxembourgish, Letzeburgesch
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: lg
+Description: Ganda
+Added: 2005-10-16
+%%
+Type: language
+Subtag: li
+Description: Limburgan, Limburger, Limburgish
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ln
+Description: Lingala
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: lo
+Description: Lao
+Added: 2005-10-16
+Suppress-Script: Laoo
+%%
+Type: language
+Subtag: lt
+Description: Lithuanian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: lu
+Description: Luba-Katanga
+Added: 2005-10-16
+%%
+Type: language
+Subtag: lv
+Description: Latvian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: mg
+Description: Malagasy
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: mh
+Description: Marshallese
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: mi
+Description: Maori
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mk
+Description: Macedonian
+Added: 2005-10-16
+Suppress-Script: Cyrl
+%%
+Type: language
+Subtag: ml
+Description: Malayalam
+Added: 2005-10-16
+Suppress-Script: Mlym
+%%
+Type: language
+Subtag: mn
+Description: Mongolian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mo
+Description: Moldavian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: mr
+Description: Marathi
+Added: 2005-10-16
+Suppress-Script: Deva
+%%
+Type: language
+Subtag: ms
+Description: Malay
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: mt
+Description: Maltese
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: my
+Description: Burmese
+Added: 2005-10-16
+Suppress-Script: Mymr
+%%
+Type: language
+Subtag: na
+Description: Nauru
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: nb
+Description: Norwegian Bokm&#xE5;l
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: nd
+Description: Ndebele, North, North Ndebele
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: ne
+Description: Nepali
+Added: 2005-10-16
+Suppress-Script: Deva
+%%
+Type: language
+Subtag: ng
+Description: Ndonga
+Added: 2005-10-16
+%%
+Type: language
+Subtag: nl
+Description: Dutch, Flemish
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: nn
+Description: Norwegian Nynorsk
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: no
+Description: Norwegian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: nr
+Description: Ndebele, South, South Ndebele
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: nv
+Description: Navajo, Navaho
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ny
+Description: Chichewa, Chewa, Nyanja
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: oc
+Description: Occitan (post 1500), Proven&#xE7;al
+Added: 2005-10-16
+%%
+Type: language
+Subtag: oj
+Description: Ojibwa
+Added: 2005-10-16
+%%
+Type: language
+Subtag: om
+Description: Oromo
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: or
+Description: Oriya
+Added: 2005-10-16
+Suppress-Script: Orya
+%%
+Type: language
+Subtag: os
+Description: Ossetian, Ossetic
+Added: 2005-10-16
+%%
+Type: language
+Subtag: pa
+Description: Panjabi, Punjabi
+Added: 2005-10-16
+Suppress-Script: Guru
+%%
+Type: language
+Subtag: pi
+Description: Pali
+Added: 2005-10-16
+%%
+Type: language
+Subtag: pl
+Description: Polish
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: ps
+Description: Pushto
+Added: 2005-10-16
+Suppress-Script: Arab
+%%
+Type: language
+Subtag: pt
+Description: Portuguese
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: qu
+Description: Quechua
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: rm
+Description: Romansh
+Added: 2005-10-16
+%%
+Type: language
+Subtag: rn
+Description: Rundi
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: ro
+Description: Romanian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: ru
+Description: Russian
+Added: 2005-10-16
+Suppress-Script: Cyrl
+%%
+Type: language
+Subtag: rw
+Description: Kinyarwanda
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: sa
+Description: Sanskrit
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sc
+Description: Sardinian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sd
+Description: Sindhi
+Added: 2005-10-16
+%%
+Type: language
+Subtag: se
+Description: Northern Sami
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sg
+Description: Sango
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: sh
+Description: Serbo-Croatian
+Added: 2005-10-16
+Deprecated: 2000-02-18
+%%
+Type: language
+Subtag: si
+Description: Sinhala, Sinhalese
+Added: 2005-10-16
+Suppress-Script: Sinh
+%%
+Type: language
+Subtag: sk
+Description: Slovak
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: sl
+Description: Slovenian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: sm
+Description: Samoan
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: sn
+Description: Shona
+Added: 2005-10-16
+%%
+Type: language
+Subtag: so
+Description: Somali
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: sq
+Description: Albanian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: sr
+Description: Serbian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ss
+Description: Swati
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: st
+Description: Sotho, Southern
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: su
+Description: Sundanese
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sv
+Description: Swedish
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: sw
+Description: Swahili
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: ta
+Description: Tamil
+Added: 2005-10-16
+Suppress-Script: Taml
+%%
+Type: language
+Subtag: te
+Description: Telugu
+Added: 2005-10-16
+Suppress-Script: Telu
+%%
+Type: language
+Subtag: tg
+Description: Tajik
+Added: 2005-10-16
+%%
+Type: language
+Subtag: th
+Description: Thai
+Added: 2005-10-16
+Suppress-Script: Thai
+%%
+Type: language
+Subtag: ti
+Description: Tigrinya
+Added: 2005-10-16
+Suppress-Script: Ethi
+%%
+Type: language
+Subtag: tk
+Description: Turkmen
+Added: 2005-10-16
+%%
+Type: language
+Subtag: tl
+Description: Tagalog
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: tn
+Description: Tswana
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: to
+Description: Tonga (Tonga Islands)
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: tr
+Description: Turkish
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: ts
+Description: Tsonga
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: tt
+Description: Tatar
+Added: 2005-10-16
+%%
+Type: language
+Subtag: tw
+Description: Twi
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ty
+Description: Tahitian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ug
+Description: Uighur, Uyghur
+Added: 2005-10-16
+%%
+Type: language
+Subtag: uk
+Description: Ukrainian
+Added: 2005-10-16
+Suppress-Script: Cyrl
+%%
+Type: language
+Subtag: ur
+Description: Urdu
+Added: 2005-10-16
+Suppress-Script: Arab
+%%
+Type: language
+Subtag: uz
+Description: Uzbek
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ve
+Description: Venda
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: vi
+Description: Vietnamese
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: vo
+Description: Volap&#xFC;k
+Added: 2005-10-16
+%%
+Type: language
+Subtag: wa
+Description: Walloon
+Added: 2005-10-16
+%%
+Type: language
+Subtag: wo
+Description: Wolof
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: xh
+Description: Xhosa
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: yi
+Description: Yiddish
+Added: 2005-10-16
+Suppress-Script: Hebr
+%%
+Type: language
+Subtag: yo
+Description: Yoruba
+Added: 2005-10-16
+%%
+Type: language
+Subtag: za
+Description: Zhuang, Chuang
+Added: 2005-10-16
+%%
+Type: language
+Subtag: zh
+Description: Chinese
+Added: 2005-10-16
+%%
+Type: language
+Subtag: zu
+Description: Zulu
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: ace
+Description: Achinese
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ach
+Description: Acoli
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ada
+Description: Adangme
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ady
+Description: Adyghe, Adygei
+Added: 2005-10-16
+%%
+Type: language
+Subtag: afa
+Description: Afro-Asiatic (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: afh
+Description: Afrihili
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ain
+Description: Ainu
+Added: 2005-10-16
+%%
+Type: language
+Subtag: akk
+Description: Akkadian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ale
+Description: Aleut
+Added: 2005-10-16
+%%
+Type: language
+Subtag: alg
+Description: Algonquian languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: alt
+Description: Southern Altai
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ang
+Description: English, Old (ca. 450-1100)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: apa
+Description: Apache languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: arc
+Description: Aramaic
+Added: 2005-10-16
+%%
+Type: language
+Subtag: arn
+Description: Mapudungun, Mapuche
+Added: 2005-10-16
+%%
+Type: language
+Subtag: arp
+Description: Arapaho
+Added: 2005-10-16
+%%
+Type: language
+Subtag: art
+Description: Artificial (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: arw
+Description: Arawak
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ast
+Description: Asturian, Bable, Leonese, Asturleonese
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ath
+Description: Athapascan languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: aus
+Description: Australian languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: awa
+Description: Awadhi
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bad
+Description: Banda languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bai
+Description: Bamileke languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bal
+Description: Baluchi
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ban
+Description: Balinese
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bas
+Description: Basa
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bat
+Description: Baltic (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bej
+Description: Beja
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bem
+Description: Bemba
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ber
+Description: Berber (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bho
+Description: Bhojpuri
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bik
+Description: Bikol
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bin
+Description: Bini, Edo
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bla
+Description: Siksika
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bnt
+Description: Bantu (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bra
+Description: Braj
+Added: 2005-10-16
+%%
+Type: language
+Subtag: btk
+Description: Batak languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bua
+Description: Buriat
+Added: 2005-10-16
+%%
+Type: language
+Subtag: bug
+Description: Buginese
+Added: 2005-10-16
+%%
+Type: language
+Subtag: byn
+Description: Blin, Bilin
+Added: 2005-10-16
+%%
+Type: language
+Subtag: cad
+Description: Caddo
+Added: 2005-10-16
+%%
+Type: language
+Subtag: cai
+Description: Central American Indian (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: car
+Description: Galibi Carib
+Added: 2005-10-16
+%%
+Type: language
+Subtag: cau
+Description: Caucasian (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ceb
+Description: Cebuano
+Added: 2005-10-16
+%%
+Type: language
+Subtag: cel
+Description: Celtic (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: chb
+Description: Chibcha
+Added: 2005-10-16
+%%
+Type: language
+Subtag: chg
+Description: Chagatai
+Added: 2005-10-16
+%%
+Type: language
+Subtag: chk
+Description: Chuukese
+Added: 2005-10-16
+%%
+Type: language
+Subtag: chm
+Description: Mari
+Added: 2005-10-16
+%%
+Type: language
+Subtag: chn
+Description: Chinook jargon
+Added: 2005-10-16
+%%
+Type: language
+Subtag: cho
+Description: Choctaw
+Added: 2005-10-16
+%%
+Type: language
+Subtag: chp
+Description: Chipewyan
+Added: 2005-10-16
+%%
+Type: language
+Subtag: chr
+Description: Cherokee
+Added: 2005-10-16
+%%
+Type: language
+Subtag: chy
+Description: Cheyenne
+Added: 2005-10-16
+%%
+Type: language
+Subtag: cmc
+Description: Chamic languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: cop
+Description: Coptic
+Added: 2005-10-16
+%%
+Type: language
+Subtag: cpe
+Description: Creoles and pidgins, English-based (Other)
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: cpf
+Description: Creoles and pidgins, French-based (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: cpp
+Description: Creoles and pidgins, Portuguese-based (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: crh
+Description: Crimean Tatar, Crimean Turkish
+Added: 2005-10-16
+%%
+Type: language
+Subtag: crp
+Description: Creoles and pidgins (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: csb
+Description: Kashubian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: cus
+Description: Cushitic (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: dak
+Description: Dakota
+Added: 2005-10-16
+%%
+Type: language
+Subtag: dar
+Description: Dargwa
+Added: 2005-10-16
+%%
+Type: language
+Subtag: day
+Description: Land Dayak languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: del
+Description: Delaware
+Added: 2005-10-16
+%%
+Type: language
+Subtag: den
+Description: Slave (Athapascan)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: dgr
+Description: Dogrib
+Added: 2005-10-16
+%%
+Type: language
+Subtag: din
+Description: Dinka
+Added: 2005-10-16
+%%
+Type: language
+Subtag: doi
+Description: Dogri
+Added: 2005-10-16
+%%
+Type: language
+Subtag: dra
+Description: Dravidian (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: dsb
+Description: Lower Sorbian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: dua
+Description: Duala
+Added: 2005-10-16
+%%
+Type: language
+Subtag: dum
+Description: Dutch, Middle (ca. 1050-1350)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: dyu
+Description: Dyula
+Added: 2005-10-16
+%%
+Type: language
+Subtag: efi
+Description: Efik
+Added: 2005-10-16
+%%
+Type: language
+Subtag: egy
+Description: Egyptian (Ancient)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: eka
+Description: Ekajuk
+Added: 2005-10-16
+%%
+Type: language
+Subtag: elx
+Description: Elamite
+Added: 2005-10-16
+%%
+Type: language
+Subtag: enm
+Description: English, Middle (1100-1500)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ewo
+Description: Ewondo
+Added: 2005-10-16
+%%
+Type: language
+Subtag: fan
+Description: Fang
+Added: 2005-10-16
+%%
+Type: language
+Subtag: fat
+Description: Fanti
+Added: 2005-10-16
+%%
+Type: language
+Subtag: fil
+Description: Filipino, Pilipino
+Added: 2005-10-16
+%%
+Type: language
+Subtag: fiu
+Description: Finno-Ugrian (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: fon
+Description: Fon
+Added: 2005-10-16
+%%
+Type: language
+Subtag: frm
+Description: French, Middle (ca. 1400-1600)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: fro
+Description: French, Old (842-ca. 1400)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: frs
+Description: Eastern Frisian
+Added: 2006-03-08
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: fur
+Description: Friulian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: gaa
+Description: Ga
+Added: 2005-10-16
+%%
+Type: language
+Subtag: gay
+Description: Gayo
+Added: 2005-10-16
+%%
+Type: language
+Subtag: gba
+Description: Gbaya
+Added: 2005-10-16
+%%
+Type: language
+Subtag: gem
+Description: Germanic (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: gez
+Description: Geez
+Added: 2005-10-16
+%%
+Type: language
+Subtag: gil
+Description: Gilbertese
+Added: 2005-10-16
+%%
+Type: language
+Subtag: gmh
+Description: German, Middle High (ca. 1050-1500)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: goh
+Description: German, Old High (ca. 750-1050)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: gon
+Description: Gondi
+Added: 2005-10-16
+%%
+Type: language
+Subtag: gor
+Description: Gorontalo
+Added: 2005-10-16
+%%
+Type: language
+Subtag: got
+Description: Gothic
+Added: 2005-10-16
+%%
+Type: language
+Subtag: grb
+Description: Grebo
+Added: 2005-10-16
+%%
+Type: language
+Subtag: grc
+Description: Greek, Ancient (to 1453)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: gsw
+Description: Swiss German, Alemannic
+Added: 2006-03-08
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: gwi
+Description: Gwich&#xB4;in
+Added: 2005-10-16
+%%
+Type: language
+Subtag: hai
+Description: Haida
+Added: 2005-10-16
+%%
+Type: language
+Subtag: haw
+Description: Hawaiian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: hil
+Description: Hiligaynon
+Added: 2005-10-16
+%%
+Type: language
+Subtag: him
+Description: Himachali
+Added: 2005-10-16
+%%
+Type: language
+Subtag: hit
+Description: Hittite
+Added: 2005-10-16
+%%
+Type: language
+Subtag: hmn
+Description: Hmong
+Added: 2005-10-16
+%%
+Type: language
+Subtag: hsb
+Description: Upper Sorbian
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: hup
+Description: Hupa
+Added: 2005-10-16
+%%
+Type: language
+Subtag: iba
+Description: Iban
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ijo
+Description: Ijo languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ilo
+Description: Iloko
+Added: 2005-10-16
+%%
+Type: language
+Subtag: inc
+Description: Indic (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ine
+Description: Indo-European (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: inh
+Description: Ingush
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ira
+Description: Iranian (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: iro
+Description: Iroquoian languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: jbo
+Description: Lojban
+Added: 2005-10-16
+%%
+Type: language
+Subtag: jpr
+Description: Judeo-Persian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: jrb
+Description: Judeo-Arabic
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kaa
+Description: Kara-Kalpak
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kab
+Description: Kabyle
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kac
+Description: Kachin, Jingpho
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kam
+Description: Kamba
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kar
+Description: Karen languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kaw
+Description: Kawi
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kbd
+Description: Kabardian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kha
+Description: Khasi
+Added: 2005-10-16
+%%
+Type: language
+Subtag: khi
+Description: Khoisan (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kho
+Description: Khotanese
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kmb
+Description: Kimbundu
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kok
+Description: Konkani
+Added: 2005-10-16
+Suppress-Script: Deva
+%%
+Type: language
+Subtag: kos
+Description: Kosraean
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kpe
+Description: Kpelle
+Added: 2005-10-16
+%%
+Type: language
+Subtag: krc
+Description: Karachay-Balkar
+Added: 2005-10-16
+%%
+Type: language
+Subtag: krl
+Description: Karelian
+Added: 2006-03-08
+%%
+Type: language
+Subtag: kro
+Description: Kru languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kru
+Description: Kurukh
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kum
+Description: Kumyk
+Added: 2005-10-16
+%%
+Type: language
+Subtag: kut
+Description: Kutenai
+Added: 2005-10-16
+%%
+Type: language
+Subtag: lad
+Description: Ladino
+Added: 2005-10-16
+%%
+Type: language
+Subtag: lah
+Description: Lahnda
+Added: 2005-10-16
+%%
+Type: language
+Subtag: lam
+Description: Lamba
+Added: 2005-10-16
+%%
+Type: language
+Subtag: lez
+Description: Lezghian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: lol
+Description: Mongo
+Added: 2005-10-16
+%%
+Type: language
+Subtag: loz
+Description: Lozi
+Added: 2005-10-16
+%%
+Type: language
+Subtag: lua
+Description: Luba-Lulua
+Added: 2005-10-16
+%%
+Type: language
+Subtag: lui
+Description: Luiseno
+Added: 2005-10-16
+%%
+Type: language
+Subtag: lun
+Description: Lunda
+Added: 2005-10-16
+%%
+Type: language
+Subtag: luo
+Description: Luo (Kenya and Tanzania)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: lus
+Description: Lushai
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mad
+Description: Madurese
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mag
+Description: Magahi
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mai
+Description: Maithili
+Added: 2005-10-16
+Suppress-Script: Deva
+%%
+Type: language
+Subtag: mak
+Description: Makasar
+Added: 2005-10-16
+%%
+Type: language
+Subtag: man
+Description: Mandingo
+Added: 2005-10-16
+%%
+Type: language
+Subtag: map
+Description: Austronesian (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mas
+Description: Masai
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mdf
+Description: Moksha
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mdr
+Description: Mandar
+Added: 2005-10-16
+%%
+Type: language
+Subtag: men
+Description: Mende
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: mga
+Description: Irish, Middle (900-1200)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mic
+Description: Mi'kmaq, Micmac
+Added: 2005-10-16
+%%
+Type: language
+Subtag: min
+Description: Minangkabau
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mis
+Description: Uncoded languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mkh
+Description: Mon-Khmer (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mnc
+Description: Manchu
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mni
+Description: Manipuri
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mno
+Description: Manobo languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: moh
+Description: Mohawk
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mos
+Description: Mossi
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mul
+Description: Multiple languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mun
+Description: Munda languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mus
+Description: Creek
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mwl
+Description: Mirandese
+Added: 2005-10-16
+%%
+Type: language
+Subtag: mwr
+Description: Marwari
+Added: 2005-10-16
+%%
+Type: language
+Subtag: myn
+Description: Mayan languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: myv
+Description: Erzya
+Added: 2005-10-16
+%%
+Type: language
+Subtag: nah
+Description: Nahuatl languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: nai
+Description: North American Indian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: nap
+Description: Neapolitan
+Added: 2005-10-16
+%%
+Type: language
+Subtag: nds
+Description: Low German, Low Saxon
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: new
+Description: Nepal Bhasa
+Description: Newari
+Added: 2005-10-16
+%%
+Type: language
+Subtag: nia
+Description: Nias
+Added: 2005-10-16
+%%
+Type: language
+Subtag: nic
+Description: Niger-Kordofanian (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: niu
+Description: Niuean
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: nog
+Description: Nogai
+Added: 2005-10-16
+%%
+Type: language
+Subtag: non
+Description: Norse, Old
+Added: 2005-10-16
+%%
+Type: language
+Subtag: nqo
+Description: N&#x2019;Ko
+Added: 2006-06-05
+Suppress-Script: Nkoo
+%%
+Type: language
+Subtag: nso
+Description: Northern Sotho, Pedi, Sepedi
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: nub
+Description: Nubian languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: nwc
+Description: Classical Newari, Old Newari, Classical Nepal Bhasa
+Added: 2005-10-16
+%%
+Type: language
+Subtag: nym
+Description: Nyamwezi
+Added: 2005-10-16
+%%
+Type: language
+Subtag: nyn
+Description: Nyankole
+Added: 2005-10-16
+%%
+Type: language
+Subtag: nyo
+Description: Nyoro
+Added: 2005-10-16
+%%
+Type: language
+Subtag: nzi
+Description: Nzima
+Added: 2005-10-16
+%%
+Type: language
+Subtag: osa
+Description: Osage
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ota
+Description: Turkish, Ottoman (1500-1928)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: oto
+Description: Otomian languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: paa
+Description: Papuan (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: pag
+Description: Pangasinan
+Added: 2005-10-16
+%%
+Type: language
+Subtag: pal
+Description: Pahlavi
+Added: 2005-10-16
+%%
+Type: language
+Subtag: pam
+Description: Pampanga
+Added: 2005-10-16
+%%
+Type: language
+Subtag: pap
+Description: Papiamento
+Added: 2005-10-16
+%%
+Type: language
+Subtag: pau
+Description: Palauan
+Added: 2005-10-16
+%%
+Type: language
+Subtag: peo
+Description: Persian, Old (ca. 600-400 B.C.)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: phi
+Description: Philippine (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: phn
+Description: Phoenician
+Added: 2005-10-16
+%%
+Type: language
+Subtag: pon
+Description: Pohnpeian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: pra
+Description: Prakrit languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: pro
+Description: Proven&#xE7;al, Old (to 1500)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: qaa..qtz
+Description: PRIVATE USE
+Added: 2005-10-16
+%%
+Type: language
+Subtag: raj
+Description: Rajasthani
+Added: 2005-10-16
+%%
+Type: language
+Subtag: rap
+Description: Rapanui
+Added: 2005-10-16
+%%
+Type: language
+Subtag: rar
+Description: Rarotongan, Cook Islands Maori
+Added: 2005-10-16
+%%
+Type: language
+Subtag: roa
+Description: Romance (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: rom
+Description: Romany
+Added: 2005-10-16
+%%
+Type: language
+Subtag: rup
+Description: Aromanian, Arumanian, Macedo-Romanian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sad
+Description: Sandawe
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sah
+Description: Yakut
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sai
+Description: South American Indian (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sal
+Description: Salishan languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sam
+Description: Samaritan Aramaic
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sas
+Description: Sasak
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sat
+Description: Santali
+Added: 2005-10-16
+%%
+Type: language
+Subtag: scn
+Description: Sicilian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sco
+Description: Scots
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sel
+Description: Selkup
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sem
+Description: Semitic (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sga
+Description: Irish, Old (to 900)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sgn
+Description: Sign Languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: shn
+Description: Shan
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sid
+Description: Sidamo
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sio
+Description: Siouan languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sit
+Description: Sino-Tibetan (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sla
+Description: Slavic (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sma
+Description: Southern Sami
+Added: 2005-10-16
+%%
+Type: language
+Subtag: smi
+Description: Sami languages (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: smj
+Description: Lule Sami
+Added: 2005-10-16
+%%
+Type: language
+Subtag: smn
+Description: Inari Sami
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sms
+Description: Skolt Sami
+Added: 2005-10-16
+%%
+Type: language
+Subtag: snk
+Description: Soninke
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sog
+Description: Sogdian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: son
+Description: Songhai languages
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: srn
+Description: Sranan Tongo
+Added: 2005-10-16
+%%
+Type: language
+Subtag: srr
+Description: Serer
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ssa
+Description: Nilo-Saharan (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: suk
+Description: Sukuma
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sus
+Description: Susu
+Added: 2005-10-16
+%%
+Type: language
+Subtag: sux
+Description: Sumerian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: syc
+Description: Classical Syriac
+Added: 2007-04-03
+%%
+Type: language
+Subtag: syr
+Description: Syriac
+Added: 2005-10-16
+%%
+Type: language
+Subtag: tai
+Description: Tai (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: tem
+Description: Timne
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: ter
+Description: Tereno
+Added: 2005-10-16
+%%
+Type: language
+Subtag: tet
+Description: Tetum
+Added: 2005-10-16
+%%
+Type: language
+Subtag: tig
+Description: Tigre
+Added: 2005-10-16
+%%
+Type: language
+Subtag: tiv
+Description: Tiv
+Added: 2005-10-16
+%%
+Type: language
+Subtag: tkl
+Description: Tokelau
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: tlh
+Description: Klingon, tlhIngan-Hol
+Added: 2005-10-16
+%%
+Type: language
+Subtag: tli
+Description: Tlingit
+Added: 2005-10-16
+%%
+Type: language
+Subtag: tmh
+Description: Tamashek
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: tog
+Description: Tonga (Nyasa)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: tpi
+Description: Tok Pisin
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: tsi
+Description: Tsimshian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: tum
+Description: Tumbuka
+Added: 2005-10-16
+%%
+Type: language
+Subtag: tup
+Description: Tupi languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: tut
+Description: Altaic (Other)
+Added: 2005-10-16
+%%
+Type: language
+Subtag: tvl
+Description: Tuvalu
+Added: 2005-10-16
+Suppress-Script: Latn
+%%
+Type: language
+Subtag: tyv
+Description: Tuvinian
+Added: 2005-10-16
+%%
+Type: language
+Subtag: udm
+Description: Udmurt
+Added: 2005-10-16
+%%
+Type: language
+Subtag: uga
+Description: Ugaritic
+Added: 2005-10-16
+%%
+Type: language
+Subtag: umb
+Description: Umbundu
+Added: 2005-10-16
+%%
+Type: language
+Subtag: und
+Description: Undetermined
+Added: 2005-10-16
+%%
+Type: language
+Subtag: vai
+Description: Vai
+Added: 2005-10-16
+%%
+Type: language
+Subtag: vot
+Description: Votic
+Added: 2005-10-16
+%%
+Type: language
+Subtag: wak
+Description: Wakashan languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: wal
+Description: Walamo
+Added: 2005-10-16
+%%
+Type: language
+Subtag: war
+Description: Waray
+Added: 2005-10-16
+%%
+Type: language
+Subtag: was
+Description: Washo
+Added: 2005-10-16
+%%
+Type: language
+Subtag: wen
+Description: Sorbian languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: xal
+Description: Kalmyk, Oirat
+Added: 2005-10-16
+%%
+Type: language
+Subtag: yao
+Description: Yao
+Added: 2005-10-16
+%%
+Type: language
+Subtag: yap
+Description: Yapese
+Added: 2005-10-16
+%%
+Type: language
+Subtag: ypk
+Description: Yupik languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: zap
+Description: Zapotec
+Added: 2005-10-16
+%%
+Type: language
+Subtag: zbl
+Description: Blissymbols, Blissymbolics, Bliss
+Added: 2007-08-21
+Suppress-Script: Blis
+%%
+Type: language
+Subtag: zen
+Description: Zenaga
+Added: 2005-10-16
+%%
+Type: language
+Subtag: znd
+Description: Zande languages
+Added: 2005-10-16
+%%
+Type: language
+Subtag: zun
+Description: Zuni
+Added: 2005-10-16
+%%
+Type: language
+Subtag: zxx
+Description: No linguistic content
+Added: 2006-03-08
+%%
+Type: language
+Subtag: zza
+Description: Zaza, Dimili, Dimli, Kirdki, Kirmanjki, Zazaki
+Added: 2006-08-24
+%%
+
+
+

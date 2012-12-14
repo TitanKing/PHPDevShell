@@ -1,0 +1,242 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Jason Schoeman
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHPDevShell\n"
+"Report-Msgid-Bugs-To: titan@phpdevshell.org\n"
+"POT-Creation-Date: 2012-06-05 09:54+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: includes/PHPDS_navigation.class.php:197
+msgid "Dashboard"
+msgstr ""
+
+#: includes/PHPDS_navigation.class.php:201
+msgid "Front Page"
+msgstr ""
+
+#: includes/PHPDS_navigation.class.php:226
+msgid "Up"
+msgstr ""
+
+#: includes/PHPDS_navigation.class.php:496
+msgid "Page not found"
+msgstr ""
+
+#: includes/PHPDS_navigation.class.php:500
+msgid "Page found, but you don't have the required permission to access this page."
+msgstr ""
+
+#: includes/PHPDS_navigation.class.php:503
+#: includes/PHPDS_template.class.php:1261
+msgid "Authentication Required"
+msgstr ""
+
+#: includes/PHPDS_errorHandler.class.php:263
+msgid "An exception occured in the exception handler. URL was: \""
+msgstr ""
+
+#: includes/PHPDS_template.class.php:460
+#: includes/PHPDS_template.class.php:1274
+msgid "Login"
+msgstr ""
+
+#: includes/PHPDS_template.class.php:482
+msgid "Role"
+msgstr ""
+
+#: includes/PHPDS_template.class.php:502
+msgid "Group"
+msgstr ""
+
+#: includes/PHPDS_template.class.php:644 includes/PHPDS_template.class.php:668
+#, php-format
+msgid "Busy Loading <strong>%s</strong>..."
+msgstr ""
+
+#: includes/PHPDS_template.class.php:858 includes/PHPDS_template.class.php:882
+#: includes/PHPDS_template.class.php:887
+msgid "Info"
+msgstr ""
+
+#: includes/PHPDS_template.class.php:861
+msgid "Warning"
+msgstr ""
+
+#: includes/PHPDS_template.class.php:864
+msgid "Ok"
+msgstr ""
+
+#: includes/PHPDS_template.class.php:867
+msgid "Critical"
+msgstr ""
+
+#: includes/PHPDS_template.class.php:870
+msgid "Notice"
+msgstr ""
+
+#: includes/PHPDS_template.class.php:873
+msgid "Busy"
+msgstr ""
+
+#: includes/PHPDS_template.class.php:876
+msgid "Message"
+msgstr ""
+
+#: includes/PHPDS_template.class.php:879
+msgid "Note"
+msgstr ""
+
+#: includes/PHPDS_template.class.php:1083
+#, php-format
+msgid "CRITICAL ERROR NOTIFICATION %s"
+msgstr ""
+
+#: includes/PHPDS_template.class.php:1087
+msgid "Admin,"
+msgstr ""
+
+#: includes/PHPDS_template.class.php:1088
+#, php-format
+msgid "THERE WAS A CRITICAL ERROR IN %s:"
+msgstr ""
+
+#: includes/PHPDS_template.class.php:1089
+#, php-format
+msgid "Click on url to access broken script called %s:"
+msgstr ""
+
+#: includes/PHPDS_template.class.php:1090
+#, php-format
+msgid "Script error occurred for user : %s"
+msgstr ""
+
+#: includes/PHPDS_login.class.php:303 language/gettext.lang.php:16
+msgid "Logged-in"
+msgstr ""
+
+#: includes/PHPDS_login.class.php:323 language/gettext.lang.php:17
+msgid "Logged-out"
+msgstr ""
+
+#: includes/models/PHPDS_db.query.php:100
+#: includes/models/PHPDS_db.query.php:105
+msgid "N/A"
+msgstr ""
+
+#: includes/PHPDS_core.class.php:339
+#, php-format
+msgid "Problem occurred extending menu item %s, it does not seem to exist."
+msgstr ""
+
+#: includes/PHPDS_core.class.php:430
+#, php-format
+msgid "File could not be found after trying to execute filename : %s"
+msgstr ""
+
+#: includes/PHPDS_core.class.php:436
+#, php-format
+msgid "You are now being redirected to an external url, %s"
+msgstr ""
+
+#: includes/PHPDS_core.class.php:454
+#, php-format
+msgid "Cronjob %s executed manually."
+msgstr ""
+
+#: includes/PHPDS_core.class.php:549
+#, php-format
+msgid "The controller of menu id %d could not be found after trying to execute filename : \"%s\""
+msgstr ""
+
+#: includes/PHPDS_core.class.php:599
+msgid "Loading Template Layout : "
+msgstr ""
+
+#: includes/PHPDS_controller.class.php:230
+#, php-format
+msgid "The return value of controller %d is invalid."
+msgstr ""
+
+#: includes/PHPDS_security.class.php:47
+#, php-format
+msgid "Security check for user id %s"
+msgstr ""
+
+#: includes/PHPDS_security.class.php:52
+msgid "System is switched off for normal users, only root can access the system."
+msgstr ""
+
+#: themes/cloud/418.php:7
+msgid "Error 418"
+msgstr ""
+
+#: themes/cloud/418.php:36
+msgid "I'm a teapot and you might be a spambot."
+msgstr ""
+
+#: themes/cloud/418.php:37
+msgid "If you are a human and not a spambot, then we are very sorry, please try giving it some time before submitting same form again."
+msgstr ""
+
+#: themes/cloud/403.php:7 language/gettext.lang.php:20
+msgid "Error 403"
+msgstr ""
+
+#: themes/cloud/403.php:36 language/gettext.lang.php:18
+msgid "You are not authorized to view this page."
+msgstr ""
+
+#: themes/cloud/404.php:7 language/gettext.lang.php:21
+msgid "Error 404"
+msgstr ""
+
+#: themes/cloud/404.php:36 language/gettext.lang.php:19
+msgid "Requested page could not be found!"
+msgstr ""
+
+#: language/gettext.lang.php:7
+msgid "Not registered yet?"
+msgstr ""
+
+#: language/gettext.lang.php:8
+msgid "Lost Password?"
+msgstr ""
+
+#: language/gettext.lang.php:9
+msgid "Remember Me?"
+msgstr ""
+
+#: language/gettext.lang.php:10
+msgid "Username or Email"
+msgstr ""
+
+#: language/gettext.lang.php:11
+msgid "Password"
+msgstr ""
+
+#: language/gettext.lang.php:12
+msgid "Log In"
+msgstr ""
+
+#: language/gettext.lang.php:13
+msgid "You did not complete required username and password fields."
+msgstr ""
+
+#: language/gettext.lang.php:14
+msgid "You used a valid username with a <strong>wrong password</strong>. Remember, it is Case Sensitive."
+msgstr ""
+
+#: language/gettext.lang.php:15
+msgid "Your <strong>username</strong> could not be found. Remember, it is Case Sensitive."
+msgstr ""

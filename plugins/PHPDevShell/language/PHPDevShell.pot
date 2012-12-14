@@ -1,0 +1,4354 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHPDevShell\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-05 09:54+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugins/PHPDevShell/views/user/register.view.php:14
+#: plugins/PHPDevShell/views/user/new-password.view.php:14
+msgid "Too Short"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/register.view.php:15
+#: plugins/PHPDevShell/views/user/new-password.view.php:15
+msgid "Weak"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/register.view.php:16
+#: plugins/PHPDevShell/views/user/new-password.view.php:16
+msgid "Good"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/register.view.php:17
+#: plugins/PHPDevShell/views/user/new-password.view.php:17
+msgid "Strong"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/register.view.php:18
+#: plugins/PHPDevShell/views/user/new-password.view.php:18
+msgid "Username and Password identical!"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/edit-preferences.php:18
+msgid "Edit Accounts Preferences"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/edit-preferences.php:37
+#: plugins/PHPDevShell/controllers/user/lost-password.php:31
+#: plugins/PHPDevShell/controllers/user/register.php:104
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:65
+msgid "Please provide a clean alpha numeric string or email as username"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/edit-preferences.php:40
+#: plugins/PHPDevShell/controllers/user/register.php:113
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:68
+msgid "Please provide a clean alpha numeric display name"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/edit-preferences.php:43
+#: plugins/PHPDevShell/controllers/user/register.php:116
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:71
+msgid "Please provide a valid email"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/edit-preferences.php:56
+#: plugins/PHPDevShell/controllers/user/register.php:134
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:84
+msgid "The username you entered already exists"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/edit-preferences.php:60
+#: plugins/PHPDevShell/controllers/user/register.php:138
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:88
+msgid "The user email you entered already exists"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/edit-preferences.php:64
+#: plugins/PHPDevShell/controllers/user/register.php:142
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:92
+msgid "The email address you specified seems to be invalid"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/edit-preferences.php:69
+#, php-format
+msgid "User profile modified at %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/edit-preferences.php:69
+#, php-format
+msgid "%s you have modified your user settings at %s. Thank You, %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/edit-preferences.php:71
+msgid "Your preferences was updated."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/new-password.php:23
+msgid "Create new Password"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/new-password.php:47
+msgid "User cannot be found. Please try resetting your password again."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/new-password.php:51
+#: plugins/PHPDevShell/controllers/user/new-password.php:54
+msgid "You need to enter both password fields."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/new-password.php:57
+msgid "Your passwords do not match, please try again."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/new-password.php:60
+#: plugins/PHPDevShell/controllers/user/register.php:146
+msgid "Your password is too short, make it at least 4 characters."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/new-password.php:70
+#, php-format
+msgid "%s password changed."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/new-password.php:71
+#, php-format
+msgid "Dear %s user, you have changed your password successfully. Thank you, %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/new-password.php:74
+#, php-format
+msgid "You have changed your password successfully %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/new-password.php:77
+msgid "The specified user was not found. It is possible that you may have been removed from the system."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/new-password.php:86
+#: plugins/PHPDevShell/views/user/new-password.tpl:12
+msgid "Change Password"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/lost-password.php:24
+msgid "Recover Lost Password"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/lost-password.php:25
+msgid "If you have forgotten your password, you can use this form to recover it. Simply type in your username or email address. Your new password will then be emailed to you after your details have been submitted."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/lost-password.php:43
+#, php-format
+msgid "%s password recovery."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/lost-password.php:44
+#, php-format
+msgid "Dear %s user, you requested for your password to be reset, please click on link to enter a new password %s. Use your new password to log in after it has been changed. Thank you, %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/lost-password.php:47
+msgid "Please check your email inbox for further instructions on changing your password."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/lost-password.php:50
+#: plugins/PHPDevShell/controllers/user/register.php:270
+#: plugins/PHPDevShell/controllers/user/register.php:303
+msgid "An error occurred while trying to send this email. Please notify the Administrator of this problem."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/lost-password.php:54
+msgid "The specified user was not found, make sure your username or email address is typed in correctly. Note that they are case sensitive. It is also possible that you may have been removed from the system."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/lost-password.php:64
+msgid "Send Recovery Instructions"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/login-page.php:31
+msgid "Log-Out Page"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/login-page.php:37
+msgid "You logged-in as "
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/login-page.php:42
+msgid "You have unchecked the \"Remember Me\" option, the system will not log you in automatically next time."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/login-page.php:50
+msgid "Log-Out"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/login-page.php:51
+msgid "Clear Persistent"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/readme.php:21
+msgid "Starting with PHPDevShell"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/readme.php:22
+msgid "Welcome to PHPDevShell Development Framework. This is a functioning test page and can now be disabled."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/readme.php:33
+msgid "Reloading the skin now... if it does not work, refresh the page."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/readme.php:68
+msgid "Image Example 1"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/readme.php:69
+msgid "Image Example 2"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/readme.php:70
+msgid "Image Example 3"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/readme.php:71
+msgid "Image Example 4"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:37
+msgid "Account Registration Disabled"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:38
+msgid "You cannot register on this system, public registration was disabled by the System Administrator."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:39
+msgid "Please contact the System Administrator requesting to remove the registration link or to enable public registrations on this system."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:43
+msgid "Register Special or Private Account"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:44
+msgid "You may register a new special or private account. After successful registration you can log-in to use the system."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:45
+msgid "(Optional)"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:53
+msgid "If you received a registration token key, please enter this key into \"Registration Token Key\", if it was not automatically completed already."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:64
+msgid "Register Private Account"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:65
+msgid "You may register a new account. After successful registration you can log-in to use the system."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:70
+msgid "Register Special Account"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:71
+msgid "You may register a special or invitation account only. After successful registration you can log-in to use the system."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:107
+msgid "Please provide a password"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:110
+msgid "Please provide a password verification"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:119
+msgid "You have provided incorrect #registration details, please try again."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:150
+msgid "The password does not match the second entered password"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:161
+msgid "The #token key you entered was incorrect or #depleted."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:170
+msgid "The option you have chosen has depleted and is not available anymore, please select a new option."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:187
+msgid "The token key you entered was not correct, please try again."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:194
+msgid "The token key field is mandatory, please enter your key."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:244
+#, php-format
+msgid "Click on the url to DELETE this user: %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:247
+#: plugins/PHPDevShell/includes/userPending.class.php:115
+#, php-format
+msgid "Registration request approved at %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:252
+#, php-format
+msgid "%s, your application for registration was successful, you may now log in."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:259
+#: plugins/PHPDevShell/controllers/user/register.php:282
+#, php-format
+msgid "Click on the url below to DELETE this user: %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:264
+#, php-format
+msgid "Registration verification at %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:268
+#, php-format
+msgid "%s, your application for registration was submitted, please verify your account by responding to the verification email that was sent to the specified email address."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:278
+#, php-format
+msgid "Click on the url below to BAN this user: %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:280
+#, php-format
+msgid "Click on the url below to APPROVE this user: %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:284
+#, php-format
+msgid "Registration request pending at %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:289
+#, php-format
+msgid "%s, your application for registration was submitted, an authorized person will now review your submission for approval. Please allow some time for the approval process to be completed."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:297
+#, php-format
+msgid "New registration received at %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:301
+msgid "The administrator was notified of this registration."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register.php:323
+#: plugins/PHPDevShell/views/user/register.tpl:76
+msgid "Submit Registration"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register-finalize.php:17
+msgid "Finalizing Registration Process"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register-finalize.php:18
+msgid "Finalizing a new registered account on this system."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register-finalize.php:59
+#, php-format
+msgid "Registration process completed %s. You have finished registering a new account on %s for %s, you may now proceed to log-in."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register-finalize.php:61
+#, php-format
+msgid "Registration process completed %s. You have finished registering a new account on %s, you may now proceed to log-in."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register-finalize.php:67
+msgid "Your registration entry was not found. The account you are trying to register does not exist, was already approved, banned or awaiting admin approval."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register-finalize.php:70
+msgid "There seems to be a problem with the finalization process, the system admin should be notified if you think this is an error."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/register-finalize.php:73
+#, php-format
+msgid "%s does not accept any validation requests."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/email-admin.php:27
+msgid "Query Assistance"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/email-admin.php:67
+msgid "Please provide a valid email address"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/email-admin.php:70
+msgid "Please select type of query"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/email-admin.php:73
+msgid "Please provide name for query"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/email-admin.php:76
+msgid "Please provide a subject"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/email-admin.php:79
+msgid "Please provide a query message"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/email-admin.php:110
+#, php-format
+msgid "Thank you %s, The query (%s) was sent successfully."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/email-admin.php:122
+msgid "Send Message"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/email-admin.php:131
+msgid "High"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/email-admin.php:131
+msgid "Normal"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user/email-admin.php:131
+msgid "Low"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin-list.php:13
+msgid "Cronjobs Admin"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin-list.php:18
+#, php-format
+msgid "Orphan item %s was deleted."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin-list.php:20
+#, php-format
+msgid "No orphan cron \"%s\" to delete."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin-list.php:27
+msgid "(Show Crons)"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin-list.php:30
+msgid "(Find Orphans)"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:17
+#: plugins/PHPDevShell/language/gettext.lang.php:35
+msgid "Edit Cronjob"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:37
+msgid "No menu id present"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:45
+#, php-format
+msgid "Please select year from %s - %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:48
+msgid "Please select month from 1 - 12"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:51
+msgid "Please select day from 1 - 31"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:54
+msgid "Please select hour from 0 - 23"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:57
+msgid "Please select minute from 0 - 59"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:62
+msgid "Cron is set in the past, please correct."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:66
+msgid "Max allowed every 10 years"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:69
+msgid "Max allowed every 128 months"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:72
+msgid "Max allowed every 1024 days"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:75
+msgid "Max allowed every 2048 hours"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:78
+msgid "Max allowed every 2048 minutes"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:95
+#, php-format
+msgid "Cronjob %s saved."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:103
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:107
+msgid "Never!"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:110
+#, php-format
+msgid "Expected to run once on %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:124
+#, php-format
+msgid "Will run every %s month(s)."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:127
+#, php-format
+msgid "Will run every %s day(s)."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:129
+#, php-format
+msgid "Will run every %s hour(s)."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:132
+#, php-format
+msgid "Will run every %s minute(s)."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:152
+msgid "Disable"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:152
+msgid "Once On Date"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:152
+msgid "Repeat Indefinitely"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:153
+#: plugins/PHPDevShell/controllers/registration-token-admin/registration-token-admin.php:75
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:38
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:45
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:99
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:106
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:113
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:120
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:127
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:134
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:540
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:578
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:701
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:772
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:819
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:838
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:870
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:906
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:120
+msgid "No"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:153
+#: plugins/PHPDevShell/controllers/registration-token-admin/registration-token-admin.php:75
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:37
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:44
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:98
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:105
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:112
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:119
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:126
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:133
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:539
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:577
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:700
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:771
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:818
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:837
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:869
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:905
+msgid "Yes"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/tagger-admin/tagger-admin.php:17
+msgid "Tags Manager"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/tagger-admin/tagger-admin.php:29
+#: plugins/PHPDevShell/controllers/system-admin/config-manager.php:27
+#, php-format
+msgid "Deleted setting entry %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:24
+msgid "General System Configuration"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:48
+msgid "Cannot find the empty template so a new entry was created."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:89
+msgid "You did not complete all required fields.    "
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:98
+#, php-format
+msgid "Test email from %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:99
+#, php-format
+msgid "%s was able to send a notification email: %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:103
+#, php-format
+msgid "A test email was sent to %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:105
+msgid "Could not send a test email."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:114
+#, php-format
+msgid "FTP connection successful and test done, your FTP seems to be correctly configured and is able to access the root directory. Working root directory is : %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:116
+#, php-format
+msgid "FTP connection was ok, but the root directory listing failed, working directory is %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:119
+msgid "FTP connection failed, please check your settings."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:127
+msgid "System general settings saved. You might need to reload this page for settings to reflect."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:375
+#, php-format
+msgid "Dear %1$s, you completed the registration at %2$s. Your registration was successful. This email is to verify that you requested to be registered, while confirming your email address at the same time. Thank you for registering at %3$s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:376
+#, php-format
+msgid "Dear %1$s, you requested registration at %2$s. Your registration was successful but it is still pending. This email is to verify that you requested to be registered, while confirming your email address at the same time. Please click on the *link %3$s to complete the registration process. Thank you for registering at %4$s. *If you cannot click on the link, copy and paste the url in your browser's address bar."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:377
+#, php-format
+msgid "Dear %1$s, you completed the registration at %2$s. Your registration was successful but is still pending. This email is to verify that you requested to be registered, while confirming your email address at the same time. Thank you for registering at %3$s, an Admin will attend to your request soon."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:378
+#, php-format
+msgid "Dear Admin, you have received a new registration at %1$s. The user registered with the name %2$s, on this date %3$s, with the username %4$s. Thank You, %5$s.%6$s %7$s %8$s. You must be logged-in to ban or approve users."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:538
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:558
+#, php-format
+msgid "(%s selected)"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:575
+msgid "Writable"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/general-settings.php:577
+msgid "NOT Writable"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/admin.php:18
+msgid "System Information"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/admin.php:31
+#: plugins/PHPDevShell/controllers/system-admin/admin.php:36
+msgid "Unknown"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/admin.php:44
+msgid "DATABASE : Your database is up to date."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/admin.php:46
+msgid "DATABASE : Your database version seems to be out dated please read the UPGRADE instructions before attempting to upgrade through the GUI. Upgrade instructions may differ from version to version."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/admin.php:50
+msgid "System down bypass is set true in configuration.php, you should set this to false."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/admin.php:53
+msgid "Please be aware, FirePHP is currently switched on, this is a security risk."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/system-admin/config-manager.php:17
+msgid "Configuration Manager"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/logs-admin/fileupload-logs.php:13
+msgid "Files Uploaded Logs"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/logs-admin/fileupload-logs.php:42
+#: plugins/PHPDevShell/controllers/logs-admin/system-logs.php:35
+#: plugins/PHPDevShell/controllers/logs-admin/menu-access-logs.php:35
+msgid "Delete all logs"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/logs-admin/system-logs.php:13
+msgid "General System Logs"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/logs-admin/file-log-viewer.php:13
+msgid "View Log Files"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/logs-admin/file-log-viewer.php:19
+#, php-format
+msgid "There are no log files written in %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/logs-admin/menu-access-logs.php:13
+msgid "Menu Access Logs"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron/optimize-database.php:13
+#: plugins/PHPDevShell/language/gettext.lang.php:37
+msgid "Optimize Database"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron/optimize-database.php:14
+msgid "Does a table repair and a key analysis, and also sorts the index tree so that key lookups are faster."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron/repair-database.php:13
+#: plugins/PHPDevShell/language/gettext.lang.php:36
+msgid "Repair Database"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron/repair-database.php:14
+msgid "Repairs corrupted and broken tables from core and all installed plugins."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron/trim-logs.php:13
+#: plugins/PHPDevShell/language/gettext.lang.php:38
+msgid "Trim Logs"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/cron/trim-logs.php:14
+msgid "Trim logs to the given amount in the config gui, this helps keeping your database manageable."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-list.php:19
+#: plugins/PHPDevShell/language/gettext.lang.php:28
+msgid "Menu Admin"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-list.php:32
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-permissions.php:31
+#, php-format
+msgid "Menu item %s (%s) was deleted!"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-list.php:32
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-permissions.php:31
+#: plugins/PHPDevShell/controllers/user-admin/user-role-admin-list.php:58
+msgid "You cannot delete a core item, the system will be unable to function correctly. Switch force core changes on in General Settings GUI for bypass."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-list.php:34
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-permissions.php:33
+#, php-format
+msgid "You cannot delete menu item \"%s\" as it is still set to be used in general settings."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-list.php:37
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-permissions.php:36
+#, php-format
+msgid "No menu \"%s\" to delete."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-list.php:61
+msgid "Adjusted menu settings."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-permissions.php:18
+msgid "Set Access Permission"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:62
+#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-list.query.php:105
+msgid "Item Found"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:63
+#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-list.query.php:106
+msgid "Item Not Found"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:66
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:562
+#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-permissions.query.php:205
+#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-list.query.php:108
+msgid "Edit Menu Item"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:68
+msgid "New Menu Item"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:162
+msgid "Controller file available"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:165
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:168
+msgid "Controller file NOT available"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:174
+msgid "Model file available"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:176
+msgid "Model file NOT available"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:183
+msgid "View file available"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:185
+msgid "View file NOT available"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:199
+msgid "View template available"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:201
+msgid "View template NOT available"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:209
+msgid "View class available"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:211
+msgid "View class NOT available"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:265
+msgid "Leave Current"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:307
+msgid "You did not complete all the required fields."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:312
+msgid "You cannot link a menu item to itself."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:321
+#, php-format
+msgid "Another menu is already using menu id %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:330
+msgid "You cannot have a menu item be a parent of itself. Please choose another parent for this item."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:357
+#, php-format
+msgid "Cannot find the plugin controller in the specified directory: %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:365
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:375
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:397
+msgid "You need to select a menu item to link with."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:385
+#, php-format
+msgid "Cannot find the external file you wish to create a menu item with, looked in: %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:391
+msgid "An external URL was selected."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:406
+msgid "You must provide iFrame with a height."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:416
+#, php-format
+msgid "Cannot find the plugin cron file you wish to create a menu item with, looked in: %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:422
+msgid "You need to select at least one menu type."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:432
+#, php-format
+msgid "Menu id changed, the new menu item id is %s and replaced old menu id %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:469
+#, php-format
+msgid "Menu item %s was saved."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:530
+#: plugins/PHPDevShell/includes/menuArray.class.php:35
+msgid "Plugin Item"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:531
+#: plugins/PHPDevShell/includes/menuArray.class.php:36
+msgid "Link Existing Plugin Item"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:532
+#: plugins/PHPDevShell/includes/menuArray.class.php:37
+msgid "Link Existing Plugin Item and Jump to its Group"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:533
+#: plugins/PHPDevShell/includes/menuArray.class.php:38
+msgid "Execute External File"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:534
+#: plugins/PHPDevShell/includes/menuArray.class.php:39
+msgid "External http URL"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:535
+#: plugins/PHPDevShell/includes/menuArray.class.php:40
+msgid "Unclickable Place Holder"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:536
+#: plugins/PHPDevShell/includes/menuArray.class.php:41
+msgid "iFrame Item"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:537
+#: plugins/PHPDevShell/includes/menuArray.class.php:42
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:12
+msgid "Cronjob Item"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:538
+#: plugins/PHPDevShell/includes/menuArray.class.php:43
+msgid "HTML Ajax Widget"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:539
+#: plugins/PHPDevShell/includes/menuArray.class.php:44
+msgid "HTML Ajax"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:540
+#: plugins/PHPDevShell/includes/menuArray.class.php:45
+msgid "HTML Ajax Lightbox"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:541
+#: plugins/PHPDevShell/includes/menuArray.class.php:46
+msgid "Raw Ajax"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:599
+msgid "URL/File Path Location/Linked Items (anything unique)"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/plugin-admin/plugin-activation.php:20
+msgid "Plugin Activation"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/plugin-admin/plugin-activation.php:76
+msgid "Dropdown to view log"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/plugin-admin/class-registry.php:17
+msgid "Class Registry Editor"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/plugin-admin/class-registry.php:23
+#, php-format
+msgid "Plugin id %s enabled"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/plugin-admin/class-registry.php:28
+#, php-format
+msgid "Plugin id %s disabled"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/plugin-admin/class-registry.php:33
+#, php-format
+msgid "Deleted class entry %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/template-admin/template-admin-list.php:17
+msgid "Theme Listing"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/template-admin/template-admin-list.php:34
+#, php-format
+msgid "You have installed theme \"%s\"."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/template-admin/template-admin-list.php:51
+#, php-format
+msgid "Theme %s was uninstalled."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/template-admin/template-admin-list.php:53
+#, php-format
+msgid "No theme \"%s\" to delete."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/template-admin/template-admin-list.php:56
+#, php-format
+msgid "There are menu items depending on theme \"%s\" or it is set as system default, please assign to another theme first."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/template-admin/template-admin-list.php:68
+msgid "Please first select a theme to update."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/template-admin/template-admin-list.php:81
+#, php-format
+msgid "%s is now the default theme... I will refresh the page."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/template-admin/template-admin-list.php:97
+msgid "Set Theme"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-group-admin.php:22
+msgid "Edit Group Names"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-group-admin.php:25
+msgid "Add Groups"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-group-admin.php:35
+msgid "Please enter a name for this group"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-group-admin.php:38
+#: plugins/PHPDevShell/controllers/user-admin/user-role-admin.php:52
+#, php-format
+msgid "There is already a role record named %s. Cannot duplicate."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-group-admin.php:42
+msgid "You cannot save this group since you are not allocated to it."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-group-admin.php:49
+#, php-format
+msgid "User id %s was added to group id %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-group-admin.php:52
+#, php-format
+msgid "You have saved user group %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-group-admin.php:60
+msgid "You cannot edit this group since you are not allocated to it."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-list.php:18
+msgid "Users Management"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-list.php:29
+#, php-format
+msgid "You cannot delete user id (%s)"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-list.php:38
+#: plugins/PHPDevShell/includes/userPending.class.php:141
+#, php-format
+msgid "User %s deleted."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-list.php:42
+#, php-format
+msgid "No user \"%s\" to delete."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-list.php:73
+msgid "All modified user settings was saved."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-list.php:88
+msgid "Save User Changes"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-group-admin-list.php:18
+msgid "User Group Management"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-group-admin-list.php:24
+msgid "You cannot remove users under this group. You do not have the required permissions or you are in the same group."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-group-admin-list.php:32
+#, php-format
+msgid "All user from group %s was deleted."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-group-admin-list.php:34
+#, php-format
+msgid "No users for group \"%s\" to delete."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-group-admin-list.php:42
+msgid "You cannot delete this group. You do not have the required permissions or you fall under this group."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-group-admin-list.php:55
+#, php-format
+msgid "Group %s was deleted."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-group-admin-list.php:57
+#, php-format
+msgid "No group \"%s\" to delete."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-import.php:21
+msgid "User Importing Admin"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-import.php:36
+msgid "Please select a token to import too"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-import.php:39
+msgid "Please select a delimiting character"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-import.php:42
+msgid "Please select a comma seperated csv columned order"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-import.php:69
+msgid "Prepare Import"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-role-admin.php:25
+msgid "Edit Role Names"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-role-admin.php:27
+msgid "Add User Role"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-role-admin.php:43
+msgid "Please enter a name for this role"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-role-admin.php:64
+#, php-format
+msgid "You have saved user role %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:33
+#: plugins/PHPDevShell/language/gettext.lang.php:45
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:127
+#: plugins/PHPDevShell/models/user-admin/user-admin-list.query.php:538
+msgid "Edit User"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:35
+msgid "Add Users"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:36
+msgid "Leave the PASSWORD field *blank* to have password auto generated and emailed to the user."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:42
+msgid "Leave the PASSWORD field *blank* to have password unchanged."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:46
+msgid "Access rights to the user record is not permitted. Please contact your system administrator."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:95
+msgid "You cannot edit a user that does not belong to you!?"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:98
+msgid "You cannot leave the primary role empty"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:101
+msgid "You cannot leave the primary group empty"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:119
+#, php-format
+msgid "%s, a Profile was created at %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:120
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:151
+#, php-format
+msgid "Your username : %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:121
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:152
+#, php-format
+msgid "Your password : %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:122
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:153
+#, php-format
+msgid "It is a good idea to change your password every now and then."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:123
+#, php-format
+msgid "Login profile created at %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:129
+msgid "User password was left unchanged."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:130
+msgid "Unchanged"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:150
+#, php-format
+msgid "%s, your profile was updated at %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:154
+#, php-format
+msgid "Login profile updated at %s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin.php:166
+#, php-format
+msgid "User %s saved."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-pending.php:18
+msgid "User Registration Pending"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-pending.php:95
+#: plugins/PHPDevShell/views/user-admin/user-admin-pending.tpl:74
+msgid "Approve Users"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-pending.php:96
+msgid "Approve Users & Email Notification"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-pending.php:97
+#: plugins/PHPDevShell/views/user-admin/user-admin-pending.tpl:76
+msgid "Ban Users"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-admin-pending.php:98
+#: plugins/PHPDevShell/views/user-admin/user-admin-pending.tpl:77
+msgid "Delete Users"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-role-admin-list.php:18
+msgid "Manage User Roles"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-role-admin-list.php:24
+msgid "You do not have permission to remove this role."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-role-admin-list.php:33
+#, php-format
+msgid "All user from role %s was deleted."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-role-admin-list.php:35
+#, php-format
+msgid "No users for role \"%s\" to delete."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-role-admin-list.php:53
+#, php-format
+msgid "Role %s was deleted."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/user-admin/user-role-admin-list.php:55
+#, php-format
+msgid "No role \"%s\" to delete."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/registration-token-admin.php:20
+msgid "Edit Registration Token"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/registration-token-admin.php:22
+msgid "Add Registration Token"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/registration-token-admin.php:40
+msgid "Please give this token a name"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/registration-token-admin.php:43
+msgid "Please select role for this token"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/registration-token-admin.php:46
+msgid "Please select group for this token"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/registration-token-admin.php:49
+#, php-format
+msgid "The registration token \"%s\" you specified already exists, please use a different name."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/registration-token-admin.php:53
+#, php-format
+msgid "The registration token \"%s\" was saved as required."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/registration-token-admin-list.php:18
+msgid "Registration Token Listing"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/registration-token-admin-list.php:30
+#, php-format
+msgid "Provide the following registration URL to newly registered users, who you wish to be automatically moved using token id (%s) :<br />%s"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/registration-token-admin-list.php:39
+#, php-format
+msgid "Registration token \"%s\" was deleted."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/registration-token-admin-list.php:41
+#, php-format
+msgid "No token \"%s\" to delete."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/email-token.php:17
+#: plugins/PHPDevShell/controllers/registration-token-admin/email-token.php:67
+#: plugins/PHPDevShell/language/gettext.lang.php:59
+msgid "Email Token"
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/email-token.php:26
+#, php-format
+msgid "%s Registration Token Credit."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/email-token.php:30
+#, php-format
+msgid "Dear User, you have received a Registration Token Key, enabling you to register for %1$s on %2$s. To activate your key please click on the link, %3$s. If you cannot click on the link, copy and paste the URL to your browser. Alternatively you can type in your key, %4$s here, %5$s Thank You, %6$s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/email-token.php:47
+#, php-format
+msgid "Registration token \"%s\" was successfully send to %s."
+msgstr ""
+
+#: plugins/PHPDevShell/controllers/registration-token-admin/email-token.php:49
+#, php-format
+msgid "An unknown error occurred while trying to send registration token email to %s."
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:7
+msgid "Readme"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:8
+msgid "Register Account"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:9
+msgid "Lost Password"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:10
+#: plugins/PHPDevShell/views/user/new-password.tpl:5
+#: plugins/PHPDevShell/views/user/new-password.tpl:7
+msgid "New Password"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:11
+msgid "Log In|Out"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:12
+msgid "Contact Admin"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:13
+msgid "User Preferences"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:14
+msgid "Finish Registration"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:15
+msgid "Dashboard"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:16
+msgid "System Management"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:17
+msgid "System Status"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:18
+msgid "System Info"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:19
+msgid "System Admin"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:20
+msgid "System Settings"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:21
+msgid "Config Manager"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:22
+msgid "Theme Admin"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:23
+msgid "Plugins Admin"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:24
+msgid "System Logs"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:25
+msgid "Access Logs"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:26
+msgid "Upload Logs"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:27
+msgid "File Log Viewer"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:29
+msgid "Manage Menus"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:30
+msgid "New Menu"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:31
+msgid "Edit Menu"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:32
+msgid "Access Control"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:33
+msgid "Cronjob Admin"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:34
+msgid "Manage Cronjobs"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:39
+msgid "System Cronjob"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:40
+msgid "Policy Admin"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:41
+msgid "User Admin"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:42
+msgid "Manage Users"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:43
+msgid "Pending Users"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:44
+msgid "New User"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:46
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:87
+msgid "Import Users"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:47
+msgid "Role Admin"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:48
+msgid "Manage Roles"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:49
+msgid "New Role"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:50
+#: plugins/PHPDevShell/models/user-admin/user-role-admin-list.query.php:66
+msgid "Edit Role"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:51
+msgid "Group Admin"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:52
+msgid "Manage Groups"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:53
+msgid "New Group"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:54
+#: plugins/PHPDevShell/includes/groupTree.class.php:136
+#: plugins/PHPDevShell/views/user-admin/user-group-admin-list.tpl:20
+msgid "Edit Group"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:55
+msgid "Token Admin"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:56
+msgid "Manage Tokens"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:57
+msgid "New Token"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:58
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:66
+msgid "Edit Token"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:60
+msgid "Manage Tags"
+msgstr ""
+
+#: plugins/PHPDevShell/language/gettext.lang.php:61
+msgid "Class Registry"
+msgstr ""
+
+#: plugins/PHPDevShell/includes/userPending.class.php:76
+#, php-format
+msgid "There is no user with user id %s in registration queue. Please see User Admin for a list of all users."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/userPending.class.php:114
+#, php-format
+msgid "Dear %s, Your registration request was approved at %s. Thank you for registering at %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/userPending.class.php:121
+#, php-format
+msgid "Dear Admin, Registration request was approved for %s. Thank you for registering at %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/userPending.class.php:122
+#, php-format
+msgid "Approved confirmation for %s"
+msgstr ""
+
+#: plugins/PHPDevShell/includes/userPending.class.php:127
+#, php-format
+msgid "User %s approved."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/userPending.class.php:131
+#, php-format
+msgid "User %s banned."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/userPending.class.php:144
+#, php-format
+msgid "You cannot complete this action on user %s, he was processed already, could not be found or you don't have the required permission."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/groupTree.class.php:137
+#: plugins/PHPDevShell/views/user-admin/user-group-admin-list.tpl:23
+msgid "Delete Group"
+msgstr ""
+
+#: plugins/PHPDevShell/includes/groupTree.class.php:138
+#: plugins/PHPDevShell/views/user-admin/user-group-admin-list.tpl:26
+msgid "Delete Group Users"
+msgstr ""
+
+#: plugins/PHPDevShell/includes/groupTree.class.php:199
+msgid "Not Available"
+msgstr ""
+
+#: plugins/PHPDevShell/includes/iana.class.php:101
+#: plugins/PHPDevShell/includes/iana.class.php:167
+#, php-format
+msgid "Default (%s)"
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:147
+msgid "The download URL is empty, cannot do anything now."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:157
+#, php-format
+msgid "Success, file was downloaded to %s"
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:160
+#, php-format
+msgid "Success, file was extracted to %s"
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:163
+msgid "Success, FTP server accepted connection."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:166
+#, php-format
+msgid "Success, FTP servers working root directory is correct : %s"
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:174
+#, php-format
+msgid "The required files have been copied from %s to %s. Please check if there are any database upgrades available for %s.%s"
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:179
+msgid "Temporary install directories and files deleted."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:181
+msgid "Temporary install directories and files could NOT be deleted."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:184
+#, php-format
+msgid "FTP connection was ok, but the root directory listing failed. Working directory is %s which is wrong."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:188
+msgid "Failed connecting to the local FTP server."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:192
+#, php-format
+msgid "Could not extract %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:196
+#, php-format
+msgid "Could not download file to %s, make sure the file (%s) exists and is readable."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:250
+#, php-format
+msgid "Checked/Updated menu for %s with id (%s) and linked to %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:363
+#, php-format
+msgid "Installed new template for %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:399
+#, php-format
+msgid "Installed menu for %s with id (%s) and linked to %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:475
+#, php-format
+msgid "Installed settings for %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:494
+#, php-format
+msgid "Installed classes for %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:520
+#, php-format
+msgid "Executed query for %s : %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:544
+#, php-format
+msgid "Installed plugin %s-V-%s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:560
+#, php-format
+msgid "Uninstall menus for %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:576
+#, php-format
+msgid "Uninstalled classes for %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:591
+#, php-format
+msgid "Uninstalled settings for %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:617
+#, php-format
+msgid "Uninstalled query for %s : %s"
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:637
+#, php-format
+msgid "Uninstalled plugin %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:670
+#, php-format
+msgid "Query upgraded for %s : %s"
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:697
+#, php-format
+msgid "Upgraded settings for %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:703
+#, php-format
+msgid "Uninstalled some setting on upgrade for %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:719
+#, php-format
+msgid "Uninstalled some menus on upgrade for %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:744
+#, php-format
+msgid "Upgraded plugin %s database to version %s."
+msgstr ""
+
+#: plugins/PHPDevShell/includes/pluginManager.class.php:764
+#, php-format
+msgid "Set logo for plugin %s."
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:51
+msgid "Broken Cron Orphan!"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:52
+msgid "Delete Cron"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:53
+msgid "Edit Cron"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:54
+msgid "Run Cron"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:55
+msgid "Yes Log Cron"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:56
+msgid "Dont Log Cron"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:57
+msgid "Disable Cron"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:58
+msgid "Never Run Cron"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:59
+msgid "Run Cron Once"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:60
+msgid "Repeat Cron"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:61
+msgid "Missed or Never Ran"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:101
+#, php-format
+msgid "Once on %s"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:118
+#, php-format
+msgid "Every %s month(s)"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:122
+#, php-format
+msgid "Every %s day(s)"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:124
+#, php-format
+msgid "Every %s hour(s)"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/cronjob-admin-list.query.php:128
+#, php-format
+msgid "Every %s minute(s)"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/run-cron.query.php:60
+#, php-format
+msgid "Cronjob %s (%s) - FAILED - No plugin found for cron menu item. Also check access rights for this cron."
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/run-cron.query.php:69
+#, php-format
+msgid "Cronjob %s (%s) - FAILED - No link found for cron menu item."
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/run-cron.query.php:155
+#, php-format
+msgid "Cronjob %s - EXECUTED taking %s seconds."
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/run-cron.query.php:158
+#, php-format
+msgid "Cronjob %s - FAILED - Could not locate/read file (%s), check if your permissions for cron is set to guest or if the file is readable and exists."
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron-admin/run-cron.query.php:162
+#, php-format
+msgid "Cronjob %s - SKIPPED!"
+msgstr ""
+
+#: plugins/PHPDevShell/models/tagger-admin/tagger-admin.query.php:30
+msgid "To add a new tag please provide both Tag Name and Tag Target."
+msgstr ""
+
+#: plugins/PHPDevShell/models/tagger-admin/tagger-admin.query.php:39
+#, php-format
+msgid "Nothing saved, you missed tag values for tag id %u."
+msgstr ""
+
+#: plugins/PHPDevShell/models/tagger-admin/tagger-admin.query.php:47
+msgid "Tags updated."
+msgstr ""
+
+#: plugins/PHPDevShell/models/tagger-admin/tagger-admin.query.php:81
+msgid "Tag Id"
+msgstr ""
+
+#: plugins/PHPDevShell/models/tagger-admin/tagger-admin.query.php:82
+msgid "Tag Object"
+msgstr ""
+
+#: plugins/PHPDevShell/models/tagger-admin/tagger-admin.query.php:83
+msgid "Tag Name"
+msgstr ""
+
+#: plugins/PHPDevShell/models/tagger-admin/tagger-admin.query.php:84
+msgid "Tag Target"
+msgstr ""
+
+#: plugins/PHPDevShell/models/tagger-admin/tagger-admin.query.php:85
+msgid "Tag Value"
+msgstr ""
+
+#: plugins/PHPDevShell/models/tagger-admin/tagger-admin.query.php:86
+#: plugins/PHPDevShell/models/tagger-admin/tagger-admin.query.php:95
+#: plugins/PHPDevShell/models/system-admin/class-registry.query.php:84
+#: plugins/PHPDevShell/models/system-admin/class-registry.query.php:93
+#: plugins/PHPDevShell/models/system-admin/config-manager.query.php:84
+#: plugins/PHPDevShell/models/system-admin/config-manager.query.php:93
+#: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:132
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:101
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:110
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:145
+#: plugins/PHPDevShell/models/user-admin/user-admin-list.query.php:529
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:55
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:30
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:45
+msgid "Delete"
+msgstr ""
+
+#: plugins/PHPDevShell/models/system-admin/class-registry.query.php:34
+#: plugins/PHPDevShell/models/system-admin/config-manager.query.php:34
+msgid "You must provide a field name to identify the setting by."
+msgstr ""
+
+#: plugins/PHPDevShell/models/system-admin/class-registry.query.php:45
+msgid "Plugin settings was saved."
+msgstr ""
+
+#: plugins/PHPDevShell/models/system-admin/class-registry.query.php:48
+msgid "No plugin settings was saved."
+msgstr ""
+
+#: plugins/PHPDevShell/models/system-admin/class-registry.query.php:80
+#: plugins/PHPDevShell/models/system-admin/config-manager.query.php:80
+msgid "Row"
+msgstr ""
+
+#: plugins/PHPDevShell/models/system-admin/class-registry.query.php:81
+#: plugins/PHPDevShell/models/system-admin/config-manager.query.php:81
+msgid "Setting Name"
+msgstr ""
+
+#: plugins/PHPDevShell/models/system-admin/class-registry.query.php:82
+#: plugins/PHPDevShell/models/system-admin/config-manager.query.php:82
+msgid "Notes"
+msgstr ""
+
+#: plugins/PHPDevShell/models/system-admin/class-registry.query.php:83
+#: plugins/PHPDevShell/models/system-admin/config-manager.query.php:83
+msgid "Setting Value"
+msgstr ""
+
+#: plugins/PHPDevShell/models/system-admin/config-manager.query.php:45
+msgid "Plugin settings were saved."
+msgstr ""
+
+#: plugins/PHPDevShell/models/system-admin/config-manager.query.php:48
+msgid "No plugin settings were saved."
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:42
+#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:40
+#: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:40
+msgid "Logs table cleared."
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:78
+msgid "Type of log (1,2,3)"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:79
+msgid "Menu Link"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:80
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin-list.tpl:21
+#: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:11
+msgid "Description"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:81
+#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:82
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:15
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:15
+msgid "Menu ID"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:82
+msgid "In File"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:83
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:133
+#: plugins/PHPDevShell/models/user-admin/user-admin-list.query.php:521
+#: plugins/PHPDevShell/views/user/edit-preferences.tpl:7
+msgid "User ID"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:84
+msgid "User"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:85
+msgid "IP"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:86
+msgid "Time"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:94
+msgid "Success Log"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:95
+msgid "Warning Log"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:96
+msgid "Critical Log"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:97
+msgid "User Logged In"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:98
+msgid "User Logged Out"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:79
+#: plugins/PHPDevShell/views/logs-admin/file-log-viewer.tpl:26
+msgid "Log Type"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:80
+msgid "Log ID"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:81
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:21
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:21
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:21
+msgid "Menu Name"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:83
+msgid "Name"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:84
+msgid "Log Time"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:93
+msgid "Page not Found!"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:94
+msgid "Viewed"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:106
+msgid "Guest User"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:110
+msgid "Page not found!"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/file-log-viewer.query.php:80
+#, php-format
+msgid "Cannot read file %s"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/file-log-viewer.query.php:87
+msgid "View detailed HTML log"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:80
+#, php-format
+msgid "File %s was deleted."
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:82
+#, php-format
+msgid "No file \"%s\" to delete."
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:126
+msgid "Uploaded In"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:127
+msgid "File Name"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:128
+msgid "Thumbnail"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:129
+#: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:141
+#: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:143
+msgid "Resized"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:130
+msgid "Date Stored"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:131
+msgid "Original Size"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:142
+msgid "No Resized"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:144
+msgid "No Thumb"
+msgstr ""
+
+#: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:145
+msgid "Delete File"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron/trim-logs.query.php:102
+msgid "I have trimmed required <b>general</b> logs."
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron/trim-logs.query.php:105
+msgid "Nothing to trim in <b>general</b> logs"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron/trim-logs.query.php:109
+#, php-format
+msgid "We have <b>%s</b> <b>general</b> logs."
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron/trim-logs.query.php:110
+#, php-format
+msgid "I need to trim <b>%s</b> <b>general</b> logs."
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron/trim-logs.query.php:127
+msgid "I have trimmed required <b>access</b> logs."
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron/trim-logs.query.php:130
+msgid "Nothing to trim in <b>access</b> logs"
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron/trim-logs.query.php:133
+#, php-format
+msgid "We have <b>%s</b> <b>access</b> logs."
+msgstr ""
+
+#: plugins/PHPDevShell/models/cron/trim-logs.query.php:134
+#, php-format
+msgid "I need to trim <b>%s</b> <b>access</b> logs."
+msgstr ""
+
+#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-permissions.query.php:168
+msgid "Permissions saved."
+msgstr ""
+
+#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-permissions.query.php:172
+msgid "There was an unknown problem, permissions not saved."
+msgstr ""
+
+#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-permissions.query.php:204
+#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-list.query.php:107
+msgid "Delete Menu Item"
+msgstr ""
+
+#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-permissions.query.php:232
+msgid "Alias: "
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:30
+msgid "You must provide all fields to identify the class"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:39
+msgid "Class changes were saved."
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:42
+msgid "No class data was changed."
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:94
+msgid "Class ID"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:95
+msgid "Class Name"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:96
+msgid "Alias Call"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:97
+msgid "Resides in Plugin"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:98
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:36
+msgid "Rank"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:99
+msgid "Files"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:100
+msgid "Enabled"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:111
+msgid "Disable on Click"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:112
+msgid "Enable on Click"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:120
+msgid "Class file available : "
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:122
+msgid "Class file not found : "
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:125
+msgid "Model file available : "
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:127
+msgid "No model file available : "
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:110
+#, php-format
+msgid "Download Latest Version"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:110
+#, php-format
+msgid "<a href=\"%s\" class=\"generic_button\">"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:111
+#, php-format
+msgid "%s %s is available, upgrade recommended.<br><i>%s</i> (%s)"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:114
+msgid "Attempt Automatic Upgrade"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:118
+#, php-format
+msgid "Attempt to upgrade %s %s (%s) automatically?"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:124
+#, php-format
+msgid "First enable FTP to use automatic upgrade for %s %s (%s)"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:127
+#, php-format
+msgid "<strong>%s %s is already latest version.</strong>"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:131
+#, php-format
+msgid "Could not access url for version checking %s, looked using url \"%s\". Please try again later."
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:189
+msgid "Translation file available."
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:190
+msgid "Translation file missing."
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:192
+msgid "Selected as Default Logo"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:199
+msgid "Install file missing."
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:240
+msgid "Set Default Logo"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:254
+#, php-format
+msgid "Installation file in %s found."
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:258
+#, php-format
+msgid "Installation file in %s NOT found."
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:293
+#, php-format
+msgid "Found class call -> (%s) from plugin -> (%s)"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:296
+#, php-format
+msgid "Missing class call -> (%s) from plugin -> (%s)"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:307
+msgid "Standalone"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:325
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:328
+msgid "Dependency not met!"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:330
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:366
+msgid "Uninstall Plugin"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:341
+#, php-format
+msgid "Upgrade (%s) Available"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:344
+msgid "Upgrade Core"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:346
+msgid "Upgrade Database"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:360
+#: plugins/PHPDevShell/models/template-admin/template-admin-list.query.php:133
+#: plugins/PHPDevShell/views/template-admin/template-admin-list.tpl:18
+msgid "Installed"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:372
+msgid "Check latest available version"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:389
+msgid "Reinstall Menus and Items"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:401
+msgid "Inactive"
+msgstr ""
+
+#: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:403
+msgid "Install Plugin"
+msgstr ""
+
+#: plugins/PHPDevShell/models/template-admin/template-admin-list.query.php:131
+msgid "Found"
+msgstr ""
+
+#: plugins/PHPDevShell/models/template-admin/template-admin-list.query.php:132
+#: plugins/PHPDevShell/models/template-admin/template-admin-list.query.php:137
+msgid "Not Found"
+msgstr ""
+
+#: plugins/PHPDevShell/models/template-admin/template-admin-list.query.php:134
+msgid "Uninstall"
+msgstr ""
+
+#: plugins/PHPDevShell/models/template-admin/template-admin-list.query.php:135
+msgid "NOT Installed"
+msgstr ""
+
+#: plugins/PHPDevShell/models/template-admin/template-admin-list.query.php:136
+msgid "Install"
+msgstr ""
+
+#: plugins/PHPDevShell/models/template-admin/template-admin-list.query.php:138
+msgid "Remove"
+msgstr ""
+
+#: plugins/PHPDevShell/models/template-admin/template-admin-list.query.php:235
+msgid "Could not locate template install file, this could be a broken template."
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:122
+msgid "Awaiting email verification appoval"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:123
+msgid "Import awaiting approval"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:124
+msgid "Approve User"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:125
+msgid "Approve User and Email Notification"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:126
+msgid "Ban User"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:128
+#: plugins/PHPDevShell/models/user-admin/user-admin-list.query.php:539
+msgid "Delete User"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:134
+#: plugins/PHPDevShell/models/user-admin/user-admin-list.query.php:522
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:14
+msgid "User Name"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:135
+#: plugins/PHPDevShell/models/user-admin/user-admin-list.query.php:523
+msgid "Display Name"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:136
+#: plugins/PHPDevShell/models/user-admin/user-admin-list.query.php:524
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:29
+msgid "User Email"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:137
+#: plugins/PHPDevShell/models/user-admin/user-admin-list.query.php:525
+msgid "User Roles"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:138
+#: plugins/PHPDevShell/models/user-admin/user-admin-list.query.php:526
+msgid "User Groups"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:139
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:46
+msgid "Token Name"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:140
+#: plugins/PHPDevShell/models/user-admin/user-admin-list.query.php:527
+msgid "Date Registered"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:141
+msgid "Pending Type"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:142
+msgid "Approval"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:143
+msgid "Ban"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:144
+#: plugins/PHPDevShell/models/user-admin/user-role-admin-list.query.php:52
+#: plugins/PHPDevShell/models/user-admin/user-admin-list.query.php:528
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:54
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin-list.tpl:33
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:27
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:42
+msgid "Edit"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:177
+msgid "Default Registration"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-import.query.php:97
+msgid "Please complete all mandatory fields. Select a token option, also remember your CSV order and delimiter."
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-import.query.php:103
+#, php-format
+msgid "Cannot find a overflow table called %s."
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-import.query.php:180
+#: plugins/PHPDevShell/models/user-admin/user-admin-import.query.php:188
+#: plugins/PHPDevShell/models/user-admin/user-admin-import.query.php:204
+msgid "MISSING???"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-import.query.php:279
+#, php-format
+msgid "Skipping %s, this user already exists in database."
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-import.query.php:284
+#, php-format
+msgid "CSV columns (%s) count does not match, (%s)."
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-import.query.php:290
+#, php-format
+msgid "Imported %s users. You can now approve these users under pending users to complete the import process."
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-import.query.php:292
+#, php-format
+msgid "There are %s import notices!"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-import.query.php:294
+#, php-format
+msgid "Imported %s custom column rows into table %s."
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-import.query.php:296
+#, php-format
+msgid "Failed imported %s custom column rows into table %s."
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-import.query.php:298
+#, php-format
+msgid "The uploaded CSV file could not be read in %s."
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-admin-import.query.php:301
+msgid "You have not selected a CSV file to import, please select one."
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-role-admin-list.query.php:49
+#: plugins/PHPDevShell/views/user-admin/user-role-admin.tpl:8
+msgid "User Role ID"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-role-admin-list.query.php:50
+msgid "User Role Name"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-role-admin-list.query.php:51
+msgid "User Role Notes"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-role-admin-list.query.php:53
+#: plugins/PHPDevShell/models/user-admin/user-role-admin-list.query.php:67
+msgid "Delete Role"
+msgstr ""
+
+#: plugins/PHPDevShell/models/user-admin/user-role-admin-list.query.php:54
+#: plugins/PHPDevShell/models/user-admin/user-role-admin-list.query.php:68
+msgid "Delete Role Users"
+msgstr ""
+
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:45
+msgid "Token ID"
+msgstr ""
+
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:47
+msgid "Move User to Role"
+msgstr ""
+
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:48
+msgid "Move User to Group"
+msgstr ""
+
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:49
+msgid "Token Key"
+msgstr ""
+
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:50
+msgid "Display for Registration"
+msgstr ""
+
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:51
+msgid "Available Tokens"
+msgstr ""
+
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:52
+msgid "Token URL"
+msgstr ""
+
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:53
+msgid "Email Invitation"
+msgstr ""
+
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:62
+msgid "Show as registration option"
+msgstr ""
+
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:63
+msgid "Dont show as registration option"
+msgstr ""
+
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:64
+msgid "View registration URL"
+msgstr ""
+
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:65
+msgid "Mail Token"
+msgstr ""
+
+#: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:67
+msgid "Delete Token"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/lost-password.tpl:5
+msgid "Recover Account"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/lost-password.tpl:6
+msgid "Your Username or Email"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/lost-password.tpl:8
+msgid "Send Recovery"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/lost-password.tpl:9
+#: plugins/PHPDevShell/views/user/new-password.tpl:13
+#: plugins/PHPDevShell/views/user/edit-preferences.tpl:75
+#: plugins/PHPDevShell/views/user/email-admin.tpl:55
+#: plugins/PHPDevShell/views/user/register.tpl:77
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:77
+#: plugins/PHPDevShell/views/tagger-admin/tagger-admin.tpl:46
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:156
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:262
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:375
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:516
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:684
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:755
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:854
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:928
+#: plugins/PHPDevShell/views/system-admin/config-manager.tpl:54
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:10
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:10
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:171
+#: plugins/PHPDevShell/views/plugin-admin/class-registry.tpl:69
+#: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:54
+#: plugins/PHPDevShell/views/user-admin/user-admin-list.tpl:74
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:117
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:88
+#: plugins/PHPDevShell/views/user-admin/user-role-admin.tpl:51
+#: plugins/PHPDevShell/views/registration-token-admin/registration-token-admin.tpl:63
+msgid "Reset"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/new-password.tpl:6
+#: plugins/PHPDevShell/views/user/edit-preferences.tpl:12
+#: plugins/PHPDevShell/views/user/register.tpl:7
+msgid "Username"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/new-password.tpl:8
+msgid "Re-enter Password"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/login-page.tpl:8
+msgid "Don't Remember Me"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/readme.tpl:113
+msgid "Pick a skin"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/readme.tpl:135
+msgid "Text Field"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/readme.tpl:140
+msgid "Text Field Required"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/readme.tpl:145
+msgid "Sample Button"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/readme.tpl:146
+msgid "Another Sample Button"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/edit-preferences.tpl:17
+#: plugins/PHPDevShell/views/user/register.tpl:10
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:24
+msgid "User Display Name"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/edit-preferences.tpl:22
+#: plugins/PHPDevShell/views/user/register.tpl:11
+msgid "Email"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/edit-preferences.tpl:34
+#: plugins/PHPDevShell/views/user/register.tpl:39
+msgid "Preferred Language"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/edit-preferences.tpl:45
+#: plugins/PHPDevShell/views/user/register.tpl:50
+msgid "Preferred Region"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/edit-preferences.tpl:56
+#: plugins/PHPDevShell/views/user/register.tpl:61
+msgid "Preferred Timezone"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/edit-preferences.tpl:62
+msgid "Time format preview"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/edit-preferences.tpl:70
+#: plugins/PHPDevShell/views/user/email-admin.tpl:52
+#: plugins/PHPDevShell/views/user/register.tpl:74
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:72
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:153
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:259
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:372
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:513
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:681
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:752
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:851
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:925
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:167
+#: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:50
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:113
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:85
+#: plugins/PHPDevShell/views/user-admin/user-role-admin.tpl:48
+#: plugins/PHPDevShell/views/registration-token-admin/registration-token-admin.tpl:60
+#: plugins/PHPDevShell/views/registration-token-admin/email-token.tpl:50
+msgid "Submit"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/edit-preferences.tpl:74
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:155
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:261
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:374
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:515
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:683
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:754
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:853
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:927
+msgid "Save Preferences"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/email-admin.tpl:7
+msgid "Priority"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/email-admin.tpl:12
+msgid "Identified By"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/email-admin.tpl:21
+msgid "Your Email"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/email-admin.tpl:29
+msgid "Subject"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/email-admin.tpl:34
+msgid "Message"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/email-admin.tpl:42
+#: plugins/PHPDevShell/views/cron/optimize-database.tpl:8
+#: plugins/PHPDevShell/views/cron/repair-database.tpl:8
+msgid "Type"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/email-admin.tpl:44
+msgid "Query Type"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/email-admin.tpl:54
+msgid "Send Email"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/register.tpl:6
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:5
+msgid "Identification"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/register.tpl:8
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:19
+msgid "Password"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/register.tpl:9
+msgid "Verify Password"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/register.tpl:16
+msgid "Other Preferences"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/register.tpl:19
+msgid "Select Registration Type"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/register.tpl:31
+msgid "Registration Token Key"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user/register.tpl:67
+msgid "Format"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin-list.tpl:8
+msgid "Cron ID"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin-list.tpl:12
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:17
+#: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:8
+msgid "Plugin"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin-list.tpl:15
+msgid "Cron Type"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin-list.tpl:18
+msgid "Cron Name"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin-list.tpl:24
+msgid "Log Cron"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin-list.tpl:27
+msgid "Last Execution"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin-list.tpl:30
+msgid "Expectancy"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin-list.tpl:36
+msgid "Run"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:5
+msgid "Cronjob Detail"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:7
+msgid "Cronjob (Menu) ID"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:22
+msgid "Cronjob Description"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:27
+msgid "Execute Cronjob"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:34
+msgid "Cronjob Preferences"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:36
+msgid "Last Executed:"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:40
+msgid "When cron is expected to run:"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:45
+msgid "Specific Date or Repeat Intervals"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:47
+msgid "When selecting to run once, provide a date on which cron should execute. When selecting repeat, enter repeat interfals."
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:48
+msgid "Year(s)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:51
+msgid "Month(s)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:54
+msgid "Day(s)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:57
+msgid "Hour(s)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:60
+msgid "Minute(s)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:65
+msgid "Log Cronjob Action"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:76
+msgid "Set Cronjob"
+msgstr ""
+
+#: plugins/PHPDevShell/views/tagger-admin/tagger-admin.tpl:11
+msgid "Add"
+msgstr ""
+
+#: plugins/PHPDevShell/views/tagger-admin/tagger-admin.tpl:31
+msgid "No tags found matching your search criteria."
+msgstr ""
+
+#: plugins/PHPDevShell/views/tagger-admin/tagger-admin.tpl:45
+msgid "Update Tags"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:4
+msgid "Server Settings"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:5
+msgid "System Preferences"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:6
+msgid "Theme Settings"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:7
+msgid "Email Settings"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:8
+msgid "User Registration Settings"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:9
+msgid "File Upload Settings"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:10
+msgid "Thumb Settings"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:11
+msgid "FTP Settings"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:17
+#: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:14
+msgid "Status"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:21
+msgid "Turn System"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:23
+msgid "Off"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:24
+msgid "On"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:28
+msgid "System Down Message"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:35
+msgid "Demo Mode (Excludes Root Roles)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:42
+msgid "Protect forms against spam bots?"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:49
+msgid "Security Crypt Key"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:55
+msgid "Redirect Login"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:66
+msgid "Behaviour"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:69
+msgid "System Root User"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:78
+msgid "System Root Role"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:87
+msgid "System Root Group"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:96
+msgid "Force Core Changes"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:103
+msgid "Show DB Queries Used"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:110
+msgid "Enable Log System"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:117
+msgid "Enable Access Log"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:124
+msgid "Email Critical Errors"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:131
+msgid "Enable Friendly URLs"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:138
+msgid "Friendly URL Append"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:144
+msgid "Trim log records to this value"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:167
+msgid "Language and Region"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:169
+msgid "Default Language"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:178
+msgid "Default Region"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:187
+msgid "System Charset (UTF-8 Recommended)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:193
+msgid "Charset Format"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:199
+msgid "Combined Locale Language, Region and Charset Format"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:205
+msgid "Default System Locale Results"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:211
+msgid "System Timezone"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:221
+msgid "Formatting"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:224
+msgid "System Default Date Format"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:231
+msgid "System Short Date Format"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:238
+msgid "Limit database results to this number before splitting to another page"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:244
+msgid "Limit control panel favorite menus. 0 to disable."
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:250
+msgid "Limit control panel last messages. 0 to disable."
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:276
+msgid "Application Name"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:282
+msgid "Default Theme"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:291
+msgid "Menu Behaviour"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:293
+msgid "Dynamic - Change level while navigating"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:294
+msgid "Static - Stay in root of menu"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:298
+msgid "Skin"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:307
+msgid "Log in-and-out page"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:316
+msgid "Frontpage Link (When logged out)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:325
+msgid "Frontpage Link (When logged in)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:336
+msgid "Tweaks"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:339
+msgid "Custom Logo"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:345
+msgid "Custom CSS"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:351
+msgid "Meta Keywords"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:357
+msgid "Meta Description"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:363
+msgid "Footer Copyright Note"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:385
+msgid "Email Contacts"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:389
+msgid "Administration emails, multiple allowed, divide by , (comma)."
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:395
+msgid "Support emails, multiple allowed, divide by , (comma). ex. a@b.com:Support<br>For multiple a@b.com;c@d.com:Bugs,e@f.com;g@h.com;i@j.com:Accounts"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:401
+msgid "Email From Name"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:407
+msgid "Email From Address"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:413
+msgid "Mailer System"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:415
+msgid "PHP Mail Function"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:416
+msgid "Sendmail"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:417
+msgid "SMTP Server"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:423
+msgid "Sendmail Path (Sendmail Only)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:429
+msgid "Send email test"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:437
+msgid "Email Server"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:440
+msgid "SMTP Secure"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:450
+msgid "SMTP Host (SMTP Only)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:456
+msgid "SMTP Port (SMTP Only)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:462
+msgid "SMTP Username (SMTP Only)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:468
+msgid "SMTP Password (SMTP Only)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:474
+msgid "SMTP Timeout"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:480
+msgid "SMTP HELO"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:486
+msgid "Email Charset"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:492
+msgid "Email Encoding"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:498
+msgid "Email Server Hostname"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:504
+msgid "Mass Email Limit Per Cycle"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:526
+msgid "Registration Behaviour"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:529
+msgid "Allow Account Registrations"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:530
+msgid "All, allow default, option and token registrations."
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:531
+msgid "Default registrations only."
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:532
+msgid "Token registrations only, only users with registration tokens can register."
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:533
+msgid "No registrations accepted."
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:537
+msgid "Allow Remember Me"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:544
+msgid "User Registration Page"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:552
+msgid "Account Verification Type"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:553
+msgid "Direct Registration, no further authorisation needed."
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:555
+msgid "Direct Registration Email Message"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:558
+msgid "Newly registered users needs to verify his/her account by email."
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:560
+msgid "Verify Registration Email Message"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:563
+msgid "Authorized user needs to approve newly registered accounts."
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:565
+msgid "Approval Queue Registration Email Message"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:569
+msgid "Administrator Registration Email Message"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:575
+msgid "Email new registrations to admin"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:584
+msgid "Registrion Actions"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:587
+msgid "The Role newly registered members will fall under when awaiting confirmation or authorization."
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:596
+msgid "Move verified/(direct registrations) users to this role"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:605
+msgid "Default guest role to use for logged out users"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:614
+msgid "Default banned role to move user who gets banned."
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:623
+msgid "The Group newly registered members will fall under when awaiting confirmation or authorization."
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:632
+msgid "Move verified/(direct registrations) users to this group"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:641
+msgid "Default guest group to use for logged out users"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:650
+msgid "Languages available to users"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:658
+msgid "Regions available to users"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:666
+msgid "Registration Message"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:672
+msgid "Login Screen Message"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:694
+msgid "Upload Engine"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:698
+msgid "Log file uploads"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:705
+msgid "Server Graphics Engine"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:707
+msgid "GD"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:708
+msgid "Imagick"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:714
+msgid "Upload Limitations"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:717
+msgid "Default relative upload path"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:723
+msgid "Allowed Extentions (seperate by comma gif,jpg)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:729
+msgid "Cmod newly uploaded files to"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:735
+msgid "Maximum file size upload (bytes)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:742
+msgid "Maximum image size upload (bytes)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:765
+msgid "Thumb Engine"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:769
+msgid "Create thumbnails for images"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:769
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:791
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:797
+msgid " - %"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:778
+msgid "Thumbnail Type"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:780
+msgid "Resize adaptive"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:780
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:785
+msgid " - (MaxWidth, MaxHeight) px"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:785
+msgid "Resize by pixels"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:791
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:797
+msgid "Resize by percentage"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:803
+msgid "Crop from center"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:803
+msgid " - px"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:809
+msgid "Crop by measure"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:809
+msgid " - (startX, startY, width, height) px"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:816
+msgid "Create thumbnail reflection"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:823
+msgid "Thumbnail reflection values"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:829
+msgid "Image Quality"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:835
+msgid "Create a resized viewable image?"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:842
+msgid "Resize image dimension"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:843
+msgid "(MaxWidth, MaxHeight) px"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:864
+msgid "FTP Engine"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:867
+msgid "Enable FTP"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:876
+msgid "FTP Detail"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:879
+msgid "Local FTP Username"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:885
+msgid "Local FTP Password"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:891
+msgid "Local FTP Host"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:897
+msgid "Local FTP Port"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:903
+msgid "Local FTP use SSL connection"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:910
+msgid "Local FTP Connection Timeout (Seconds)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/general-settings.tpl:916
+msgid "FTP Install Root Directory"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/admin.tpl:3
+msgid "System Version"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/admin.tpl:6
+msgid "Operating System Information"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/admin.tpl:8
+msgid "MySQL Information"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/admin.tpl:10
+msgid "MySQL Server Version"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/admin.tpl:12
+msgid "MySQL Host"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/admin.tpl:14
+msgid "MySQL Client"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/admin.tpl:16
+msgid "The current character set is"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/admin.tpl:18
+msgid "Actual MySQL Stats"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/admin.tpl:28
+msgid "Apache Information"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/admin.tpl:30
+msgid "Apache Server Version"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/admin.tpl:32
+msgid "Modules loaded with Apache"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/admin.tpl:37
+msgid "PHP Information"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/admin.tpl:39
+msgid "PHP Version"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/admin.tpl:41
+msgid "Extensions loaded with PHP"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/admin.tpl:48
+msgid "Config Data"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/config-manager.tpl:11
+msgid "Add Setting"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/config-manager.tpl:39
+msgid "No settings found matching your search criteria!"
+msgstr ""
+
+#: plugins/PHPDevShell/views/system-admin/config-manager.tpl:53
+msgid "Save Settings"
+msgstr ""
+
+#: plugins/PHPDevShell/views/logs-admin/menu-access-logs.tpl:23
+msgid "No access logs found matching your search criteria."
+msgstr ""
+
+#: plugins/PHPDevShell/views/logs-admin/menu-access-logs.tpl:39
+#: plugins/PHPDevShell/views/logs-admin/system-logs.tpl:42
+#: plugins/PHPDevShell/views/logs-admin/fileupload-logs.tpl:54
+msgid "Delete All Logs"
+msgstr ""
+
+#: plugins/PHPDevShell/views/logs-admin/system-logs.tpl:26
+msgid "No logs found matching your search criteria."
+msgstr ""
+
+#: plugins/PHPDevShell/views/logs-admin/file-log-viewer.tpl:7
+msgid "Log File"
+msgstr ""
+
+#: plugins/PHPDevShell/views/logs-admin/file-log-viewer.tpl:9
+msgid "Showing latest file..."
+msgstr ""
+
+#: plugins/PHPDevShell/views/logs-admin/file-log-viewer.tpl:27
+msgid "Log Message"
+msgstr ""
+
+#: plugins/PHPDevShell/views/logs-admin/file-log-viewer.tpl:28
+msgid "Log Date"
+msgstr ""
+
+#: plugins/PHPDevShell/views/logs-admin/file-log-viewer.tpl:29
+msgid "Log Name"
+msgstr ""
+
+#: plugins/PHPDevShell/views/logs-admin/file-log-viewer.tpl:30
+msgid "Detailed Log File"
+msgstr ""
+
+#: plugins/PHPDevShell/views/logs-admin/file-log-viewer.tpl:31
+msgid "View Log"
+msgstr ""
+
+#: plugins/PHPDevShell/views/logs-admin/file-log-viewer.tpl:55
+msgid "File contains no log data!"
+msgstr ""
+
+#: plugins/PHPDevShell/views/logs-admin/fileupload-logs.tpl:38
+msgid "No upload logs found matching your search criteria."
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron/optimize-database.tpl:5
+#: plugins/PHPDevShell/views/cron/repair-database.tpl:5
+msgid "DB Table"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron/optimize-database.tpl:11
+#: plugins/PHPDevShell/views/cron/repair-database.tpl:11
+msgid "Message Type"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron/optimize-database.tpl:14
+#: plugins/PHPDevShell/views/cron/repair-database.tpl:14
+msgid "Message Text"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron/trim-logs.tpl:5
+msgid "General Logs"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron/trim-logs.tpl:8
+msgid "Trim General Logs"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron/trim-logs.tpl:11
+msgid "Job Status for General Logs"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron/trim-logs.tpl:14
+msgid "Page Access Logs"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron/trim-logs.tpl:17
+msgid "Trim Access Logs"
+msgstr ""
+
+#: plugins/PHPDevShell/views/cron/trim-logs.tpl:20
+msgid "Job Status for Access Logs"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:9
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:9
+msgid "Save Menu Settings"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:18
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:18
+msgid "Node"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:24
+msgid "User Role"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:24
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:131
+msgid "New Window"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:27
+msgid "Hide"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:30
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:141
+msgid "Theme"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:33
+msgid "Custom View"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:39
+msgid "Check"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:71
+msgid "Never"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:72
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:121
+msgid "From All"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:73
+msgid "From_CP"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:74
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:123
+msgid "From Menu Only"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:75
+msgid "onInactive"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:5
+msgid "Node Detail"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:8
+msgid "Menu Item ID"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:15
+msgid "Default Menu Name"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:26
+msgid "Menu URL Alias"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:31
+msgid "Parent Item"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:33
+msgid "../"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:40
+msgid "Select node type"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:42
+msgid "Plugin Node"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:43
+msgid "(1) Standard Web Page"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:44
+msgid "(9) HTML Ajax Widget Module (Bordered)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:45
+msgid "(10) HTML Ajax Call (Styled)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:46
+msgid "(11) HTML Ajax Lightbox (Overlay)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:47
+msgid "(12) RAW Ajax Call (Json, XML, text, etc.)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:50
+msgid "Link Existing Node"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:52
+msgid "(2) Plain Link"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:53
+msgid "(3) Jump To Link"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:54
+msgid "(6) Place Holder"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:63
+msgid "External File"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:64
+msgid "(4) Load External File from outside plugin"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:68
+msgid "HTTP URL"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:69
+msgid "(5) Normal external http link"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:73
+msgid "iFrame"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:74
+msgid "(7) Http location inside iframe"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:75
+msgid "Height"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:80
+msgid "Cronjob Node"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:81
+msgid "(8) Automatic cronjob"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:85
+msgid "Plugin Name/Folder"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:90
+msgid "URL/File Path Location/Virtual Path Identifier if linked item)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:98
+msgid "Plugin Detail"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:101
+msgid "Default MVC Paths"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:102
+msgid "(Model)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:103
+msgid "(View)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:104
+msgid "(View Class)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:105
+msgid "(Controller)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:109
+msgid "Ranking"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:111
+msgid "Rank First"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:113
+msgid "Rank Last"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:118
+msgid "Hide Menu"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:122
+msgid "From Control Panel Only"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:124
+msgid "When Inactive Only"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:129
+msgid "Open Window In"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:130
+msgid "Same Window"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:134
+msgid "User Role Permission - Who can access this node?"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:149
+msgid "Custom view file for contoller ex. \"alternative\""
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:154
+msgid "Custom parameters (development purposes (json,xml etc...))"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:159
+#: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:42
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:104
+#: plugins/PHPDevShell/views/user-admin/user-role-admin.tpl:40
+msgid "Line Break Separated (tag:[auto] or tag:value)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:170
+msgid "Save Menu"
+msgstr ""
+
+#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:172
+#: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:55
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:118
+#: plugins/PHPDevShell/views/user-admin/user-role-admin.tpl:52
+#: plugins/PHPDevShell/views/registration-token-admin/registration-token-admin.tpl:64
+msgid "New"
+msgstr ""
+
+#: plugins/PHPDevShell/views/plugin-admin/class-registry.tpl:11
+msgid "Add Class"
+msgstr ""
+
+#: plugins/PHPDevShell/views/plugin-admin/class-registry.tpl:54
+msgid "No classes found matching your search criteria!"
+msgstr ""
+
+#: plugins/PHPDevShell/views/plugin-admin/class-registry.tpl:68
+msgid "Save Registry"
+msgstr ""
+
+#: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:17
+msgid "Action"
+msgstr ""
+
+#: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:50
+msgid "Install Log"
+msgstr ""
+
+#: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:53
+msgid "Dependency"
+msgstr ""
+
+#: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:55
+msgid "Available Classes"
+msgstr ""
+
+#: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:57
+msgid "Plugin Folder"
+msgstr ""
+
+#: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:59
+msgid "Menu Language File"
+msgstr ""
+
+#: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:61
+msgid "Plugin Help"
+msgstr ""
+
+#: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:63
+msgid "Founders"
+msgstr ""
+
+#: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:65
+msgid "Authors"
+msgstr ""
+
+#: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:67
+msgid "Release Date"
+msgstr ""
+
+#: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:69
+msgid "Copyright"
+msgstr ""
+
+#: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:71
+msgid "License"
+msgstr ""
+
+#: plugins/PHPDevShell/views/template-admin/template-admin-list.tpl:9
+msgid "Theme ID"
+msgstr ""
+
+#: plugins/PHPDevShell/views/template-admin/template-admin-list.tpl:12
+msgid "Theme Folder"
+msgstr ""
+
+#: plugins/PHPDevShell/views/template-admin/template-admin-list.tpl:15
+msgid "Theme Found"
+msgstr ""
+
+#: plugins/PHPDevShell/views/template-admin/template-admin-list.tpl:21
+msgid "Theme Detail"
+msgstr ""
+
+#: plugins/PHPDevShell/views/template-admin/template-admin-list.tpl:24
+msgid "Un/Install"
+msgstr ""
+
+#: plugins/PHPDevShell/views/template-admin/template-admin-list.tpl:36
+msgid "Set Default Theme"
+msgstr ""
+
+#: plugins/PHPDevShell/views/template-admin/template-admin-list.tpl:55
+msgid "No detail provided."
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:5
+msgid "Group Detail"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:8
+msgid "User Group ID"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:14
+msgid "Groups Parent"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:22
+msgid "User Group Name"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:27
+msgid "User Group Notes"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:35
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:41
+#: plugins/PHPDevShell/views/user-admin/user-role-admin.tpl:27
+msgid "Other"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:37
+msgid "Alias"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:53
+msgid "Save Group"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-pending.tpl:58
+msgid "No pending users found matching your search criteria or no pending users waiting."
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-pending.tpl:72
+msgid "On this page:"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-pending.tpl:75
+msgid "Approve Users and Notify Users"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-group-admin-list.tpl:8
+msgid "Group ID"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-group-admin-list.tpl:11
+msgid "Group Name"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-group-admin-list.tpl:14
+msgid "Group Notes"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-group-admin-list.tpl:17
+msgid "Group Alias"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-group-admin-list.tpl:60
+msgid "No groups found matching your search criteria."
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-role-admin-list.tpl:36
+msgid "No roles found matching your search criteria."
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-list.tpl:58
+msgid "No users found matching your search criteria."
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-list.tpl:73
+msgid "Save User Settings"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:8
+msgid "Your User ID"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:35
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:49
+msgid "Users Language"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:45
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:59
+msgid "Users Region"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:53
+msgid "Users Locale Information"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:60
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:69
+msgid "Users Timezone"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:72
+msgid "Permission"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:74
+msgid "Primary User Role"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:82
+msgid "Extra Role Ids"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:89
+msgid "Primary User Group"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:97
+msgid "Extra user groups"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:116
+msgid "Save User"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin.tpl:119
+msgid "Send Email Notification"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:5
+#: plugins/PHPDevShell/views/registration-token-admin/registration-token-admin.tpl:5
+msgid "Token Detail"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:7
+msgid "Select Token : "
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:7
+msgid "Add Token"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:15
+msgid "Password Prefix"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:20
+msgid "CSV Column Delimiter"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:25
+msgid "CSV Columns Order"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:28
+msgid "Available Replacements (In any order) :"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:29
+msgid "*name,*email,username,password,[custom overflown columns]"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:30
+msgid "(* = Mandatory)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:33
+msgid "Other Options"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:43
+msgid "Overflow Table Name"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:77
+msgid "Select CSV File"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-role-admin.tpl:5
+msgid "Role Detail"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-role-admin.tpl:14
+msgid "User role name"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-role-admin.tpl:19
+msgid "User role notes"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-role-admin.tpl:29
+msgid "Allow role to access nodes"
+msgstr ""
+
+#: plugins/PHPDevShell/views/user-admin/user-role-admin.tpl:50
+msgid "Save Role"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/registration-token-admin.tpl:8
+#: plugins/PHPDevShell/views/registration-token-admin/email-token.tpl:7
+msgid "Registration Token ID"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/registration-token-admin.tpl:15
+#: plugins/PHPDevShell/views/registration-token-admin/email-token.tpl:12
+msgid "Registration Token Name"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/registration-token-admin.tpl:20
+#: plugins/PHPDevShell/views/registration-token-admin/email-token.tpl:17
+msgid "Move verified users to this Role"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/registration-token-admin.tpl:28
+#: plugins/PHPDevShell/views/registration-token-admin/email-token.tpl:22
+msgid "Move verified users to this Group"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/registration-token-admin.tpl:39
+msgid "Token Preferences"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/registration-token-admin.tpl:41
+msgid "Registration Token"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/registration-token-admin.tpl:47
+msgid "Allow User Selections"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/registration-token-admin.tpl:52
+msgid "Available Tokens (Integer)"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/registration-token-admin.tpl:62
+msgid "Save Token"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/email-token.tpl:5
+msgid "Token Selection"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/email-token.tpl:30
+msgid "Email Options"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/email-token.tpl:32
+msgid "Token Recipient Addresses (Multiple Email Addresses allowed, divide by ,(comma))"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/email-token.tpl:37
+msgid "Registration Invite Subject"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/email-token.tpl:42
+msgid "Registration Invite Message"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/email-token.tpl:52
+msgid "Send Token"
+msgstr ""
+
+#: plugins/PHPDevShell/views/registration-token-admin/registration-token-admin-list.tpl:50
+msgid "No tokens found matching your search criteria!"
+msgstr ""

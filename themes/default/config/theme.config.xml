@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<install type="template">
+	<name>
+		Default PHPDevShell Theme
+	</name>
+	<version>
+		4.0.0-Stable
+	</version>
+	<description>The new PHPDevShell Bootstrap theme aimed to be a clean and fast template.</description>
+	<founder>Jason Schoeman</founder>
+	<author>Jason Schoeman</author>
+	<email>titan@phpdevshell.org</email>
+	<homepage>http://www.phpdevshell.org</homepage>
+	<date>20 November 2012</date>
+	<copyright>Copyright 2007 PHPDevShell.org All rights reserved.</copyright>
+	<licence>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html GNU/LGPL</licence>
+</install>

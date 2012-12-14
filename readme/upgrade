@@ -1,0 +1,30 @@
+/**
+ * PHPDevShell is a RAD Framework aimed at developing administrative applications.
+ *
+ * @package PHPDevShell
+ * @link http://www.phpdevshell.org
+ * @copyright Copyright (C) 2011 Jason Schoeman, All rights reserved.
+ * @license GNU/LGPL, see readme/licensed_under_lgpl or http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+ * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
+ *
+ * Copyright notice: See readme/notice
+ * By using PHPDevShell you agree to notice and license, if you dont agree to this notice/license you are not allowed to use PHPDevShell.
+ */
+
+MANUAL UPGRADE METHOD (Upgrade V 3.x.x):
+****************************************
+Always do a database and file backup before upgrading.
+
+-----------------------------------------------------------------------------------------------------------
+* PS: Please make sure you are using latest .htaccess file else you might see a blank page after upgrading.
+-----------------------------------------------------------------------------------------------------------
+
+1. Extract and upload downloaded PHPDevShell package to your PHPDevShell install directory overwriting old content.
+2. Rename /config/single-site.config.php.RENAME to /config/single-site.config.php and change the settings.
+3. Execute /other/service/service.php from your installed PHPDevShell directory.
+4. Complete the instructions in your browser.
+5. To make sure you have all the added UI functions, goto Plugin Manager, next to PHPDevShell click Reinstall Menus (no customization will be overwrite).
+
+* PS: If you have PHP notices turned on, you might see a notice until you ran the upgrade, ignore these notices.
+
+EOF.

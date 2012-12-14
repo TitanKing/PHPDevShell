@@ -1,0 +1,12 @@
+
+
+
+
+Version 1.0.1
+
+
+rev 910: 
+Fixed a typo which made impossible to use external auth (see also bug #1020928) - http://bazaar.launchpad.net/~phpdevshell/phpdevshell/3.2.1/revision/910
+
+rev989:
+- various little fixes - http://bazaar.launchpad.net/~phpdevshell/phpdevshell/3.2.1/revision/898

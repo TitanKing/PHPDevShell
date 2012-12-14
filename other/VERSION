@@ -1,0 +1,5 @@
+3.2.0-Stable
+Version is set in:
+Set in service.inc.php
+Set in includes/PHPDS.inc.php
+Set in plugins/PHPDevShell/config/plugin.config.xml (Remember Version URL)

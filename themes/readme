@@ -1,0 +1,12 @@
+/**
+ * PHPDevShell is a RAD Framework aimed at developing administrative applications.
+ *
+ * @package PHPDevShell
+ * @link http://www.phpdevshell.org
+ * @copyright Copyright (C) 2011 Jason Schoeman, All rights reserved.
+ * @license GNU/LGPL, see readme/licensed_under_lgpl or http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+ * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
+ *
+ * Copyright notice: See readme/notice
+ * By using PHPDevShell you agree to notice and license, if you dont agree to this notice/license you are not allowed to use PHPDevShell.
+ */

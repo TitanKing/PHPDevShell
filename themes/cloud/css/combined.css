@@ -1,0 +1,874 @@
+@charset "utf-8";
+
+/* General CSS
+-------------------------------------------------------------- */
+
+html { font-size: 65%; }
+body {
+  margin: 0;
+  padding: 0.5em;
+  font-size: 65%;
+  line-height: 1.7;
+}
+
+#container {
+	border: 0;
+}
+
+/* Main Script Container
+-------------------------------------------------------------- */
+#bg {
+	margin: 0;
+	padding: 0;
+}
+
+/* Tables still need 'cellspacing="0"' in the markup. */
+table { border-collapse: separate; border-spacing: 0; }
+caption, th, td { text-align: left; font-weight: normal; }
+table, td, th { vertical-align: middle; }
+
+/* Remove possible quote marks (") from <q>, <blockquote>. */
+blockquote:before, blockquote:after, q:before, q:after { content: ""; }
+blockquote, q { quotes: "" ""; }
+
+/* Remove annoying border on linked images. */
+a img { border: none; }
+
+/* Remember to define your own focus styles! */
+:focus { outline: 0; }
+
+/* Form fields
+-------------------------------------------------------------- */
+
+input[type=text]:focus, input[type=password]:focus,
+input.text:focus, input.title:focus,
+textarea:focus, select:focus {
+
+}
+
+[required] {
+
+}
+
+fieldset {
+	padding: 1em;
+}
+
+legend {
+	font-size: 1.8em; line-height: 2;
+}
+
+input[type=number], input[type=url], input[type=email], input[type=text], input[type=password], input[type=file],
+input.text, input.title, textarea, select {
+	padding: .5em;
+    font-size: 1.1em;
+    font-weight: bold;
+	display: block;
+}
+
+form label { font-size:1.2em; }
+
+input[type=checkbox], input[type=radio],
+input.checkbox, input.radio {
+	display: inline;
+}
+
+.validationerror { margin: 0 0 0 1em; }
+
+/* Firefox button fix */
+button > span {
+	line-height: 1.75;
+}
+
+input[type=submit], input.submit, button, input[type=reset], input.reset, input[type=radio], input.radio, input[type=checkbox], input.checkbox  {
+	padding: .5em .5em .4em .5em;
+	margin: 0 .5em .5em .3em;
+    cursor: pointer;
+}
+
+button {
+	margin: 0 .5em .5em 0;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.loginlink {
+    padding: .2em .2em .1em .2em;
+	margin: 0;
+    text-decoration: none;
+}
+
+.button {
+    padding: .5em .5em .4em .5em;
+	margin: 0 .5em .3em;
+    text-decoration: none;
+	white-space: nowrap;
+}
+
+.button:hover {
+    text-decoration: none;
+}
+
+a.button {
+    padding: 1em 1em .4em;
+}
+
+/* Search Forms
+-------------------------------------------------------------- */
+#searchForm {
+	padding: .3em;
+}
+
+#searchForm #search_field {
+    padding: .18em;
+	font-size: 1.1em;
+	margin-bottom: .15em;
+}
+
+/* Multi Select
+-------------------------------------------------------------- */
+.ui-multiselect { padding:.4em .4em .3em .4em; text-align:left; display: block; min-height: 34px; white-space:normal; }
+.ui-multiselect span.ui-icon { float:right }
+.ui-multiselect-single .ui-multiselect-checkboxes input { position:absolute !important; top: auto !important; left:-9999px; }
+.ui-multiselect-single .ui-multiselect-checkboxes label { padding:5px !important }
+
+.ui-multiselect-header { margin-bottom: 3px; padding:.4em .4em .3em .4em; }
+.ui-multiselect-header ul { font-size:0.9em }
+.ui-multiselect-header ul li { float:left; padding:0 10px 0 0 }
+.ui-multiselect-header a { text-decoration:none }
+.ui-multiselect-header a:hover { text-decoration:underline }
+.ui-multiselect-header span.ui-icon { float:left }
+.ui-multiselect-header li.ui-multiselect-close { float:right; text-align:right; padding-right:0 }
+
+.ui-multiselect-menu { display:none; padding:3px; position:absolute; z-index:10000; text-align: left; margin-top: 3px; }
+.ui-multiselect-checkboxes { position:relative /* fixes bug in IE6/7 */; overflow-y:scroll }
+.ui-multiselect-checkboxes label { cursor:default; display:block; border:1px solid transparent; padding:.4em .4em .3em .4em; min-height: 12px; }
+.ui-multiselect-checkboxes label input { position:relative; top:1px; }
+.ui-multiselect-checkboxes li { clear:both; font-size:0.9em; padding-right:3px; }
+.ui-multiselect-checkboxes li.ui-multiselect-optgroup-label { text-align:center; font-weight:bold; border-bottom:1px solid }
+.ui-multiselect-checkboxes li.ui-multiselect-optgroup-label a { display:block; padding:3px; margin:1px 0; text-decoration:none }
+
+/* remove label borders in IE6 because IE6 does not support transparency */
+* html .ui-multiselect-checkboxes label { border:none }
+
+.ui-multiselect-hasfilter ul { position:relative; top:2px }
+.ui-multiselect-filter { float:left; margin-right:10px; font-size:11px }
+.ui-multiselect-filter input { width:100px; font-size:10px; margin-left:5px; height:15px; padding:2px; border:1px solid #292929; -webkit-appearance:textfield; -webkit-box-sizing:content-box; }
+
+/* Timepicker addon for datepicker.
+-------------------------------------------------------------- */
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+
+input:required:valid,
+input:required:invalid,
+input:focus:invalid,
+textarea:required:invalid,
+textarea:focus:invalid,
+textarea:required:valid,
+.requiredField,
+.invalidField,
+.okField {
+	background-position: right top;
+	background-repeat: no-repeat;
+}
+
+input:required:invalid, textarea:required:invalid, .requiredField {
+	background-image: url('../images/icons-16/arrow-225.png');
+	-moz-box-shadow: none;
+}
+
+input:focus:invalid, .invalidField, textarea:focus:invalid {
+	background-image: url('../images/icons-16/cross.png');
+	-moz-box-shadow: none;
+}
+
+.okField {
+	background-image: url('../images/icons-16/tick.png');
+}
+
+input:required:valid, textarea:required:valid {
+	background-image: url('../images/icons-16/plus-small.png');
+}
+
+/* General Menu Style
+-------------------------------------------------------------- */
+
+nav {
+	text-align: left;
+	clear: both;
+}
+#menu {
+	padding: 0;
+	margin: 0;
+	height: 3.20em;
+}
+#history {
+	padding: 0;
+	margin: 0;
+	height: 2.5em;
+}
+#nav {
+	padding: 0;
+	margin: 0;
+}
+#bread {
+	padding: 0;
+	margin: 0;
+	font-size: 0.9em;
+}
+#nav li, #bread li {
+	margin: 0 0.3em 0.3em 0;
+	float: left;
+	padding: 0 0 1em;
+	position: relative;
+	list-style: none;
+}
+/* Main level link
+-------------------------------------------------------------- */
+#nav a {
+	display: block;
+	padding:  0.5em;
+	margin: 0;
+	text-decoration: none;
+}
+#bread a {
+	display: block;
+	padding:  0.25em 0.5em 0.25em 0.5em;
+	margin: 0;
+	text-decoration: none;
+}
+/* Main level link hover
+-------------------------------------------------------------- */
+#nav .current a, #nav li:hover > a,
+#bread .current a, #bread li:hover > a { }
+/* Sub levels link hover
+-------------------------------------------------------------- */
+#nav ul li:hover a, #nav li:hover li a,
+#bread ul li:hover a, #bread li:hover li a
+{
+	margin: 0;
+	border: 0;
+}
+#nav ul a:hover, #bread ul a:hover { }
+/* Level 2 list
+-------------------------------------------------------------- */
+#nav ul {
+	z-index: 10;
+	display: none;
+	margin: 0;
+	padding: 0;
+	min-width: 15em;
+	position: absolute;
+}
+#bread ul {
+	z-index: 10;
+	display: none;
+	margin: 0;
+	padding: 0;
+	min-width: 13em;
+	position: absolute;
+}
+/* Dropdown
+-------------------------------------------------------------- */
+#nav li:hover > ul, #bread li:hover > ul {
+	margin: .3em 0 0 0;
+	display: block;
+	padding: 0;
+}
+#nav ul li, #bread ul li {
+	float: none;
+	margin: 0;
+	padding: 0;
+}
+#nav ul a, #bread ul a {
+	font-weight: normal;
+}
+/* Level 3+ list
+-------------------------------------------------------------- */
+#nav ul ul,  #bread ul ul {
+	z-index: 10;
+	left: 100%;
+	margin: 0;
+	padding: 0;
+	top: -.3em;
+}
+/* Rounded corners for first and last child
+-------------------------------------------------------------- */
+#nav ul li:first-child > a,
+#bread ul li:first-child > a { }
+#nav ul li:last-child > a,
+#bread ul li:last-child > a {}
+/* Pagination
+-------------------------------------------------------------- */
+#pagination {
+	text-align: center;
+	padding: 0 0.2em 0 0.2em;
+	margin-bottom: 0.15em;
+	height: 3.2em;
+}
+
+#results {
+	list-style: none;
+}
+
+#results li, #results li.pages {
+	float: left;
+	position: relative;
+	list-style: none;
+}
+
+#results li {
+	margin: 0.15em;
+	padding: 0.3em;
+}
+
+#results li.pages {
+	margin: 0.15em;
+	padding: 0.18em 0.4em 0.16em 0.18em;
+}
+
+#norecords {
+	text-align: center;
+}
+/* Clearfix
+-------------------------------------------------------------- */
+#nav:after, #bread:after, #results:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+#nav, #bread, #results {
+	display: inline-block;
+}
+html[xmlns] #nav, html[xmlns] #bread, html[xmlns] #results {
+	display: block;
+}
+* html #nav, * html #bread, * html #results {
+	height: 1%;
+}
+/* Control Panel CSS
+-------------------------------------------------------------- */
+#controlpanel {
+	margin: .5em 0 .5em;
+}
+
+#controlpanel #cp-menu li {
+	position: relative;
+	list-style: none;
+	display: inline-block;
+	text-align: center;
+	width: 11em;
+	margin: .3em;
+	vertical-align:top;
+}
+
+#controlpanel #cp-menu li a, #cp-notes li a {
+	text-decoration: none;
+}
+
+#controlpanel #cp-menu li a {
+	text-shadow: 0 0 .5em;
+}
+
+#controlpanel #cp-menu li span {
+	list-style: none;
+	display: block;
+}
+
+#controlpanel #cp-menu .cp-selector {
+	padding: .3em 0 .3em;
+}
+
+ul#cp-notes {
+	margin: .5em 0 .5em;
+	padding: 0;
+	text-align: left;
+}
+
+#cp-notes li {
+	margin: 0 0 .3em;
+	list-style: none;
+	width: 14em;
+}
+
+#cp-notes li a {
+	padding: .5em;
+}
+
+/* Tabs
+-------------------------------------------------------------- */
+#tabs {
+	border: none;
+}
+.ui-tabs .ui-tabs-hide {
+    display: none;
+}
+/* Toggle
+-------------------------------------------------------------- */
+.toggleWrap {
+	max-width: 50em;
+}
+
+/* Core notifications.
+-------------------------------------------------------------- */
+#heading {
+	padding: 0.5em;
+	margin-bottom: .3em;
+}
+
+#scripticon .img {
+	float: right;
+	position: relative;
+	top: -1.4em;
+	left: -1.4em;
+}
+/* Success, notice and error boxes
+-------------------------------------------------------------- */
+
+.info, .warning, .critical, .notice, .busy, .message, .note, .ok, .scripthead, .error {
+	margin-bottom: .3em;
+	padding: 0.5em;
+}
+
+.info { border: 1px solid #CCC; background: #F1F1F1 url(../images/shade.png) 50% 50% repeat-x; color: #6699FF; }
+.warning { border: 1px solid #FF3300; background: #FF4F22 url(../images/shade.png) 50% 50% repeat-x; color: #FFF; }
+.error { border: 1px solid #FF3300; background: #FF3300 url(../images/shade.png) 50% 50% repeat-x; color: #FFF; }
+.critical { border: 1px solid #FF0000; background: #FFBBBB url(../images/shade.png) 50% 50% repeat-x; color: #FF0000; }
+.ok { border: 1px solid #339900; background: #BCFF9B url(../images/shade.png) 50% 50% repeat-x; color: #339900; }
+.notice { border: 1px solid #FFCC00; background: #FFE479 url(../images/shade.png) 50% 50% repeat-x; color: #FF6633; }
+.busy { border: 1px solid #6666FF; background: #D7D7FF url(../images/shade.png) 50% 50% repeat-x; color: #6666FF; }
+.message { border: 1px solid #CCC; background: #F1F1F1 url(../images/shade.png) 50% 50% repeat-x; color: #666; }
+.note { border: 1px solid #FF9933; background: #F1F1F1 url(../images/shade.png) 50% 50% repeat-x; color: #FF9933; }
+
+.scripthead {
+	font-style: normal;
+	font-weight: bold;
+}
+
+.no_results { width: 100%; }
+
+/*
+	Document   : jquery.pnotify.default.css
+	Created on : Nov 23, 2009, 3:14:10 PM
+	Author     : Hunter Perrin
+	Version    : 1.1.0
+	Link       : http://pinesframework.org/pnotify/
+	Description:
+		Default styling for Pines Notify jQuery plugin.
+*/
+
+/* Notice
+-------------------------------------------------------------- */
+.ui-pnotify {
+	top: 4.8em;
+	right: 0.6em;
+	position: absolute;
+	height: auto;
+	/* Ensure that the notices are on top of everything else. */
+	z-index: 9999;
+}
+/* This hides position: fixed from IE6, which doesn't understand it. */
+html > body .ui-pnotify {
+	position: fixed;
+}
+.ui-pnotify .ui-pnotify-shadow {
+	margin: 0;
+	position: absolute;
+	top: .1em;
+	left: .1em;
+	bottom: -.2em;
+	right: -.2em;
+	z-index: -1;
+}
+.ui-pnotify-container {
+	background-position: 0 0;
+	padding: .8em;
+	height: 100%;
+}
+.ui-pnotify-closer, .ui-pnotify-sticker {
+	float: right;
+	margin-left: .2em;
+}
+.ui-pnotify-title {
+	display: block;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-bottom: .4em;
+}
+.ui-pnotify-text {
+	display: block;
+}
+.ui-pnotify-icon, .ui-pnotify-icon span {
+	display: block;
+	float: left;
+	margin-right: .2em;
+}
+
+/* History Pulldown
+-------------------------------------------------------------- */
+.ui-pnotify-history-container {
+	position: absolute;
+	top: 0;
+	right: 50%;
+	width: 80px;
+	border-top: none;
+	/* Ensure that the history container is on top of the notices. */
+	z-index: 10000;
+}
+.ui-pnotify-history-container .ui-pnotify-history-header {
+	padding: 0.8em;
+}
+.ui-pnotify-history-container button {
+	cursor: pointer;
+	display: block;
+	width: 74px;
+	margin: 3px;
+}
+.ui-pnotify-history-container .ui-pnotify-history-pulldown {
+	display: block;
+	margin: 0 auto;
+}
+
+/* ==================================================================================================================== */
+/* ! The 1140px Grid V2 by Andy Taylor \ http://cssgrid.net \ http://www.twitter.com/andytlr \ http://www.andytlr.com   */
+/* ==================================================================================================================== */
+
+.container {
+
+}
+
+.column {
+
+}
+/* For fixed grid, add:
+** max-width: 1140px;
+** min-width: 755px;
+*/
+.row {
+	width: 98%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11 {
+	margin-right: 1em;
+	float: left;
+	min-height: 1px;
+	display: inline-table;
+	vertical-align: top;
+}
+
+.row .grid_1 {
+	width: 4.85%;
+}
+
+.row .grid_2 {
+	width: 13.45%;
+}
+
+.row .grid_3 {
+	width: 22.05%;
+}
+
+.row .grid_4 {
+	width: 30.75%;
+}
+
+.row .grid_5 {
+	width: 39.45%;
+}
+
+.row .grid_6 {
+	width: 48%;
+}
+
+.row .grid_7 {
+	width: 56.75%;
+}
+
+.row .grid_8 {
+	width: 65.4%;
+}
+
+.row .grid_9 {
+	width: 74.05%;
+}
+
+.row .grid_10 {
+	width: 82.7%;
+}
+
+.row .grid_11 {
+	width: 91.35%;
+}
+
+.row .grid_12 {
+	width: 100%;
+	float: left;
+}
+
+.last {
+	margin-right: 0;
+	display: block;
+}
+
+img, object, embed {
+	max-width: 100%;
+}
+
+img {
+	height: auto;
+}
+
+
+/* Smaller screens */
+
+@media only screen and (max-width: 1023px) {
+
+	body {
+		font-size: 0.8em;
+		line-height: 1.5em;
+	}
+
+}
+
+
+/* Mobile */
+
+@media handheld, only screen and (max-width: 767px) {
+
+	body {
+		font-size: 16px;
+		-webkit-text-size-adjust: none;
+	}
+
+	.row, body, .container {
+		width: 100%;
+		min-width: 0;
+		margin-left: 0px;
+		margin-right: 0px;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	.row .grid_1, .row .grid_2, .row .grid_3, .row .grid_4, .row .grid_5, .row .grid_6, .row .grid_7, .row .grid_8, .row .grid_9, .row .grid_10, .row .grid_11, .row .grid_12 {
+		width: auto;
+		float: none;
+		margin-left: 0px;
+		margin-right: 0px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+}
+
+/* Headings
+-------------------------------------------------------------- */
+header {
+	min-height: 3.8em;
+	margin: 0;
+}
+header #logo { float: left; text-shadow: 0 0.2em 0.2em #555; max-height: 4em; }
+header #logindetail { padding-top: 0.3em; }
+header #info { float: right; }
+h1,h2,h3,h4,h5,h6 { font-weight: normal; }
+
+h1 { font-size: 3em; line-height: 1; margin-bottom: 0.5em; }
+h2 { font-size: 2em; margin-bottom: 0.75em; }
+h3 { font-size: 1.5em; line-height: 1; margin-bottom: 1em; }
+h4 { font-size: 1.2em; line-height: 1.25; margin-bottom: 1.25em; }
+h5 { font-size: 1em; font-weight: bold; margin-bottom: 1.5em; }
+h6 { font-size: 1em; font-weight: bold; }
+
+h1 img, h2 img, h3 img,
+h4 img, h5 img, h6 img { margin: 0; }
+
+
+/* Text elements
+-------------------------------------------------------------- */
+
+p           { margin: 0 0 1.5em; }
+p img.left  { float: left; margin: 1.5em 1.5em 1.5em 0; padding: 0; }
+p img.right { float: right; margin: 1.5em 0 1.5em 1.5em; }
+
+a:focus,
+a:hover     { text-decoration: underline; }
+a           { text-decoration: underline; }
+
+blockquote  { margin: 1.5em; font-style: italic; }
+strong      { font-weight: bold; }
+em,dfn      { font-style: italic; }
+dfn         { font-weight: bold; }
+sup, sub    { line-height: 0; }
+
+abbr,
+acronym     { border-bottom: .3em dotted #666; }
+address     { margin: 0 0 1.5em; font-style: italic; }
+del         { color:#666; }
+
+pre         { margin: 1.5em 0; white-space: pre; }
+pre,code,tt { font: 1em 'andale mono', 'lucida console', monospace; line-height: 1.5; }
+
+.img_left	{ float: left; padding: 0 0.3em 0 0 }
+.img_right	{ float: right; padding: 0 0 0 0.3em }
+
+/* Lists
+-------------------------------------------------------------- */
+li ul,
+li ol       { margin: 0; }
+ul, ol      { margin: 0 1.5em 1.5em 0; padding-left: 3.333em; }
+
+ul          { list-style-type: disc; }
+ol          { list-style-type: decimal; }
+
+dl          { margin: 0 0 1.5em 0; }
+dl dt       { font-weight: bold; }
+dd          { margin-left: 1.5em;}
+
+
+/* Tables
+-------------------------------------------------------------- */
+table       { margin-bottom: 1em; width: 100%; }
+th          { font-weight: bold; border: 0; white-space: nowrap; }
+th .order .desc, th .order .asc { margin: 0.1em; }
+th,caption  { padding: 0.3em; }
+td          { padding: 0.8em 0.3em }
+.theader    { border: 0; }
+
+/* Misc classes
+-------------------------------------------------------------- */
+
+.small      { font-size: .8em; margin-bottom: 1.875em; line-height: 1.875em; }
+.large      { font-size: 1.2em; line-height: 2.5em; margin-bottom: 1.25em; }
+.vlarge     { font-size: 2.0em; line-height: 2.5em; margin-bottom: 1.25em; }
+.hide       { display: none; }
+
+.quiet      { color: #666; }
+.loud       { color: #000; }
+.highlight  { background:#ff0; }
+.added      { background:#060; color: #fff; }
+.removed    { background:#900; color: #fff; }
+
+.first      { margin-left:0; padding-left:0; }
+.last       { margin-right:0; padding-right:0; }
+.top        { margin-top:0; padding-top:0; }
+.bottom     { margin-bottom:0; padding-bottom:0; }
+.nowrap		{ white-space: nowrap; }
+.pagenotfound { padding: 6em; }
+
+/* Common Addative Classes
+-------------------------------------------------------------- */
+.left  { float: left; }
+.right { float: right; }
+.top { vertical-align: top; }
+.center { text-align: center; }
+.clear { clear:both; display:block; overflow:hidden; visibility:hidden; width:0px; height:0px; }
+.hide  { display:none }
+
+.align_right    { text-align:right; }
+.align_left     { text-align:left; }
+.align_center   { text-align:center; }
+.align_justify  { text-align:justify; }
+
+/* Footer
+-------------------------------------------------------------- */
+footer {
+	margin: 1em 0;
+	padding: 0;
+}
+
+footer #footername { float: left; }
+footer #footernotes { float: right; }
+
+#queries { text-align: center; }
+.ajaxwidget { display: block; position: relative; height: auto; margin-bottom: 1em; }
+
+@media only print {
+	html { font-size: 45%; }
+	body {
+	  margin: 0;
+	  padding: 0;
+	  font-size: 45%;
+	  line-height: 1;
+	}
+
+	head, header, nav, .dont-print {
+		display: none;
+	}
+
+	input[type=number], input[type=url], input[type=email], input[type=text], input[type=password], input[type=file],
+	input.text, input.title, textarea, select, label fieldset, div, p, span, legend {
+		color: #000;
+	}
+}
+
+/* PU_Array Dump
+-------------------------------------------------------------- */
+.array_dump {
+	/*font: 1em 'andale mono', 'lucida console', monospace;*/
+	line-height: 1.5;
+	list-style-type: none;
+}
+
+.array_dump .array_key {
+	font-weight: bold;
+	line-height: 1.8;
+}
+
+.array_dump .array_grey {
+	color: #A7A7A7;;
+}
+
+.array_dump .array_value {
+	white-space: nowrap;
+}
+
+.array_dump .array_type {
+	color: #8383FF;
+}
+
+
+/**
+ * Added by Greg on 20121108
+ *
+ * Improve menus, expecially chrome bug (https://bugs.launchpad.net/phpdevshell/+bug/1076323)
+ */
+#history {
+	height: auto;
+}
+
+#nav li {
+	padding: 0;
+}
+
+#menu {
+	height: auto;
+}
+
+#history {
+	font-size: 90%;
+}
+
+.grandparent:hover {
+	z-index: 500;
+}
+
+#nav li:hover > ul, #bread li:hover > ul {
+        margin:  0;
+        display: block;
+        padding: 4px;
+		box-shadow: 5px 5px 5px rgba(200,200,200,0.6);
+}
+
+.left {
+	float: none;
+	display: inline-block;
+	vertical-align: top;
+}

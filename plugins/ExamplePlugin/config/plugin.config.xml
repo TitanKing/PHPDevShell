@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- Please see http://phpdevshell.org for documentation on plugin config xml files. -->
+<config type="plugin">
+
+	<!-- Use a proper plugin name without using special characters (same as folder). -->
+	<name>ExamplePlugin</name>
+
+	<!-- Human readable version number of your plugin. -->
+	<version>3.2.0</version>
+
+	<!-- a Short description of your plugin (what does it do?). -->
+	<description>This plugin is purely meant for examples on how to use PHPDevShell.</description>
+
+	<!-- If this plugin is based on another and only modification by you, place the original authors names here. -->
+	<founder>Jason Schoeman</founder>
+
+	<!-- Name of the developer/modifier for this plugin. -->
+	<author>Jason Schoeman</author>
+
+	<!-- Email address of the developer for this plugin. -->
+	<email>titan@phpdevshell.org</email>
+
+	<!-- Plugin developers web address. -->
+	<homepage>http://www.phpdevshell.org</homepage>
+
+	<!-- Date the plugin was developed or updated. -->
+	<date>27 March 2012</date>
+
+	<!-- Copyright notice you would like to amend to your plugin. -->
+	<copyright>Copyright 2009 PHPDevShell.org All rights reserved.</copyright>
+
+	<!-- License this plugin is released under. -->
+	<license>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html GNU/LGPL</license>
+
+	<!-- Detailed information and help for this plugin. -->
+	<info>
+		<![CDATA[
+			<p>
+				See some features and getting started with plugins.
+				This plugin can actually be installed and is working.
+				It will install a few simple menus, hooks, queries and settings serving you with the basics in writing a plugin.
+			</p>
+		]]>
+	</info>
+
+	<!-- Code Version XML URL check. -->
+	<!-- Version (current) below is used to check for new releases and has little to do with database version. -->
+	<!-- See end of file to learn how the upgrade xml should look. -->
+	<versionurl current="11">http://version.phpdevshell.org/ExamplePlugin.xml</versionurl>
+
+	<!-- Version here represents the database version that should be install. -->
+	<!-- If your database version needs no update, this number can stay the same. -->
+	<!-- Upgrades further down will only be executed up to this number. -->
+	<!-- This is the current database version that will be installed. -->
+	<!-- Below is a series of example upgrade procedures. -->
+	<install version="3000">
+		<!--
+			[contains][All query, menu, dependencies, settings installation tags.]
+			[param][class][string][mandatory][The class call it depends on, the call must be registered.]
+			[param][plugin][string][mandatory][The default plugin the class is available in, it can be override with another class with the same call.]
+			[note][This is how the plugin manager will know to what version upgrade scripts should be executed.]
+			[note][Always keep install maintained to the latest menu, query, hooks and setting versions.]
+		-->
+		<dependencies>
+			<dependence class="controlPanel" plugin="ControlPanel" />
+			<dependence class="views" plugin="Smarty"  />
+			<dependence class="fileManager" plugin="FileMan" />
+			<dependence class="imaging" plugin="PHPThumbs" />
+			<dependence class="orm" plugin="RedBeanORM" />
+			<dependence class="crud" plugin="CRUD" />
+			<!-- <dependence class="someOtherCall" plugin="Smarty" /> -->
+		</dependencies>
+		<queries>
+			<!-- [contains][All install queries to create the tables for your plugin.] -->
+			<!-- [note][If there is a SQL query error, the plugin will not install.] -->
+			<query>
+				<!--
+					[string][This is a single actual sql query that will be executed]
+					[note][SQL query be placed in <![CDATA[ ]]> tags.]
+				-->
+				<![CDATA[
+					CREATE TABLE `_db_ExamplePlugin_example` (
+						`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+						`example_name` varchar(255) DEFAULT NULL,
+						`example_note` tinytext,
+						`alias` varchar(255) DEFAULT NULL,
+						PRIMARY KEY (`id`),
+						KEY `index` (`alias`)
+					) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+				]]>
+			</query>
+			<query>
+				<!-- [note][SQL queries can be repeated.] -->
+				<![CDATA[
+					CREATE TABLE `_db_examplepluginanothertable` (
+						`id` int(20) unsigned NOT NULL auto_increment,
+						`user_id` int(20) default NULL,
+						`message` varchar(255) default NULL,
+						PRIMARY KEY  (`id`)
+					) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+				]]>
+			</query>
+			<query>
+				<![CDATA[
+					CREATE TABLE `_db_example_multi_select_crud` (
+					  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+					  `join_id` tinyint(3) unsigned DEFAULT NULL,
+					  `value` tinyint(3) unsigned DEFAULT NULL,
+					  PRIMARY KEY (`id`)
+					) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+				]]>
+			</query>
+			<query>
+				<!-- [note][SQL queries can be duplicated.] -->
+				<![CDATA[
+					REPLACE INTO `_db_ExamplePlugin_example` VALUES ('1', 'Toyota', 'Reliable Toyota', 'car');
+				]]>
+			</query>
+			<query>
+				<!-- [note][SQL queries can be duplicated.] -->
+				<![CDATA[
+					REPLACE INTO `_db_ExamplePlugin_example` VALUES ('2', 'Mazda', 'Legend Mazda', 'car');
+				]]>
+			</query>
+			<query>
+				<!-- [note][SQL queries can be duplicated.] -->
+				<![CDATA[
+					REPLACE INTO `_db_ExamplePlugin_example` VALUES ('3', 'Ford', 'Muscle Ford', 'car');
+				]]>
+			</query>
+			<query>
+				<!-- [note][SQL queries can be duplicated.] -->
+				<![CDATA[
+					REPLACE INTO `_db_ExamplePlugin_example` VALUES ('4', 'Citroen', 'French Citroen', 'car');
+				]]>
+			</query>
+			<query>
+				<!-- [note][SQL queries can be duplicated.] -->
+				<![CDATA[
+					REPLACE INTO `_db_ExamplePlugin_example` VALUES ('5', 'Mercedes', 'Quality Mercedes', 'car');
+				]]>
+			</query>
+		</queries>
+		<settings>
+			<!-- [contains][Contains tags of all settings that needs to be installed to the general PHPDevShell settings database.] -->
+			<setting write="sampleSetting1">
+				This is a sample setting (1)!
+				<!--
+				[string][Actual value of setting that needs to be stored.]
+				[param][write][string][mandatory][The parameter id of the value to be stored.]
+				-->
+			</setting>
+			<setting write="sampleSetting2">
+				Yet another sample setting (2)!
+				<!-- [note][Setting tag needs to be repeated for each setting.] -->
+			</setting>
+			<setting write="sampleSettingbool">
+				true
+				<!-- [note][Setting tag needs to be repeated for each setting.] -->
+			</setting>
+		</settings>
+		<menus>
+			<!--
+			[contains][All types of menu items that needs to be installed.]
+			[note][Tags inside menus can be nested and repeated.]
+			[note][Here we link to an existing menu item from another plugin, in this case the control-panel aka dashboard.]
+			-->
+			<menu menuid="ExamplePluginMenuId" name="Example Plugin" type="2" link="control-panel.example" hide="" rank="last" newwindow="" plugin="PHPDevShell" parentlink="" symlink="user/control-panel.php" alias="example-control" template="" height="" noautopermission="">
+				<!--
+				[contains][Menu items can be contained in itself, this will create a menu tree.]
+				[param][menuid][string/id][not-mandatory][The id to identify this menu by, if none is provided, a dedicated id will be generated.]
+				[param][name][string][not-mandatory][The name of the menu item, if empty the pluginName.menu.lang.php will be used.]
+				[param][type][int][not-mandatory][There are 8 menu types, 1 is the default if left empty.]
+								[1][Plugin script] normal plugin menu item in your plugin folder.
+								[2][Link existing menu] item while staying in its own menu group when clicked.
+								[3][Link existing menu] item while jumping to original scripts menu group when clicked.
+								[4][External file] Include external PHP web applications into PHPDevShell.
+								[5][HTTP URL] Normal url to outside web.
+								[6][Empty Place Holder] This item will only serve as a unclickable menu place holder.
+								[7][iFrame] Link url to both external url or onsite url.
+								[8][Cronjob Menu Type] The same as a plugin script but is set as cronjob.
+								[10][HTML Ajax] When wanting to reuse ajax over multiple nodes, create an Ajax call with this node type.
+								[11][HTML Ajax Lightbox] Floats overtop of web page like a fancy popup effect while darkening the background web page.
+								[12][RAW Ajax] For raw ajax controller calls (json,xml,text etc), wont add any html or styling.
+				[param][link][string][mandatory][The url, controller location or symlink holder will be entered here depending on type.]
+				[param][hide][int][not-mandatory][There are 4 hide types, 0 is the default if left empty.]
+								[0] Do not hide menu item.
+								[1] Hide menu item from both Menu System and Control Panel.
+								[2] Hide menu item from Control Panel only.
+								[3] Hide menu item from Menu System only.
+								[4] Hide menu only when inactive.
+				[param][rank][string][not-mandatory][If you want to ensure ranking positions, will auto rank if left empty.]
+								[int] Can be ranked with integer.
+								[last] Will be ranked last in a menu group.
+								[first] Will be ranked first in a menu group.
+				[param][newwindow][int][not-mandatory][To make item open in new window set to 1, will not open in new if left empty.]
+				[param][plugin][string][not-mandatory][Plugin name, use to install menu item to a different plugins menu structure.]
+				[param][alias][string][not-mandatory][When switching on friendly urls in the settings and renaming rename.htaccess in the root, sef url will use this alias.]
+				[param][parentlink][string][not-mandatory][Use with [param][plugin] or without to install in different structure.]
+				[param][symlink][string][not-mandatory][Url or location with [param][plugin] or without to link to another menu item duplicating its use.]
+								[note][Symlink is mandatory for menu types 1,2,6]
+				[param][template][string][not-mandatory][Set template to use with plugin, if template is unavailable it will be installed.]
+				[param][template][string][not-mandatory][Set the height of an iframe menu type.]
+								[note][Height is mandatory for menu types 7]
+				[param][layout][string][not-mandatory][Set a custom template.tpl location for a certain script.]
+				[param][noautopermission][int][not-mandatory][Set to 1 to not add the installer of the plugin to permit menu item access.]
+				[param][param][string][not-mandatory][Param field can be used to store additional data in the menu for customization purposes.]
+				-->
+				<menu menuid="readmeexample" name="Readme First" link="readme-example.php" type="1" params='some parameters {"glossary": {"menu": "some special action"}}'>
+					<!-- [note][Can be nested to present a deeper menu tree.] -->
+					<menu menuid="listexample" name="List Examplé" link="list-example.php" alias="list-example" />
+					<menu name="New Example" link="manage-example.php" alias="manage-example" />
+					<menu name="Edit Example" link="manage-example.symlink" symlink="manage-example.php" alias="edit-example" type="2" hide="4" />
+					<menu name="Upload Example" link="example/upload-example.php" />
+					<menu name="My First Script" link="example/first.php" />
+					<menu name="Ajax and Widgets" link="example/widget-example.php" />
+					<menu name="HTML Ajax Widget" link="widgets/simple-widget.php" hide="1" type="9" />
+					<menu name="Another Widget" link="widgets/simple-widget2.php" hide="1" type="9" />
+					<menu name="HTML Ajax" link="widgets/simple-ajax.php" hide="1" type="10" />
+					<menu name="Lightbox" link="widgets/simple-lightbox.php" hide="1" type="11" />
+					<menu name="Raw Ajax" link="widgets/raw-ajax.php" hide="1" type="12" />
+					<menu name="Via Ajax" link="widgets/via-ajax.php" />
+					<menu name="No MVC" link="example/no-mvc.php">
+						<menu name="Sandbox" link="example/example-two.php" hide="2" >
+							<!-- [note][Can be repeated.] -->
+							<menu name="Sharing Instances" link="example/example-three.php" hide="2" type="8" />
+						</menu>
+					</menu>
+					<menu name="ORM" link="example/orm-example.php" alias="orm-example" />
+					<menu name="CRUD" link="example/crud-example.php" alias="crud-example" />
+				</menu>
+				<menu name="Exception Example" link="exception-example.php" />
+				<!-- [note][New menus on upgrades should be added here, this will always be the model on upgrades.] -->
+				<!-- [note][Let us add some other odd menu types for examples sake as well.]-->
+				<menu name="PHPDevShell" link="http://www.phpdevshell.org" type="5" hide="2" newwindow="1" />
+				<!-- [note][Installing a menu item to another plugins menu structure is easy as well.] -->
+				<menu name="PHPDevShell IFrame" link="http://doc.phpdevshell.org" type="7" height="1024" hide="2" alias="iframe-example" />
+			</menu>
+		</menus>
+		<!--
+		[contains][Register classes to be publicly available and shared. There can be multiple classes of the same name in different plugins, they can overwrite each other by rank.]
+		[note][Class name must be the same as what the file is called, groupTree.class.php and must be containded within includes folder.]
+		[param][name][string][mandatory][The name of the class to be called by factory('groupTree') and the filename that contains the class groupTree.class.php]
+		[param][alias][string][mandatory][Alternative callname for factory('PHPDS_groupTree'), will call same class though.]
+		[param][plugin][string][mandatory][The plugin name/folder where the class belongs to.]
+		[param][rank][mixed][not-mandatory][The lower in integer the rank the higher the chance is that this class will overwrite classes of the same names.]
+			   [int] Can be ranked with integer.
+			   [last] Will be ranked last and any preceding class will overwrite it.
+               [first] Will be ranked first and will be overwriting lower ranked classes.
+		-->
+		<classes>
+			<class name="supportExample" alias="EXAMPLE_exampleClass" plugin="ExamplePlugin" rank="last" />
+		</classes>
+	</install>
+		<!-- Upgrades only upgrade to the point where <install version="2800"> is set. -->
+		<!-- To preview how upgrade works set <install version="2800"> to 2801 or higher. -->
+	<upgrade version="3001">
+		<!--
+		[contains][All query, menu, settings upgrade tags.]
+		[param][version][int][mandatory][This upgrade version, will upgrade until install[version] is met.]
+		[note][This is how the plugin manager will know to what version upgrade scripts should be executed.]
+		-->
+		<queries>
+			<!-- [contains][All upgrade queries to create the tables for your plugin.] -->
+			<query>
+				<!--
+				[string][This is a single actual sql query that will be executed on upgrade.]
+				[note][SQL query be placed in <![CDATA[ ]]> tags.]
+				-->
+				ALTER TABLE `_db_examplepluginanothertable` MODIFY COLUMN `user_id` int(40) unsigned NOT NULL;
+			</query>
+			<query>
+				<!-- [note][The query tag should be repeated for each upgrade query.] -->
+				ALTER TABLE `_db_examplepluginanothertable` MODIFY COLUMN `message` varchar(200) default NULL;
+			</query>
+		</queries>
+		<settings>
+			<!-- [contains][Contains tags of all settings that needs to be upgraded or removed from the general PHPDevShell settings database.] -->
+			<setting write="sampleSetting3">
+				More Settings (3)
+				<!--
+				[string][Actual value of setting that needs to be stored.]
+				[param][write][string][mandatory][The parameter id of the value to be stored.]
+				-->
+			</setting>
+			<setting write="sampleSetting4">
+				We can do this all day long (4)
+				<!-- [note][Setting tag needs to be repeated for each setting added.] -->
+			</setting>
+			<setting delete="sampleSetting3">
+				<!-- [note][Setting tag needs to be repeated for each setting to be deleted.] -->
+			</setting>
+			<setting delete="sampleSettingbool">
+				<!--
+				[contains][Nothing, works from parameters only.]
+				[param][delete][string][mandatory][The parameter id of the value to be deleted.]
+				-->
+			</setting>
+		</settings>
+		<menus>
+			<!--
+			[contains][All menus that should be deleted.]
+			[note][To add menus on upgrades the master install must always be modified with latest menus.]
+			[note][Old menus should still be deleted even though they have been removed from install.]
+			-->
+			<menu delete="sample/sample2.php">
+				<!--
+				[contains][Nothing, works from parameters only.]
+				[param][delete][string][mandatory][The link to the item that needs to be deleted.]
+				[note][It does not matter where link for this menu item exists, it will find it automatically.]
+				-->
+			</menu>
+			<menu delete="sample/sample3.php">
+				<!-- [note][This tag can be repeated to delete multiple menus.] -->
+			</menu>
+		</menus>
+	</upgrade>
+	<!-- To preview how upgrade works set <install version="2800"> to 2802 or higher. -->
+	<upgrade version="3002" >
+		<!-- [note][This tag can be repeated with all child tags for each release that needs upgrade action.] -->
+		<queries>
+			<query>
+				<!--
+				[string][This is a single actual sql query that will be executed on upgrade.]
+				[note][SQL query be placed in <![CDATA[ ]]> tags.]
+				-->
+				ALTER TABLE `_db_examplepluginanothertable` MODIFY COLUMN `user_id` int(30) unsigned NOT NULL;
+			</query>
+		</queries>
+		<menus>
+			<menu delete="sample/sample1.php">
+				<!--
+				[contains][Nothing, works from parameters only.]
+				[param][delete][string][mandatory][The link to the item that needs to be deleted.]
+				[note][It does not matter where link for this menu item exists, it will find it automatically.]
+				-->
+			</menu>
+			<menu delete="http://www.php.net" />
+		</menus>
+	</upgrade>
+	<!-- To preview how upgrade works set <install version="2800"> to 2803 or higher. -->
+	<upgrade version="3003">
+		<!-- [note][Will run through all upgrade on upgrade until install version is met.] -->
+		<queries>
+			<query>
+				<!-- [note][The query tag should be repeated for each upgrade query.] -->
+				DROP TABLE IF EXISTS _db_examplepluginanothertable;
+			</query>
+		</queries>
+		<menus>
+			<menu delete="http://www.phpdevshell.org" />
+		</menus>
+		<settings>
+			<setting write="sampleSetting5">
+				We can do this all day long (5)
+				<!-- [note][Setting tag needs to be repeated for each setting added.] -->
+			</setting>
+		</settings>
+	</upgrade>
+	<uninstall>
+		<!--
+		[contains][All actions that will be executed on uninstalling a plugin.]
+		[note][Menus, settings and hooks will be uninstalled automatically for this plugin.]
+		-->
+		<queries>
+			<!-- [contains][All uninstall queries that will be executed when requested.] -->
+			<query>
+				<!--
+				[string][This is a single actual sql query that will be executed on uninstalling plugin.]
+				[note][SQL uninstall query be placed in <![CDATA[ ]]> tags.]
+				-->
+				DROP TABLE IF EXISTS _db_ExamplePlugin_example;
+			</query>
+			<query>
+				<!-- [note][The query tag should be repeated for each uninstall query.] -->
+				DROP TABLE IF EXISTS _db_examplepluginanothertable;
+			</query>
+			<query>
+				<!-- [note][The query tag should be repeated for each uninstall query.] -->
+				DROP TABLE IF EXISTS _db_example_multi_select_crud;
+			</query>
+			<query>
+				<!-- [note][The query tag should be repeated for each uninstall query.] -->
+				DROP TABLE IF EXISTS _db_example_book;
+			</query>
+		</queries>
+	</uninstall>
+</config>
+

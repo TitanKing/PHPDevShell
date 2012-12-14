@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- Please see http://phpdevshell.org for documentation on plugin config xml files. -->
+<!-- Download DummyPlugin from http://phpdevshell.org for a detailed example plugin. -->
+<!--  This plugin does not contain all the values needed for a normal plugin. -->
+<config type="plugin">
+
+	<!-- Use a proper plugin name without using special characters. -->
+	<name>ReadBeanPHP</name>
+
+	<!-- Human readable version number of your plugin. -->
+	<version>3.2.0</version>
+
+	<!-- a Short description of your plugin. -->
+	<description>Provides full suite of ORM capabilities.</description>
+
+	<!-- If the plugin/script is modification by you, place the original authors names here. -->
+	<founder>Gabor de Mooij</founder>
+
+	<!-- Name of the developer for this plugin. -->
+	<author>Gabor de Mooij, Jason Schoeman</author>
+
+	<!-- Email address of the developer for this plugin. -->
+	<email>titan@phpdevshell.org</email>
+
+	<!-- Plugin developers web address. -->
+	<homepage>http://www.phpdevshell.org</homepage>
+
+	<!-- Date the plugin was developed, modified. -->
+	<date>08 May 2011</date>
+
+	<!-- Copyright notice you would like to amend to your plugin. -->
+	<copyright>Licensed New BSD/GPLV2</copyright>
+
+	<!-- License this plugin is released under. -->
+	<license>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html GNU/LGPL</license>
+
+	<!-- Detailed information and help for this plugin. -->
+	<info>
+		<![CDATA[
+			<p>
+				Data modelling should be easy, agile and fun. It should be easy, because code that no one can understand is barely maintainable.
+				It should be agile because people tend to change their minds about almost everything, everyday.
+				It should be fun, because what's life without fun? Why should you use industry standard tools instead of the tools that boost your productivity?
+				Dare to choose for a different solution!
+			</p>
+		]]>
+	</info>
+
+	<!-- Version here represents the database version that should be install. -->
+	<!-- If your database version needs no update, this number can stay the same. -->
+	<!-- Upgrades further down will only be executed up to this number. -->
+	<install version="1000">
+		<!--
+		[contains][All query, menu, settings installation tags.]
+	    [param][version][int][mandatory][The latest database version in numbers only.]
+	    [note][This is how the plugin manager will know to what version upgrade scripts should be executed.]
+	    [note][Always keep install maintained to the latest menu, query and setting versions.]
+		-->
+		<queries>
+		</queries>
+		<menus>
+		</menus>
+		<dependencies>
+		</dependencies>
+		<classes>
+			<class name="orm" alias="PHPDS_orm" plugin="RedBeanORM" rank="last" />
+		</classes>
+	</install>
+	<uninstall>
+		<queries>
+		</queries>
+	</uninstall>
+</config>

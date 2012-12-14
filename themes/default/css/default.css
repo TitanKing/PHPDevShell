@@ -1,0 +1,62 @@
+
+/* Bootstrap overrides - Its cool but we dont like everything. */
+body {
+
+}
+
+/* Code in headings */
+h3 code {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+#menu, #subnav {
+  font-size: 13px;
+}
+
+/* Basic default theme additions.----------------------------- */
+
+/* Login style.----------------------------------------------- */
+#logged-in-info a.options   { width: 180px; }
+#logged-in-info legend      { font-size: 18px; }
+
+/* Page name subnav.------------------------------------------ */
+.active-name {
+    margin: 10px 0;
+    font-family: inherit;
+    font-weight: bold;
+    line-height: 20px;
+    color: inherit;
+    text-rendering: optimizelegibility;
+    font-size: 26px;
+}
+
+#subnav .navbar-inner {
+    margin-bottom: 15px;
+}
+
+/* Loader between screens.------------------------------------ */
+#loader {
+    text-align: center;
+}
+#wrap-loader {
+    padding: 100px 0 20px;
+}
+
+/* Notifications.--------------------------------------------- */
+.notifications {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 10px 20px 0 20px;
+}
+
+/* Notification Element */
+.notifications > div {
+    position: relative;
+    z-index: 9999;
+    -webkit-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.100);
+    -moz-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.100);
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.100);
+}
+/* ----------------------------------------------------------- */
