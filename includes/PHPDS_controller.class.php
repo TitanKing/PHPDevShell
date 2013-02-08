@@ -265,7 +265,7 @@ class PHPDS_controller extends PHPDS_dependant
 					$core->data = $raw_data;
 					return true;
 				} else {
-					throw new PHPDS_exception(sprintf(___('The return value of controller %d is invalid.'), $this->configuration['m']));
+					throw new PHPDS_exception(sprintf('The return value of controller %d is invalid.', $this->configuration['m']));
 				}
 			}
 		}

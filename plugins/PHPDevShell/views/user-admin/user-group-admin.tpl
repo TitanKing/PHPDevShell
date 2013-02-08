@@ -1,60 +1,58 @@
-<form action="{$self_url}" method="post" class="validate">
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#user_group_note").textareaAutoExpand();
+    });
+</script>
+<form action="{$self_url}" method="post" class="validate click-elegance">
     <div class="row">
-        <div class="column grid_4">
+        <div class="span4">
 			<fieldset>
 				<legend>{_e('Group Detail')}</legend>
 				{if $user_group_id != ''}
 				<p>
-					<label>{_e('User Group ID')}
-						<input type="text" size="5" name="user_group_id" value="{$user_group_id}" readonly title="{_e('This is the group where newly verified or direct registration users will be moved to. Groups are used to group data for access permission.')}">
-					</label>
+					<label for="user_group_id">{_e('ID')}</label>
+                    <input id="user_group_id" type="text" name="user_group_id" value="{$user_group_id}" readonly>
 				</p>
 				{/if}
 				<p>
-					<label>{_e('Groups Parent')}
-						<select class="select" name="parent_group_id" title="{_e('Select a parent for the current user group, this allows users assigned to parents group to also access child groups.')}">
-						<option value="0">../</option>
-						{$parent_group_option}
-						</select>
-					</label>
+					<label for="parent_group_id">{_e('Parent')}</label>
+                    <select id="parent_group_id" class="select" name="parent_group_id">
+                    <option value="0">../</option>
+                    {$parent_group_option}
+                    </select>
 				</p>
 				<p>
-					<label>{_e('User Group Name')}
-						<input type="text" size="20" name="user_group_name" value="{$user_group_name}" required="required" title="{_e('This is the group where newly verified or direct registration users will be moved to. Groups are used to group data for access permission.')}">
-					</label>
+					<label for="user_group_name">{_e('Name')}</label>
+                    <input id="user_group_name" type="text" name="user_group_name" value="{$user_group_name}" required="required">
 				</p>
 				<p>
-					<label>{_e('User Group Notes')}
-						<textarea rows="5" cols="40" name="user_group_note" title="{_e('You might want to remember something about a specific group.')}">{$user_group_note}</textarea>
-					</label>
+					<label for="user_group_note">{_e('Notes')}</label>
+                    <textarea id="user_group_note" name="user_group_note">{$user_group_note}</textarea>
 				</p>
 			</fieldset>
         </div>
-		<div class="column grid_4">
+		<div class="span4">
 			<fieldset>
 				<legend>{_e('Other')}</legend>
 				<p>
-					<label>{_e('Alias')}
-						<input type="text" size="20" name="alias" value="{$alias}" title="{_e('When selecting an alias, with mod_rewrite enabled, the urls will be seo friendly.')}">
-					</label>
+					<label for="alias">{_e('Alias')}</label>
+                    <input id="alias" type="text" name="alias" value="{$alias}">
 				</p>
-				<p>
-					<label>{_e('Line Break Separated (tag:[auto] or tag:value)')}
-						<textarea rows="5" cols="40" name="tagger" title="{_e('Tags to this specific group.')}">{$tagger}</textarea>
-					</label>
-				</p>
+                <fieldset>
+                    <legend>{_e('Tags')}</legend>
+                    {$tagger}
+                </fieldset>
 			</fieldset>
         </div>
-		<div class="column grid_4 last">
-			<fieldset>
-				<legend>{_e('Submit')}</legend>
-				<p>
-					{$post_validation}
-					<button type="submit" name="save" value="save"><span class="save"></span><span>{_e('Save Group')}</span></button>
-					<button type="reset"><span class="reset"></span><span>{_e('Reset')}</span></button>
-					<button type="submit" name="new" value="new"><span class="new"></span><span>{_e('New')}</span></button>
-				</p>
-			</fieldset>
-		</div>
+        <div class="span4">
+            <fieldset>
+                <legend>&nbsp;</legend>
+                <p>
+                    <button type="submit" name="save" value="save" class="btn btn-primary"><i class="icon-ok icon-white"></i> {_e('Submit')}</button>
+                    <button type="submit" name="new" value="new" class="btn btn-success"><i class="icon-plus icon-white"></i> {_e('Add')}</button>
+                    <button type="reset" name="reset" value="reset" class="btn"><i class="icon-refresh"></i> {_e('Reset')}</button>
+                </p>
+            </fieldset>
+        </div>
     </div>
 </form>

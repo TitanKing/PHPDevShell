@@ -21,7 +21,7 @@ class GeneralSettings extends PHPDS_controller
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		// Header information
-		$this->template->heading(_('General System Configuration'));
+		$this->template->heading(__('General System Configuration'));
 
 		// Extract all available settings.
 		$sa = $this->db->getSettings();
@@ -45,7 +45,7 @@ class GeneralSettings extends PHPDS_controller
 			// If it can't be found create a new one and give notice.
 			if (empty($sa['empty_template_id'])) {
 				$this->db->invokeQuery('PHPDS_writeEmptyTemplateIdQuery');
-				$this->template->notice(_('Cannot find the empty template so a new entry was created.'));
+				$this->template->notice(__('Cannot find the empty template so a new entry was created.'));
 			}
 			// Define.
 			$lang_code_inster = false;
@@ -86,7 +86,7 @@ class GeneralSettings extends PHPDS_controller
 					empty($sa['setting_admin_email']) || empty($sa['setting_support_email']) || empty($sa['email_fromname']) || empty($sa['from_email']) ||
 					// Registration Settings
 					empty($sa['registration_page']) || empty($sa['registration_group']) || empty($sa['move_verified_group']) || empty($sa['guest_group']) || empty($sa['registration_role']) || empty($sa['move_verified_role']) || empty($sa['guest_role']) || empty($sa['banned_role'])) { // Upload Settings
-				$this->template->warning(_('You did not complete all required fields.    ' . $sa['allow_remember']));
+				$this->template->warning(__('You did not complete all required fields.    ' . $sa['allow_remember']));
 				$error[1] = true;
 			}
 
@@ -95,14 +95,14 @@ class GeneralSettings extends PHPDS_controller
 				$insert_settings = $this->db->writeSettings($sa);
 
 				// Send out a test email!
-				$test_email_subject = sprintf(_('Test email from %s.'), $this->configuration['scripts_name_version']);
-				$test_email_message = sprintf(_("%s was able to send a notification email: %s"), $this->configuration['scripts_name_version'], $this->configuration['absolute_url']);
+				$test_email_subject = sprintf(__('Test email from %s.'), $this->configuration['scripts_name_version']);
+				$test_email_message = sprintf(__("%s was able to send a notification email: %s"), $this->configuration['scripts_name_version'], $this->configuration['absolute_url']);
 				// Check test email...
 				if (!empty($this->security->post['test_email'])) {
 					if ($email->sendmail("{$sa['setting_admin_email']}", $test_email_subject, $test_email_message)) {
-						$this->template->ok(sprintf(_('A test email was sent to %s.'), $sa['setting_admin_email']));
+						$this->template->ok(sprintf(__('A test email was sent to %s.'), $sa['setting_admin_email']));
 					} else {
-						$this->template->warning(_('Could not send a test email.'));
+						$this->template->warning(__('Could not send a test email.'));
 					}
 				}
 				// Check test ftp...
@@ -111,12 +111,12 @@ class GeneralSettings extends PHPDS_controller
 						if ($ftp = $filemanager->establishFtp()) {
 							// Can we goto the root folder.
 							if (ftp_size($ftp, 'includes/PHPDS.inc.php') > 2) {
-								$this->template->ok(sprintf(_('FTP connection successful and test done, your FTP seems to be correctly configured and is able to access the root directory. Working root directory is : %s'), ftp_pwd($ftp)));
+								$this->template->ok(sprintf(__('FTP connection successful and test done, your FTP seems to be correctly configured and is able to access the root directory. Working root directory is : %s'), ftp_pwd($ftp)));
 							} else {
-								$this->template->notice(sprintf(_('FTP connection was ok, but the root directory listing failed, working directory is %s'), ftp_pwd($ftp)));
+								$this->template->notice(sprintf(__('FTP connection was ok, but the root directory listing failed, working directory is %s'), ftp_pwd($ftp)));
 							}
 						} else {
-							$this->template->warning(_('FTP connection failed, please check your settings.'));
+							$this->template->warning(__('FTP connection failed, please check your settings.'));
 						}
 					} catch (error $e) {
 						$e->warning();
@@ -124,7 +124,7 @@ class GeneralSettings extends PHPDS_controller
 				}
 				// Success.
 				if ($insert_settings) {
-					$this->template->ok(_('System general settings saved. You might need to reload this page for settings to reflect.'));
+					$this->template->ok(__('System general settings saved. You might need to reload this page for settings to reflect.'));
 					// Clear settings cache.
 					$this->db->cacheClear();
 				}
@@ -372,10 +372,10 @@ class GeneralSettings extends PHPDS_controller
 		///////////////////////////////////////////////////////////////
 		// ******************** REGISTRATION SETTINGS ************** //
 		// reg_email_direct ///////////////////////////////////////////
-		if (empty($sa['reg_email_direct'])) $sa['reg_email_direct'] = _("Dear %1\$s, you completed the registration at %2\$s. Your registration was successful. This email is to verify that you requested to be registered, while confirming your email address at the same time. Thank you for registering at %3\$s.");
-		if (empty($sa['reg_email_verify'])) $sa['reg_email_verify'] = _("Dear %1\$s, you requested registration at %2\$s. Your registration was successful but it is still pending. This email is to verify that you requested to be registered, while confirming your email address at the same time. Please click on the *link %3\$s to complete the registration process. Thank you for registering at %4\$s. *If you cannot click on the link, copy and paste the url in your browser's address bar.");
-		if (empty($sa['reg_email_approve'])) $sa['reg_email_approve'] = _("Dear %1\$s, you completed the registration at %2\$s. Your registration was successful but is still pending. This email is to verify that you requested to be registered, while confirming your email address at the same time. Thank you for registering at %3\$s, an Admin will attend to your request soon.");
-		if (empty($sa['reg_email_admin'])) $sa['reg_email_admin'] = _("Dear Admin, you have received a new registration at %1\$s. The user registered with the name %2\$s, on this date %3\$s, with the username %4\$s. Thank You, %5\$s.%6\$s %7\$s %8\$s. You must be logged-in to ban or approve users.");
+		if (empty($sa['reg_email_direct'])) $sa['reg_email_direct'] = __("Dear %1\$s, you completed the registration at %2\$s. Your registration was successful. This email is to verify that you requested to be registered, while confirming your email address at the same time. Thank you for registering at %3\$s.");
+		if (empty($sa['reg_email_verify'])) $sa['reg_email_verify'] = __("Dear %1\$s, you requested registration at %2\$s. Your registration was successful but it is still pending. This email is to verify that you requested to be registered, while confirming your email address at the same time. Please click on the *link %3\$s to complete the registration process. Thank you for registering at %4\$s. *If you cannot click on the link, copy and paste the url in your browser's address bar.");
+		if (empty($sa['reg_email_approve'])) $sa['reg_email_approve'] = __("Dear %1\$s, you completed the registration at %2\$s. Your registration was successful but is still pending. This email is to verify that you requested to be registered, while confirming your email address at the same time. Thank you for registering at %3\$s, an Admin will attend to your request soon.");
+		if (empty($sa['reg_email_admin'])) $sa['reg_email_admin'] = __("Dear Admin, you have received a new registration at %1\$s. The user registered with the name %2\$s, on this date %3\$s, with the username %4\$s. Thank You, %5\$s.%6\$s %7\$s %8\$s. You must be logged-in to ban or approve users.");
 
 		// allow_registration /////////////////////////////////////////
 		// Set.
@@ -535,7 +535,7 @@ class GeneralSettings extends PHPDS_controller
 				$count_languages_selected++;
 			}
 		}
-		$languages_selected_template = sprintf(_('(%s selected)'), $count_languages_selected);
+		$languages_selected_template = sprintf(__('(%s selected)'), $count_languages_selected);
 		// Loop repository.
 		foreach ($iana_language_array as $lang_code => $lang_description) {
 			// Check selected.
@@ -555,7 +555,7 @@ class GeneralSettings extends PHPDS_controller
 				$count_regions_selected++;
 			}
 		}
-		$regions_selected_template = sprintf(_('(%s selected)'), $count_regions_selected);
+		$regions_selected_template = sprintf(__('(%s selected)'), $count_regions_selected);
 		// Loop repository.
 		foreach ($iana_region_array as $region_code => $region_description) {
 			// Check selected.
@@ -572,9 +572,9 @@ class GeneralSettings extends PHPDS_controller
 		///////////////////////////////////////////////////////////////
 		// Check if folder exist and if writable.
 		if (is_writable($this->configuration['upload_path'])) {
-			$writable = $this->template->icon('disk--plus', _('Writable'));
+			$writable = $this->template->icon('disk--plus', __('Writable'));
 		} else {
-			$writable = $this->template->icon('disk--minus', _('NOT Writable'));
+			$writable = $this->template->icon('disk--minus', __('NOT Writable'));
 		}
 		// max_filesize ///////////////////////////////////////////////
 		$max_filesize_show = $filemanager->displayFilesize($sa['max_filesize']);

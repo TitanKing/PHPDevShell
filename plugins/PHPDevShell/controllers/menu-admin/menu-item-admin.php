@@ -59,13 +59,13 @@ class MenuItemAdmin extends PHPDS_controller
 		$controller_found = '';
 		$replace_old_menu = false;
 
-		$icon_found = $template->icon('tick-circle', _('Item Found'));
-		$icon_notfound = $template->icon('cross-circle', _('Item Not Found'));
+		$icon_found = $template->icon('tick-circle', __('Item Found'));
+		$icon_notfound = $template->icon('cross-circle', __('Item Not Found'));
 		// Head.
 		if (! empty($this->security->post['save']) || !empty($edit_menu_id)) {
-			$template->heading(_('Edit Menu Item'));
+			$template->heading(__('Edit Menu Item'));
 		} else {
-			$template->heading(_('New Menu Item'));
+			$template->heading(__('New Menu Item'));
 		}
 		// Saving menu item.
 		if (! empty($this->security->get['em']))
@@ -159,30 +159,30 @@ class MenuItemAdmin extends PHPDS_controller
 					$controller_file = 'plugins/' . $edit['plugin'] . '/controllers/' . $edit['menu_link'];
 					if (file_exists($controller_file)) {
 						$found = $icon_found;
-						$controller_found = $template->icon('block--plus', _('Controller file available')) . ' ' . $controller_file;
+						$controller_found = $template->icon('block--plus', __('Controller file available')) . ' ' . $controller_file;
 					} else if (file_exists('plugins/' . $edit['plugin'] . '/' . $edit['menu_link'])) {
 						$found = $icon_found;
-						$controller_found = $template->icon('block--exclamation', _('Controller file NOT available')) . ' ' . $controller_file;
+						$controller_found = $template->icon('block--exclamation', __('Controller file NOT available')) . ' ' . $controller_file;
 					} else {
 						$found = $icon_notfound;
-						$controller_found = $template->icon('block--exclamation', _('Controller file NOT available')) . ' ' . $controller_file;
+						$controller_found = $template->icon('block--exclamation', __('Controller file NOT available')) . ' ' . $controller_file;
 					}
 
 					$query_file = preg_replace('/\.php$/', '.query.php', $edit['menu_link']);
 					$query_file = 'plugins/' . $edit['plugin'] . '/models/' . $query_file;
 					if (is_file($query_file)) {
-						$query_found = $template->icon('database--plus', _('Model file available')) . ' ' . $query_file;
+						$query_found = $template->icon('database--plus', __('Model file available')) . ' ' . $query_file;
 					} else {
-						$query_found = $template->icon('database--exclamation', _('Model file NOT available')) . ' ' . $query_file;
+						$query_found = $template->icon('database--exclamation', __('Model file NOT available')) . ' ' . $query_file;
 					}
 
 					if (empty($edit['layout'])) {
 						$view_file = preg_replace('/\.php$/', '.tpl', $edit['menu_link']);
 						$view_file = 'plugins/' . $edit['plugin'] . '/views/' . $view_file;
 						if (is_file($view_file)) {
-							$view_found = $template->icon('eye--plus', _('View file available')) . ' ' . $view_file;
+							$view_found = $template->icon('eye--plus', __('View file available')) . ' ' . $view_file;
 						} else {
-							$view_found = $template->icon('eye--exclamation', _('View file NOT available')) . ' ' . $view_file;
+							$view_found = $template->icon('eye--exclamation', __('View file NOT available')) . ' ' . $view_file;
 						}
 					} else {
 						$custom_view = $edit['layout'];
@@ -196,9 +196,9 @@ class MenuItemAdmin extends PHPDS_controller
 						$view_file = preg_replace("/.tpl.tpl/", '.tpl', $view_file);
 						$view_file = 'plugins/' . $edit['plugin'] . '/views/' . $view_file;
 						if (is_file($view_file)) {
-							$view_found = $template->icon('eye--plus', _('View template available')) . ' ' . $view_file;
+							$view_found = $template->icon('eye--plus', __('View template available')) . ' ' . $view_file;
 						} else {
-							$view_found = $template->icon('eye--exclamation', _('View template NOT available')) . ' ' . $view_file;
+							$view_found = $template->icon('eye--exclamation', __('View template NOT available')) . ' ' . $view_file;
 						}
 					}
 
@@ -206,9 +206,9 @@ class MenuItemAdmin extends PHPDS_controller
 					$view_class = preg_replace('/\.php$/', '.view.php', $edit['menu_link']);
 					$view_class = 'plugins/' . $edit['plugin'] . '/views/' . $view_class;
 					if (is_file($view_class)) {
-						$view_class_found = $template->icon('paint-brush--plus', _('View class available')) . ' ' . $view_class;
+						$view_class_found = $template->icon('paint-brush--plus', __('View class available')) . ' ' . $view_class;
 					} else {
-						$view_class_found = $template->icon('paint-brush--exclamation', _('View class NOT available')) . ' ' . $view_class;
+						$view_class_found = $template->icon('paint-brush--exclamation', __('View class NOT available')) . ' ' . $view_class;
 					}
 					break;
 				// Link Existing Menu Item (Own Group).
@@ -262,7 +262,7 @@ class MenuItemAdmin extends PHPDS_controller
 			}
 			// Set auto selected dropdown parameters.
 			// Ranking.
-			$current_ranking = '<option value="' . $edit['rank'] . '" selected>' . _('Leave Current') . '</option>';
+			$current_ranking = '<option value="' . $edit['rank'] . '" selected>' . __('Leave Current') . '</option>';
 			/////////////////////////////////////////////////////////////////////////////////////////////
 			/////////////////////////////////////////////////////////////////////////////////////////////
 			// hide
@@ -304,12 +304,12 @@ class MenuItemAdmin extends PHPDS_controller
 
 				// Error 1 = Check for empty fields.
 				if (empty($edit['menu_link']) || empty($edit['plugin'])) {
-					$template->warning(_('You did not complete all the required fields.'));
+					$template->warning(__('You did not complete all the required fields.'));
 					$error[1] = true;
 				}
 				// Error 2 = See if menu item and link item is the same, that wont work!
 				if ($edit['menu_id'] == $edit['link_to']) {
-					$template->warning(_('You cannot link a menu item to itself.'));
+					$template->warning(__('You cannot link a menu item to itself.'));
 					$error[2] = true;
 				}
 				// Error 3 = Check if menu already exists, we can prevent complications.
@@ -318,7 +318,7 @@ class MenuItemAdmin extends PHPDS_controller
 					// Lets see if such a menu already exists, we cant override it, if it belongs to some other menu.
 					$check_menu_existing = $menu_structure->menuIdExist($edit['menu_id']);
 					if (! empty($check_menu_existing)) {
-						$template->warning(sprintf(_('Another menu is already using menu id %s'), $edit['menu_id']));
+						$template->warning(sprintf(__('Another menu is already using menu id %s'), $edit['menu_id']));
 						$edit['menu_id'] = $edit['old_menu_id'];
 						$error[3] = true;
 					}
@@ -327,7 +327,7 @@ class MenuItemAdmin extends PHPDS_controller
 				}
 				// Error 4 = Check if menu is parent of itself.
 				if ($edit['menu_id'] == $edit['parent_menu_id']) {
-					$template->warning(_('You cannot have a menu item be a parent of itself. Please choose another parent for this item.'));
+					$template->warning(__('You cannot have a menu item be a parent of itself. Please choose another parent for this item.'));
 					$error[4] = true;
 				}
 				// Create file directory location.
@@ -354,7 +354,7 @@ class MenuItemAdmin extends PHPDS_controller
 					case 12:
 						// Check if file exists.
 						if (!$menu_dir_exists) {
-							$template->warning(sprintf(_('Cannot find the plugin controller in the specified directory: %s'), $menu_directory_c));
+							$template->warning(sprintf(__('Cannot find the plugin controller in the specified directory: %s'), $menu_directory_c));
 							$error[3] = true;
 						}
 						break;
@@ -362,7 +362,7 @@ class MenuItemAdmin extends PHPDS_controller
 					case 2:
 						// Check if linked item was selected.
 						if (empty($edit['link_to'])) {
-							$template->warning(_('You need to select a menu item to link with.'));
+							$template->warning(__('You need to select a menu item to link with.'));
 							$error[3] = true;
 						}
 						// Set correct extend variable.
@@ -372,7 +372,7 @@ class MenuItemAdmin extends PHPDS_controller
 					case 3:
 						// Check if linked item was selected.
 						if (empty($edit['link_to'])) {
-							$template->warning(_('You need to select a menu item to link with.'));
+							$template->warning(__('You need to select a menu item to link with.'));
 							$error[3] = true;
 						}
 						// Set correct extend variable.
@@ -382,19 +382,19 @@ class MenuItemAdmin extends PHPDS_controller
 					case 4:
 						// Check if file exists.
 						if (!file_exists($edit['menu_link'])) {
-							$template->warning(sprintf(_('Cannot find the external file you wish to create a menu item with, looked in: %s'), $edit['menu_link']));
+							$template->warning(sprintf(__('Cannot find the external file you wish to create a menu item with, looked in: %s'), $edit['menu_link']));
 							$error[3] = true;
 						}
 						break;
 					// HTTP URL.
 					case 5:
-						$template->notice(_('An external URL was selected.'));
+						$template->notice(__('An external URL was selected.'));
 						break;
 					// Empty Place Holder.
 					case 6:
 						// Check if linked item was selected.
 						if (empty($edit['link_to'])) {
-							$template->warning(_('You need to select a menu item to link with.'));
+							$template->warning(__('You need to select a menu item to link with.'));
 							$error[3] = true;
 						}
 						// Set correct extend variable.
@@ -403,7 +403,7 @@ class MenuItemAdmin extends PHPDS_controller
 					// iFrame.
 					case 7:
 						if (empty($edit['height'])) {
-							$template->warning(_('You must provide iFrame with a height.'));
+							$template->warning(__('You must provide iFrame with a height.'));
 							$error[3] = true;
 						}
 						// Set correct extend variable.
@@ -413,13 +413,13 @@ class MenuItemAdmin extends PHPDS_controller
 					case 8:
 						// Check if file exists.
 						if (!file_exists($menu_directory)) {
-							$template->warning(sprintf(_('Cannot find the plugin cron file you wish to create a menu item with, looked in: %s'), $menu_directory));
+							$template->warning(sprintf(__('Cannot find the plugin cron file you wish to create a menu item with, looked in: %s'), $menu_directory));
 							$error[3] = true;
 						}
 						break;
 					// Plugin File.
 					default:
-						$template->warning(_('You need to select at least one menu type.'));
+						$template->warning(__('You need to select at least one menu type.'));
 						$error[3] = true;
 						break;
 				}
@@ -429,7 +429,7 @@ class MenuItemAdmin extends PHPDS_controller
 					// Check if we have an old menu id.
 					if ($replace_old_menu) {
 						$menu_structure->updateMenuId($edit['menu_id'], $edit['old_menu_id']);
-						$template->ok(sprintf(_('Menu id changed, the new menu item id is %s and replaced old menu id %s.'), $edit['menu_id'], $edit['old_menu_id']));
+						$template->ok(sprintf(__('Menu id changed, the new menu item id is %s and replaced old menu id %s.'), $edit['menu_id'], $edit['old_menu_id']));
 					}
 
 					// Insert new item into database.
@@ -466,7 +466,7 @@ class MenuItemAdmin extends PHPDS_controller
 					// END Permissions saving. //
 					/////////////////////////////
 					// Give OK message according to edit or newly saved.
-					$template->ok(sprintf(_('Menu item %s was saved.'), $edit['menu_name']));
+					$template->ok(sprintf(__('Menu item %s was saved.'), $edit['menu_name']));
 				}
 			}
 		}
@@ -528,18 +528,18 @@ class MenuItemAdmin extends PHPDS_controller
 		// Set Array.
 		$view->set('e', $edit);
 
-		$view->set('icon_1', $template->icon('plug', _('Plugin Item')));
-		$view->set('icon_2', $template->icon('plug--plus', _('Link Existing Plugin Item')));
-		$view->set('icon_3', $template->icon('plug--arrow', _('Link Existing Plugin Item and Jump to its Group')));
-		$view->set('icon_4', $template->icon('script', _('Execute External File')));
-		$view->set('icon_5', $template->icon('chain', _('External http URL')));
-		$view->set('icon_6', $template->icon('chain-unchain', _('Unclickable Place Holder')));
-		$view->set('icon_7', $template->icon('ui-split-panel-vertical', _('iFrame Item')));
-		$view->set('icon_8', $template->icon('clock-select', _('Cronjob Item')));
-		$view->set('icon_9', $template->icon('layout-select-content', _('HTML Ajax Widget')));
-		$view->set('icon_10', $template->icon('application-block', _('HTML Ajax')));
-		$view->set('icon_11', $template->icon('applications-blue', _('HTML Ajax Lightbox')));
-		$view->set('icon_12', $template->icon('script-code', _('Raw Ajax')));
+		$view->set('icon_1', $template->icon('plug', __('Plugin Item')));
+		$view->set('icon_2', $template->icon('plug--plus', __('Link Existing Plugin Item')));
+		$view->set('icon_3', $template->icon('plug--arrow', __('Link Existing Plugin Item and Jump to its Group')));
+		$view->set('icon_4', $template->icon('script', __('Execute External File')));
+		$view->set('icon_5', $template->icon('chain', __('External http URL')));
+		$view->set('icon_6', $template->icon('chain-unchain', __('Unclickable Place Holder')));
+		$view->set('icon_7', $template->icon('ui-split-panel-vertical', __('iFrame Item')));
+		$view->set('icon_8', $template->icon('clock-select', __('Cronjob Item')));
+		$view->set('icon_9', $template->icon('layout-select-content', __('HTML Ajax Widget')));
+		$view->set('icon_10', $template->icon('application-block', __('HTML Ajax')));
+		$view->set('icon_11', $template->icon('applications-blue', __('HTML Ajax Lightbox')));
+		$view->set('icon_12', $template->icon('script-code', __('Raw Ajax')));
 
 		// Set Values.
 		$view->set('self_url', $this->navigation->selfUrl());
@@ -560,7 +560,7 @@ class MenuItemAdmin extends PHPDS_controller
 		$view->set('menu_type_selected_12', $menu_type_selected_12);
 		$view->set('show_existing_link', $show_existing_link);
 		$view->set('existing_link_id', $existing_link_id);
-		$view->set('edit_link', $template->icon('task--pencil', _('Edit Menu Item')));
+		$view->set('edit_link', $template->icon('task--pencil', __('Edit Menu Item')));
 		$view->set('found', $found);
 		$view->set('tagger', $tagger);
 		$view->set('query_found', $query_found);
@@ -597,7 +597,7 @@ class MenuItemAdmin extends PHPDS_controller
 
 		$result = array(
 			'result' => 'na',
-			'title' => _('URL/File Path Location/Linked Items (anything unique)')
+			'title' => __('URL/File Path Location/Linked Items (anything unique)')
 		);
 
 		switch ($_target) {

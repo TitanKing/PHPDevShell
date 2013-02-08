@@ -14,7 +14,7 @@ class EmailToken extends PHPDS_controller
 		/* @var $crud crud */
 		$crud = $this->factory('crud');
 
-		$this->template->heading(_('Email Token'));
+		$this->template->heading(__('Email Token'));
 
 		$settings = $this->db->essentialSettings;
 
@@ -23,11 +23,11 @@ class EmailToken extends PHPDS_controller
 		if (empty($crud->f->token_id)) {
 			$this->template->warning('A token ID is required in order to send tokens.');
 		} else {
-            $crud->addField('token_subject', sprintf(_("%s Registration Token Credit."), $this->configuration['scripts_name_version']));
+            $crud->addField('token_subject', sprintf(__("%s Registration Token Credit."), $this->configuration['scripts_name_version']));
 
             $token_url = $this->navigation->buildURL("{$settings['registration_page']}", "token_key={$crud->f->token_key}");
             $registration_url = $this->navigation->buildURL("{$settings['registration_page']}");
-            $crud->addField('token_message', sprintf(_("Dear User, you have received a Registration Token Key, enabling you to register for %1\$s on %2\$s. To activate your key please click on the link, %3\$s. If you cannot click on the link, copy and paste the URL to your browser. Alternatively you can type in your key, %4\$s here, %5\$s Thank You, %6\$s."), $crud->f->token_name, $this->configuration['scripts_name_version'], $token_url, $crud->f->token_key, $registration_url, $this->configuration['user_display_name']));
+            $crud->addField('token_message', sprintf(__("Dear User, you have received a Registration Token Key, enabling you to register for %1\$s on %2\$s. To activate your key please click on the link, %3\$s. If you cannot click on the link, copy and paste the URL to your browser. Alternatively you can type in your key, %4\$s here, %5\$s Thank You, %6\$s."), $crud->f->token_name, $this->configuration['scripts_name_version'], $token_url, $crud->f->token_key, $registration_url, $this->configuration['user_display_name']));
 
             if ($crud->POST('send_mail')) {
                 if (!$crud->is('email_token_to'))
@@ -44,9 +44,9 @@ class EmailToken extends PHPDS_controller
 					$recipients_array = str_replace(' ', '', explode(',', $mail_to_recipients));
 					foreach ($recipients_array as $email_address_to) {
 						if ($email->sendmail("$email_address_to", $crud->f->token_subject, html_entity_decode($crud->f->token_message))) {
-							$this->template->ok(sprintf(_('Registration token "%s" was successfully send to %s.'), $crud->f->token_name, $email_address_to));
+							$this->template->ok(sprintf(__('Registration token "%s" was successfully send to %s.'), $crud->f->token_name, $email_address_to));
 						} else {
-							$this->template->warning(sprintf(_('An unknown error occurred while trying to send registration token email to %s.'), $email_address_to));
+							$this->template->warning(sprintf(__('An unknown error occurred while trying to send registration token email to %s.'), $email_address_to));
 						}
 					}
 				} else {
@@ -64,7 +64,7 @@ class EmailToken extends PHPDS_controller
 			$view->set('token_subject', $crud->f->token_subject);
 			$view->set('token_message', $crud->f->token_message);
 
-			$view->set('email_token', _('Email Token'));
+			$view->set('email_token', __('Email Token'));
 
 			$view->set('self_url', $this->navigation->selfUrl());
 

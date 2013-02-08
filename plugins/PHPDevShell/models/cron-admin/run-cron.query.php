@@ -57,7 +57,7 @@ class PHPDS_runCronQuery extends PHPDS_query
 			} else {
 				// Assign error handling and message.
 				$error[1] = true;
-				$this->template->critical(sprintf(_('Cronjob %s (%s) - FAILED - No plugin found for cron menu item. Also check access rights for this cron.'), $this->navigation->navigation[$cron_['menu_id']]['menu_name'], "({$cron_['menu_id']})"));
+				$this->template->critical(sprintf(__('Cronjob %s (%s) - FAILED - No plugin found for cron menu item. Also check access rights for this cron.'), $this->navigation->navigation[$cron_['menu_id']]['menu_name'], "({$cron_['menu_id']})"));
 			}
 			// Check if we have the cron link.
 			if (!empty($this->navigation->navigation[$cron_['menu_id']]['menu_link'])) {
@@ -66,7 +66,7 @@ class PHPDS_runCronQuery extends PHPDS_query
 			} else {
 				// Assign error handling and message.
 				$error[2] = true;
-				$this->template->critical(sprintf(_('Cronjob %s (%s) - FAILED - No link found for cron menu item.'), $this->navigation->navigation[$cron_['menu_id']]['menu_name'], "({$cron_['menu_id']})"));
+				$this->template->critical(sprintf(__('Cronjob %s (%s) - FAILED - No link found for cron menu item.'), $this->navigation->navigation[$cron_['menu_id']]['menu_name'], "({$cron_['menu_id']})"));
 			}
 			if (empty($error)) {
 
@@ -152,14 +152,14 @@ class PHPDS_runCronQuery extends PHPDS_query
 					$total_time = round(($finish - $start), 4);
 
 					// Output for debug.
-					$this->template->ok(sprintf(_('Cronjob %s - EXECUTED taking %s seconds.'), $this->navigation->navigation[$cron_['menu_id']]['menu_name'], $total_time), false, $log_cron);
+					$this->template->ok(sprintf(__('Cronjob %s - EXECUTED taking %s seconds.'), $this->navigation->navigation[$cron_['menu_id']]['menu_name'], $total_time), false, $log_cron);
 				} else {
 					// Output for debug.
-					$this->template->critical(sprintf(_('Cronjob %s - FAILED - Could not locate/read file (%s), check if your permissions for cron is set to guest or if the file is readable and exists.'), $this->navigation->navigation[$cron_['menu_id']]['menu_name'], $menu_link), false, $log_cron);
+					$this->template->critical(sprintf(__('Cronjob %s - FAILED - Could not locate/read file (%s), check if your permissions for cron is set to guest or if the file is readable and exists.'), $this->navigation->navigation[$cron_['menu_id']]['menu_name'], $menu_link), false, $log_cron);
 				}
 			} else {
 				// Output for debug.
-				$this->template->notice(sprintf(_('Cronjob %s - SKIPPED!'), $this->navigation->navigation[$cron_['menu_id']]['menu_name']));
+				$this->template->notice(sprintf(__('Cronjob %s - SKIPPED!'), $this->navigation->navigation[$cron_['menu_id']]['menu_name']));
 			}
 			// Unset values that can be duplicated.
 			unset($update_cron_type, $plugin_folder, $menu_link);

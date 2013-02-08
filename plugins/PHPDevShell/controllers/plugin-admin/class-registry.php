@@ -14,23 +14,23 @@ class ConfigManager extends PHPDS_controller
 	 */
 	public function execute()
 	{
-		$this->template->heading(_('Class Registry Editor'));
+		$this->template->heading(__('Class Registry Editor'));
 
 		$self_url_ = $this->navigation->buildURL(false);
 
 		if (!empty($this->security->get['enable'])) {
 			$this->db->invokeQuery('PHPDS_enableClass', 1, $this->security->get['enable']);
-			$this->template->ok(sprintf(_('Plugin id %s enabled'), $this->security->get['enable']), false, false);
+			$this->template->ok(sprintf(__('Plugin id %s enabled'), $this->security->get['enable']), false, false);
 		}
 
 		if (!empty($this->security->get['disable'])) {
 			$this->db->invokeQuery('PHPDS_enableClass', 0, $this->security->get['disable']);
-			$this->template->ok(sprintf(_('Plugin id %s disabled'), $this->security->get['disable']), false, false);
+			$this->template->ok(sprintf(__('Plugin id %s disabled'), $this->security->get['disable']), false, false);
 		}
 
 		if (!empty($this->security->get['dc'])) {
 			$this->db->deleteQuick('_db_core_plugin_classes', 'class_id', $this->security->get['dc']);
-			$this->template->ok(sprintf(_('Deleted class entry %s.'), $this->security->get['dc']));
+			$this->template->ok(sprintf(__('Deleted class entry %s.'), $this->security->get['dc']));
 		}
 
 		if (! empty($this->security->post['save'])) {

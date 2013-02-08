@@ -14,7 +14,7 @@ class TemplateAdminList extends PHPDS_controller
 	public function execute()
 	{
 		// Header information
-		$this->template->heading(_('Theme Listing'));
+		$this->template->heading(__('Theme Listing'));
 
 		// Install template.
 		if (!empty($this->security->get['it'])) {
@@ -31,7 +31,7 @@ class TemplateAdminList extends PHPDS_controller
 				$this->template->global['template_id'] = $template_id_new;
 
 				// Show item updated.
-				$this->template->ok(sprintf(_('You have installed theme "%s".'), $template_folder_new));
+				$this->template->ok(sprintf(__('You have installed theme "%s".'), $template_folder_new));
 			}
 		}
 		// Delete template.
@@ -48,12 +48,12 @@ class TemplateAdminList extends PHPDS_controller
 				$deleted_template = $this->db->deleteQuick('_db_core_templates', 'template_id', $template_id_delete, 'template_folder');
 
 				if ($deleted_template) {
-					$this->template->ok(sprintf(_('Theme %s was uninstalled.'), $deleted_template));
+					$this->template->ok(sprintf(__('Theme %s was uninstalled.'), $deleted_template));
 				} else {
-					$this->template->warning(sprintf(_('No theme "%s" to delete.'), $template_folder_delete));
+					$this->template->warning(sprintf(__('No theme "%s" to delete.'), $template_folder_delete));
 				}
 			} else {
-				$this->template->warning(sprintf(_('There are menu items depending on theme "%s" or it is set as system default, please assign to another theme first.'), $template_folder_delete));
+				$this->template->warning(sprintf(__('There are menu items depending on theme "%s" or it is set as system default, please assign to another theme first.'), $template_folder_delete));
 			}
 		}
 
@@ -65,7 +65,7 @@ class TemplateAdminList extends PHPDS_controller
 		if (! empty($this->security->post['set'])) {
 			// Check if we have a complete form for changing templates.
 			if (empty($this->security->post['set_to'])) {
-				$this->template->notice(_('Please first select a theme to update.'));
+				$this->template->notice(__('Please first select a theme to update.'));
 			} else {
 				$setting_template_id = $this->security->post['set_to'];
 				$setting_template_name = $template_id_db[$setting_template_id];
@@ -78,7 +78,7 @@ class TemplateAdminList extends PHPDS_controller
 				// Clear old cache.
 				$this->db->cacheClear('navigation');
 				$this->db->cacheClear('essential_settings');
-				$this->template->ok(sprintf(_("%s is now the default theme... I will refresh the page."), $setting_template_name));
+				$this->template->ok(sprintf(__("%s is now the default theme... I will refresh the page."), $setting_template_name));
 				$this->navigation->redirect($this->navigation->selfUrl(), 3);
 			}
 		}
@@ -94,7 +94,7 @@ class TemplateAdminList extends PHPDS_controller
 		$view->set('RESULTS_', $RESULTS_);
 
 		// Set Buttons.
-		$view->set('set_template', _('Set Theme'));
+		$view->set('set_template', __('Set Theme'));
 
 		// Set Values.
 		$view->set('self_url', $this->navigation->selfUrl());

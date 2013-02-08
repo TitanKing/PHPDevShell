@@ -37,7 +37,7 @@ class PHPDS_clearFileuploadLogsQuery extends PHPDS_query
 		// Reset auto increment counter.
 		$this->db->invokeQuery('PHPDS_resetFileuploadLogsQuery');
 
-		$this->template->ok(_('Logs table cleared.'));
+		$this->template->ok(__('Logs table cleared.'));
 	}
 }
 
@@ -77,9 +77,9 @@ class PHPDS_deleteFileuploadQuery extends PHPDS_query
 			$path_to_delete = $this->configuration['absolute_path'] . $delete_farr['thumbnail'];
 			if (is_writable($path_to_delete)) unlink($path_to_delete);
 
-			$this->template->ok(sprintf(_('File %s was deleted.'), $deleted_filelog));
+			$this->template->ok(sprintf(__('File %s was deleted.'), $deleted_filelog));
 		} else {
-			$this->template->warning(sprintf(_('No file "%s" to delete.'), $this->security->get['df']));
+			$this->template->warning(sprintf(__('No file "%s" to delete.'), $this->security->get['df']));
 		}
 	}
 }
@@ -138,11 +138,11 @@ class PHPDS_getAllUploadLogsQuery extends PHPDS_query
 		$RESULTS['th'] = $pagination->th();
 
 		// Icons.
-		$resized_icon = $template->icon('image-resize', _('Resized'));
-		$no_resized_icon = $template->icon('cross', _('No Resized'));
-		$thumb_icon = $template->icon('image-small', _('Resized'));
-		$no_thumb_icon = $template->icon('cross-small', _('No Thumb'));
-		$delete_file_icon = $template->icon('box--minus', _('Delete File'));
+		$resized_icon = $template->icon('image-resize', __('Resized'));
+		$no_resized_icon = $template->icon('cross', __('No Resized'));
+		$thumb_icon = $template->icon('image-small', __('Resized'));
+		$no_thumb_icon = $template->icon('cross-small', __('No Thumb'));
+		$delete_file_icon = $template->icon('box--minus', __('Delete File'));
 
 		foreach ($get_logs as $la) {
 			// Create path urls.
@@ -172,7 +172,7 @@ class PHPDS_getAllUploadLogsQuery extends PHPDS_query
 				'resized' => $resized,
 				'date_stored_format' => $core->formatTimeDate($la['date_stored']),
 				'size' => $size,
-				'delete' => "<a href=\"{$page_delete_file}{$la['file_id']}\" {$core->confirmLink(sprintf(_('Delete Filename %s?'), $la['original_filename']))} class=\"button\">" . $delete_file_icon . "</a>"
+				'delete' => "<a href=\"{$page_delete_file}{$la['file_id']}\" {$core->confirmLink(sprintf(__('Delete Filename %s?'), $la['original_filename']))} class=\"button\">" . $delete_file_icon . "</a>"
 			);
 		}
 		if (! empty($RESULTS['list'])) {

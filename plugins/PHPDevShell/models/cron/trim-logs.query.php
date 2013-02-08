@@ -99,15 +99,15 @@ class PHPDS_trimLogsQuery extends PHPDS_query
 			$this->db->invokeQuery('PHPDS_deleteLogsQuery', $trim_count_general);
 
 			// Show ok message!
-			$job_status_general = _('I have trimmed required <b>general</b> logs.');
+			$job_status_general = __('I have trimmed required <b>general</b> logs.');
 		} else {
 			$trim_count_general = 0;
-			$job_status_general = _('Nothing to trim in <b>general</b> logs');
+			$job_status_general = __('Nothing to trim in <b>general</b> logs');
 		}
 
 		// How many general records.
-		$general_records = sprintf(_('We have <b>%s</b> <b>general</b> logs.'), $count_general_logs);
-		$trim_records_general = sprintf(_('I need to trim <b>%s</b> <b>general</b> logs.'), $trim_count_general);
+		$general_records = sprintf(__('We have <b>%s</b> <b>general</b> logs.'), $count_general_logs);
+		$trim_records_general = sprintf(__('I need to trim <b>%s</b> <b>general</b> logs.'), $trim_count_general);
 
 		/////////////////////////////////////////////////////
 		/////////////// ACCESS LOGS /////////////////////////
@@ -124,14 +124,14 @@ class PHPDS_trimLogsQuery extends PHPDS_query
 			$this->db->invokeQuery('PHPDS_deleteAccessLogsQuery', $trim_count_access);
 
 			// Show ok message!
-			$job_status_access = _('I have trimmed required <b>access</b> logs.');
+			$job_status_access = __('I have trimmed required <b>access</b> logs.');
 		} else {
 			$trim_count_access = 0;
-			$job_status_access = _('Nothing to trim in <b>access</b> logs');
+			$job_status_access = __('Nothing to trim in <b>access</b> logs');
 		}
 		// How many access records.
-		$access_records = sprintf(_('We have <b>%s</b> <b>access</b> logs.'), $count_access_logs);
-		$trim_records_access = sprintf(_('I need to trim <b>%s</b> <b>access</b> logs.'), $trim_count_access);
+		$access_records = sprintf(__('We have <b>%s</b> <b>access</b> logs.'), $count_access_logs);
+		$trim_records_access = sprintf(__('I need to trim <b>%s</b> <b>access</b> logs.'), $trim_count_access);
 
 		return array(
 			'general_records' => $general_records,

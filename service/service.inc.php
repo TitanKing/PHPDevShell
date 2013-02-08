@@ -3,10 +3,10 @@ $debug_queries = false;
 
 // Need this for absolute URL configuration to be sef safe.
 $protocol = empty($_SERVER['HTTPS']) ? 'http://' : 'https://';
-$aurl = $protocol . $_SERVER['HTTP_HOST'] . str_replace('other/service/' . $type . '.php', '', $_SERVER['PHP_SELF']);
+$aurl = $protocol . $_SERVER['HTTP_HOST'] . str_replace('service/' . $type . '.php', '', $_SERVER['PHP_SELF']);
 
 define('SERVICEPATH', realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR);
-define('BASEPATH', realpath(str_replace('other/service/', '', SERVICEPATH)));
+define('BASEPATH', realpath(str_replace('service/', '', SERVICEPATH)));
 
 $db_version = 4000;
 $db_versions = array(1100, 2100, 2500, 2600, 2620, 2710, 2800, 3000, 3001, 3002, 3004, 3110, 3120, 3130, 3140, 4000);
@@ -16,44 +16,41 @@ $version = '4.0.0-Beta-1';
 $product = 'PHPDevShell';
 
 $lightbox = false;
-$package = $product . ' V' . $version;
-$doit = true; // KEEP THIS TO FALSE WHILE WORKING ON HTML THEN TO TRUE TO ACTUALLY SEND REQUESTS TO THE DATABASE
+$package = 'V' . $version;
+$doit = true; // RUN REAL QUERIES?
 // Include modules.
-include '../../includes/PHPDS_utils.inc.php';
+include '../includes/PHPDS_utils.inc.php';
 
 function warningHeadPrint($message)
 {
 	?>
-	<div class="ui-widget" style="margin: .3em 0;">
-		<div class="ui-state-error ui-corner-all">
-			<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
-			<strong>Alert:</strong> <?php echo $message ?>.
-		</div>
-	</div>
+    <div class="alert alert-warning">
+        <strong>Warning!</strong><br><?php echo $message ?>.
+    </div>
 	<?php
 }
 
 function infoHeadPrint($message)
 {
 	?>
-	<div class="ui-widget" style="margin: .3em 0;">
-		<div class="ui-state-error ui-corner-all">
-			<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-			<strong>Info:</strong> <?php echo $message ?>.
-		</div>
+	<div class="alert alert-info">
+		<strong>Information!</strong><br><?php echo $message ?>.
 	</div>
 	<?php
 }
 
 function displayDBfilling()
 {
-	noticePrint(_('Database filling...'));
-	okPrint('<span id="progress" style="font-size: 1.7em;">?</span>');
+    ?>
+        <div id="progress-bar" class="progress progress-striped active">
+            <div id="progress" class="bar"></div>
+        </div>
+    <?php
 }
 
 function headHTML()
 {
-	global $TITLE, $aurl;
+	global $TITLE, $aurl, $package;
 	$skin = 'flick';
 	?>
 	<!DOCTYPE HTML>
@@ -64,47 +61,37 @@ function headHTML()
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta name="keywords" content="install, upgrade">
             <meta name="description" content="install or upgrade phpdevshell framework">
-            <link rel="stylesheet" href="<?php echo $aurl ?>themes/default/bootstrap/css/bootstrap.css?v=4.0.0" type="text/css">
-            <link rel="stylesheet" href="<?php echo $aurl ?>themes/default/bootstrap/css/bootstrap-responsive.css?v=4.0.0" type="text/css">
-            <link rel="stylesheet" href="<?php echo $aurl ?>themes/default/css/default.css?v=400" type="text/css">
-            <script type="text/javascript" src="<?php echo $aurl ?>themes/default/jquery/js/jquery.js?v=1.8.3"></script>
-            <script type="text/javascript" src="<?php echo $aurl ?>themes/default/js/default.js?v=4.0.0"></script>
-            <script type="text/javascript" src="<?php echo $aurl ?>themes/default/bootstrap/js/bootstrap.js?v=2.2.2"></script>
-
-			<style>
-				#support {
-					position: absolute;
-					right: 10px;
-					top: 10px;
-					font-size: 120%;
-					text-align: center;
-				}
-			</style>
-
+            <link rel="stylesheet" href="<?php echo $aurl ?>themes/default/bootstrap/css/bootstrap.css" type="text/css">
+            <link rel="stylesheet" href="<?php echo $aurl ?>themes/default/bootstrap/css/bootstrap-responsive.css" type="text/css">
+            <link rel="stylesheet" href="<?php echo $aurl ?>service/service.css" type="text/css">
+            <script type="text/javascript" src="<?php echo $aurl ?>themes/default/jquery/js/jquery-min.js"></script>
+            <script type="text/javascript" src="<?php echo $aurl ?>themes/default/js/default.js"></script>
+            <script type="text/javascript" src="<?php echo $aurl ?>themes/default/bootstrap/js/bootstrap.js"></script>
 		</head>
-		<body class="ui-widget">
-			<div id="support" class="info">
-				<strong>Need support?</strong><br>
-				Visit us on our <a href="http://www.phpdevshell.org/support" target="www.phpdevshell.org">support page</a> so we can help.
-			</div>
-			<header>
-				<div id="logo">
-					<img src="<?php echo $aurl ?>/plugins/PHPDevShell/images/logo.png" title="PHPDevShell" alt="logo" />
-				</div>
-			</header>
-			<article class="ui-widget-content ui-corner-all" style="padding:1em;">
+		<body id="container">
+            <header id="overview" class="jumbotron subhead">
+                <div class="container">
+                    <div>
+                        <h1>PHPDevShell</h1>
+                        <p class="lead">
+                            <?php echo $package ?> installation and upgrade service.
+                        </p>
+                    </div>
+                </div>
+
+            </header>
+            <div class="container-fluid">
+                <div id="bg" class="container">
+                    <div>
 	<?php
 }
 
 function footHTML()
 {
 	?>
-			</article>
-			<footer class="ui-state-disabled">
-				<div id="footernotes">
-					PHPDevShell licensed under <a href="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html">GNU/LGPL</a>. By running this system you automatically agree to its license. Copyright (C) 2011 Jason Schoeman - All Rights Reserved
-				</div>
-			</footer>
+                    </div>
+                </div>
+            </div>
 		</body>
 	</html>
 	<?php
@@ -124,13 +111,12 @@ function displayField($label, $field)
 {
 	global $data, $errors;
 
-	$class = empty($errors[$field]) ? '' : 'ui-state-error ui-corner-all';
+	$class = empty($errors[$field]) ? '' : 'required';
 
 	print <<<HTML
 		<p>
-			<label>$label
-				<input type="text" class="$class" size="30" name="$field" value="{$data[$field]}" required="required" title="$label">
-			</label>
+			<label for="$field">$label</label>
+			<input id="$field" type="text" class="$class" size="30" name="$field" value="{$data[$field]}" required="required" title="$label">
 		</p>
 HTML;
 }
@@ -156,10 +142,18 @@ function displayErrors()
 	$count = count($errors);
 	if ($count) {
 		($count > 1) ? $m = "$count errors occured;" : $m = "The operation stopped because;";
-		warningHeadPrint($m);
+        ?>
+        <div class="alert alert-error">
+        <strong><?php echo $m ?></strong><br>
+        <ul>
+        <?php
 		foreach ($errors as $code => $description) {
-			errorPrint(_($description));
+			echo '<li>' . $description . '</li>';
 		}
+        ?>
+        </ul>
+        </div>
+        <?php
 		dumpEnv();
 	}
 }
@@ -188,8 +182,15 @@ function displayInstall()
 		function updateProgress(p)
 		{
 			s = document.getElementById('progress');
-			s.innerHTML = p + '%';
+			s.style.width = p + '%';
+
+            if (p == 100) {
+                $(document).ready(function() {
+                    $("#progress-bar").removeClass('progress-striped active');
+                });
+            }
 		}
+
 	</script>
 	<?php
 }
@@ -353,7 +354,7 @@ function checkConfigFiles()
 	global $data;
 	global $errors;
 
-	$configFolder = '../../config/';
+	$configFolder = '../config/';
 	$config_file = $configFolder . $data['config_file'];
 	// Can we load the configuration file?
 	if (!file_exists($config_file)) {
@@ -365,7 +366,7 @@ function checkConfigFiles()
 			@include_once $configFolder . 'single-site.config.php';
 			require_once $config_file;
 		} catch (Exception $e) {
-			addError('config', _('Something went wront trying to load the configuration files.'));
+			addError('config', _('Could not load the configuration files.'));
 		}
 
 		$db_settings = PU_GetDBSettings($configuration);
@@ -387,11 +388,11 @@ function checkConfigFiles()
 			addError('db_prefix', _('Mismatching database prefix with the one provided in the config.php file.'));
 		}
 		// Check if folders are writable.
-		if (!empty($configuration['session_path']) && !is_writeable('../../' . $configuration['session_path'])) {
-			addError(kConfigSessionPath, sprintf(_('Your session path or "write" directory (%s) is currently not writable, please check the readme/install file for instructions.'), '../../' . $configuration['session_path']));
+		if (!empty($configuration['session_path']) && !is_writeable('../' . $configuration['session_path'])) {
+			addError(kConfigSessionPath, sprintf(_('Your session path or "write" directory (%s) is currently not writable, please check the readme/install file for instructions.'), '../' . $configuration['session_path']));
 		}
-		if (!is_writeable('../../' . $configuration['compile_path'])) {
-			addError(kConfigDBCompilePath, sprintf(_('Your compile path or "write" directory (%s) is currently not writable, please check the readme/install file for instructions.'), '../../' . $configuration['compile_path']));
+		if (!is_writeable('../' . $configuration['compile_path'])) {
+			addError(kConfigDBCompilePath, sprintf(_('Your compile path or "write" directory (%s) is currently not writable, please check the readme/install file for instructions.'), '../' . $configuration['compile_path']));
 		}
 	}
 	return (count($errors) == 0);
@@ -472,9 +473,9 @@ function stuffMYSQL()
 			if (!empty($query) && $doit) {
 				if (!mysql_query($query))
 					$em = mysql_error();
-				usleep(1000);
+				usleep(8000);
 			} else {
-				usleep(1000);
+				usleep(8000);
 			}
 			if (connection_aborted()) {
 				error_log('aborted');
@@ -503,16 +504,16 @@ function stuffMYSQL()
 				}
 			}
 			if ($i % 10 == 0) {
-				print "<script type=\"text/javascript\">updateProgress($p);</script>\n\n";
+				print "<script type=\"text/javascript\">updateProgress($p);</script>";
 				ob_flush();
 				flush();
 			}
 		}
 	if ($e) {
 		mysql_query('ROLLBACK');
-		$error = sprintf(_('An error occured trying to send the queries (query %d/%d).'), $i, $max);
-		$error .= '<br />' . _('The error was') . ': [' . $e . '] ' . $em;
-		$error .= '<br />' . _('The offending query was') . ': "' . $query . '"';
+		$error = sprintf(_('An error occurred trying to send the queries (query %d/%d).'), $i, $max);
+		$error .= '<br>' . _('The error was') . ': [' . $e . '] ' . $em;
+		$error .= '<br>' . _('The offending query was') . ': "' . $query . '"';
 		addError(kMYSQLquery, $error);
 		return false;
 	}
@@ -583,7 +584,7 @@ function doSystemChecks()
 function headingPrint($heading_text)
 {
 	$HTML = <<<HTML
-   		<div id="heading" class="ui-widget-header ui-corner-all">$heading_text</div>
+   		<h1>$heading_text</h1>
 
 HTML;
 	print $HTML;
@@ -592,8 +593,8 @@ HTML;
 function errorPrint($text)
 {
 	$HTML = <<<HTML
-		<div class="ui-corner-all error">
-			<span class="ui-icon ui-icon-circle-close left"></span>
+		<div class="alert alert-error">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
 			{$text}
 		</div>
 
@@ -604,8 +605,8 @@ HTML;
 function okPrint($text)
 {
 	$HTML = <<<HTML
-		<div class="ui-corner-all ok">
-			<span class="ui-icon ui-icon-check left"></span>
+		<div class="alert alert-success">
+		    <button type="button" class="close" data-dismiss="alert">&times;</button>
 			{$text}
 		</div>
 
@@ -616,8 +617,8 @@ HTML;
 function warningPrint($text)
 {
 	$HTML = <<<HTML
-		<div class="ui-corner-all warning">
-			<span class="ui-icon ui-icon-notice left"></span>
+		<div class="alert">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
 			{$text}
 		</div>
 
@@ -628,8 +629,8 @@ HTML;
 function notePrint($text)
 {
 	$HTML = <<<HTML
-		<div class="ui-corner-all note">
-			<span class="ui-icon ui-icon-pencil left"></span>
+		<div class="alert">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
 			{$text}
 		</div>
 
@@ -640,8 +641,8 @@ HTML;
 function messagePrint($text)
 {
 	$HTML = <<<HTML
-		<div class="ui-corner-all message">
-			<span class="ui-icon ui-icon-comment left"></span>
+		<div class="alert alert-info">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
 			{$text}
 		</div>
 
@@ -652,8 +653,8 @@ HTML;
 function criticalPrint($text)
 {
 	$HTML = <<<HTML
-		<div class="ui-corner-all critical">
-			<span class="ui-icon ui-icon-alert left"></span>
+		<div class="alert alert-error">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
 			{$text}
 		</div>
 
@@ -664,8 +665,8 @@ HTML;
 function noticePrint($text)
 {
 	$HTML = <<<HTML
-		<div class="ui-corner-all notice">
-			<span class="ui-icon ui-icon-lightbulb left"></span>
+		<div class="alert">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
 			{$text}
 		</div>
 

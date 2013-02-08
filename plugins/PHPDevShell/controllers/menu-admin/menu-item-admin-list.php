@@ -16,7 +16,7 @@ class MenuItemAdminList extends PHPDS_controller
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//
 		// Header information
-		$this->template->heading(_('Menu Admin'));
+		$this->template->heading(__('Menu Admin'));
 
 		// Delete menu item.
 		if (!empty($this->security->get['dm']) && $this->user->isRoot()) {
@@ -29,12 +29,12 @@ class MenuItemAdminList extends PHPDS_controller
 				// Check if we can delete this item and that it is not assigned to default settings.
 				if ($this->security->get['dm'] != $this->configuration['front_page_id'] && $this->security->get['dm'] != $this->configuration['front_page_id_in'] && $this->security->get['dm'] != $settings['redirect_login']) {
 					// Call the delete.
-					($menu_structure->getDelete()) ? $this->template->ok(sprintf(_('Menu item %s (%s) was deleted!'), $deleted_menu_item, $this->security->get['dm'])) : $this->template->warning(_('You cannot delete a core item, the system will be unable to function correctly. Switch force core changes on in General Settings GUI for bypass.'));
+					($menu_structure->getDelete()) ? $this->template->ok(sprintf(__('Menu item %s (%s) was deleted!'), $deleted_menu_item, $this->security->get['dm'])) : $this->template->warning(__('You cannot delete a core item, the system will be unable to function correctly. Switch force core changes on in General Settings GUI for bypass.'));
 				} else {
-					$this->template->warning(sprintf(_('You cannot delete menu item "%s" as it is still set to be used in general settings.'), $this->security->get['dm']));
+					$this->template->warning(sprintf(__('You cannot delete menu item "%s" as it is still set to be used in general settings.'), $this->security->get['dm']));
 				}
 			} else {
-				$this->template->warning(sprintf(_('No menu "%s" to delete.'), $this->security->get['dm']));
+				$this->template->warning(sprintf(__('No menu "%s" to delete.'), $this->security->get['dm']));
 			}
 		}
 		// When save button is pushed...
@@ -58,7 +58,7 @@ class MenuItemAdminList extends PHPDS_controller
 			$menu_structure->writeMenuStructure();
 
 			// Show success.
-			$this->template->ok(_('Adjusted menu settings.'));
+			$this->template->ok(__('Adjusted menu settings.'));
 		}
 
 		$RESULTS = $this->db->invokeQuery('PHPDS_listMenusQuery');

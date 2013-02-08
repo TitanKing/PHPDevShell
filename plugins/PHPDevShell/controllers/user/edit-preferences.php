@@ -15,7 +15,7 @@ class EditPreferences extends PHPDS_controller
 	public function execute()
 	{
 		$email = $this->factory('mailer');
-		$this->template->heading(_('Edit Accounts Preferences'));
+		$this->template->heading(__('Edit Accounts Preferences'));
 
 		$userAction = $this->factory('userActions');
 		$crud = $this->factory('crud');
@@ -34,13 +34,13 @@ class EditPreferences extends PHPDS_controller
 			$crud->addField('user_timezone', $this->configuration['system_timezone']);
 
 			if (!$crud->isAlphaNumeric('user_name') && !$crud->isEmail('user_name'))
-				$crud->error(_('Please provide a clean alpha numeric string or email as username'));
+				$crud->error(__('Alpha numeric characters only'));
 
 			if (!$crud->is('user_display_name') && !$crud->isEmail('user_display_name'))
-				$crud->error(_('Please provide a clean alpha numeric display name'));
+				$crud->error();
 
 			if (!$crud->isEmail('user_email'))
-				$crud->error(_('Please provide a valid email'));
+				$crud->error();
 
 			if (!$crud->ok()) {
 				$crud->errorShow();
@@ -53,22 +53,22 @@ class EditPreferences extends PHPDS_controller
 
 				// Check if user already exists.
 				if ($user_name_ == $crud->f->user_name)
-					$crud->error(_('The username you entered already exists'), 'user_name');
+					$crud->error(__('Username already exists'), 'user_name');
 
 				// Check if this email already exists.
 				if ($user_email_ == $crud->f->user_email)
-					$crud->error(_('The user email you entered already exists'), 'user_email');
+					$crud->error(__('Email already exists'), 'user_email');
 
 				// Check email string validity.
 				if (!$crud->isEmail('user_email'))
-					$crud->error(_('The email address you specified seems to be invalid'), 'user_email');
+					$crud->error(__('Invalid email'), 'user_email');
 
 				if ($crud->ok()) {
 					$this->db->invokeQuery('PHPDS_updateUserDetailQuery', $crud->f->user_display_name, $crud->f->user_name, $crud->f->user_email, $crud->f->language, $crud->f->user_timezone, $crud->f->region, $crud->f->user_id);
 
-					$email->sendmail($crud->f->user_email, sprintf(_('User profile modified at %s.'), $this->configuration['absolute_url']), sprintf(_("%s you have modified your user settings at %s. Thank You, %s"), $crud->f->user_display_name, $this->configuration['scripts_name_version'], $this->configuration['absolute_url']));
+					$email->sendmail($crud->f->user_email, sprintf(__('User profile modified at %s.'), $this->configuration['absolute_url']), sprintf(__("%s you have modified your user settings at %s. Thank You, %s"), $crud->f->user_display_name, $this->configuration['scripts_name_version'], $this->configuration['absolute_url']));
 
-					$this->template->ok(_('Your preferences was updated.'));
+					$this->template->ok(__('Your preferences was updated.'));
 
 					$userAction->userEditPreferences($crud->f);
 				} else {

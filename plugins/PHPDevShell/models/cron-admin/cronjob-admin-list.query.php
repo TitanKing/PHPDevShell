@@ -48,17 +48,17 @@ class PHPDS_listCronjobAdminQuery extends PHPDS_query
 		$cronjobs_list_db = parent::invoke($orphan_sql);
 
 		// Icons.
-		$broken_cron_icon = $template->icon('cross-circle', _('Broken Cron Orphan!'));
-		$delete_cron_icon = $template->icon('clock--minus', _('Delete Cron'));
-		$edit_cron_icon = $template->icon('clock--pencil', _('Edit Cron'));
-		$run_cron_icon = $template->icon('clock--arrow', _('Run Cron'));
-		$do_log_cron_icon = $template->icon('clipboard-task', _('Yes Log Cron'));
-		$dont_log_cron_icon = $template->icon('clipboard--exclamation', _('Dont Log Cron'));
-		$disable_cron_icon = $template->icon('clock--exclamation', _('Disable Cron'));
-		$never_run_cron_icon = $template->icon('clock', _('Never Run Cron'));
-		$run_cron_once_icon = $template->icon('clock-select-remain', _('Run Cron Once'));
-		$repeat_cron_icon = $template->icon('clock-history', _('Repeat Cron'));
-		$missed_cron_icon = $template->icon('clock--exclamation', _('Missed or Never Ran'));
+		$broken_cron_icon = $template->icon('cross-circle', __('Broken Cron Orphan!'));
+		$delete_cron_icon = $template->icon('clock--minus', __('Delete Cron'));
+		$edit_cron_icon = $template->icon('clock--pencil', __('Edit Cron'));
+		$run_cron_icon = $template->icon('clock--arrow', __('Run Cron'));
+		$do_log_cron_icon = $template->icon('clipboard-task', __('Yes Log Cron'));
+		$dont_log_cron_icon = $template->icon('clipboard--exclamation', __('Dont Log Cron'));
+		$disable_cron_icon = $template->icon('clock--exclamation', __('Disable Cron'));
+		$never_run_cron_icon = $template->icon('clock', __('Never Run Cron'));
+		$run_cron_once_icon = $template->icon('clock-select-remain', __('Run Cron Once'));
+		$repeat_cron_icon = $template->icon('clock-history', __('Repeat Cron'));
+		$missed_cron_icon = $template->icon('clock--exclamation', __('Missed or Never Ran'));
 
 		// Create cron list.
 		if (empty($cronjobs_list_db)) $cronjobs_list_db = array();
@@ -78,7 +78,7 @@ class PHPDS_listCronjobAdminQuery extends PHPDS_query
 			} else {
 				$edit['cron_name'] = $navigation->determineMenuName($edit['menu_name'], $edit['menu_link'], $edit['menu_id']);
 				$edit_ = "<a href=\"{$page_edit}{$edit['menu_id']}\" class=\"button\">{$edit_cron_icon}</a>";
-				$run_ = "<a href=\"{$navigation->buildURL($edit['menu_id'], false, true)}\" {$core->confirmLink(sprintf(_('Are you sure you want to EXECUTE cronjob %s?'), $edit['cron_name']))} class=\"button\">{$run_cron_icon}</a>";
+				$run_ = "<a href=\"{$navigation->buildURL($edit['menu_id'], false, true)}\" {$core->confirmLink(sprintf(__('Are you sure you want to EXECUTE cronjob %s?'), $edit['cron_name']))} class=\"button\">{$run_cron_icon}</a>";
 			}
 			// Log Cron Icon.
 			($edit['log_cron'] == 1) ? $log_cron_icon = $do_log_cron_icon : $log_cron_icon = $dont_log_cron_icon;
@@ -98,7 +98,7 @@ class PHPDS_listCronjobAdminQuery extends PHPDS_query
 					$edit['second'] = 0;
 					// Create confirm date.
 					if (empty($error[2])) {
-						$expectancy = sprintf(_('Once on %s'), $core->formatTimeDate(mktime($edit['hour'], $edit['minute'], $edit['second'], $edit['month'], $edit['day'], $edit['year'])));
+						$expectancy = sprintf(__('Once on %s'), $core->formatTimeDate(mktime($edit['hour'], $edit['minute'], $edit['second'], $edit['month'], $edit['day'], $edit['year'])));
 					}
 					break;
 				case 2:
@@ -115,17 +115,17 @@ class PHPDS_listCronjobAdminQuery extends PHPDS_query
 					if ($hours >= 730.484398) {
 						// months
 						$months = round($hours / 730.484398, 2);
-						$expectancy = sprintf(_('Every %s month(s)'), $months);
+						$expectancy = sprintf(__('Every %s month(s)'), $months);
 					} else if ($hours >= 24) {
 						// days
 						$days = round($hours / 24, 2);
-						$expectancy = sprintf(_('Every %s day(s)'), $days);
+						$expectancy = sprintf(__('Every %s day(s)'), $days);
 					} else if ($hours >= 1) {
-						$expectancy = sprintf(_('Every %s hour(s)'), $hours);
+						$expectancy = sprintf(__('Every %s hour(s)'), $hours);
 					} else if ($hours < 1) {
 						// minutes
 						$minutes = ($hours * 60);
-						$expectancy = sprintf(_('Every %s minute(s)'), $minutes);
+						$expectancy = sprintf(__('Every %s minute(s)'), $minutes);
 					}
 					break;
 				default:

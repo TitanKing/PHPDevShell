@@ -54,7 +54,7 @@ class PHPDS_core extends PHPDS_dependant
 	{
 		$configuration = $this->configuration;
 		$navigation = $this->navigation->navigation;
-		
+
 		$current_menu = $navigation[$configuration['m']];
 
 		if (! empty($current_menu['menu_id'])) {
@@ -112,7 +112,7 @@ class PHPDS_core extends PHPDS_dependant
 				$this->template->mod = $this->factory('themeMods');
 			}
 		} else {
-			include_once 'themes/cloud/mods.php';
+			include_once 'themes/default/mods.php';
 			$this->template->mod = $this->factory('themeMods');
 		}
 	}
@@ -136,7 +136,7 @@ class PHPDS_core extends PHPDS_dependant
 			ob_start();
 			$result = $this->loadFile($template_dir . $this->themeFile, false, true, true, true);
 			if (false === $result) {
-				$result = $this->loadFile('themes/cloud/' . $this->themeFile, false, true, true, true);
+				$result = $this->loadFile('themes/default/' . $this->themeFile, false, true, true, true);
 			}
 			if (false === $result) {
 				throw new PHPDS_exception('Unable to find the custom template "' . $this->themeFile . '" in directory "' . $template_dir . '"');
@@ -523,7 +523,7 @@ class PHPDS_core extends PHPDS_dependant
 		if (!empty($navigation[$menu_id])) {
 			$plugin_folder = $navigation[$menu_id]['plugin_folder'];
 			$old_include_path = PU_addIncludePath($plugin_folder.'/includes/');
-						
+
 			if ($include_model) {
 				if ($include_model === true) $include_model = 'query';
 				$this->loadFile($plugin_folder . 'models/' . preg_replace("/.php/", '.' . $include_model . '.php', $navigation[$menu_id]['menu_link']));
@@ -549,7 +549,7 @@ class PHPDS_core extends PHPDS_dependant
 					$view->run();
 				}
 			}
-			
+
 			set_include_path($old_include_path);
 		}
 		if ($result_ === false && empty($this->haltController)) {
@@ -1051,13 +1051,13 @@ class PHPDS_core extends PHPDS_dependant
 	{
 		$this->_log((array) $this->configuration);
 	}
-	
-	
-	
+
+
+
 	public function mangleCharset($charset)
 	{
 		$configuration = $this->configuration;
-		
+
 		$charsetList = !empty($configuration['charsetList']) ? $configuration['charsetList'] :
 			array(
 					'utf8' => 'UTF-8',
@@ -1067,7 +1067,7 @@ class PHPDS_core extends PHPDS_dependant
 					'koi8r' => 'KOI8-R',
 					'macroman' => 'MacRoman',
 					'sjis' => 'Shift_JIS',
-					
+
 					'UTF-8' => 'utf8',
 					'ISO-8859-1' => 'latin1',
 					'ISO-8859-5' => 'latin5',

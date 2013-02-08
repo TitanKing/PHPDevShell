@@ -116,8 +116,6 @@ class groupTree extends PHPDS_dependant
 	 */
 	public function compileResults($create_html = true, $create_array = false, $extra_sql = false, $skip_group_id = false)
 	{
-		$core = $this->core;
-		$template = $this->template;
 		$navigation = $this->navigation;
 
 		// Define.
@@ -128,17 +126,10 @@ class groupTree extends PHPDS_dependant
 		$this->callGroups($extra_sql, $skip_group_id);
 
 		// Set page to load.
-		$page_edit = $navigation->buildURL(2273945344, 'eg=');
-		$page_delete = $navigation->buildURL(false, 'dg=');
-		$page_delete_users = $navigation->buildURL(false, 'dgu=');
-		
-		// Icons.
-		$edit_group_icon = $template->icon('jar--pencil', _('Edit Group'));
-		$delete_group_icon = $template->icon('jar--minus', _('Delete Group'));
-		$delete_users_icon = $template->icon('user--minus', _('Delete Group Users'));
+		$page_edit = $navigation->buildURL('edit-group', 'eg=');
 
 		// Will use later to indent groups.
-		$indent_group[0] = false;
+		$indent_group[0] = '';
 		// Last loop we would use to finally output the results as HTML.
 		if (!empty($this->outputGroupArray)) {
 			foreach ($this->outputGroupArray as $user_group_id => $user_groupArray) {
@@ -162,12 +153,12 @@ class groupTree extends PHPDS_dependant
 					$indent_integer = false;
 				}
 				// Check if item was already looped, ruling a loop to be created only once per menu group.
-				if (!key_exists($parent_group_id, $indent_group)) {
+				if (!array_key_exists($parent_group_id, $indent_group)) {
 					// Define.
-					$indent = false;
+					$indent = '';
 					// Loop and create indent string.
 					for ($i = 0; $i <= $indent_integer; $i++) {
-						$indent .= '&nbsp;&nbsp;&nbsp;&nbsp;';
+						$indent .= '&nbsp;&nbsp;';
 					}
 					$indent_group[$parent_group_id] = $indent;
 				}
@@ -186,16 +177,14 @@ class groupTree extends PHPDS_dependant
 						'user_group_name' => $user_group_name,
 						'user_group_note' => $user_group_note,
 						'alias' => $alias,
-						'edit' => "<a href=\"{$page_edit}{$user_group_id}\" class=\"button\">{$edit_group_icon}</a>",
-						'delete_group' => "<a href=\"{$page_delete}{$user_group_id}\" {$core->confirmLink(sprintf(_('Are you sure you want to DELETE : %s'), $user_group_name))} class=\"button\">{$delete_group_icon}</a>",
-						'delete_group_users' => "<a href=\"{$page_delete_users}{$user_group_id}\" {$core->confirmLink(sprintf(_('Delete ALL USERS of group %s?'), $user_group_name))} class=\"button\">{$delete_users_icon}</a>"
+						'edit' => '<a href="' . $page_edit . $user_group_id . '" class="btn click-elegance"><i class="icon-pencil"></i></a>'
 					);
 				}
 				// Reset indention.
-				$indent = false;
+				$indent = '';
 			}
 		}
 		if (empty($this->groupArray)) // Set array incase it could be empty.
-				$this->groupArray[0] = _('Not Available');
+				$this->groupArray[0] = __('Not Available');
 	}
 }

@@ -59,12 +59,12 @@ class PHPDS_readTokenListQuery extends PHPDS_query
 		$RESULTS['th'] = $pagination->th();
 
 		// Icons.
-		$registration_icon_1 = $template->icon('eye', _('Show as registration option'));
-		$registration_icon_2 = $template->icon('eye--exclamation', _('Dont show as registration option'));
-		$run_icon = $template->icon('chain--arrow', _('View registration URL'));
-		$mail_icon = $template->icon('mail--arrow', _('Mail Token'));
-		$edit_icon = $template->icon('key--pencil', _('Edit Token'));
-		$delete_icon = $template->icon('key--minus', _('Delete Token'));
+		$registration_icon_1 = $template->icon('eye', __('Show as registration option'));
+		$registration_icon_2 = $template->icon('eye--exclamation', __('Dont show as registration option'));
+		$run_icon = $template->icon('chain--arrow', __('View registration URL'));
+		$mail_icon = $template->icon('mail--arrow', __('Mail Token'));
+		$edit_icon = $template->icon('key--pencil', __('Edit Token'));
+		$delete_icon = $template->icon('key--minus', __('Delete Token'));
 
 		foreach ($select_registration_tokens as $select_registration_tokens_array) {
 			$token_id = $select_registration_tokens_array['token_id'];
@@ -98,7 +98,7 @@ class PHPDS_readTokenListQuery extends PHPDS_query
 				'run' => "<a href=\"{$page_check}{$token_id}\" class=\"button\">{$run_icon}</a>",
 				'mail' => "<a href=\"{$page_token}{$token_id}\" class=\"button\">{$mail_icon}</a>",
 				'edit' => "<a href=\"{$page_edit}{$token_id}\" class=\"button\">{$edit_icon}</a>",
-				'delete' => "<a href=\"{$page_delete}{$token_id}\" {$core->confirmLink(sprintf(_('Are you sure you want to DELETE : %s'), $token_name))} class=\"button\">{$delete_icon}</a>"
+				'delete' => "<a href=\"{$page_delete}{$token_id}\" {$core->confirmLink(sprintf(__('Are you sure you want to DELETE : %s'), $token_name))} class=\"button\">{$delete_icon}</a>"
 			);
 		}
 		if (! empty($RESULTS['list'])) {

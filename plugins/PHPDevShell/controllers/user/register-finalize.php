@@ -14,7 +14,7 @@ class RegisterFinalize extends PHPDS_controller
 	 */
 	public function execute()
 	{
-		$this->template->heading(_('Finalizing Registration Process'));
+		$this->template->heading(__('Finalizing Registration Process'));
 
 		$userAction = $this->factory('userActions');
 
@@ -55,21 +55,21 @@ class RegisterFinalize extends PHPDS_controller
 						if (! empty($edit['available_tokens'])) {
 							$this->db->invokeQuery('PHPDS_UpdateTokens', $edit['token_id']);
 							// Send update message.
-							$this->template->ok(sprintf(_('Registration process completed %s. You have finished registering a new account on %s for %s, you may now proceed to log-in.'), $edit['user_display_name'], $this->configuration['scripts_name_version'], $edit['token_name']));
+							$this->template->ok(sprintf(__('Registration process completed %s. You have finished registering a new account on %s for %s, you may now proceed to log-in.'), $edit['user_display_name'], $this->configuration['scripts_name_version'], $edit['token_name']));
 						} else {
-							$this->template->ok(sprintf(_('Registration process completed %s. You have finished registering a new account on %s, you may now proceed to log-in.'), $edit['user_display_name'], $this->configuration['scripts_name_version']));
+							$this->template->ok(sprintf(__('Registration process completed %s. You have finished registering a new account on %s, you may now proceed to log-in.'), $edit['user_display_name'], $this->configuration['scripts_name_version']));
 						}
 					} else {
-						$this->template->warning('There was a problem with your registration, please contact the System Administrator.');
+						$this->template->warning('There was a problem with your registration.');
 					}
 				} else {
-					$this->template->warning(_('Your registration entry was not found. The account you are trying to register does not exist, was already approved, banned or awaiting admin approval.'));
+					$this->template->warning(__('Account you are trying to register does not exist, was already approved, banned or awaiting admin approval.'));
 				}
 			} else {
-				$this->template->warning(_('There seems to be a problem with the finalization process, the system admin should be notified if you think this is an error.'));
+				$this->template->warning(__('Error with the finalization process.'));
 			}
 		} else {
-			$this->template->warning(sprintf(_('%s does not accept any validation requests.'), $this->configuration['scripts_name_version']));
+			$this->template->warning(sprintf(__('%s does not accept any validation requests.'), $this->configuration['scripts_name_version']));
 		}
 	}
 }

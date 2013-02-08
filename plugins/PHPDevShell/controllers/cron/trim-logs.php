@@ -10,8 +10,8 @@ class TrimLogs extends PHPDS_controller
 	 */
 	public function execute()
 	{
-		$this->template->heading(_('Trim Logs'));
-		$this->template->info(_('Trim logs to the given amount in the config gui, this helps keeping your database manageable.'));
+		$this->template->heading(__('Trim Logs'));
+		$this->template->info(__('Trim logs to the given amount in the config gui, this helps keeping your database manageable.'));
 
 		$trim_results = $this->db->invokeQuery('PHPDS_trimLogsQuery');
 

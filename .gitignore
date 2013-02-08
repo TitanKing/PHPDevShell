@@ -25,3 +25,5 @@ single-site.config.php
 multi-host.config.php
 other/tests/unittests/diag/coverage/*
 other/tests/unittests/framework/includes/*
+.bzr
+.idea

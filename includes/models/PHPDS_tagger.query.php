@@ -14,6 +14,7 @@ class PHPDS_taggerListQuery extends PHPDS_query
 			tagID, tagObject, tagName, tagTarget, tagValue
 		FROM
 			_db_core_tags"; // WHERE tagTarget = '%s', tagObject = '%s', tagName = '%s', tagValue = '%s' ";
+
 	protected $where = '1';
 	protected $autoProtect = true;
 
@@ -78,7 +79,7 @@ class PHPDS_taggerListTargetQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
-			tagName, tagValue
+			tagID, tagName, tagValue
 		FROM
 			_db_core_tags
 		WHERE
@@ -86,11 +87,10 @@ class PHPDS_taggerListTargetQuery extends PHPDS_query
 		AND
 			tagObject = '%s'
 		";
-	protected $autoProtect = true;
 }
 
 /**
- * Tagger - Delete old tags.
+ * Tagger - Delete all tags related to target and object.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
 class PHPDS_deleteTagsQuery extends PHPDS_query
@@ -107,7 +107,26 @@ class PHPDS_deleteTagsQuery extends PHPDS_query
 }
 
 /**
- * Tagger - Update tags to database.
+ * Tagger - Delete all tags related to target, object and name
+ * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
+ */
+class PHPDS_deleteStrictTagsQuery extends PHPDS_query
+{
+    protected $sql = "
+		DELETE FROM
+			_db_core_tags
+		WHERE
+			tagObject = '%s'
+		AND
+			tagTarget = '%s'
+	    AND
+	        tagName = '%s'
+		";
+    protected $autoProtect = true;
+}
+
+/**
+ * Tagger - Update tags in database.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
 class PHPDS_updateTagsQuery extends PHPDS_query
@@ -116,7 +135,7 @@ class PHPDS_updateTagsQuery extends PHPDS_query
 		REPLACE INTO
 			_db_core_tags (tagID, tagObject, tagName, tagTarget, tagValue)
 		VALUES
-			%s
+	      %s
 	";
 
 	/**
@@ -124,34 +143,28 @@ class PHPDS_updateTagsQuery extends PHPDS_query
 	 */
 	public function invoke($parameters = null)
 	{
-		list($object, $target, $value_original, $names) = $parameters;
-		if (! empty($target)) {
-			// Lets just clean up old tags before we save.
-			if (! empty($names)) {
-				$new_tags_array = explode("\r\n", $names);
-				$new_tags = '';
-				foreach ($new_tags_array as $tags) {
-					$tags = trim($tags);
-					$value = trim($value_original);
-					$splittags = strpos($tags, ":");
-					if (! empty($splittags)) {
-						list($tags, $value) = explode(":", $tags);
-						if (empty($value)) {
-							$value = trim($value_original);
-						}
-					}
-					if ($tags) {
-						$values = $this->protectArray(array($object, $tags, $target, $value), '"');
-						$new_tags .= "\r\n(NULL, ".implode(', ', $values).'),';
-					}
-				}
-				if (! empty($new_tags)) {
-					$new_tags = rtrim($new_tags,",");
-					return parent::invoke(array($new_tags));
-				}
-			} else {
-				return false;
-			}
-		}
+		list($object, $target, $taggernames, $taggervalues, $taggerids, $taggerdeletes) = $parameters;
+
+		if (! empty($target) && ! empty($object)) {
+            foreach ($taggernames as $key => $name) {
+                if (! empty($name)) {
+                    $id     = (! empty($taggerids[$key])) ? $taggerids[$key] : '';
+                    $value  = (! empty($taggervalues[$key])) ? $taggervalues[$key] : '';
+                    $tag[]  = array($id, $object, $name, $target, $value);
+                }
+            }
+
+            if (! empty($taggerdeletes)) {
+                foreach ($taggerdeletes as $name_) {
+                    $this->db->invokeQuery('PHPDS_deleteStrictTagsQuery', $object, $target, $name_);
+                }
+            }
+            if (! empty($tag)) $datarows = $this->rows($tag);
+            if (! empty($datarows)) {
+                return parent::invoke(array($datarows));
+            } else {
+                return array();
+            }
+        }
 	}
 }

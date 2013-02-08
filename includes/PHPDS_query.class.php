@@ -328,6 +328,7 @@ class PHPDS_query extends PHPDS_dependant
 	{
 		$r = '';
 		$build = '';
+        if (empty($parameters)) return false;
 		foreach ($parameters as $col) {
 			foreach ($col as $row) {
 				$r .= "'" . $row . "',";

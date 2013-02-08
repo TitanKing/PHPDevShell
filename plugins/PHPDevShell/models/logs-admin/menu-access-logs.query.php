@@ -37,7 +37,7 @@ class PHPDS_clearMenuAccessLogsQuery extends PHPDS_query
 		// Reset auto increment counter.
 		$this->db->invokeQuery('PHPDS_resetMenuAccessLogsQuery');
 
-		$this->template->ok(_('Logs table cleared.'));
+		$this->template->ok(__('Logs table cleared.'));
 	}
 }
 
@@ -90,8 +90,8 @@ class PHPDS_getAllMenuAccessLogs extends PHPDS_query
 		$RESULTS['th'] = $pagination->th();
 
 		// Icons.
-		$log_type_not_found_icon = $template->icon('eye--exclamation', _('Page not Found!'));
-		$log_type_found_icon = $template->icon('eye', _('Viewed'));
+		$log_type_not_found_icon = $template->icon('eye--exclamation', __('Page not Found!'));
+		$log_type_found_icon = $template->icon('eye', __('Viewed'));
 
 		foreach ($get_logs as $get_logs_array) {
 			// Build values.
@@ -103,11 +103,11 @@ class PHPDS_getAllMenuAccessLogs extends PHPDS_query
 			$log_time = $core->formatTimeDate($get_logs_array['timestamp']);
 			// Do we have a user display name?
 			if (empty($user_display_name)) {
-				$user_display_name = _('Guest User');
+				$user_display_name = __('Guest User');
 			}
 			// If we dont have a menu item, the page is not know!
 			if (empty($menu_name)) {
-				$menu_name = _('Page not found!');
+				$menu_name = __('Page not found!');
 				$log_type = $log_type_not_found_icon;
 			} else {
 				$log_type = $log_type_found_icon;

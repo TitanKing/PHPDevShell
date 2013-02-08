@@ -19,31 +19,28 @@ class menuArray extends PHPDS_dependant
 	 */
 	public function loadMenuArray($menu_id = false, $determine_menu_name = true)
 	{
-		$configuration = $this->configuration;
-		$navigation = $this->navigation;
-		$db = $this->db;
-		$template = $this->template;
+		$configuration      = $this->configuration;
+		$navigation         = $this->navigation;
+		$db                 = $this->db;
+		$template           = $this->template;
 
-		// Set gettext domain.
-		$d = 'PHPDevShell';
+		$select_menu_items  = $db->invokeQuery('PHPDS_readMenusQuery', $menu_id);
 
-		$select_menu_items = $db->invokeQuery('PHPDS_readMenusQuery', $menu_id);
-
-		$indent_group[0] = false;
+		$indent_group[0]    = false;
 
 		// Icons.
-		$icon_1 = $template->icon('plug', _('Plugin Item'));
-		$icon_2 = $template->icon('plug--plus', _('Link Existing Plugin Item'));
-		$icon_3 = $template->icon('plug--arrow', _('Link Existing Plugin Item and Jump to its Group'));
-		$icon_4 = $template->icon('script', _('Execute External File'));
-		$icon_5 = $template->icon('chain', _('External http URL'));
-		$icon_6 = $template->icon('chain-unchain', _('Unclickable Place Holder'));
-		$icon_7 = $template->icon('ui-split-panel-vertical', _('iFrame Item'));
-		$icon_8 = $template->icon('clock-select', _('Cronjob Item'));
-		$icon_9 = $template->icon('layout-select-content', _('HTML Ajax Widget'));
-		$icon_10 = $template->icon('application-block', _('HTML Ajax'));
-		$icon_11 = $template->icon('applications-blue', _('HTML Ajax Lightbox'));
-		$icon_12 = $template->icon('script-code', _('Raw Ajax'));
+		$icon_1     = $template->icon('plug', __('Plugin Item'));
+		$icon_2     = $template->icon('plug--plus', __('Link Existing Plugin Item'));
+		$icon_3     = $template->icon('plug--arrow', __('Link Existing Plugin Item and Jump to its Group'));
+		$icon_4     = $template->icon('script', __('Execute External File'));
+		$icon_5     = $template->icon('chain', __('External http URL'));
+		$icon_6     = $template->icon('chain-unchain', __('Unclickable Place Holder'));
+		$icon_7     = $template->icon('ui-split-panel-vertical', __('iFrame Item'));
+		$icon_8     = $template->icon('clock-select', __('Cronjob Item'));
+		$icon_9     = $template->icon('layout-select-content', __('HTML Ajax Widget'));
+		$icon_10    = $template->icon('application-block', __('HTML Ajax'));
+		$icon_11    = $template->icon('applications-blue', __('HTML Ajax Lightbox'));
+		$icon_12    = $template->icon('script-code', __('Raw Ajax'));
 
 		foreach ($select_menu_items as $select_menu_items_array) {
 			// Calculate folder indention.
@@ -62,7 +59,7 @@ class menuArray extends PHPDS_dependant
 				$indent_integer = false;
 			}
 			// Check if item was already looped, ruling a loop to be created only once per menu group.
-			if (!key_exists($select_menu_items_array['parent_menu_id'], $indent_group)) {
+			if (!array_key_exists($select_menu_items_array['parent_menu_id'], $indent_group)) {
 				// Define.
 				$indent = false;
 				// Loop and create indent string.

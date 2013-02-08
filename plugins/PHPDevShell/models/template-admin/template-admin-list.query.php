@@ -128,14 +128,14 @@ class PHPDS_readTemplateDir extends PHPDS_query
 		$level = substr_count($base, '/') - ($level_deduct);
 
 		// Icons.
-		$found_icon = $template->icon('television-image', _('Found'));
-		$not_found_icon = $template->icon('cross-circle', _('Not Found'));
-		$installed_icon = $template->icon('tick-circle', _('Installed'));
-		$uninstall_icon = $template->icon('disk--minus', _('Uninstall'));
-		$not_installed = $template->icon('disk--exclamation', _('NOT Installed'));
-		$install_icon = $template->icon('disk--plus', _('Install'));
-		$critical_icon = $template->icon('cross-circle', _('Not Found'));
-		$remove_icon = $template->icon('cross-script', _('Remove'));
+		$found_icon = $template->icon('television-image', __('Found'));
+		$not_found_icon = $template->icon('cross-circle', __('Not Found'));
+		$installed_icon = $template->icon('tick-circle', __('Installed'));
+		$uninstall_icon = $template->icon('disk--minus', __('Uninstall'));
+		$not_installed = $template->icon('disk--exclamation', __('NOT Installed'));
+		$install_icon = $template->icon('disk--plus', __('Install'));
+		$critical_icon = $template->icon('cross-circle', __('Not Found'));
+		$remove_icon = $template->icon('cross-script', __('Remove'));
 
 		// Start reading and loading directory structure.
 		while (false !== ($object = readdir($subdirectories))) {
@@ -191,7 +191,7 @@ class PHPDS_readTemplateDir extends PHPDS_query
 						$installed = $installed_icon;
 						// Uninstall should display.
 						$action_ = <<<HTML
-							<a href="{$page_uninstall}{$template_folder}" {$core->confirmLink(sprintf(_('You are about to uninstall template %s?'), $template_folder))} class="button">
+							<a href="{$page_uninstall}{$template_folder}" {$core->confirmLink(sprintf(__('You are about to uninstall template %s?'), $template_folder))} class="button">
 								{$uninstall_icon}
 							</a>
 HTML;
@@ -232,8 +232,8 @@ HTML;
 					'id_' => $id_,
 					'name_' => $name_,
 					'critical_icon' => $critical_icon,
-					'tna_notice' => $template->notice(_('Could not locate template install file, this could be a broken template.'), true),
-					'page_uninstall' => "<a href=\"{$page_uninstall}{$name_}\" {$core->confirmLink(sprintf(_('You are about to uninstall broken template %s?'), $name_))} class=\"button\">{$remove_icon}</a>"
+					'tna_notice' => $template->notice(__('Could not locate template install file, this could be a broken template.'), true),
+					'page_uninstall' => "<a href=\"{$page_uninstall}{$name_}\" {$core->confirmLink(sprintf(__('You are about to uninstall broken template %s?'), $name_))} class=\"button\">{$remove_icon}</a>"
 				);
 			}
 		}

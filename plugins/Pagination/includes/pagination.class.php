@@ -288,12 +288,11 @@ class pagination extends PHPDS_dependant
 					// url
 					if (!empty($column)) {
 						$order_url = $nav->buildURL(false, "p=1&by={$column}");
-						$sort_html = $mod->paginationOrder($order_url, $asc, $desc);
-
+                        $th .= $mod->paginationTh($th_, $order_url, $asc, $desc);
 					} else {
 						$sort_html = '';
+                        $th .= $mod->paginationTh($th_);
 					}
-					$th .= $mod->paginationTh($th_, $sort_html);
 				}
 			}
 			return $th;
@@ -317,7 +316,7 @@ class pagination extends PHPDS_dependant
 		// Check to see if there is only 1 page, if so, give the end of results message.
 		if ($total_pages <= 1) {
 			// Show message if only 1 page exists.
-			$SEARCH_RESULTS = $mod->noResults(__('Showing the only page [1/1]', 'core.lang'));
+			$SEARCH_RESULTS = $mod->noResults('');
 		} else {
 			// Other paging calculations.
 			$previous_page = $this->currentPage - 1;

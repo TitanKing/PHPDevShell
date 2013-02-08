@@ -44,7 +44,7 @@ class PHPDS_readRoleMenuQuery extends PHPDS_query
 		$r = parent::invoke($parameters);
 		if (empty($r)) $r = array();
 		foreach ($r as $role_per_menu_array) {
-			$selected_menu[$role_per_menu_array['menu_id']] = 'selected';
+			$selected_menu[$role_per_menu_array['menu_id']] = 'on';
 		}
 		if (!empty($selected_menu)) {
 			return $selected_menu;
@@ -112,12 +112,13 @@ class PHPDS_writePermissionsQuery extends PHPDS_query
 
 		if (!empty($permission)) {
 			// Save permissions.
-			foreach ($permission as $menu_id) {
+			foreach ($permission as $menu_id => $on) {
 				$cols[] = array($user_role_id, $menu_id);
 				// Also set selected role menu items.
 			}
 			$user_role_id_db = $this->rows($cols);
 		}
+
 		// Set new assigned value.
 		if (!empty($user_role_id_db)) {
 			// Insert menu permissions.
@@ -148,7 +149,7 @@ class PHPDS_readMenusQuery extends PHPDS_query
 		ORDER BY
 			t2.id
 		ASC
-		";
+	";
 
 	/**
 	 * Initiate query invoke command.
@@ -157,55 +158,86 @@ class PHPDS_readMenusQuery extends PHPDS_query
 	 */
 	public function invoke($parameters = null)
 	{
+        $mod = $this->template->mod;
+        $nav = $this->navigation;
+
 		if (!empty($parameters[0])) {
 			$selected_menu = $parameters[0];
 		} else {
 			$selected_menu = array();
 		}
+
 		$r = parent::invoke();
-		$menu_item_options = '';
-		$indent_group[0] = false;
-		foreach ($r as $select_menu_array) {
-			$menu['menu_id'] = $select_menu_array['menu_id'];
-			$menu['menu_name'] = $select_menu_array['menu_name'];
-			$menu['menu_link'] = $select_menu_array['menu_link'];
-			$menu['menu_type'] = $select_menu_array['menu_type'];
-			$menu['parent_menu_id'] = $select_menu_array['parent_menu_id'];
-			$menu['is_parent'] = $select_menu_array['is_parent'];
-			// Determine menu name.
-			$menu_name = $this->navigation->determineMenuName($menu['menu_name'], $menu['menu_link'], $menu['menu_id']);
-			// Calculate folder indention.
-			if ($menu['is_parent'] == 1) {
-				if (!empty($indent_item[$menu['parent_menu_id']])) {
-					$indent_item[$menu['menu_id']] = $indent_item[$menu['parent_menu_id']] + 1;
-				} else {
-					$indent_item[$menu['menu_id']] = 1;
-				}
-			}
-			if (!empty($indent_item[$menu['parent_menu_id']])) {
-				$indent_integer = $indent_item[$menu['parent_menu_id']];
-			} else {
-				$indent_integer = 0;
-			}
-			// Check if item was already looped, ruling a loop to be created only once per menu group.
-			if (!key_exists($menu['parent_menu_id'], $indent_group)) {
-				// Loop and create indent string.
-				$indent_group[$menu['parent_menu_id']] = str_repeat('&nbsp;', $indent_integer + 1);
-			}
-			if (empty($selected_menu[$menu['menu_id']])) {
-				$selected_menu_ = false;
-			} else {
-				$selected_menu_ = $selected_menu[$menu['menu_id']];
-			}
-			// Create options.
-			$menu_item_array[] = array('menu_id' => $menu['menu_id'], 'selected' => $selected_menu_, 'indent' => $indent_group[$menu['parent_menu_id']], 'menu_name' => $menu_name);
-			// Clear indent.
-			$indent = false;
+
+        foreach ($r as $mnr) {
+            $menur[$mnr['menu_id']]['menu_id']             = $mnr['menu_id'];
+            $menur[$mnr['menu_id']]['parent_menu_id']      = $mnr['parent_menu_id'];
+            $menur[$mnr['menu_id']]['menu_name']           = $nav->determineMenuName($mnr['menu_name'], $mnr['menu_link'], $mnr['menu_id']);
+            $menur[$mnr['menu_id']]['is_parent']           = $mnr['is_parent'];
+            if (! empty($mnr['parent_menu_id'])) {
+                $childr[$mnr['parent_menu_id']][]          = $mnr['menu_id'];
+            }
+
+            if (empty($selected_menu[$mnr['menu_id']])) {
+                $menur[$mnr['menu_id']]['checked'] = '';
+            } else {
+                $menur[$mnr['menu_id']]['checked'] = 'checked';
+            }
+        }
+
+        $nodeul = '';
+
+		foreach ($menur as $menu_id => $menu) {
+            if (((string) $menu['parent_menu_id'] == '0')) {
+                if ($menu['is_parent'] == 1) {
+
+                    $family = $this->callFamily($menu_id, $menur, $childr);
+                    if (! empty($family)) {
+                        $family = $mod->ulCheckbox($family);
+                    } else {
+                        $family = '';
+                    }
+                    $nodeul .= $mod->liCheckbox($menu_id, 'permission', $menu['menu_name'], $menu['checked']);
+                    $nodeul .= $family;
+
+                } else {
+                    $nodeul .= $mod->liCheckbox($menu_id, 'permission', $menu['menu_name'], $menu['checked']);
+                }
+            }
+
 		}
-		if ($menu_item_array) {
-			return $menu_item_array;
+		if ($nodeul) {
+			return $nodeul;
 		} else {
 			return array();
 		}
 	}
+
+    public function callFamily($menu_id, $menur, $childr)
+    {
+        $mod = $this->template->mod;
+        $nodeul = '';
+
+        if (! empty($childr[$menu_id])) {
+            $child = $childr[$menu_id];
+            foreach ($child as $m) {
+                if ($menur[$m]['is_parent'] == 1) {
+
+                    $family = $this->callFamily($m, $menur, $childr);
+                    if (! empty($family)) {
+                        $family = $mod->ulCheckbox($family);
+                    } else {
+                        $family = '';
+                    }
+                    $nodeul .= $mod->liCheckbox($m, 'permission', $menur[$m]['menu_name'], $menur[$m]['checked']);
+                    $nodeul .= $family;
+
+                } else {
+                    $nodeul .= $mod->liCheckbox($m, 'permission', $menur[$m]['menu_name'], $menur[$m]['checked']);
+                }
+            }
+        }
+
+        return $nodeul;
+    }
 }

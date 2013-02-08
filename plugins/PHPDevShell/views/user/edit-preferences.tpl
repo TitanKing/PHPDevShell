@@ -1,78 +1,72 @@
-<form action="{$self_url}" method="post" class="validate">
+<form action="{$self_url}" method="post" class="validate click-elegance">
     <div class="row">
-        <div class="column grid_4">
+        <div class="span4">
 			<fieldset>
 				<legend>Identification</legend>
 				<p>
-					<label>{_e('User ID')}
-						<input type="text" size="5" name="user_id" value="{$user_id}" title="{_e('The User ID is automatically assigned to you by the system.')}" readonly>
-					</label>
+					<label for="user_id">{_e('User ID')}</label>
+					<input id="user_id" type="text" name="user_id" value="{$user_id}" readonly>
+
 				</p>
 				<p>
-					<label>{_e('Username')}
-						<input type="text" size="30" name="user_name" value="{$user_name}" title="{_e('Your username which must be used in order to log in.')}" readonly>
-					</label>
+					<label for="user_name">{_e('Username')}</label>
+					<input id="user_name" type="text" name="user_name" value="{$user_name}" readonly>
+
 				</p>
 				<p>
-					<label>{_e('User Display Name')}
-						<input type="text" size="30" name="user_display_name" value="{$user_display_name}" required="required" title="{_e('The name you would wish to be identified by.')}">
-					</label>
+					<label for="user_display_name">{_e('User Display Name')}</label>
+					<input id="user_display_name" type="text" name="user_display_name" value="{$user_display_name}" required="required">
+
 				</p>
 				<p>
-					<label>{_e('Email')}
-						<input type="text" size="30" name="user_email" value="{$user_email}" title="{_e('User\'s email address is entered here.')}" required="required">
-					</label>
+					<label for="user_email">{_e('Email')}</label>
+					<input id="user_email" type="text" name="user_email" value="{$user_email}" required="required">
+
 				</p>
 			</fieldset>
 		</div>
-        <div class="column grid_4">
+        <div class="span4">
 			<fieldset>
 				<legend>Preferences</legend>
 				{if $language_options == true}
 				<p>
-					<label>
-						{_e('Preferred Language')}
-						<select name="language" title="{_e('Your preferred language.')}">
-							<option value="">...</option>
-							{$language_options}
-						</select>
-					</label>
+					<label for="language">{_e('Preferred Language')}</label>
+                    <select id="language" name="language">
+                        <option value="">...</option>
+                        {$language_options}
+                    </select>
 				</p>
 				{/if}
 				{if $region_options == true}
 				<p>
-					<label>
-						{_e('Preferred Region')}
-						<select name="region" title="{_e('Your preferred region.')}">
-							<option value="">...</option>
-							{$region_options}
-						</select>
-					</label>
+					<label for="region">{_e('Preferred Region')}</label>
+                    <select id="region" name="region">
+                        <option value="">...</option>
+                        {$region_options}
+                    </select>
 				</p>
 				{/if}
 				{if $timezone_options == true}
 				<p>
-					<label>
-						{_e('Preferred Timezone')}
-						<select class="select" name="user_timezone" title="{_e('Your preferred timezone.')}">
-							{$timezone_options}
-						</select>
-					</label>
+					<label for="user_timezone">{_e('Preferred Timezone')}</label>
+                    <select id="user_timezone" class="select" name="user_timezone">
+                        {$timezone_options}
+                    </select>
+
 				</p>
-				<p><label>{_e('Time format preview')}<input type="text" size="40" name="date_format_show" value="{$date_format_show}" title="{_e('Time format preview.')}" readonly></label></p>
 				{/if}
 				{$post_validation}
 				<input type="hidden" value="{$date_registered}" name="date_registered">
 			</fieldset>
         </div>
-		<div class="column grid_4 last">
+		<div class="span4">
 			<fieldset>
-				<legend>{_e('Submit')}</legend>
+				<legend>&nbsp;</legend>
 				<p>
 					<input type="hidden" name="user_group"  value="{$user_group}">
 					<input type="hidden" name="user_role" value="{$user_role}">
-					<button type="submit" name="save" value="save"><span class="save"></span><span>{_e('Save Preferences')}</span></button>
-					<button type="reset"><span class="reset"></span><span>{_e('Reset')}</span></button>
+                    <button type="submit" name="save" value="save" class="btn btn-primary"><i class="icon-ok icon-white"></i> {_e('Submit')}</button>
+                    <button type="reset" name="reset" value="reset" class="btn"><i class="icon-refresh"></i> {_e('Reset')}</button>
 				</p>
 			</fieldset>
 		</div>

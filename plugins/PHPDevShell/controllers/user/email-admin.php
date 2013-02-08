@@ -24,7 +24,7 @@ class EmailAdmin extends PHPDS_controller
 		/* @var $spam botBlock */
 		$spam = $this->factory('botBlock');
 
-		$this->template->heading(_('Query Assistance'));
+		$this->template->heading(__('Query Assistance'));
 
 		$crud->addField('user_email', $this->configuration['user_email']);
 		$crud->addField('name', $this->configuration['user_display_name']);
@@ -64,19 +64,19 @@ class EmailAdmin extends PHPDS_controller
 		if ($crud->POST('send_mail')) {
 
 			if (!$crud->isEmail('email_from'))
-				$crud->error(_('Please provide a valid email address'));
+				$crud->error();
 
 			if (!$crud->is('query_type'))
-				$crud->error(_('Please select type of query'));
+				$crud->error();
 
 			if (!$crud->is('name'))
-				$crud->error(_('Please provide name for query'));
+				$crud->error();
 
 			if (!$crud->is('subject'))
-				$crud->error(_('Please provide a subject'));
+				$crud->error();
 
 			if (!$crud->is('message'))
-				$crud->error(_('Please provide a query message'));
+				$crud->error();
 
 			$crud->is('priority');
 
@@ -106,8 +106,11 @@ class EmailAdmin extends PHPDS_controller
 
 						if (! empty($email___) && ! empty($type_options[$crud->f->query_type])) {
 							$email->FromName = $crud->f->name;
-							if ($email->sendmail("$email___", $type_options[$crud->f->query_type] . ": " . $crud->f->subject, $message, "{$crud->f->email_from}", null, null, null, null, null, 'text/html', $crud->f->priority)) {
-								$this->template->ok(sprintf(_('Thank you %s, The query (%s) was sent successfully.'), "{$crud->f->email_from} \"{$crud->f->name}\"", $type_options[$crud->f->query_type]));
+							if ($email->sendmail("$email___", $type_options[$crud->f->query_type] .
+                                ": " . $crud->f->subject, $message, "{$crud->f->email_from}",
+                                null, null, null, null, null, 'text/html', $crud->f->priority)) {
+								$this->template->ok(sprintf(__('Thank you %s, The query (%s) was sent successfully.'),
+                                    "{$crud->f->email_from} \"{$crud->f->name}\"", $type_options[$crud->f->query_type]));
 							}
 						}
 					}
@@ -119,7 +122,7 @@ class EmailAdmin extends PHPDS_controller
 
 		$view = $this->factory('views');
 
-		$view->set('send_message', _('Send Message'));
+		$view->set('send_message', __('Send Message'));
 		$view->set('self_url', $this->navigation->selfUrl());
 		$view->set('email_from', $crud->f->email_from);
 		$view->set('name', $crud->f->name);

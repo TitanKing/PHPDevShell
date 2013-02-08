@@ -15,7 +15,7 @@ class RegTokenList extends PHPDS_controller
 	public function execute()
 	{
 		// Header information
-		$this->template->heading(_('Registration Token Listing'));
+		$this->template->heading(__('Registration Token Listing'));
 
 		// Check if we need to create the token url for copy and paste.
 		if (!empty($this->security->get['ck'])) {
@@ -27,7 +27,7 @@ class RegTokenList extends PHPDS_controller
 				// Compile token URL.
 				$token_url_ = $this->configuration['absolute_url'] . '/index.php?m=' . $settings['registration_page'] . '&token_key=' . $token_key_;
 				// Return URL message.
-				$this->template->message(sprintf(_('Provide the following registration URL to newly registered users, who you wish to be automatically moved using token id (%s) :<br />%s'), $this->security->get['ck'], "<input type=text size=100 value=$token_url_ class=boxdisabled readonly>"));
+				$this->template->message(sprintf(__('Provide the following registration URL to newly registered users, who you wish to be automatically moved using token id (%s) :<br />%s'), $this->security->get['ck'], "<input type=text size=100 value=$token_url_ class=boxdisabled readonly>"));
 			}
 		}
 
@@ -36,9 +36,9 @@ class RegTokenList extends PHPDS_controller
 			$deleted_registration_token = $this->db->deleteQuick('_db_core_registration_tokens', 'token_id', $this->security->get['drg'], 'token_name');
 
 			if ($deleted_registration_token) {
-				$this->template->ok(sprintf(_('Registration token "%s" was deleted.'), $deleted_registration_token));
+				$this->template->ok(sprintf(__('Registration token "%s" was deleted.'), $deleted_registration_token));
 			} else {
-				$this->template->warning(sprintf(_('No token "%s" to delete.'), $this->security->get['drg']));
+				$this->template->warning(sprintf(__('No token "%s" to delete.'), $this->security->get['drg']));
 			}
 		}
 

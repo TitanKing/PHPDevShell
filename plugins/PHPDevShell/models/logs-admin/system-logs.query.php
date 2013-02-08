@@ -39,7 +39,7 @@ class PHPDS_deleteAllSystemLogsQuery extends PHPDS_query
 		// Reset auto increment counter.
 		$this->db->invokeQuery('PHPDS_resetSystemLogsQuery');
 
-		$this->template->ok(_('Logs table cleared.'));
+		$this->template->ok(__('Logs table cleared.'));
 	}
 }
 
@@ -91,11 +91,11 @@ class PHPDS_getAllSystemLogsQuery extends PHPDS_query
 		$RESULTS['th'] = $pagination->th();
 
 		// Icons.
-		$log_type_1_icon = $template->icon('tick', _('Success Log'));
-		$log_type_2_icon = $template->icon('exclamation--frame', _('Warning Log'));
-		$log_type_3_icon = $template->icon('cross-script', _('Critical Log'));
-		$log_type_4_icon = $template->icon('key', _('User Logged In'));
-		$log_type_5_icon = $template->icon('key--arrow', _('User Logged Out'));
+		$log_type_1_icon = $template->icon('tick', __('Success Log'));
+		$log_type_2_icon = $template->icon('exclamation--frame', __('Warning Log'));
+		$log_type_3_icon = $template->icon('cross-script', __('Critical Log'));
+		$log_type_4_icon = $template->icon('key', __('User Logged In'));
+		$log_type_5_icon = $template->icon('key--arrow', __('User Logged Out'));
 
 		foreach ($get_logs as $get_logs_array) {
 			$id = $get_logs_array['id'];

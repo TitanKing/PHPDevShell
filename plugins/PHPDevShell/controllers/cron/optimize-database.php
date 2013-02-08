@@ -10,8 +10,8 @@ class OptimizeDatabase extends PHPDS_controller
 	 */
 	public function execute()
 	{
-		$this->template->heading(_('Optimize Database'));
-		$this->template->info(_('Does a table repair and a key analysis, and also sorts the index tree so that key lookups are faster.'));
+		$this->template->heading(__('Optimize Database'));
+		$this->template->info(__('Does a table repair and a key analysis, and also sorts the index tree so that key lookups are faster.'));
 		
 		// Get all tables from database.
 		$all_tables = $this->db->invokeQuery('PHPDS_fetchTablesToOptimizeQuery', $this->db->dbName);

@@ -27,7 +27,7 @@ class PHPDS_updateTagsQuery extends PHPDS_query
 			if (!empty($t['tagName'][0]) && !empty($t['tagTarget'][0])) {
 				$write_tag .= "('', '{$t['tagObject'][0]}', '{$t['tagName'][0]}', '{$t['tagTarget'][0]}', '{$t['tagValue'][0]}'),";
 			} else {
-				$this->template->warning(_('To add a new tag please provide both Tag Name and Tag Target.'));
+				$this->template->warning(__('To add a new tag please provide both Tag Name and Tag Target.'));
 			}
 		}
 		// We dont need you anymore, go rest somewhere.
@@ -36,7 +36,7 @@ class PHPDS_updateTagsQuery extends PHPDS_query
 		if (is_array($t['tagObject'])) {
 			foreach ($t['tagObject'] as $id=>$tag) {
 				if (empty($tag) || empty($t['tagName'][$id]) || empty($t['tagTarget'][$id])) {
-					$this->template->warning(sprintf(_('Nothing saved, you missed tag values for tag id %u.'), $id));
+					$this->template->warning(sprintf(__('Nothing saved, you missed tag values for tag id %u.'), $id));
 					break;
 				}
 				$write_tag .= "('$id', '{$tag}', '{$t['tagName'][$id]}', '{$t['tagTarget'][$id]}', '{$t['tagValue'][$id]}'),";
@@ -44,7 +44,7 @@ class PHPDS_updateTagsQuery extends PHPDS_query
 		}
 		if (! empty($write_tag)) {
 			$write_tag = rtrim($write_tag, ',');
-			$this->template->ok(_('Tags updated.'));
+			$this->template->ok(__('Tags updated.'));
 			return parent::invoke(array($write_tag));
 		} else {
 			return false;
@@ -92,7 +92,7 @@ class PHPDS_readTagsQuery extends PHPDS_query
 		$RESULTS['th'] = $pagination->th();
 
 		// Icons.
-		$delete_icon = $template->icon('cross-script', _('Delete'));
+		$delete_icon = $template->icon('cross-script', __('Delete'));
 
 		// OK Loop the array like you would always do.
 		foreach ($select_settings as $tag) {
@@ -104,7 +104,7 @@ class PHPDS_readTagsQuery extends PHPDS_query
 				'tagName' => $tag['tagName'],
 				'tagTarget' => $tag['tagTarget'],
 				'tagValue' => $tag['tagValue'],
-				'delete' => "<a href=\"{$del_url_}{$tag['tagID']}\" {$core->confirmLink(sprintf(_('Are you sure you want to DELETE : %s'), $tag['tagID']))} class=\"button\">" . $delete_icon . "</a>"
+				'delete' => "<a href=\"{$del_url_}{$tag['tagID']}\" {$core->confirmLink(sprintf(__('Are you sure you want to DELETE : %s'), $tag['tagID']))} class=\"button\">" . $delete_icon . "</a>"
 			);
 		}
 		if (! empty($RESULTS['list'])) {

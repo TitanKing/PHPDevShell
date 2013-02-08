@@ -33,6 +33,7 @@ class PHPDS_readGroupQuery extends PHPDS_query
 	public function invoke($parameters = null)
 	{
 		// Compile and list group tree.
+        /* @var $group groupTree */
 		$group = $this->factory('groupTree');
 		$group->compileResults(true, false, $this->user->setGroupQuery("WHERE user_group_id IN ({$this->user->getGroups()})"));
 		return $group->RESULTS;

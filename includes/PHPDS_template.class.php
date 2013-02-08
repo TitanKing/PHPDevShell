@@ -666,7 +666,7 @@ class PHPDS_template extends PHPDS_dependant
             } else if (isset($navigation[$this->configuration['m']]['menu_name'])) {
 				print $this->mod->activeName($navigation[$this->configuration['m']]['menu_name']);
 			} else {
-				print $this->core->haltController['message'];
+				print $this->mod->activeName($this->core->haltController['message']);
 			}
 		} else {
 			print $this->modifyOutputTitle;
@@ -1116,12 +1116,12 @@ class PHPDS_template extends PHPDS_dependant
 			$this->db->logArray[] = array('log_type' => $log_type , 'log_description' => $ok);
 		}
 		// Create HTML.
-		$html = $this->mod->ok($ok);
+
 		// Return or print to browser.
 		if ($return === 'print' || $return == false) {
-			$this->notif->add(array('ok', $html));
+			$this->notif->add(array('ok', $ok));
 		} else if ($return === 'return' || $return == true) {
-			return $html;
+			return $this->mod->ok($ok);
 		}
 	}
 
@@ -1346,13 +1346,12 @@ class PHPDS_template extends PHPDS_dependant
 	{
 		$HTML = '';
 		$message= '';
-		if (! empty($this->loginMessage))
-			$message = $this->notice(___($this->loginMessage), 'return');
+		//if (! empty($this->loginMessage))
+		//	$message = $this->notice(___($this->loginMessage), 'return');
 
 		// Create headings for login.
 		if (! empty($this->core->haltController)) {
 			$HTML .= $this->heading(___('Authentication Required'), 'return');
-			$HTML .= $message;
 		} else {
 			// Get some default settings.
 			$settings = $this->db->getSettings(array('login_message'));

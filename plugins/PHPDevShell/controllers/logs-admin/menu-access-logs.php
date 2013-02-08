@@ -10,7 +10,7 @@ class MenuAccessLogs extends PHPDS_controller
 	 */
 	public function execute()
 	{
-		$this->template->heading(_('Menu Access Logs'));
+		$this->template->heading(__('Menu Access Logs'));
 
 		// Clear database if requested.
 		if (!empty($this->security->post['clear']) && ($this->configuration['user_role'] == $this->configuration['root_role'])) {
@@ -32,7 +32,7 @@ class MenuAccessLogs extends PHPDS_controller
 		$view->set('RESULTS', $RESULTS['list']);
 
 		// Set Button.
-		$view->set('delete_all_logs', _('Delete all logs'));
+		$view->set('delete_all_logs', __('Delete all logs'));
 
 		// Set Values.
 		$view->set('self_url', $this->navigation->selfUrl());

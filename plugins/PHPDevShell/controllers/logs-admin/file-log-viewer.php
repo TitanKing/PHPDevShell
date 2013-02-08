@@ -10,13 +10,13 @@ class SystemLogs extends PHPDS_controller
 	 */
 	public function execute()
 	{
-		$this->template->heading(_('View Log Files'));
+		$this->template->heading(__('View Log Files'));
 
 		// Scan directory and list files.
 		$files = $this->db->invokeQuery('PHPDS_fileLogOptions');
 
 		if (empty($files)) {
-			$this->template->note(sprintf(_('There are no log files written in %s.'), $this->configuration['error']['file_log_dir']));
+			$this->template->note(sprintf(__('There are no log files written in %s.'), $this->configuration['error']['file_log_dir']));
 			$files = array();
 		}
 

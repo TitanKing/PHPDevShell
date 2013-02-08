@@ -17,7 +17,7 @@ class PluginActivation extends PHPDS_controller
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Header information
-		$template->heading(_('Plugin Activation'));
+		$template->heading(__('Plugin Activation'));
 
 		// Plugin activation starts.
 		if (isset($this->security->post) && $this->user->isRoot()) {
@@ -73,7 +73,7 @@ class PluginActivation extends PHPDS_controller
 		// Set Array.
 		$view->set('RESULTS', $RESULTS);
 		$view->set('log', $log);
-		$view->set('logtext', $this->template->note(_('Dropdown to view log'), 'return'));
+		$view->set('logtext', $this->template->note(__('Dropdown to view log'), 'return'));
 
 		// Output Template.
 		$view->show();

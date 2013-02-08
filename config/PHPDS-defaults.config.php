@@ -140,12 +140,6 @@ $configuration['footer_js'] = <<<JS
 	<!-- Ending Javascript -->
 JS;
 /**
- * Elegant loading offers a neat way of hiding the body until the DOM is ready, this offers a much neater render when everything can be displayed at once.
- * However, something might go wrong and your page will show up blank, in such a case, make this variable empty until problem can be detected.
- * @global string
- */
-$configuration['elegant_loading'] = 'display: none;';
-/**
  * Login session life.
  * This is how long the session will be remembered with each new login.
  * To disable, create session life as 0.
@@ -209,7 +203,7 @@ $configuration['charset'] = 'UTF-8';
  * The ID of the main node, usually a dashboard
  * @global string
  */
-$configuration['dashboard'] = '940041356';
+$configuration['dashboard'] = 'readme';
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 // Debuggin Support. ///////////////////////////////////////////////////////////////////////
@@ -334,7 +328,6 @@ $configuration['error']['warningsAreFatal'] = true;
  * @global boolean
  */
 $configuration['error']['noticesAreFatal'] = false;
-$configuration['display_errors'] = true;
 
 /**
  * Set error handler reporting.

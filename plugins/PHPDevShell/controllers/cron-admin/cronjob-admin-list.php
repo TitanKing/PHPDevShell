@@ -10,24 +10,24 @@ class CronjobAdminList extends PHPDS_controller
 	 */
 	public function execute()
 	{
-		$this->template->heading(_('Cronjobs Admin'));
+		$this->template->heading(__('Cronjobs Admin'));
 
 		// Delete broken cron item.
 		if (!empty($this->security->get['dc']) && $this->user->isRoot()) {
 			if ($this->db->deleteQuick('_db_core_cron', 'menu_id', $this->security->get['dc'])) {
-				$this->template->ok(sprintf(_('Orphan item %s was deleted.'), $this->security->get['dc']));
+				$this->template->ok(sprintf(__('Orphan item %s was deleted.'), $this->security->get['dc']));
 			} else {
-				$this->template->warning(sprintf(_('No orphan cron "%s" to delete.'), $this->security->get['dc']));
+				$this->template->warning(sprintf(__('No orphan cron "%s" to delete.'), $this->security->get['dc']));
 			}
 		}
 
 		$so = $this->navigation->buildURL(false, 'so=');
 		if (!empty($this->security->get['so']) && $this->security->get['so'] == 'true') {
 			$orphan_sql = false;
-			$show_orphans = "<a href=\"{$so}false\">" . _('(Show Crons)') . "</a>";
+			$show_orphans = "<a href=\"{$so}false\">" . __('(Show Crons)') . "</a>";
 		} else {
 			$orphan_sql = true;
-			$show_orphans = "<a href=\"{$so}true\">" . _('(Find Orphans)') . "</a>";
+			$show_orphans = "<a href=\"{$so}true\">" . __('(Find Orphans)') . "</a>";
 		}
 
 		$RESULTS = $this->db->invokeQuery('PHPDS_listCronjobAdminQuery', $orphan_sql);

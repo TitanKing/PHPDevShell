@@ -10,7 +10,7 @@ class FileuploadLogs extends PHPDS_controller
 	 */
 	public function execute()
 	{
-		$this->template->heading(_('Files Uploaded Logs'));
+		$this->template->heading(__('Files Uploaded Logs'));
 
 		// Load class.
 		$filemanager = $this->factory('fileManager');
@@ -39,7 +39,7 @@ class FileuploadLogs extends PHPDS_controller
 		$view->set('RESULTS', $RESULTS['list']);
 
 		// Set Button.
-		$view->set('delete_all_logs', _('Delete all logs'));
+		$view->set('delete_all_logs', __('Delete all logs'));
 
 		// Set Values.
 		$view->set('self_url', $this->navigation->selfUrl());

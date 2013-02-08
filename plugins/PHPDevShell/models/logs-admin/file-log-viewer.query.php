@@ -77,14 +77,14 @@ class PHPDS_getAllFileLogsQuery extends PHPDS_query
 				$filedata = fread($fileopen, filesize($readlogfile));
 				fclose($fileopen);
 			} else {
-				$this->template->warning(sprintf(_('Cannot read file %s'), $readlogfile));
+				$this->template->warning(sprintf(__('Cannot read file %s'), $readlogfile));
 			}
 
 			if (! empty($filedata)) {
 				$datainarray = explode("----", $filedata);
 			}
 
-			$view = $this->template->icon('eye', _('View detailed HTML log'));
+			$view = $this->template->icon('eye', __('View detailed HTML log'));
 
 			// loop and clean
 			if (! empty($datainarray)) {

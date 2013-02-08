@@ -1,39 +1,33 @@
-<form action="{$self_url}" method="post" class="validate">
+<form action="{$self_url}" method="post" class="validate click-elegance">
     <div class="row">
         <div class="span4">
 			<fieldset>
 				<legend>Contact</legend>
-				<p>
-					{_e('Priority')}<br>
-					{$priority}
-				</p>
 				{if $id == 0}
 				<p>
-					<label>{_e('Identified By')}
-						<input type="text" size="50" id="name" name="name" value="{$name}" required="required" title="{_e('Please provide your name so we can identify you.')}">
-					</label>
+					<label for="name">{_e('Name')}</label>
+					<input id="name" type="text" name="name" value="{$name}" required="required">
 				</p>
 				{else}
 				<input type="hidden" name="name" value="{$name}">
 				{/if}
 				{if $user_email == false}
 				<p>
-					<label>{_e('Your Email')}
-						<input type="text" size="50" id="email_from" name="email_from" value="{$email_from}" required="required" title="{_e('This is the source email address of the user who sent the email.')}">
-					</label>
+					<label for="email_from">{_e('Email')}</label>
+					<input id="email_from" type="text" name="email_from" value="{$email_from}" required="required">
+
 				</p>
 				{else}
 				<input type="hidden" name="email_from" value="{$user_email}">
 				{/if}
 				<p>
-					<label>{_e('Subject')}
-						<input type="text" size="50" name="subject" value="{$subject}" required="required" title="{_e('Please provide an appropriate subject to your message. The subject should clearly state what your query is about.')}">
-					</label>
+					<label for="subject">{_e('Subject')}</label>
+					<input id="subject" type="text" name="subject" value="{$subject}" required="required">
 				</p>
 				<p>
-					<label>{_e('Message')}
-						<textarea name="message" rows="10" cols="60" title="{_e('In as much detail as possible please state your query.')}">{$message}</textarea>
-					</label>
+					<label for="message">{_e('Message')}</label>
+					<textarea id="message" name="message">{$message}</textarea>
+
 				</p>
 			</fieldset>
 		</div>
@@ -41,18 +35,22 @@
 			<fieldset>
 				<legend>{_e('Type')}</legend>
 				<p>
-					{_e('Query Type')}<br>
+					<label>{_e('Query Type')}</label>
 					{$query_type}
+				</p>
+                <p>
+					<label>{_e('Priority')}</label>
+					{$priority}
 				</p>
 			</fieldset>
 			{$botBlockFields}
 		</div>
 		<div class="span4">
 			<fieldset>
-				<legend>{_e('Submit')}</legend>
+				<legend>&nbsp;</legend>
 				<p>
-					<button type="submit" name="send_mail" value="send_mail"><span class="submit"></span><span>{_e('Send Email')}</span></button>
-					<button type="reset"><span class="reset"></span><span>{_e('Reset')}</span></button>
+                    <button type="submit" name="send_email" value="send_email" class="btn btn-primary"><i class="icon-ok icon-white"></i> {_e('Submit')}</button>
+                    <button type="reset" name="reset" value="reset" class="btn"><i class="icon-refresh"></i> {_e('Reset')}</button>
 				</p>
 			</fieldset>
 		</div>

@@ -102,10 +102,10 @@ class PHPDS_listMenusQuery extends PHPDS_query
 		$template_option = $this->db->invokeQuery("PHPDS_getAllTemplatesListQuery");
 
 		// Icons.
-		$icon_found = $template->icon('tick-circle', _('Item Found'));
-		$icon_notfound = $template->icon('cross-circle', _('Item Not Found'));
-		$delete_menu_icon = $template->icon('task--minus', _('Delete Menu Item'));
-		$edit_menu_icon = $template->icon('task--pencil', _('Edit Menu Item'));
+		$icon_found = $template->icon('tick-circle', __('Item Found'));
+		$icon_notfound = $template->icon('cross-circle', __('Item Not Found'));
+		$delete_menu_icon = $template->icon('task--minus', __('Delete Menu Item'));
+		$edit_menu_icon = $template->icon('task--pencil', __('Edit Menu Item'));
 
 		$menu_array->loadMenuArray();
 
@@ -232,7 +232,7 @@ class PHPDS_listMenusQuery extends PHPDS_query
 				'type_name' => $item['type_name'],
 				'found' => $found,
 				'edit' => "<a href=\"{$page_edit}{$item['menu_id']}\" class=\"button\">{$edit_menu_icon}</a>",
-				'delete' => "<a href=\"{$page_delete}{$item['menu_id']}\" {$core->confirmLink(sprintf(_('Are you sure you want to DELETE : %s'), $item['menu_name']))} class=\"button\">{$delete_menu_icon}</a>"
+				'delete' => "<a href=\"{$page_delete}{$item['menu_id']}\" {$core->confirmLink(sprintf(__('Are you sure you want to DELETE : %s'), $item['menu_name']))} class=\"button\">{$delete_menu_icon}</a>"
 			);
 
 			// Clear variables.

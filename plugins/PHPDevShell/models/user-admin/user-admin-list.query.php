@@ -535,8 +535,8 @@ class PHPDS_readUsersQuery extends PHPDS_query
 		$RESULTS['th'] = $pagination->th();
 
 		// Icons.
-		$edit_user_icon = $template->icon('user--pencil', _('Edit User'));
-		$delete_user_icon = $this->template->icon('user--minus', _('Delete User'));
+		$edit_user_icon = $template->icon('user--pencil', __('Edit User'));
+		$delete_user_icon = $this->template->icon('user--minus', __('Delete User'));
 
 		////////////////////////////////////////////////
 		// Get user id's to limit following queries.
@@ -600,7 +600,7 @@ class PHPDS_readUsersQuery extends PHPDS_query
 					'user_group_option' => $user_group_option,
 					'extra_groups' => $extra_groups,
 					'edit' => "<a href=\"{$page_edit}{$user_id}\" class=\"button\">{$edit_user_icon}</a>",
-					'delete' => "<a href=\"{$page_delete}{$user_id}\" {$core->confirmLink(sprintf(_('Are you sure you want to DELETE : %s'), $user_display_name))} class=\"button\">{$delete_user_icon}</a>",
+					'delete' => "<a href=\"{$page_delete}{$user_id}\" {$core->confirmLink(sprintf(__('Are you sure you want to DELETE : %s'), $user_display_name))} class=\"button\">{$delete_user_icon}</a>",
 					'user_id_token' => $user_id_token
 				);
 				unset($user_role_option, $user_group_option);

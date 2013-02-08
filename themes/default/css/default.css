@@ -1,28 +1,108 @@
 
-/* Bootstrap overrides - Its cool but we dont like everything. */
-body {
-
-}
+/* Code basics */
+.tl { text-align: left !important;}
+.tr { text-align: right !important; }
+.tc { text-align: center !important;}
 
 /* Code in headings */
 h3 code {
-  font-size: 14px;
-  font-weight: normal;
+    font-size: 14px;
+    font-weight: normal;
 }
 
 #menu, #subnav {
-  font-size: 13px;
+    font-size: 13px;
 }
 
-/* Basic default theme additions.----------------------------- */
+/* Basic default theme additions */
+#nav .navbar-inner {
+    padding-left: 5px;
+    padding-right: 5px;
+}
 
-/* Login style.----------------------------------------------- */
+.error-field {
+    border: 1px solid #E9322D !important;
+}
+
+.error-pages-button {
+    margin-top: 15px;
+}
+
+.highlight-error {
+    border-bottom: 1px #E9322D dashed;
+}
+
+.error-split-line {
+    border-bottom: 1px #B94A48 dotted;
+    margin-bottom: 5px;
+}
+
+.bt-line-number {
+    color: #FF6600;
+    background-color: #F1F1F1;
+    border-right: 4px #ccc solid;
+    float: left;
+}
+
+#search-field-outer, .toggle-disabled-buttons {
+    margin-top: 20px;
+}
+
+#search-field-outer form {
+    margin-bottom: 0;
+}
+
+.action-table {
+    position: relative;
+}
+
+.toggle-disabled-buttons {
+    clear: both;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+table.table-striped tbody tr:hover {
+    text-decoration: underline;
+}
+
+.selectcheckboxes li {
+    list-style: none;
+}
+
+.selectcheckboxes li:hover {
+    text-decoration: underline;
+}
+
+/* Login style */
 #logged-in-info a.options   { width: 180px; }
 #logged-in-info legend      { font-size: 18px; }
 
-/* Page name subnav.------------------------------------------ */
+li .login-actions {
+    padding: 19px 20px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #e5e5e5;
+    *zoom: 1;
+}
+
+li .login-actions:before,
+li .login-actions:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+li .login-actions:after {
+    clear: both;
+}
+
+/* Page name subnav */
 .active-name {
     margin: 10px 0;
+    padding: 0 15px;
     font-family: inherit;
     font-weight: bold;
     line-height: 20px;
@@ -32,18 +112,24 @@ h3 code {
 }
 
 #subnav .navbar-inner {
-    margin-bottom: 15px;
+
 }
 
-/* Loader between screens.------------------------------------ */
-#loader {
-    text-align: center;
+/* Loader between screens */
+#ajax-loader-art {
+    display: none;
+    position: fixed;
+    width: 200px;
+    margin-left: -100px;
+    bottom: 50%;
+    left: 50%;
+    z-index: 9999;
 }
 #wrap-loader {
-    padding: 100px 0 20px;
+
 }
 
-/* Notifications.--------------------------------------------- */
+/* Notifications */
 .notifications {
     position: fixed;
     right: 0;
@@ -55,8 +141,8 @@ h3 code {
 .notifications > div {
     position: relative;
     z-index: 9999;
-    -webkit-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.100);
-    -moz-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.100);
-    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.100);
 }
-/* ----------------------------------------------------------- */
+
+.quickfilter-no-results {
+    display: none;
+}

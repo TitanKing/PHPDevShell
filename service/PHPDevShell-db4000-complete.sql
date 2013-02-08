@@ -511,7 +511,7 @@ INSERT INTO `pds_core_user_groups` VALUES ('1', 'Super', null, '0', '');
 INSERT INTO `pds_core_user_groups` VALUES ('2', 'Registered', null, '0', '');
 INSERT INTO `pds_core_user_groups` VALUES ('3', 'Guest', null, '0', '');
 INSERT INTO `pds_core_user_groups` VALUES ('4', 'Limited Admin', null, '0', '');
-INSERT INTO `pds_core_user_groups` VALUES ('5', 'Demo', '', '0', '');
+INSERT INTO `pds_core_user_groups` VALUES ('5', 'Demo', null, '0', '');
 
 # Create primary roles table a user can belong to.;
 CREATE TABLE `pds_core_user_roles` (

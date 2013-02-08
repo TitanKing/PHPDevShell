@@ -19,8 +19,8 @@ class NewPassword extends PHPDS_controller
 
 		/* @var $crud crud */
 		$crud = $this->factory('crud');
-		
-		$this->template->heading(_('Create new Password'));
+
+		$this->template->heading(__('Create new Password'));
 
 		if (! empty($this->configuration['user_id'])) {
 			$username = $this->configuration['user_name'];
@@ -44,20 +44,20 @@ class NewPassword extends PHPDS_controller
 			$this->core->themeFile = 'login.php';
 		} else {
 			if (empty($crud->f->user_name)) {
-				$this->template->warning(_('User cannot be found. Please try resetting your password again.'));
+				$this->template->warning(__('User cannot be found.'));
 			} else {
 				if ($crud->POST('replace')) {
 					if (!$crud->is('password1'))
-						$crud->error(_('You need to enter both password fields.'));
+						$crud->error();
 
 					if (!$crud->is('password2'))
-						$crud->error(_('You need to enter both password fields.'));
+						$crud->error();
 
 					if ($crud->POST('password1') !== $crud->POST('password2'))
-						$crud->error(_('Your passwords do not match, please try again.'), 'password1');
+						$crud->error(__('Password does not match'), 'password1');
 
 					if (!$crud->isMinLength('password1', 4))
-						$crud->error(_('Your password is too short, make it at least 4 characters.'));
+						$crud->error(__('Password too short'));
 
 					if ($crud->ok()) {
 						if ($crud->f->user_name == $username) {
@@ -67,14 +67,14 @@ class NewPassword extends PHPDS_controller
 							$this->db->invokeQuery('PHPDS_UpdateUserQuery', $md5_password, $crud->f->user_name, $crud->f->user_email);
 							$userAction->userChangedPassword($crud->f);
 							$to = $crud->f->user_email;
-							$subject = sprintf(_('%s password changed.'), $this->configuration['scripts_name_version']);
-							$message = sprintf(_("Dear %s user, you have changed your password successfully. Thank you, %s"), $this->configuration['scripts_name_version'], $this->configuration['absolute_url']);
+							$subject = sprintf(__('%s password changed.'), $this->configuration['scripts_name_version']);
+							$message = sprintf(__("Dear %s user, you have changed your password successfully. Thank you, %s"), $this->configuration['scripts_name_version'], $this->configuration['absolute_url']);
 							// Send new password email.
 							if ($email->sendmail("$to", $subject, $message)) {
-								$this->template->ok(sprintf(_('You have changed your password successfully %s'), $crud->f->user_display_name));
+								$this->template->ok(sprintf(__('Password changed for %s'), $crud->f->user_display_name));
 							}
 						} else {
-							$this->template->warning(_('The specified user was not found. It is possible that you may have been removed from the system.'));
+							$this->template->warning(__('User not found.'));
 						}
 					} else {
 						$crud->errorShow();
@@ -83,7 +83,7 @@ class NewPassword extends PHPDS_controller
 
 				$view = $this->factory('views');
 
-				$view->set('change_password', _('Change Password'));
+				$view->set('change_password', __('Change Password'));
 
 				$view->set('self_url', $this->navigation->selfUrl());
 				$view->set('user_name', $crud->f->user_name);

@@ -19,14 +19,13 @@ headHTML();
 // stage 0: display intro
 // stage 1: check system & display fields
 // stage 2 : check system & check fields & check config file, then install.
-if ($doit == false) warningPrint('Upgrade is in developer mode, set $doit = true.');
 switch ($stage) {
 	case 2:
-		headingPrint($package . " Upgrader Stage 2");
+		headingPrint("Upgrade Stage Two");
 		doStage2();
 		break;
 	default:
-		headingPrint($package . " Upgrader Stage 1");
+		headingPrint("Upgrade Stage One");
 		doStage1();
 		break;
 }
@@ -44,17 +43,20 @@ function displaySuccess()
 
 function displayFields()
 {
-	okPrint(_('Your server meets all the upgrade requirements'));
-	warningPrint(_('<strong>Please remeber to update your .htaccess file to the latest version else you will see a blank screen when trying to access your site.</strong>'));
+    global $data, $doit;
 
-	global $data;
+	okPrint(_('<i class="icon-ok"></i> Your server meets all the upgrade requirements.'));
+    if ($doit == false) warningPrint('<i class="icon-warning-sign"></i> Upgrade is in developer mode, set $doit = true.');
 
 	?>
 	<form action="upgrade.php?stage=2" method="post" class="validate">
-		<h1>Configuration Information</h1>
-		<p>The following information should match the data found in the configuration file before the upgrade can start:</p>
+		<h2>Configuration Information</h2>
+        <p class="text-warning">
+            The following information <strong>should match</strong> the data found in the
+            <strong>configuration file</strong> before the upgrade can start:
+        </p>
 		<div class="row">
-			<div class="column grid_4">
+			<div class="span4">
 				<fieldset>
 					<legend>Configuration File</legend>
 					<?php
@@ -62,7 +64,7 @@ function displayFields()
 					?>
 				</fieldset>
 			</div>
-			<div class="column grid_4">
+			<div class="span4">
 				<fieldset>
 					<legend>Database Information</legend>
 					<?php
@@ -74,12 +76,11 @@ function displayFields()
 					?>
 				</fieldset>
 			</div>
-			<div class="column grid_4 last">
+			<div class="span4">
 				<fieldset>
 					<legend>Upgrade</legend>
 					<p>
-						<button type="submit" name="step1" value="step1"><span class="save"></span><span>Continue Upgrade...</span></button>
-						<button type="reset"><span class="reset"></span><span>Reset</span></button>
+						<button type="submit" name="step1" value="step1" class="btn btn-primary">Continue Upgrade</button>
 					</p>
 				</fieldset>
 			</div>

@@ -163,7 +163,7 @@ class pluginManager extends PHPDS_dependant
 							$template->ok(__('Success, FTP server accepted connection.', 'PHPDevShell'));
 							// Can we goto the root folder.
 							if (ftp_size($ftp_resource, 'includes/PHPDS.inc.php') > 2) {
-								$template->template->ok(sprintf(_('Success, FTP servers working root directory is correct : %s'), ftp_pwd($ftp_resource)));
+								$template->template->ok(sprintf(__('Success, FTP servers working root directory is correct : %s'), ftp_pwd($ftp_resource)));
 
 								// Ok lets start to copy.
 								if ($filemanager->ftpRcopy($ftp_resource, $configuration['tmp_path'] . $plugin_folder, 'plugins/' . $plugin_folder)) {
@@ -181,7 +181,7 @@ class pluginManager extends PHPDS_dependant
 									$template->warning(__('Temporary install directories and files could NOT be deleted.', 'PHPDevShell'));
 								}
 							} else {
-								$template->template->notice(sprintf(_('FTP connection was ok, but the root directory listing failed. Working directory is %s which is wrong.'), ftp_pwd($ftp_resource)));
+								$template->template->notice(sprintf(__('FTP connection was ok, but the root directory listing failed. Working directory is %s which is wrong.'), ftp_pwd($ftp_resource)));
 								return false;
 							}
 						} else {

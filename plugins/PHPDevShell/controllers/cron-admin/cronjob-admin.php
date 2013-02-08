@@ -14,7 +14,7 @@ class cronjobAdmin extends PHPDS_controller
 	 */
 	public function execute()
 	{
-		$this->template->heading(_('Edit Cronjob'));
+		$this->template->heading(__('Edit Cronjob'));
 
 		$crud = $this->factory('crud');
 
@@ -34,7 +34,7 @@ class cronjobAdmin extends PHPDS_controller
 
 				// Error checking.
 				if (!$crud->is('menu_id'))
-					$crud->error(_("No menu id present"));
+					$crud->error(__("No menu id present"));
 
 				$crud->addField('cron_type', 0);
 				$crud->addField('log_cron', 0);
@@ -42,40 +42,40 @@ class cronjobAdmin extends PHPDS_controller
 
 				if ($crud->f->cron_type == 1) {
 					if (!$crud->isRangeValue('year', date('Y'), date('Y')+10))
-						$crud->error(sprintf(_('Please select year from %s - %s'), date('Y'), date('Y')+10));
+						$crud->error(sprintf(__('Please select year from %s - %s'), date('Y'), date('Y')+10));
 
 					if (!$crud->isRangeValue('month', 1, 12))
-						$crud->error(_('Please select month from 1 - 12'));
+						$crud->error(__('Please select month from 1 - 12'));
 
 					if (!$crud->isRangeValue('day', 1, 31))
-						$crud->error(_('Please select day from 1 - 31'));
+						$crud->error(__('Please select day from 1 - 31'));
 
 					if (!$crud->isRangeValue('hour', 0, 23, 0))
-						$crud->error(_('Please select hour from 0 - 23'));
+						$crud->error(__('Please select hour from 0 - 23'));
 
 					if (!$crud->isRangeValue('minute', 0, 59))
-						$crud->error(_('Please select minute from 0 - 59'));
+						$crud->error(__('Please select minute from 0 - 59'));
 
 					$cron_time = mktime($crud->f->hour, $crud->f->minute, $crud->f->second, $crud->f->month, $crud->f->day, $crud->f->year);
 
 					if ($cron_time <= time()) {
-						$crud->errorElse(_('Cron is set in the past, please correct.'));
+						$crud->errorElse(__('Cron is set in the past, please correct.'));
 					}
 				} else if ($crud->f->cron_type == 2) {
 					if (!$crud->isMinValue('year', 10))
-						$crud->error(_('Max allowed every 10 years'));
+						$crud->error(__('Max allowed every 10 years'));
 
 					if (!$crud->isMinValue('month', 128))
-						$crud->error(_('Max allowed every 128 months'));
+						$crud->error(__('Max allowed every 128 months'));
 
 					if (!$crud->isMinValue('day', 2048))
-						$crud->error(_('Max allowed every 1024 days'));
+						$crud->error(__('Max allowed every 1024 days'));
 
 					if (!$crud->isMinValue('hour', 2048))
-						$crud->error(_('Max allowed every 2048 hours'));
+						$crud->error(__('Max allowed every 2048 hours'));
 
 					if (!$crud->isMinValue('minute', 2048))
-						$crud->error(_('Max allowed every 2048 minutes'));
+						$crud->error(__('Max allowed every 2048 minutes'));
 
 					$cron_time = mktime($crud->f->hour, $crud->f->minute, $crud->f->second, $crud->f->month, $crud->f->day, $crud->f->year);
 				}
@@ -92,7 +92,7 @@ class cronjobAdmin extends PHPDS_controller
 							$crud->f->day,
 							$crud->f->hour,
 							$crud->f->minute);
-					$this->template->ok(sprintf(_('Cronjob %s saved.'), $crud->f->menu_name));
+					$this->template->ok(sprintf(__('Cronjob %s saved.'), $crud->f->menu_name));
 				} else {
 					$crud->errorShow();
 				}
@@ -100,14 +100,14 @@ class cronjobAdmin extends PHPDS_controller
 			if ($crud->is('last_execution')) {
 				$last_executed = $this->core->formatTimeDate($crud->f->last_execution);
 			} else {
-				$last_executed = $expectancy = _('Never!');
+				$last_executed = $expectancy = __('Never!');
 			}
 			switch ($crud->f->cron_type) {
 				case 0:
-					$expectancy = _('Never!');
+					$expectancy = __('Never!');
 					break;
 				case 1:
-					$expectancy = sprintf(_('Expected to run once on %s.'), $this->core->formatTimeDate(mktime($crud->f->hour, $crud->f->minute, $crud->f->second, $crud->f->month, $crud->f->day, $crud->f->year)));
+					$expectancy = sprintf(__('Expected to run once on %s.'), $this->core->formatTimeDate(mktime($crud->f->hour, $crud->f->minute, $crud->f->second, $crud->f->month, $crud->f->day, $crud->f->year)));
 					break;
 				case 2:
 					// Convert to hours.
@@ -121,15 +121,15 @@ class cronjobAdmin extends PHPDS_controller
 					// Create total Months/Days/Hours/Minutes.
 					if ($hours >= 730.484398) {
 						$months = round($hours / 730.484398, 2);
-						$expectancy = sprintf(_('Will run every %s month(s).'), $months);
+						$expectancy = sprintf(__('Will run every %s month(s).'), $months);
 					} else if ($hours >= 24) {
 						$days = round($hours / 24, 2);
-						$expectancy = sprintf(_('Will run every %s day(s).'), $days);
+						$expectancy = sprintf(__('Will run every %s day(s).'), $days);
 					} else if ($hours >= 1) {
-						$expectancy = sprintf(_('Will run every %s hour(s).'), $hours);
+						$expectancy = sprintf(__('Will run every %s hour(s).'), $hours);
 					} else if ($hours < 1) {
 						$minutes = ($hours * 60);
-						$expectancy = sprintf(_('Will run every %s minute(s).'), $minutes);
+						$expectancy = sprintf(__('Will run every %s minute(s).'), $minutes);
 					}
 					break;
 			}

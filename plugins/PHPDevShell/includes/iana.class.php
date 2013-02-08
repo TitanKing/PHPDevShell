@@ -98,7 +98,7 @@ class iana extends PHPDS_dependant
 			// Sort array.
 			if ($sort) asort($languages_available_array);
 			// System default language string.
-			if ($default_first) $result[] = sprintf(_('Default (%s)'), $iana_array[$configuration['language']]);
+			if ($default_first) $result[] = sprintf(__('Default (%s)'), $iana_array[$configuration['language']]);
 
 			foreach ($languages_available_array as $lang_code) {
 				$result[$lang_code] = $iana_array[$lang_code];
@@ -164,7 +164,7 @@ class iana extends PHPDS_dependant
 			// Sort array.
 			if ($sort) asort($regions_available_array);
 			// System default region string.
-			if ($default_first) $result[] = sprintf(_('Default (%s)'), $iana_array[$configuration['region']]);
+			if ($default_first) $result[] = sprintf(__('Default (%s)'), $iana_array[$configuration['region']]);
 
 			foreach ($regions_available_array as $region_code) {
 				$result[$region_code] = $iana_array[$region_code];

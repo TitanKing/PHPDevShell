@@ -221,6 +221,7 @@ class PHPDS_errorHandler extends PHPDS_dependant
 				error_log('An exception occured in the exception display.'.$e);
 			}
 
+
 			///// WRITING TO A LOG FILE
 			if ($this->file) {
 				$dir = realpath(BASEPATH.$this->file).DIRECTORY_SEPARATOR;
@@ -267,7 +268,7 @@ class PHPDS_errorHandler extends PHPDS_dependant
 			$this->notif->add($msg);
 		}
 
-		//restore_error_handler(); // we won't handle any more errors, even if they are some in the error queue
+		//restore_error_handler(); // we won't handle any more errors
 		exit(); // bye bye
 	}
 
@@ -337,15 +338,18 @@ class PHPDS_errorHandler extends PHPDS_dependant
 		// then report through built-in conduits, only if not in production
 		if ($this->production) return;
 
-		$template = $this->PHPDS_dependance()->PHPDS_template(false);
+        $template = $this->PHPDS_dependance()->PHPDS_template(false);
+
+		if (empty($template)) {
+            $template = false;
+        }
 
 		$emsg = empty($label) ? $msg : "($label) $msg";
 
 		switch ($level) {
 			case PHPDS_debug::ERROR:
 					if ($this->display) {
-						if (method_exists($template,'error')) echo $template->error($emsg, 'return');
-						else echo $this->message($emsg);
+						if (!method_exists($template,'error')) echo $this->message($emsg);
 					}
 
 					if ($this->firephp && ! headers_sent()) $this->firephp->error($msg, $label);
@@ -462,7 +466,7 @@ class PHPDS_errorHandler extends PHPDS_dependant
 	{
 		// Simple styled message.
 		if (! empty($trace)) $trace = "=>[$trace]";
-		return $this->textualize($message)."<br />$trace<br />";
+		return $this->textualize($message)."$trace";
 	}
 
 
@@ -532,7 +536,7 @@ class PHPDS_errorHandler extends PHPDS_dependant
 
 		ob_start();
 		// Load error page: $e is the handled exception
-		require BASEPATH.'themes/cloud/error.php';
+		require BASEPATH.'themes/default/error.php';
 		$output = ob_get_clean();
 
 		if (!empty($this->crumbs)) {
@@ -551,7 +555,7 @@ class PHPDS_errorHandler extends PHPDS_dependant
 				echo $output;
 			} else {
 				$message = '';
-				require BASEPATH.'themes/cloud/error.php'; // $message being empty, only a genetic message is output
+				require BASEPATH.'themes/default/error.php'; // $message being empty, only a genetic message is output
 			}
 		}
 
@@ -559,19 +563,13 @@ class PHPDS_errorHandler extends PHPDS_dependant
 	}
 }
 
-
-
-
-
-
-	/**
-	 * Generate a pretty (formated to be read) backtrace, skipping the first lines if asked
-	 *
-	 * @param $ignore				integer, number of frames to skip (optional, defaults to 0)
-	 * @param $backtrace		the backtrace (optional)
-	 * @return string
-	 */
-
+/**
+ * Generate a pretty (formated to be read) backtrace, skipping the first lines if asked
+ *
+ * @param $ignore				integer, number of frames to skip (optional, defaults to 0)
+ * @param $backtrace		the backtrace (optional)
+ * @return string
+ */
 class PHPDS_backtrace
 {
 
@@ -682,11 +680,14 @@ class PHPDS_backtrace
 		$aurl = $protocol . $_SERVER['SERVER_NAME'] . str_replace('/index.php', '', $_SERVER['PHP_SELF']);
 
 		$trace = '';
+        $i=0;
 		foreach ($backtrace as $v) {
 			//if ($ignore-- > 0) continue;
+            $i++;
+            $class_collapsbody = "accordionbody" . $i;
 			$ignore--;
 
-			$class = (0 == $ignore) ? 'ui-state-active ui-corner-all' : '';
+			$class = (0 == $ignore) ? 'active' : '';
 
 			$trace .= '<tr class="'.$class.'">';
 
@@ -708,9 +709,9 @@ class PHPDS_backtrace
 						}
 				}
 				$call .= ')';
-				$call = PHPDS_backtrace::highlightString($call);
+				$call = PHPDS_backtrace::highlightString(preg_replace("/,/", ", ", $call));
 				if (substr($v['class'], 0, 5) == 'PHPDS') {
-					// $call = '<a href="http://doc.phpdevshell.org/PHPDevShell/'.$v['class'].'.html#'.$v['function'].'" target="_blank"><img src="' . $aurl . '/themes/cloud/images/icons-16/book-question.png" /></a>&nbsp;'.$call;
+					// $call = '<a href="http://doc.phpdevshell.org/PHPDevShell/'.$v['class'].'.html#'.$v['function'].'" target="_blank"><img src="' . $aurl . '/themes/default/images/icons-16/book-question.png" /></a>&nbsp;'.$call;
 				}
 				$trace .= $call;
 			} elseif (isset($v['function'])) {
@@ -720,22 +721,29 @@ class PHPDS_backtrace
 				if (!empty($v['args'])) {
 						$errRow[] = $v['args'];
 						$separator = '';
-						foreach($v['args'] as $arg ) {
-								$call .= $separator.PHPDS_errorHandler::getArgument($arg);
+						foreach($v['args'] as $arg) {
+								$call .= $separator . PHPDS_errorHandler::getArgument($arg);
 								$separator = ', ';
 						}
 				}
 				$call .= ')';
-				$call = PHPDS_backtrace::highlightString($call);
-				/*if (!empty($internals[$fct]))*/ $call = '<a href="http://www.php.net/manual-lookup.php?lang=en&pattern='.urlencode($fct).'" target="_blank"><img src="' . $aurl . '/themes/cloud/images/icons-16/book-question.png" /></a>&nbsp;'.$call;
-				$trace .= $call;
+				$call = PHPDS_backtrace::highlightString(preg_replace("/,/", ", ", $call));
+				/*if (!empty($internals[$fct]))*/ $call = '<a href="http://www.php.net/manual-lookup.php?lang=en&pattern='.urlencode($fct).'" target="_blank"><img src="' . $aurl . '/themes/default/images/icons-16/book-question.png" /></a>&nbsp;' . $call;
+                $trace .= $call;
 
 			}
-			$trace .= '</td></tr>';
+            $backtrace__ = PHPDS_backtrace::fetchCodeFragment($v['file'], $v['line']);
+			$trace .= '</td><td><button type="button" class="btn" data-toggle="collapse" data-target="#' . $class_collapsbody . '"><i class="icon-eye-open"></i></button></td></tr>';
 			$trace .= '<tr class="'.$class.'">';
-			$trace .= '<td colspan="10">'.PHPDS_backtrace::fetchCodeFragment($v['file'], $v['line']).'</td></tr>';
+			$trace .= <<<HTML
+                    <td colspan="4">
+                        <div id="{$class_collapsbody}" class="accordion-body collapse">
+                            <pre>{$backtrace__}</pre>
+                        </div>
+                    </td>
+                </tr>
+HTML;
 		}
-
 
 		return $trace;
 	}
@@ -758,20 +766,19 @@ class PHPDS_backtrace
 			$end = min($lineno + 7, count($filecontent));
 			$line = '';
 
-			$fragment = '<div class="ui-state-default ui-corner-all"></div><div class="toggle">';
+			$fragment = '';
 			for($loop = $start; $loop < $end; $loop++) {
 				if (!empty($filecontent[$loop])) {
 					$line = $filecontent[$loop];
 					$line = preg_replace('#\n$#', '', $line);
 					$line = PHPDS_backtrace::highlightString($line, $loop + 1);
 				}
-				if ($loop == $lineno - 1) $line = '<span class="ui-state-highlight ui-corner-all">'.$line.'</span>';
+				if ($loop == $lineno - 1) $line = '<span class="highlight-error">' . $line . '</span>';
 
-				$fragment .= $line.'<br />'."\n";
+				$fragment .= $line . "\n";
 			}
-						$fragment .= '</div>';
 			return $fragment;
-		} else return '<p>Missing file...</p>';
+		} else return null;
 	}
 
 	/**
@@ -786,16 +793,41 @@ class PHPDS_backtrace
 	 */
 	public static function highlightString($string, $lineno = null)
 	{
-		try {
-			$string = preg_replace('/&lt;\?php/', '', highlight_string('<?php' . $string, true));
-			$string = preg_replace('/<code><span ([^>]*)>\n<span [^>]*>&lt;\?<br \/>(.*)\n<\/span>\n<\/code>/', '<span $1>$2</span>', $string);
-		} catch (Exception $e) {
-			// only mask the exception and prevent it from bubbling
-			$string = '???????????????????????????';
-		}
-		if ($lineno) $string = '<span class="bt-line-number">'.$lineno.'</span>&nbsp;&nbsp;'.$string;
+		if ($lineno) $string = '<span class="bt-line-number">' . $lineno . '.&nbsp;</span>' . "<code class=\"prettyprint code-error-line language-php\">" . htmlentities($string) . "</code>";
 		return $string;
 	}
+
+    /**
+     * Cleans up php info to an appropriate state.
+     *
+     * @return string
+     */
+    public static function phpInfo()
+    {
+        ob_start();
+        phpinfo(INFO_VARIABLES + INFO_CONFIGURATION + INFO_ENVIRONMENT);
+        $html = ob_get_contents();
+        ob_end_clean();
+
+        // Delete styles from output
+        $html = preg_replace('#(\n?<style[^>]*?>.*?</style[^>]*?>)|(\n?<style[^>]*?/>)#is', '', $html);
+        $html = preg_replace('#(\n?<head[^>]*?>.*?</head[^>]*?>)|(\n?<head[^>]*?/>)#is', '', $html);
+        $html = preg_replace('/,/', ', ', $html);
+        $html = preg_replace('/::/', ':: ', $html);
+        $html = preg_replace('/width=\"600\"/', '', $html);
+        $html = preg_replace('/<table/', '<table class="table table-bordered"', $html);
+        $html = preg_replace('/\<h1/', '<h3', $html);
+        $html = preg_replace('/\<\/h1\>/', '</h3>', $html);
+        $html = preg_replace('/\<h2\>/', '<h4>', $html);
+        $html = preg_replace('/\<\/h2\>/', '</h4>', $html);
+        // Delete DOCTYPE from output
+        $html = preg_replace('/<!DOCTYPE html PUBLIC.*?>/is', '', $html);
+        // Delete body and html tags
+        $html = preg_replace('/<html.*?>.*?<body.*?>/is', '', $html);
+        $html = preg_replace('/<\/body><\/html>/is', '', $html);
+
+        return $html;
+    }
 }
 
 

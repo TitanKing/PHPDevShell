@@ -14,7 +14,7 @@ class ConfigManager extends PHPDS_controller
 	 */
 	public function execute()
 	{
-		$this->template->heading(_('Configuration Manager'));
+		$this->template->heading(__('Configuration Manager'));
 
 		// Action url.
 		$self_url_ = $this->navigation->buildURL(false);
@@ -24,7 +24,7 @@ class ConfigManager extends PHPDS_controller
 			$this->db->deleteQuick('_db_core_settings', 'setting_description', $this->security->get['ds']);
 
 			// Show ok deleted.
-			$this->template->ok(sprintf(_('Deleted setting entry %s.'), $this->security->get['ds']));
+			$this->template->ok(sprintf(__('Deleted setting entry %s.'), $this->security->get['ds']));
 		}
 		// We have a save action, lets handle it.
 		if (! empty($this->security->post['save'])) {

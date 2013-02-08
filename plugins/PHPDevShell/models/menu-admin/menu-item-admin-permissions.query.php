@@ -165,11 +165,11 @@ class PHPDS_writePermissionRowsQuery extends PHPDS_query
 			$this->db->cacheClear('navigation');
 
 			// If ok saved, show ok.
-			$this->template->ok(_('Permissions saved.'));
+			$this->template->ok(__('Permissions saved.'));
 
 			return true;
 		} else {
-			$this->template->warning(_('There was an unknown problem, permissions not saved.'));
+			$this->template->warning(__('There was an unknown problem, permissions not saved.'));
 
 			return false;
 		}
@@ -201,8 +201,8 @@ class PHPDS_listMenusQuery extends PHPDS_query
 		$page_delete = $this->navigation->buildURL(false, 'dm=');
 
 		// Icons.
-		$delete_menu_icon = $template->icon('task--minus', _('Delete Menu Item'));
-		$edit_menu_icon = $template->icon('task--pencil', _('Edit Menu Item'));
+		$delete_menu_icon = $template->icon('task--minus', __('Delete Menu Item'));
+		$edit_menu_icon = $template->icon('task--pencil', __('Edit Menu Item'));
 
 		// Menu Array.
 		$menu_array->loadMenuArray();
@@ -229,11 +229,11 @@ class PHPDS_listMenusQuery extends PHPDS_query
 			$RESULTS[] = array(
 				'item' => $item,
 				'hide_' => $hide_,
-				'i_url_name' => "{$item['menu_link']}<br>" . _('Alias: ') . "{$item['alias']}",
+				'i_url_name' => "{$item['menu_link']}<br>" . __('Alias: ') . "{$item['alias']}",
 				'permissions_role' => $permissions_role,
 				'i_item_permission' => $user_role_field_info[$item['menu_id']],
 				'edit' => "<a href=\"{$page_edit}{$item['menu_id']}\" class=\"button\">{$edit_menu_icon}</a>",
-				'delete' => "<a href=\"{$page_delete}{$item['menu_id']}\" {$core->confirmLink(sprintf(_('Are you sure you want to DELETE : %s'), $item['menu_name']))} class=\"button\">{$delete_menu_icon}</a>"
+				'delete' => "<a href=\"{$page_delete}{$item['menu_id']}\" {$core->confirmLink(sprintf(__('Are you sure you want to DELETE : %s'), $item['menu_name']))} class=\"button\">{$delete_menu_icon}</a>"
 			);
 		}
 		if (! empty($RESULTS)) {

@@ -14,7 +14,7 @@ class taggerAdmin extends PHPDS_controller
 	 */
 	public function execute()
 	{
-		$this->template->heading(_('Tags Manager'));
+		$this->template->heading(__('Tags Manager'));
 
 		$security = $this->security;
 
@@ -26,7 +26,7 @@ class taggerAdmin extends PHPDS_controller
 			$this->db->deleteQuick('_db_core_tags', 'tagID', $security->get['dt']);
 
 			// Show ok deleted.
-			$this->template->ok(sprintf(_('Deleted setting entry %s.'), $security->get['dt']));
+			$this->template->ok(sprintf(__('Deleted setting entry %s.'), $security->get['dt']));
 		}
 		// We have a save action, lets handle it.
 		if (! empty($security->post['save'])) {

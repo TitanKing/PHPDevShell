@@ -107,28 +107,28 @@ class PHPDS_updateCheckPluginsQuery extends PHPDS_query
 
 				// Check if we have a newer version available.
 				if ($version_check_xml['latest'] > $current) {
-					$download_url = sprintf(_('<a href="%s" class="generic_button">' . _('Download Latest Version') . '</a>'), $version_check_xml['download']);
-					$update_message = $template->warning(sprintf(_('%s %s is available, upgrade recommended.<br><i>%s</i> (%s)'), $version_check_xml['plugin'], $version_check_xml['version'], $version_check_xml['note'], $download_url), true);
+					$download_url = sprintf(__('<a href="%s" class="generic_button">' . __('Download Latest Version') . '</a>'), $version_check_xml['download']);
+					$update_message = $template->warning(sprintf(__('%s %s is available, upgrade recommended.<br><i>%s</i> (%s)'), $version_check_xml['plugin'], $version_check_xml['version'], $version_check_xml['note'], $download_url), true);
 					if (! empty($settings['ftp_enable'])) {
 						if ($version_check_xml['plugin'] != 'PHPDevShell') {
-							$aau = _('Attempt Automatic Upgrade');
+							$aau = __('Attempt Automatic Upgrade');
 							$update_message .= <<<HTML
 								<button type="submit" name="auto_upgrade" value="auto_upgrade"><span class="save"></span><span>$aau</span></button>
 HTML;
-							$update_message .= $template->notice(sprintf(_('Attempt to upgrade %s %s (%s) automatically?'), $version_check_xml['plugin'], $version_check_xml['version'], $version_check_xml['download']), true);
+							$update_message .= $template->notice(sprintf(__('Attempt to upgrade %s %s (%s) automatically?'), $version_check_xml['plugin'], $version_check_xml['version'], $version_check_xml['download']), true);
 							if (!empty($version_check_xml['download'])) {
 								$update_message .= '<input type="hidden" name="download_url" value="' . $version_check_xml['download'] . '">';
 							}
 						}
 					} else {
-						$update_message .= $template->notice(sprintf(_('First enable FTP to use automatic upgrade for %s %s (%s)'), $version_check_xml['plugin'], $version_check_xml['version'], $version_check_xml['download']), true);
+						$update_message .= $template->notice(sprintf(__('First enable FTP to use automatic upgrade for %s %s (%s)'), $version_check_xml['plugin'], $version_check_xml['version'], $version_check_xml['download']), true);
 					}
 				} else {
-					$update_message = $template->ok(sprintf(_('<strong>%s %s is already latest version.</strong>'), $version_check_xml['plugin'], $version_check_xml['version']), true);
+					$update_message = $template->ok(sprintf(__('<strong>%s %s is already latest version.</strong>'), $version_check_xml['plugin'], $version_check_xml['version']), true);
 				}
 			} else {
 				// If we cannot find XML output error.
-				$update_message = $template->warning(sprintf(_('Could not access url for version checking %s, looked using url "%s". Please try again later.'), $version_check_xml['plugin'], $version_url), true);
+				$update_message = $template->warning(sprintf(__('Could not access url for version checking %s, looked using url "%s". Please try again later.'), $version_check_xml['plugin'], $version_url), true);
 			}
 			// Set final update message.
 			$update_message_[$version_check_xml['plugin']] = $update_message;
@@ -186,17 +186,17 @@ class PHPDS_readPluginsQuery extends PHPDS_query
 		$level = substr_count($base, '/') - ($level_deduct);
 
 		// Icons
-		$lang_available_icon = $template->icon('locale', _('Translation file available.'));
-		$lang_not_available_icon = $template->icon('script--exclamation', _('Translation file missing.'));
+		$lang_available_icon = $template->icon('locale', __('Translation file available.'));
+		$lang_not_available_icon = $template->icon('script--exclamation', __('Translation file missing.'));
 		$set_logo_icon = $template->icon('tag-label-green');
-		$set_default_logo_icon = $template->icon('tag-label-green', _('Selected as Default Logo'));
+		$set_default_logo_icon = $template->icon('tag-label-green', __('Selected as Default Logo'));
 		$uninstall_icon = $template->icon('plug--minus');
 		$upgrade_icon = $template->icon('database--exclamation');
 		$upgrade_core_icon = $template->icon('lightning--exclamation');
 		$latest_version_icon = $template->icon('globe-network-ethernet');
 		$reinstall_icon = $template->icon('arrow-circle-315');
 		$install_icon = $template->icon('plug-disconnect');
-		$install_missing_icon = $template->icon('plug--exclamation', _('Install file missing.'));
+		$install_missing_icon = $template->icon('plug--exclamation', __('Install file missing.'));
 
 		// Status icons.
 		$inactive_default_icon = '<img src="' . $configuration['absolute_url'] . "/themes/" . $active_template . "/images/plugin-disabled.png" . '" alt="Not Installed" title="Not Installed" />';
@@ -237,7 +237,7 @@ class PHPDS_readPluginsQuery extends PHPDS_query
 					// Get logo.
 					if (file_exists("plugins/$object/images/logo.png")) {
 						$logo = '<img src="plugins/' . $object . '/images/logo.png" border="0" alt="' . $object . '" title="' . $object . '">';
-						$set_logo_button = '<button type="submit" value="set_logo" name="set_logo" title="' . _('Set Default Logo') . '">' . $set_logo_icon . '</button>';
+						$set_logo_button = '<button type="submit" value="set_logo" name="set_logo" title="' . __('Set Default Logo') . '">' . $set_logo_icon . '</button>';
 					} else {
 						$logo = $object;
 						$set_logo_button = false;
@@ -251,11 +251,11 @@ class PHPDS_readPluginsQuery extends PHPDS_query
 					}
 					// Read Config Installation File.
 					if (file_exists("plugins/$object/config/plugin.config.xml")) {
-						$plugin_config_message = $template->icon('puzzle', sprintf(_('Installation file in %s found.'), $object));
+						$plugin_config_message = $template->icon('puzzle', sprintf(__('Installation file in %s found.'), $object));
 						$xml = simplexml_load_file("plugins/$object/config/plugin.config.xml");
 						$install_ok = true;
 					} else {
-						$plugin_config_message = $template->icon('puzzle--exclamation', sprintf(_('Installation file in %s NOT found.'), $object));
+						$plugin_config_message = $template->icon('puzzle--exclamation', sprintf(__('Installation file in %s NOT found.'), $object));
 						$status_icon = $broken_default_icon;
 					}
 					// Check if item hide is a core script.
@@ -290,10 +290,10 @@ class PHPDS_readPluginsQuery extends PHPDS_query
 								if (empty($unique_dependency[$cl])) {
 									// Next we need to check what is installed and what not.
 									if (!empty($installed_classes[$cl])) {
-										$depends_on .= $template->ok(sprintf(_('Found class call -> (%s) from plugin -> (%s)'), $cl, $installed_classes[$cl]), true, false);
+										$depends_on .= $template->ok(sprintf(__('Found class call -> (%s) from plugin -> (%s)'), $cl, $installed_classes[$cl]), true, false);
 										$unique_dependency[$cl] = true;
 									} else {
-										$depends_on .= $template->warning(sprintf(_('Missing class call -> (%s) from plugin -> (%s)'), $cl, $pl), true, false);
+										$depends_on .= $template->warning(sprintf(__('Missing class call -> (%s) from plugin -> (%s)'), $cl, $pl), true, false);
 										$unique_dependency[$cl] = true;
 										if (empty($activation_db[$object])) {
 											$dependencies_not_met = true;
@@ -304,7 +304,7 @@ class PHPDS_readPluginsQuery extends PHPDS_query
 								}
 							}
 						} else {
-							$depends_on .= $template->ok(_('Standalone'), true, false);
+							$depends_on .= $template->ok(__('Standalone'), true, false);
 							// Set.
 							$dependencies_not_met = false;
 						}
@@ -322,12 +322,12 @@ class PHPDS_readPluginsQuery extends PHPDS_query
 						}
 						// We need to find out if there are any updates available for this plugin.
 						if (!empty($dependencies_not_met)) {
-							$plugin_message = $template->warning(_('Dependency not met!'), true, false);
+							$plugin_message = $template->warning(__('Dependency not met!'), true, false);
 							$status_icon = $broken_default_icon;
 						} else if ($dependencies_not_met_uninstall == true) {
-							$plugin_message = $template->warning(_('Dependency not met!'), true, false);
+							$plugin_message = $template->warning(__('Dependency not met!'), true, false);
 							$status_icon = $broken_default_icon;
-							$uninstall_text = _('Uninstall Plugin');
+							$uninstall_text = __('Uninstall Plugin');
 							// Check if it is core plugin.
 							($object != 'PHPDevShell') ? $uninstall_button = '<button type="submit" value="uninstall" name="uninstall" title="' . $uninstall_text . '">' . $uninstall_icon . '</button>' : $uninstall_button = false;
 
@@ -338,12 +338,12 @@ class PHPDS_readPluginsQuery extends PHPDS_query
 ACTION;
 						}// We need to find out if there are any updates available for this plugin.
 						else if (!empty($activation_db[$object]['status']) && ($plugin['database_version'] > $activation_db[$object]['version'])) {
-							$plugin_message = $template->notice(sprintf(_('Upgrade (%s) Available'), "DB{$plugin['database_version']}"), true);
+							$plugin_message = $template->notice(sprintf(__('Upgrade (%s) Available'), "DB{$plugin['database_version']}"), true);
 							$status_icon = $upgrade_default_icon;
 							// Set.
-							$upgrade_core_text = _('Upgrade Core');
+							$upgrade_core_text = __('Upgrade Core');
 							$upgrade_core_url = $configuration['absolute_url'] . '/other/service/upgrade.php';
-							$upgrade_text = _('Upgrade Database');
+							$upgrade_text = __('Upgrade Database');
 							if ($object == 'PHPDevShell') {
 								$action = <<<ACTION
 									<button type="button" name="upgrade" onClick="parent.location='$upgrade_core_url'" title="$upgrade_core_text">{$upgrade_core_icon}</button>
@@ -357,19 +357,19 @@ ACTION;
 							}
 						} // Now we check what queries this plugin has access to.
 						else if (!empty($activation_db[$object]['status']) && $activation_db[$object]['status'] == 'install') {
-							$plugin_message = $template->ok(_('Installed'), true, false);
+							$plugin_message = $template->ok(__('Installed'), true, false);
 							if (file_exists("plugins/$object/images/plugin.png")) {
 								$status_icon = '<img src="' . $configuration['absolute_url'] . "/plugins/$object/images/plugin.png" . '" alt="Installed" title="Installed" />';;
 							} else {
 								$status_icon = $active_default_icon;
 							}
-							$uninstall_text = _('Uninstall Plugin');
+							$uninstall_text = __('Uninstall Plugin');
 							// Check if it is core plugin.
 							($object != 'PHPDevShell') ? $uninstall_button = '<button type="submit" value="uninstall" name="uninstall" title="' . $uninstall_text . '">' . $uninstall_icon . '</button>' : $uninstall_button = false;
 							// Check if we have a version check url.
 							if (!empty($plugin['versionurl']) && !empty($plugin['current'])) {
 								// Create version check button.
-								$latest_version_title = _('Check latest available version');
+								$latest_version_title = __('Check latest available version');
 								$version_check = <<<VERSION
 									<button type="submit" value="latest_version" name="latest_version" title="$latest_version_title">{$latest_version_icon}</button>
 									<input type="hidden" name="versionurl" value="{$plugin['versionurl']}">
@@ -386,7 +386,7 @@ VERSION;
 							}
 
 							// Set.
-							$reinstall_menus_text = _('Reinstall Menus and Items');
+							$reinstall_menus_text = __('Reinstall Menus and Items');
 							$action = <<<ACTION
 								$update_message_object
 								$uninstall_button
@@ -398,9 +398,9 @@ VERSION;
 ACTION;
 						} else if (empty($activation_db[$object]['status'])) {
 							$status_icon = $inactive_default_icon;
-							$plugin_message = $template->notice(_('Inactive'), true, false);
+							$plugin_message = $template->notice(__('Inactive'), true, false);
 							// Set.
-							$install_plugin_text = _('Install Plugin');
+							$install_plugin_text = __('Install Plugin');
 							$action = <<<ACTION
 								<button type="submit" value="install" name="install" title="$install_plugin_text">{$install_icon}</button>
 								<input type="hidden" name="plugin" value="$object">

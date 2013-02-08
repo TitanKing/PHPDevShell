@@ -1,57 +1,51 @@
-<form action="{$self_url}" method="post" class="validate">
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#user_role_note").textareaAutoExpand();
+    });
+</script>
+<form action="{$self_url}" method="post" class="validate click-elegance">
     <div class="row">
-        <div class="column grid_4">
+        <div class="span4">
 			<fieldset>
 				<legend>{_e('Role Detail')}</legend>
 				{if $user_role_id != ''}
-				<p>
-					<label>{_e('User Role ID')}
-						<input type="text" size="5" name="user_role_id" value="{$user_role_id}" readonly title="{_e('This is the role where newly verified or direct registration users will be moved to.')}">
-					</label>
-				</p>
+                <p>
+				    <label for="user_role_id">{_e('ID')}</label>
+				    <input id="user_role_id" type="text" name="user_role_id" value="{$user_role_id}" readonly>
+                </p>
 				{/if}
-				<p>
-					<label>{_e('User role name')}
-						<input type="text" size="20" name="user_role_name" value="{$user_role_name}" required="required" title="{_e('This is the role where newly verified or direct registration users will be moved to.')}">
-					</label>
-				</p>
-				<p>
-					<label>{_e('User role notes')}
-						<textarea rows="5" cols="40" name="user_role_note" title="{_e('You might want to remember something about a specific role.')}">{$user_role_note}</textarea>
-					</label>
-				</p>
-			</fieldset>
+                <p>
+				    <label for="user_role_name">{_e('Name')}</label>
+				    <input id="user_role_name" type="text" name="user_role_name" value="{$user_role_name}" required="required">
+                </p>
+                <p>
+				    <label for="user_role_note">{_e('Notes')}</label>
+				    <textarea id="user_role_note" name="user_role_note" class="text-area-autoexpand">{$user_role_note}</textarea>
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>{_e('Tags')}</legend>
+                {$tagger}
+            </fieldset>
 		</div>
-		<div class="column grid_4">
+		<div class="span4">
 			<fieldset>
-				<legend>{_e('Other')}</legend>
-				<p>
-					<label>{_e('Allow role to access nodes')}
-						<select name="permission[]" size="20" class="multiselect" multiple="multiple" title="{_e('Allows you to assign newly created role to menu items on the fly.')}">
-							{section name=menus loop=$menus_select}
-							{strip}
-							<option value="{$menus_select[menus].menu_id}" {$menus_select[menus].selected}>{$menus_select[menus].indent} {$menus_select[menus].menu_name}</option>
-							{/strip}
-							{/section}
-						</select>
-					</label>
-				</p>
-				<p>
-					<label>{_e('Line Break Separated (tag:[auto] or tag:value)')}
-						<textarea rows="5" cols="40" name="tagger" title="{_e('Tags to this specific role.')}">{$tagger}</textarea>
-					</label>
-				</p>
+				<legend>{_e('Role Access Permission')}</legend>
+				<label class="checkbox"><input type="checkbox" class="checkall"> <strong>{_e('Select All')}</strong></label>
+                <ul class="selectcheckboxes unstyled">
+                    {$menus_select}
+                </ul>
 			</fieldset>
-		</div>
-		<div class="column grid_4 last">
-			<fieldset>
-				<legend>{_e('Submit')}</legend>
-				<p>
-					<button type="submit" name="save" value="save"><span class="save"></span><span>{_e('Save Role')}</span></button>
-					<button type="reset"><span class="reset"></span><span>{_e('Reset')}</span></button>
-					<button type="submit" name="new" value="new"><span class="new"></span><span>{_e('New')}</span></button>
-				</p>
-			</fieldset>
+        </div>
+        <div class="span4">
+            <fieldset>
+                <legend>&nbsp;</legend>
+                <p>
+                    <button type="submit" name="save" value="save" class="btn btn-primary"><i class="icon-ok icon-white"></i> {_e('Submit')}</button>
+                    <button type="submit" name="new" value="new" class="btn btn-success"><i class="icon-plus icon-white"></i> {_e('Add')}</button>
+                    <button type="reset" name="reset" value="reset" class="btn"><i class="icon-refresh"></i> {_e('Reset')}</button>
+                </p>
+            </fieldset>
 		</div>
 	</div>
 </form>

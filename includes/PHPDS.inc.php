@@ -3,8 +3,8 @@
 // Engine for PHPDevShell, this is what makes the system run, it calls all needed classes on each request. //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-define('phpdevshell_version', 'PHPDevShell V 3.5.0-Stable-DB-3140');
-define('phpdevshell_db_version', '3140');
+define('phpdevshell_version', 'PHPDevShell V4.0.0-Beta-1-DB-4000');
+define('phpdevshell_db_version', '4000');
 
 require_once 'PHPDS_utils.inc.php';
 /**
@@ -161,7 +161,7 @@ class PHPDS
 	 * If it's ok, its name is added to $configuration['config_files']
 	 *
 	 * @param $path absolute file name
-	 * @return boolean	wether it's successfull
+	 * @return boolean	whether it's successfull
 	 * @date 20090521	Added
 	 * @date 20091006 Changed to dual list of files (used/missing)
 	 * @date 20100630 (v1.1.1) (greg) fixed the misplaced _log() call
@@ -357,7 +357,7 @@ class PHPDS
 	 * @date 		20100219
 	 * @author		greg
 	 * @version		1.1
-	 * 	@param		$source		array, the array to extract values from
+	 * @param		$source		array, the array to extract values from
 	 * @param		$target		array, the array to add the values to
 	 * @param		$indexes	array, the indexes of the values to copy
 	 * @param		$type			string, the type of value to cast (currently only boolean or null for everything else)
@@ -1151,7 +1151,7 @@ class PHPDS_dependant
 	 *
 	 * @version	2.1
 	 * @author	greg
-	 * @date 20121119 (v2.1) (greg) added caching of the variable to improve speed
+	 * @date 20121119 (v2.1.1) (greg) last change added a biiig bug, reorganised the IFs to avoid it
 	 * @date 20110818 (v2.0) (greg) added external access to private/protected fields either by accessor or read-only ; cleanup
 	 * @date 20100805 (v1.0.2) (greg) removed direct access to fields to avoid giving public access to private/protected fields
 	 * @date 20100426 (v1.0.1) (greg) change to use PHPDS_dependance() to get the proper top owner
@@ -1163,39 +1163,36 @@ class PHPDS_dependant
 		$result = '';
 
 		try {
-			// for a local field, try to find an accessor, then if not found, give a read-only access
+			// for a local field, try to find an accessor
 			if (method_exists($this, $name)) {
-				$result = call_user_func(array($this, $name));
-			} else	if (property_exists($this, $name)) {
-				$result = $this->{$name};
+                return call_user_func(array($this, $name));
 			}
-
-			// try to find a field in the parent
-			if (!empty($this->parent)) {
-				if (isset($this->parent->{$name}) || property_exists($this->parent, $name)) {
-					$result = $this->parent->{$name};
-				}
+            // if not found, but the property exists, give a read-only access
+            elseif (property_exists($this, $name)) {
+				return $this->{$name};
 			}
-
-			// special case, we want the debug instance
-			if ('debug' == $name) {
-				$result = $this->debugInstance();
+            // try to find a field in the parent
+            elseif (!empty($this->parent) && (isset($this->parent->{$name}) || property_exists($this->parent, $name))) {
+				return $this->parent->{$name};
 			}
+            // special case, we want the debug instance
+            elseif ('debug' == $name) {
+				return $this->debugInstance();
+			} else {
+                $top = $this->PHPDS_dependance();
+                if (method_exists($top, 'get')) {
+                    $result = $top->get($name);
+                }
+                // and then cache it
+                if ($result) {
+                    $this->{$name} = $result;
+                    return $result;
+                }
+            }
 
-			// try to find a generic accessor at the dependance
-			$top = $this->PHPDS_dependance();
-			if (method_exists($top, 'get')) {
-				$result = $top->get($name);
-			}
-
-			if ($result) {
-				$this->{$name} = $result;
-				return $result;
-			}
-
-			throw new PHPDS_Exception("Non-existent field");
+			throw new PHPDS_Exception("Non-existent field '$name' (maybe dependancy is wrong).'");
 		} catch (Exception $e) {
-			throw new PHPDS_Exception("Can't get any '$name' (maybe dependancy is wrong)", 0, $e);
+            throw new PHPDS_Exception("Can't get any '$name' (maybe dependancy is wrong).", 0, $e);
 		}
 	}
 

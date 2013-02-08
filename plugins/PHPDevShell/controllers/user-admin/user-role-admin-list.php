@@ -15,61 +15,85 @@ class UserRoleAdminList extends PHPDS_controller
 	public function execute()
 	{
 		// Header information
-		$this->template->heading(_('Manage User Roles'));
+		$this->template->heading(__('Manage User Roles'));
 
-		// Should we delete groups users?
-		if (!empty($this->security->get['dru'])) {
-			// Do we have a naughty branch admin that is trying to delete things he should not?
-			if (!$this->user->belongsToRole(false, $this->security->get['dru']) && $this->configuration['user_role'] != $this->security->get['dru']) {
-				$this->template->warning(_('You do not have permission to remove this role.'));
-				$error_[0] = true;
-			}
-			// We should be safe to delete now.
-			if (empty($error_)) {
+        if ($this->P('checkrole')) {
 
-				if ($this->db->deleteQuick('_db_core_users', 'user_role', $this->security->get['dru'])) {
-					// Delete old user roles values.
-					$this->db->deleteQuick('_db_core_user_extra_roles', 'user_role_id', $this->security->get['dru']);
-					$this->template->ok(sprintf(_('All user from role %s was deleted.'), $this->security->get['dru']));
-				} else {
-					$this->template->warning(sprintf(_('No users for role "%s" to delete.'), $this->security->get['dru']));
-				}
-			}
-		}
-		// Delete role.
-		if (!empty($this->security->get['dr'])) {
-			// Check if user is deleting core item.
-			if (($this->security->get['dr'] != 1 && $this->security->get['dr'] != 2 && $this->security->get['dr'] != 3 && $this->security->get['dr'] != 4 && $this->security->get['dr'] != 5 && $this->security->get['dr'] != 6 && $this->security->get['dr'] != 7 && $this->security->get['dr'] != 8 && $this->security->get['dr'] != 9) || $this->configuration['force_core_changes'] == true) {
-				// Delete role.
-				$deleted_role = $this->db->deleteQuick('_db_core_user_roles', 'user_role_id', $this->security->get['dr'], 'user_role_name');
-				// We also need to delete the extra roles from the list.
-				$this->db->deleteQuick('_db_core_user_extra_roles', 'user_role_id', $this->security->get['dr']);
-				// We also need to delete the user role permissions from the database.
-				$this->db->deleteQuick('_db_core_user_role_permissions', 'user_role_id', $this->security->get['dr']);
-				// We now need to set the user database to also delete this role from user if he belongs to it.
-				$this->db->invokeQuery('PHPDS_updateUserQuery', $this->security->get['dr']);
+            $idsarr = $this->P('checkrole');
 
-				if ($deleted_role) {
-					$this->template->ok(sprintf(_("Role %s was deleted."), $deleted_role));
-				} else {
-					$this->template->warning(sprintf(_('No role "%s" to delete.'), $this->security->get['dr']));
-				}
-			} else {
-				$this->template->warning(_('You cannot delete a core item, the system will be unable to function correctly. Switch force core changes on in General Settings GUI for bypass.'));
-			}
-		}
+            if ($this->P('deleterole'))  {
+                $deleted_roles = '';
+                if (! empty($idsarr)) {
+                    foreach($idsarr as $iddelete => $val) {
+
+                        $iddelete_condition =  (
+                            $iddelete != 1 &&
+                            $iddelete != 2 &&
+                            $iddelete != 3 &&
+                            $iddelete != 4 &&
+                            $iddelete != 5 &&
+                            $iddelete != 6 &&
+                            $iddelete != 7 &&
+                            $iddelete != 8 &&
+                            $iddelete != 9
+                        );
+
+                        // Check if user is deleting core item.
+                        if ($iddelete_condition || $this->configuration['force_core_changes'] == true) {
+
+                            // Delete role.
+                            $deleted_role = $this->db->deleteQuick('_db_core_user_roles', 'user_role_id',  $iddelete, 'user_role_name');
+                            $this->db->deleteQuick('_db_core_user_extra_roles', 'user_role_id',  $iddelete);
+                            $this->db->deleteQuick('_db_core_user_role_permissions', 'user_role_id',  $iddelete);
+                            $this->db->invokeQuery('PHPDS_updateUserQuery',  $iddelete);
+
+                            if ($deleted_role) {
+                                $deleted_roles .= sprintf(__("Role %s was deleted."), $deleted_role);
+                            } else {
+                                $this->template->warning(sprintf(__('No role "%s" to delete.'),  $iddelete));
+                            }
+                        } else {
+                            $this->template->warning(__('You cannot delete a core item.'));
+                        }
+                    }
+                    if (! empty($deleted_roles)) $this->template->ok($deleted_roles);
+                }
+            }
+
+            if ($this->P('deleteusers'))  {
+                $deleted_users = '';
+                if (! empty($idsarr)) {
+                    foreach($idsarr as $iddelete => $val) {
+                        if ($iddelete) {
+                            if (!$this->user->belongsToRole(false, $iddelete) && $this->configuration['user_role'] != $iddelete) {
+                                $this->template->warning(__('Permission denied.'));
+                                $error_[0] = true;
+                            }
+                            if (empty($error_)) {
+                                if ($this->db->deleteQuick('_db_core_users', 'user_role', $iddelete)) {
+                                    $this->db->deleteQuick('_db_core_user_extra_roles', 'user_role_id', $iddelete);
+                                    $deleted_users .= sprintf(__('Role %s users deleted.'), $iddelete);
+                                } else {
+                                    $this->template->warning(sprintf(__('No users for role "%s" to delete.'), $iddelete));
+                                }
+                            }
+                        }
+                    }
+                    if (! empty($deleted_users)) $this->template->ok($deleted_users);
+                }
+            }
+        }
+
 		$RESULTS = $this->db->invokeQuery('PHPDS_readRoleQuery');
 
-		// Load views.
 		$view = $this->factory('views');
 
-		// Set Array.
+		$view->set('self_url', $this->navigation->buildURL());
 		$view->set('pagination', $RESULTS['pagination']);
 		$view->set('searchForm', $RESULTS['searchForm']);
 		$view->set('th', $RESULTS['th']);
 		$view->set('RESULTS', $RESULTS['list']);
 
-		// Output Template.
 		$view->show();
 	}
 }

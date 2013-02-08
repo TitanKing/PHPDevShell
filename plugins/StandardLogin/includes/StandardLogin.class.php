@@ -84,7 +84,7 @@ class StandardLogin extends PHPDS_login
 	public function processLogin($username, $password)
 	{
 		if (empty($username) || empty($password)) {
-			$this->template->loginMessage = ___('You did not complete required username and password fields.');
+			$this->template->notice(___('You did not complete required username and password fields.'));
 		} else {
 			if ($this->lookupUsername($username)) {
 				// Simple method to lookup user by providing username and password.
@@ -98,11 +98,11 @@ class StandardLogin extends PHPDS_login
 					}
 				} else {
 					$this->core->haltController = array('type'=>'auth','message'=>___('Incorrect Password'));
-					$this->template->loginMessage = ___('You used a valid username with a <strong>wrong password</strong>. Remember, it is Case Sensitive.');
+					$this->template->notice(___('You used a valid username with a <strong>wrong password</strong>. Remember, it is Case Sensitive.'));
 				}
 			} else {
 				$this->core->haltController = array('type'=>'auth','message'=>___('Incorrect Login Data'));
-				$this->template->loginMessage = ___('Your <strong>username</strong> could not be found. Remember, it is Case Sensitive.');
+				$this->template->notice(___('Your <strong>username</strong> could not be found. Remember, it is Case Sensitive.'));
 			}
 		}
 	}

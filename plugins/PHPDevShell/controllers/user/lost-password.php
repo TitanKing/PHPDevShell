@@ -21,16 +21,15 @@ class LostPassword extends PHPDS_controller
 
 		$username = '';
 
-		$this->template->heading(_('Recover Lost Password'));
+		$this->template->heading(__('Recover Lost Password'));
 
 		// Sending password instructions.
 		if ($crud->POST('send')) {
 
 			if (!$crud->isAlphaNumeric('user_name') && !$crud->isEmail('user_name'))
-				$crud->error(_('Please provide a clean alpha numeric string or email as username'));
+				$crud->error();
 
 			if ($crud->ok()) {
-
 				$user_array = $this->db->invokeQuery('PHPDS_ReadUserQuery', $crud->f->user_name, $crud->f->user_name);
 				$edit = $user_array;
 
@@ -39,18 +38,18 @@ class LostPassword extends PHPDS_controller
 					$reset_page_url = $reset_page_url . md5($edit['user_name'] . $edit['user_email'] . $edit['user_password']);
 
 					$to = $edit['user_email'];
-					$subject = sprintf(_('%s password recovery.'), $this->configuration['scripts_name_version']);
-					$message = sprintf(_("Dear %s user, you requested for your password to be reset, please click on link to enter a new password %s. Use your new password to log in after it has been changed. Thank you, %s"), $this->configuration['scripts_name_version'], $reset_page_url, $this->configuration['absolute_url'], $this->configuration['absolute_url']);
+					$subject = sprintf(__('%s password recovery.'), $this->configuration['scripts_name_version']);
+					$message = sprintf(__("Dear %s user, you requested for your password to be reset, please click on link to enter a new password %s. Use your new password to log in after it has been changed. Thank you, %s"), $this->configuration['scripts_name_version'], $reset_page_url, $this->configuration['absolute_url'], $this->configuration['absolute_url']);
 
 					if ($email->sendmail("$to", $subject, $message)) {
-						$this->template->ok(_('Please check your email inbox for further instructions on changing your password.'));
+						$this->template->ok(__('Instructions emailed.'));
 						$_SESSION['hold'] = $this->configuration['time'];
 					} else {
-						$this->template->warning(_('An error occurred while trying to send this email. Please notify the Administrator of this problem.'));
+						$this->template->warning(__('Cannot send email.'));
 					}
 
 				} else {
-					$this->template->warning(_('The specified user was not found, make sure your username or email address is typed in correctly. Note that they are case sensitive. It is also possible that you may have been removed from the system.'));
+					$this->template->warning(__('User not found.'));
 				}
 
 			} else {
@@ -60,7 +59,7 @@ class LostPassword extends PHPDS_controller
 
 		$view = $this->factory('views');
 
-		$view->set('send_recovery_instructions', _('Send Recovery Instructions'));
+		$view->set('send_recovery_instructions', __('Send Recovery Instructions'));
 
 		$view->set('self_url', $this->navigation->selfUrl());
 		$view->set('username', $crud->f->user_name);

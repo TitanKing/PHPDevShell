@@ -141,32 +141,33 @@ class PHPDS_tagger extends PHPDS_dependant
 	}
 
 	/**
-	 * This function creates tag list which allows a comma separated list of tags.
+	 * This function creates tag view list with form input fields.
+     *
 	 *
 	 * @param string $object
 	 * @param string $target
-	 * @param string $value
+     * @param array $taggernames Array of names posted by the tagger form.
+     * @param array $taggervalues Array of values posted by the tagger form.
+     * @param array $taggerids Array of updated ids posted by the tagger form.
+     * @param array $taggerdeletes Array of deleted tags posted by the tagger form.
 	 * @return string|nothing
+     *
+     * @version 2.0
+     * @author jason
+     * @date 20130123 (v2.0) (jason) rewrote its functionality
 	 */
-	public function tagArea($object, $target, $tagArea = null, $defaultValue = null)
+	public function tagArea($object, $target, $taggernames, $taggervalues, $taggerids, $taggerdeletes)
 	{
-		if (!empty($tagArea)) {
-			$this->db->invokeQuery('PHPDS_updateTagsQuery', $object, $target, $defaultValue, $tagArea);
+        $mod = $this->template->mod;
+
+		if (!empty($taggernames) && is_array($taggernames)) {
+			$this->db->invokeQuery('PHPDS_updateTagsQuery', $object, $target, $taggernames, $taggervalues, $taggerids, $taggerdeletes);
 		}
 
 		$taglist = $this->db->invokeQuery('PHPDS_taggerListTargetQuery', $target, $object);
 
-		$tagnames = '';
-		if (! empty($taglist)) {
-			asort($taglist);
-			foreach ($taglist as $tag) {
-				$tagname = trim($tag['tagName']);
-				$tagvalue = trim($tag['tagValue']);
-					if (! empty($tagvalue)) $tagvalue = ':' . $tagvalue; else $tagvalue = '';
-				$tagnames .= "$tagname" . $tagvalue . "\r\n";
-			}
-			$tagnames = rtrim($tagnames, ",");
-		}
-		return $tagnames;
+        $tagarea = $mod->taggerArea($taglist, ___('Tag Name'), ___('Tag Value'));
+
+		return $tagarea;
 	}
 }

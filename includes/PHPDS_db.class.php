@@ -235,7 +235,7 @@ class PHPDS_db extends PHPDS_dependant
 		}
 
 	/**
-	 * Locates the query class of the given name, loads it, intantiate it, send the query to the DB, and return the result
+	 * Locates the query class of the given name, loads it, instantiate it, send the query to the DB, and return the result
 	 *
 	 * @date 20100219
 	 * @version 1.2
@@ -252,7 +252,7 @@ class PHPDS_db extends PHPDS_dependant
 	}
 
 	/**
-	 * Locates the query class of the given name, loads it, intantiate it, send the query to the DB, and return the result
+	 * Locates the query class of the given name, loads it, instantiate it, send the query to the DB, and return the result
 	 *
 	 * @date 20100922 (1.0) (greg) added
 	 * @version 1.0

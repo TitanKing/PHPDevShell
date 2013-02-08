@@ -10,8 +10,8 @@ class RepairDatabase extends PHPDS_controller
 	 */
 	public function execute()
 	{
-		$this->template->heading(_('Repair Database'));
-		$this->template->info(_('Repairs corrupted and broken tables from core and all installed plugins.'));
+		$this->template->heading(__('Repair Database'));
+		$this->template->info(__('Repairs corrupted and broken tables from core and all installed plugins.'));
 
 		// Get all tables from database.\
 		$all_tables = $this->db->invokeQuery('PHPDS_fetchTablesToRepairQuery', $this->db->dbName);

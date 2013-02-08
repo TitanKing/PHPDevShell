@@ -17,9 +17,9 @@ class RegistrationTokenAdmin extends PHPDS_controller
 		$crud = $this->factory('crud');
 
 		if ($crud->GET('erg') || $crud->POST('save')) {
-			$this->template->heading(_('Edit Registration Token'));
+			$this->template->heading(__('Edit Registration Token'));
 		} else {
-			$this->template->heading(_('Add Registration Token'));
+			$this->template->heading(__('Add Registration Token'));
 		}
 
 		$crud->addField('token_key', $this->core->createRandomString(42));
@@ -37,20 +37,20 @@ class RegistrationTokenAdmin extends PHPDS_controller
 				$crud->addField('available_tokens');
 
 				if (!$crud->is('token_name'))
-					$crud->error(_('Please give this token a name'));
+					$crud->error(__('Please give this token a name'));
 
 				if (!$crud->is('user_role_id'))
-					$crud->error(_('Please select role for this token'));
+					$crud->error(__('Please select role for this token'));
 
 				if (!$crud->is('user_group_id'))
-					$crud->error(_('Please select group for this token'));
+					$crud->error(__('Please select group for this token'));
 
 				if ($this->db->doesRecordExist('_db_core_registration_tokens', 'token_name', "{$crud->f->token_name}", 'token_id', "{$crud->f->token_id}") == true)
-					$crud->errorElse(sprintf(_('The registration token "%s" you specified already exists, please use a different name.'), $crud->f->token_name));
+					$crud->errorElse(sprintf(__('The registration token "%s" you specified already exists, please use a different name.'), $crud->f->token_name));
 
 				if ($crud->ok()) {
 					$crud->f->token_id = $this->db->invokeQuery('PHPDS_saveRegistrationTokensQuery', $crud->f->token_id, $crud->f->token_name, $crud->f->user_role_id, $crud->f->user_group_id, $crud->f->token_key, $crud->f->registration_option, $crud->f->available_tokens);
-					$this->template->ok(sprintf(_('The registration token "%s" was saved as required.'), $crud->f->token_name));
+					$this->template->ok(sprintf(__('The registration token "%s" was saved as required.'), $crud->f->token_name));
 				} else {
 					$crud->errorShow();
 				}

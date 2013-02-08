@@ -31,7 +31,7 @@ class PHPDS_writeCoreSettingsQuery extends PHPDS_query
 						$s['note'][$sd] = '';
 					$write_sd .= "('$sd', '{$s['setting_value'][$sd]}', '{$s['note'][$sd]}'),";
 				} else {
-					$this->template->warning(_('You must provide a field name to identify the setting by.'));
+					$this->template->warning(__('You must provide a field name to identify the setting by.'));
 					break;
 				}
 			}
@@ -42,10 +42,10 @@ class PHPDS_writeCoreSettingsQuery extends PHPDS_query
 			$write_sd = rtrim($write_sd, ',');
 			// Write to DB.
 			if (parent::invoke(array($write_sd))) {
-				$this->template->ok(_('Plugin settings was saved.'));
+				$this->template->ok(__('Plugin settings was saved.'));
 			}
 		} else {
-			$this->template->warning(_('No plugin settings was saved.'));
+			$this->template->warning(__('No plugin settings was saved.'));
 		}
 	}
 }
@@ -90,7 +90,7 @@ class PHPDS_readCoreSettingsQuery extends PHPDS_query
 		$RESULTS['th'] = $pagination->th();
 
 		// Icons.
-		$delete_icon = $template->icon('cross-script', _('Delete'));
+		$delete_icon = $template->icon('cross-script', __('Delete'));
 
 		$i = 0;
 		// OK Loop the array like you would always do.
@@ -106,7 +106,7 @@ class PHPDS_readCoreSettingsQuery extends PHPDS_query
 				'setting_value' => $setting_value,
 				'note' => $note,
 				'row' => $i,
-				'delete' => "<a href=\"{$del_url_}{$setting_description}\" {$core->confirmLink(sprintf(_('Are you sure you want to DELETE : %s'), $setting_description))} class=\"button\">" . $delete_icon . "</a>"
+				'delete' => "<a href=\"{$del_url_}{$setting_description}\" {$core->confirmLink(sprintf(__('Are you sure you want to DELETE : %s'), $setting_description))} class=\"button\">" . $delete_icon . "</a>"
 			);
 		}
 		if (! empty($RESULTS['list'])) {

@@ -15,7 +15,7 @@ class UserAdminList extends PHPDS_controller
 	public function execute()
 	{
 		// Heading.
-		$this->template->heading(_('Users Management'));
+		$this->template->heading(__('Users Management'));
 
 		// User actions.
 		$userAction = $this->factory('userActions');
@@ -26,7 +26,7 @@ class UserAdminList extends PHPDS_controller
 			$get_delete_user_info_array = $this->db->invokeQuery('PHPDS_readUserQuery', $this->security->get['du']);
 			// Do we have a naughty lower level admin that is trying to delete things he should not?
 			if (!$this->user->belongsToGroup(false, $get_delete_user_info_array['user_group']) || $this->configuration['user_id'] == $this->security->get['du']) {
-				$this->template->warning(sprintf(_('You cannot delete user id (%s)'), $this->security->get['du']));
+				$this->template->warning(sprintf(__('You cannot delete user id (%s)'), $this->security->get['du']));
 				$error[0] = true;
 			}
 			// We should be safe to delete now.
@@ -35,11 +35,11 @@ class UserAdminList extends PHPDS_controller
 				$this->db->invokeQuery('PHPDS_deleteUserQuery', $this->security->get['du']);
 
 				if ($get_delete_user_info_array['user_display_name']) {
-					$this->template->ok(sprintf(_('User %s deleted.'), $get_delete_user_info_array['user_display_name']));
+					$this->template->ok(sprintf(__('User %s deleted.'), $get_delete_user_info_array['user_display_name']));
 					// Send to user action class.
 					$userAction->userDelete($get_delete_user_info_array);
 				} else {
-					$this->template->warning(sprintf(_('No user "%s" to delete.'), $this->security->get['du']));
+					$this->template->warning(sprintf(__('No user "%s" to delete.'), $this->security->get['du']));
 				}
 			}
 		}
@@ -70,7 +70,7 @@ class UserAdminList extends PHPDS_controller
 			//////////////////////////////////////////////////////////////////////////////////////////////////
 			//////////////////////////////////////////////////////////////////////////////////////////////////
 			// After database replacing show success message.
-			$this->template->ok(_('All modified user settings was saved.'));
+			$this->template->ok(__('All modified user settings was saved.'));
 			$userAction->userMultipleUpdate($this->security->post);
 		}
 		$RESULTS = $this->db->invokeQuery('PHPDS_readUsersQuery', $extra_role_array, $extra_group_array);
@@ -85,7 +85,7 @@ class UserAdminList extends PHPDS_controller
 		$view->set('RESULTS', $RESULTS['list']);
 
 		// Set Button.
-		$view->set('save_user_changes', _('Save User Changes'));
+		$view->set('save_user_changes', __('Save User Changes'));
 
 		// Set Values.
 		$view->set('self_url', $this->navigation->selfUrl());

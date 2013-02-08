@@ -1,208 +1,159 @@
 <?php
-
 /**
  * This page will be displayed whenever an unhandled error or exception occurs in PHPDevShell
  */
-	$skin = empty($this->configuration['skin']) ? '': $this->configuration['skin'];
-	$navigation = $this->navigation;
+$skin = empty($this->configuration['skin']) ? '': $this->configuration['skin'];
+$navigation = $this->navigation;
+$template = $this->template;
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
-		<title>Serious Error Encountered</title>
-		<meta charset=UTF-8>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Internal System Error</title>
+        <meta charset=UTF-8>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="keywords" content="critical, error">
 		<meta name="description" content="We encountered an error">
-		<link rel="stylesheet" href="<?php echo $aurl ?>/themes/cloud/css/reset.css" type="text/css" media="screen, projection" />
-		<link rel="stylesheet" href="<?php echo $aurl ?>/themes/cloud/jquery/css/ui-lightness/jquery-ui.css?v314a" type="text/css" media="screen, projection" />
-		<link rel="stylesheet" href="<?php echo $aurl ?>/themes/cloud/css/combined.css?v=314a" type="text/css" media="screen, projection" />
-		<script type="text/javascript" src="<?php echo $aurl ?>/themes/cloud/js/combined-min.js?v=314a"></script>
-		<script type="text/javascript" src="<?php echo $aurl ?>/themes/cloud/js/showhide/jquery.showhide.js"></script>
-		<style>
-			#backtrace td, #backtrace th{
-				border: none;
-			}
-			.bt-line-number {
-				color: #F93;
-			}
-			.causes_list {
-				list-style-type: square;
-			}
-			H1 {
-				font-size: 3em !important;
-				text-align: center;
-			}
-			H2 {
-				font-size: 2em !important;
-			}
-			H3 {
-				font-size: 1.5em !important;
-			}
-			#support {
-				position: absolute;
-				right: 10px;
-				top: 10px;
-				font-size: 120%;
-				text-align: center;
-			}
-			a:link {
-				text-decoration: underline !important;
-			}
-		</style>
+        <link rel="stylesheet" href="<?php echo $aurl ?>/themes/default/bootstrap/css/bootstrap.css?v=4.0.0" type="text/css">
+        <link rel="stylesheet" href="<?php echo $aurl ?>/themes/default/bootstrap/css/bootstrap-responsive.css?v=4.0.0" type="text/css">
+        <link rel="stylesheet" href="<?php echo $aurl ?>/themes/default/prettify/prettify.css?v=100" type="text/css">
+        <link rel="stylesheet" href="<?php echo $aurl ?>/themes/default/css/default.css?v=400" type="text/css">
+        <script type="text/javascript" src="<?php echo $aurl ?>/themes/default/jquery/js/jquery-min.js?v=1.9.1"></script>
+        <script type="text/javascript" src="<?php echo $aurl ?>/themes/default/js/default.js?v=4.0.0"></script>
+        <script type="text/javascript" src="<?php echo $aurl ?>/themes/default/bootstrap/js/bootstrap.js?v=2.2.2"></script>
+        <script type="text/javascript" src="<?php echo $aurl ?>/themes/default/prettify/prettify.js?v=100"></script>
 	</head>
 	<!-- PHPDevShell Main Body -->
-	<body class="ui-widget">
-		<?php if (!empty($message)) {
-			?>
-			<h1>An error occured</h1>
-			<p class="note">This page will try to provide as much information as possible so you can track down (and hopefully fix) the problem.</p>
-			<?php
-				if (is_a($e, 'PHPDS_exception')) {
-					if ($e->hasCauses()) {
-						@list($msg, $causes, $extra_html) = new PHPDS_array($e->getCauses());
-						?>
+	<body id="container" onload="prettyPrint()">
+        <div id="wrap">
+            <div id="bg" class="container-fluid">
+                <h1>Internal System Error</h1>
+                <?php if (!empty($message)) {
+                    if (is_a($e, 'PHPDS_exception')) {
+                        if ($e->hasCauses()) {
+                            @list($msg, $causes, $extra_html) = new PHPDS_array($e->getCauses());
+                            ?>
+                            <div class="alert"><?php  echo $msg?></div>
+                            <h3>Possible causes are:</h3>
+                            <dl>
+                            <?php
+                                foreach($causes as $cause) {
+                                    list($title, $text) = $cause;
+                                    echo "<dt><strong>$title</strong></dt>";
+                                    echo "<dd><i class=icon-chevron-right></i> $text</dd>";
+                                }
+                                if ($extra_html) echo $extra_html;
+                            ?>
+                            </dl>
+                            <?php
+                        }
+                    }
+                    $config = $this->configuration;
+                ?>
+                <div class="alert alert-error">
+                    <div class="pull-right"><strong><?php echo date('d M Y') ?> <?php echo date('H:i a') ?></strong></div>
+                    <?php
+                    if (!empty($config['m'])) {
+                        echo "Executing <strong>{$config['m']}</strong>" . " invoked class <em>" . get_class($e) . "</em> with code $code";
+                    } else {
+                        echo '<strong>Internal Error</strong>';
+                    }
+                    ?>
 
-						<article class="ui-widget-content ui-corner-all" style="margin:2em; padding:2em;">
-						<h3 class="warning"><?php  echo $msg?></h3>
-						<p>Possible causes are:</p>
-						<ul id="causes_list">
-						<?php
-							foreach($causes as $cause) {
-								list($title, $text) = $cause;
-								echo "<li><strong>$title</strong><br />$text</li>";
-							}
-							if ($extra_html) echo $extra_html;
-						?>
-						</ul>
-						</article>
-						<?php
-					}
-					if ($e->hasMoreInfo()) {
-						?>
-						<article class="ui-widget-content ui-corner-all" style="margin:2em; padding:2em;">
-						<h3 class="warning">More information</h3>
-						<p><?php echo $e->getMoreInfo() ?></p>
-						</article>
-						<?php
-					}
-				}
+                    <div class="error-split-line"></div>
+                    <?php echo $message; ?>
 
-				$config = $this->configuration;
-			?>
-		<article class="ui-widget-content ui-corner-all" style="margin:2em; padding:2em;">
+                    <?php
+                    if (! empty($extendedMessage)) {
+                        echo "$extendedMessage";
+                    }
+                    ?>
+                </div>
+                <?php if (! empty($filefragment)) { ?>
+                <p class="text-warning">
+                    The error <em><strong>actually</strong></em> occurred in <strong><em><?php echo $filepath?></em></strong> at line <strong><?php echo $lineno?></strong> (see the <a href="#backtrace">backtrace</a>)
+                </p>
+                <pre><?php echo $filefragment ?></pre>
+                <?php } ?>
 
-			<div style="display: none" >
-				<p class="warning">WARNING! several errors were caught in the Exception Handler itself:</p>
-				<blockquote>
-					<pre id="crumbs"><crumbs/></pre>
-				</blockquote>
-				<script>
-					$(function(){
-						var crumbs = $('#crumbs');
-						if (crumbs.html()) crumbs.parents('DIV').show();
-					});
-				</script>
-			</div>
+                <?php if ($ignore >= 0) { ?>
+                <p>The origin of the error is <em><strong>probably</strong></em> in file <strong><em><?php echo $frame['file']?></em></strong> at line <strong><?php echo $frame['line']?></strong></p>
 
-			<h2>The error</h2>
+                <?php if (! empty($framefragment)) { ?>
+                <pre><?php echo $framefragment?></pre>
+                <?php } ?>
 
-			<p>The error class is "<tt><?php echo get_class($e) ?>"</tt> and the error code is <?php echo $code ?>.</p>
-
-			<p>The message of the error is as follow:</p>
-			<blockquote>
-			<p class="critical"><?php echo $message; ?></p>
-			<p><?php echo $extendedMessage; ?></p>
-			</blockquote>
-
-			<p>The error occured on <?php echo date('Y-M-d') ?> at <?php echo date('H:s') ?>.
-			<p>
-			<?php
-			if (!empty($config['m'])) {
-				echo 'The current menu id is '.$config['m'];
-				echo '. <a href="'.$navigation->buildURL(3440897808, 'em='.$config['m']).'">'._('Edit this menu').'</a>';
-			} else {
-				echo 'It happened outside a menu.';
-			}
-			?>
-			</p>
-			</p>
-
-			<p>The error <em><strong>actually</strong></em> occurred in file <strong><tt><?php echo $filepath?></tt></strong> at line <strong><?php echo $lineno?></strong> (see the <a href="#backtrace">backtrace</a>)</p>
-			<blockquote>
-			<p><?php echo $filefragment?></p>
-			</blockquote>
-			<?php if ($ignore >= 0) { ?>
-				<p>The origin of the error is <em><strong>probably</strong></em> in file <strong><tt><?php echo $frame['file']?></tt></strong> at line <strong><?php echo $frame['line']?></strong></p>
-				<blockquote>
-				<p><?php echo $framefragment?></p>
-				</blockquote>
-			<?php }?>
-
-			<h2><a name="backtrace">The Backtrace:</a></h2>
-			<p>All relative file pathes are relative to the server root (namely <tt><?php echo $_SERVER['DOCUMENT_ROOT']; ?>/ )</tt></p>
-			<p>Click on the Book icon to access online documentation.</p>
-			<table id="backtrace">
-				<thead>
-					<tr>
-						<th>File path (relative)</th>
-						<th>Line</th>
-						<th>Call (with arguments)</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php echo $bt; ?>
-				</tbody>
-			</table>
-
-
-			<h2>The configuration</h2>
-			<div class="info">
-				<h3>Configuration files actually used:</h3>
-				<?php echo $conf['used']; ?>
-				<h3>Configuration files which would have been used if they were present:</h3>
-				<?php echo $conf['missing']; ?>
-				<h3>Main database info</h3>
-				<?php
-					$db_settings = PU_GetDBSettings($config);
-					echo "<p>Database <i>{$db_settings['database']}</i> with prefix <i>{$db_settings['prefix']}</i> on host <i>{$db_settings['host']}</i> with user <i>{$db_settings['username']}</i>.</p>";
-				?>
-				<h3>Other useful configuration settings</h3>
-				<?php
-					echo '<p>Sef URL is <i>'.($config['sef_url'] ? 'on' : 'off').'</i> ; default template is '.($config['default_template'] ? '<i>'.$config['default_template'].'</i>' : '<b>not set</b>').'.</p>';
-					echo '<p>Guest role  is '.(empty($config['guest_role'])  ? '<b>not set</b>' : '<i>'.$config['guest_role'].'</i>').' ; guest group is '.(empty($config['guest_group'])  ? '<b>not set</b>' : '<i>'.$config['guest_group'].'</i>').'.</p>';
-					list($plugin, $menu_link) = $navigation->menuPath();
-					echo empty($plugin) ? '<p>No plugin currently selected</p>' : '<p>Current plugin is <strong>'.$plugin.'</strong> (path is '.$menu_link.')</p>';
-					echo '<p>BASEPATH is "<tt>'.BASEPATH.'</tt>" - Current working directory is "<tt>'.getcwd().'</tt>".</p>';
-				?>
-			</div>
-
-			<h2>Class Registry</h2>
-			<div class="info">
-				<?php
-					echo PU_dumpArray($this->classFactory->PluginClasses);
-				?>
-			</div>
-
-			<h2>PHP info</h2>
-			<blockquote>
-			<div style="overflow: hidden;">
-			<?php phpinfo(); ?>
-			</div>
-			</blockquote>
-
-		</article>
-		<div id="support" class="critical">
-			Need support?<br>
-			The <a href="http://www.phpdevshell.org/support" target="www.phpdevshell.org">support page</a> of our website is here for you.
-		</div>
-		<?php } else { ?>
-		<article class="ui-widget-content ui-corner-all" style="margin:2em; padding:2em;">
-			<h1 class="ui-state-error ui-corner-all">An error has occured...</h1>
-			<p>An error has occurred while trying to provide you with the requested resource.</p>
-			<p>The site administrator have been informed and will fix the problem as soon as possible.</p>
-			<p>Sorry for the inconvenience, please come back later...</p>
-		</article>
-		<?php }?>
+                <?php }?>
+                <h3><a name="backtrace">The Backtrace:</a></h3>
+                <p>All relative file paths are relative to the server root namely <em><?php echo $_SERVER['DOCUMENT_ROOT']; ?>/</em></p>
+                <table id="backtrace" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>File path (relative)</th>
+                            <th>Line</th>
+                            <th>Call (with arguments)</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php echo $bt; ?>
+                    </tbody>
+                </table>
+                <?php if (! empty($conf)) { ?>
+                <h3>Active Configuration</h3>
+                <div class="well">
+                    <h4>Configuration files used:</h4>
+                    <?php echo $conf['used']; ?>
+                    <h4>Configuration files which would have been used if they were present:</h4>
+                    <?php echo $conf['missing']; ?>
+                    <h4>Main database info</h4>
+                    <?php
+                        $db_settings = PU_GetDBSettings($config);
+                        echo "<p>Database <em>{$db_settings['database']}</em> with prefix <em>{$db_settings['prefix']}</em> on host <em>{$db_settings['host']}</em> with user <em>{$db_settings['username']}</em>.</p>";
+                    ?>
+                    <h4>Other useful configuration settings</h4>
+                    <dl>
+                    <?php
+                        echo "<dt>Menu ID</dt>";
+                        echo "<dd><code>" . (empty($config['m']) ? 'unknown' : $config['m']) . "</code></dd>";
+                        echo "<dt>SEF URL</dt>";
+                        echo "<dd><code>" . (empty($config['sef_url']) ? 'off' : 'on') . "</code></dd>";
+                        echo "<dt>Default template</dt>";
+                        echo "<dd><code>" . (empty($config['default_template']) ? 'not set' : $config['default_template']) . "</code></dd>";
+                        echo "<dt>Guest role</dt>";
+                        echo "<dd><code>" . (empty($config['guest_role'])  ? 'not set' : $config['guest_role']) . "</code></dd>";
+                        echo "<dt>Guest group</dt>";
+                        echo "<dd><code>" . (empty($config['guest_group'])  ? 'not set' : $config['guest_group'])  . "</code></dd>";
+                        list($plugin, $menu_link) = $navigation->menuPath();
+                        echo "<dt>Active plugin</dt>";
+                        $menu_link_ = (empty($menu_link)) ? '' : ' (path is ' . $menu_link . ')';
+                        echo "<dd><code>" . (empty($plugin) ? 'not set' : $plugin . $menu_link_) . "</code></dd>";
+                        echo "<dt>Basepath</dt>";
+                        echo "<dd><code>" . BASEPATH . "</code></dd>";
+                        echo "<dt>Working directory</dt>";
+                        echo "<dd><code>" . getcwd() . "</code></dd>";
+                    ?>
+                    </dl>
+                </div>
+                <div>
+                    <h3>Variable Registry</h3>
+                    <pre><?php echo PU_dumpArray($this->classFactory->PluginClasses); ?></pre>
+                </div>
+                <?php
+                    echo PHPDS_backtrace::phpInfo();
+                ?>
+                <?php } ?>
+                <div class="alert alert-success">
+                    <strong>End of Report</strong><br>
+                    PHP <?php echo phpversion(); ?>
+                </div>
+            <?php } else { ?>
+                    <p class="lead">
+                        An error has occurred while trying to provide you with the requested resource. The site administrator has been informed and will take the appropriate action.</p>
+                    <p><a href="<?php echo $aurl ?>" class="btn btn-inverse"><i class="icon-home icon-white"></i> Home</a></p>
+                </div>
+            <?php } ?>
+            </div>
+        </div>
 	</body>
 </html>

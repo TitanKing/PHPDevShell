@@ -27,7 +27,7 @@ class PHPDS_writeCoreClassQuery extends PHPDS_query
 				if (!empty($sd)) {
 					$write_sd .= "('$sd', '{$s['class_name'][$sd]}', '{$s['alias'][$sd]}', '{$s['plugin_folder'][$sd]}', {$s['enable'][$sd]}, '{$s['rank'][$sd]}'),";
 				} else {
-					$this->template->warning(_('You must provide all fields to identify the class'));
+					$this->template->warning(__('You must provide all fields to identify the class'));
 					break;
 				}
 			}
@@ -36,10 +36,10 @@ class PHPDS_writeCoreClassQuery extends PHPDS_query
 		if (!empty($write_sd)) {
 			$write_sd = rtrim($write_sd, ',');
 			if (parent::invoke(array($write_sd))) {
-				$this->template->ok(_('Class changes were saved.'));
+				$this->template->ok(__('Class changes were saved.'));
 			}
 		} else {
-			$this->template->warning(_('No class data was changed.'));
+			$this->template->warning(__('No class data was changed.'));
 		}
 	}
 }
@@ -107,9 +107,9 @@ class PHPDS_readCoreClassQuery extends PHPDS_query
 		$RESULTS['th'] = $pagination->th();
 
 		// Icons.
-		$delete_icon = $template->icon('cross-script', _('Delete'));
-		$enabled_icon = $template->icon('tick-circle', _('Disable on Click'));
-		$disabled_icon = $template->icon('cross-white', _('Enable on Click'));
+		$delete_icon = $template->icon('cross-script', __('Delete'));
+		$enabled_icon = $template->icon('tick-circle', __('Disable on Click'));
+		$disabled_icon = $template->icon('cross-white', __('Enable on Click'));
 
 		$i = 0;
 
@@ -117,14 +117,14 @@ class PHPDS_readCoreClassQuery extends PHPDS_query
 			$class_file = $configuration['absolute_path'] . 'plugins/' . $ca['plugin_folder'] . '/includes/' . $ca['class_name'] . '.class.php';
 			$query_file = $configuration['absolute_path'] . 'plugins/' . $ca['plugin_folder'] . '/models/' . $ca['class_name'] . '.query.php';
 			if (is_file($class_file)) {
-				$class_found = $template->icon('tick', _('Class file available : ') . $class_file);
+				$class_found = $template->icon('tick', __('Class file available : ') . $class_file);
 			} else {
-				$class_found = $template->icon('exclamation', _('Class file not found : ') . $class_file);
+				$class_found = $template->icon('exclamation', __('Class file not found : ') . $class_file);
 			}
 			if (is_file($query_file)) {
-				$query_found = $template->icon('database--plus', _('Model file available : ') . $query_file);
+				$query_found = $template->icon('database--plus', __('Model file available : ') . $query_file);
 			} else {
-				$query_found = $template->icon('database--exclamation', _('No model file available : ') . $query_file);
+				$query_found = $template->icon('database--exclamation', __('No model file available : ') . $query_file);
 			}
 
 			if (! empty($ca['enable'])) {
@@ -144,8 +144,8 @@ class PHPDS_readCoreClassQuery extends PHPDS_query
 				'enable' => $ca['enable'],
 				'found' => $class_found,
 				'query_found' => $query_found,
-				'enabled' => "<a href=\"{$enabled_url}{$ca['class_id']}\" {$core->confirmLink(sprintf(_('This could break your system, are you sure you want to MODIFY : %s'), $ca['class_name']))} class=\"button\">" . $enabled_icon . "</a>",
-				'delete' => "<a href=\"{$del_url_}{$ca['class_id']}\" {$core->confirmLink(sprintf(_('This could break your system, are you sure you want to DELETE : %s'), $ca['class_name']))} class=\"button\">" . $delete_icon . "</a>"
+				'enabled' => "<a href=\"{$enabled_url}{$ca['class_id']}\" {$core->confirmLink(sprintf(__('This could break your system, are you sure you want to MODIFY : %s'), $ca['class_name']))} class=\"button\">" . $enabled_icon . "</a>",
+				'delete' => "<a href=\"{$del_url_}{$ca['class_id']}\" {$core->confirmLink(sprintf(__('This could break your system, are you sure you want to DELETE : %s'), $ca['class_name']))} class=\"button\">" . $delete_icon . "</a>"
 			);
 		}
 		if (! empty($RESULTS['list'])) {

@@ -8,17 +8,6 @@ class themeMods extends PHPDS_dependant
 		return <<<HTML
 
         <script type="text/javascript">
-            $(document).ready(function() {
-                $('#bg').fadeIn('slow');
-                $('#nav').click(function () {
-                    $('#bg').fadeOut('fast', function () {
-                        $('#loader').fadeIn('fast');
-                    });
-                });
-                $('#bg').load(function () {
-                    $('#loader').fadeOut();
-                });
-            });
             PHPDS_documentReady();
         </script>
 
@@ -150,31 +139,32 @@ HTML;
 		}
 
 		if (!empty($not_registered_yet)) {
-			$not_registered_yet = '<a href="' . $not_registered_yet . '">' . $not_registered_yet_text . '</a>';
+			$not_registered_yet = '<a href="' . $not_registered_yet . '" class="click-elegance">' . $not_registered_yet_text . '</a>';
 		} else {
 			$not_registered_yet = '';
 		}
 
 		$HTML = <<<HTML
-			<div class="form-actions">
-				<form id="login" action="{$action}" method="post" class="validate">
+
+			<div class="login-actions">
+				<form id="login" action="{$action}" method="post" class="validate click-elegance">
 					<fieldset>
 						<legend>{$login_label}</legend>
 						<p>
                             <label for="user_name">{$username_label}</label>
-                            <input id="user_name" tabindex="1" type="text" size="20" name="user_name" value="{$user_name}" title="$username_label">
+                            <input id="user_name" tabindex="1" type="text" name="user_name" value="{$user_name}" title="$username_label">
                         </p>
 						<p>
                             <label for="password">{$password_label}</label>
-                            <input id="password" tabindex="2" type="password" size="20" name="user_password" title="$password_label">
+                            <input id="password" tabindex="2" type="password" name="user_password" title="$password_label">
                         </p>
 						{$redirect_page}
 						<p>{$remember}</p>
 						<p>
-							<button type="submit" name="login" class="btn btn-primary">{$button_name}</button><br>
+							<button type="submit" name="login" class="btn btn-primary"><i class="icon-ok icon-white"></i> {$button_name}</button><br>
 						</p>
 						<p>
-							<a href="{$lost_password}">{$lost_password_text}</a><br>
+							<a href="{$lost_password}" class="click-elegance">{$lost_password_text}</a><br>
 							{$not_registered_yet}
 						</p>
 						<input type="hidden" name="login" value="login">
@@ -342,7 +332,7 @@ HTML;
 	{
 		$HTML = <<<HTML
 
-			<div id="norecords" class="ui-state-disabled ui-corner-all">
+			<div id="norecords">
 				{$text}
 			</div>
 
@@ -354,12 +344,12 @@ HTML;
 	{
 		$HTML = <<<HTML
 
-			<div id="pagination">
-				<ul id="results" class="ui-widget">
+			<div id="pagination" class="pagination">
+				<ul id="results">
 					{$first_page}
 					{$rw}
 					{$previous_page}
-					<li class="pages ui-state-default ui-corner-all"><span class="ui-icon ui-icon-clipboard left"></span>[{$currentPage_}/{$total_pages_}] - [{$current_records_}/{$totalRows_}]</li>
+					<li><a href="#" class="muted">[{$currentPage_}/{$total_pages_}] - [{$current_records_}/{$totalRows_}]</a></li>
 					{$next_page}
 					{$ff}
 					{$last_page}
@@ -374,13 +364,18 @@ HTML;
 	{
 		$HTML = <<<HTML
 
-			<form action="{$action}" method="post">
-				<div id="searchForm">
-					<span class="ui-icon ui-icon-search left"></span><input id="search_field" type="text" size="40" name="search_field" value="{$value}" class="{$class}">
-					<input type="hidden" value="Filter" name="search">
-					{$validate}
-				</div>
-			</form>
+            <div id="search-field-outer">
+                <form action="{$action}" method="post" class="click-elegance">
+                    <div id="searchForm">
+                        <div class="input-append">
+                            <input id="search_field" type="text" name="search_field" value="{$value}" class="{$class}">
+                            <button class="btn" type="submit"><i class="icon-search"></i></button>
+                        </div>
+                        <input type="hidden" value="Filter" name="search">
+                        {$validate}
+                    </div>
+                </form>
+			</div>
 
 HTML;
 		return $HTML;
@@ -423,44 +418,103 @@ HTML;
 HTML;
 	}
 
-	public function paginationOrder($order_url, $asc, $desc)
+	public function paginationTh($th_, $order_url=null, $asc=null, $desc=null)
 	{
-		$HTML = <<<HTML
+        if (! empty($order_url)) {
+            if (! empty($asc)) {
+                $asc_ = '&darr;';
+                $filter = 'desc';
+            } else {
+                $asc_ = '';
+                $filter = 'asc';
+            }
 
-			<div class="order">
-				<a href="{$order_url}&order=asc"><span class="asc {$asc}"></span></a>
-				<a href="{$order_url}&order=desc"><span class="desc {$desc}"></span></a>
-			</div>
+            if (! empty($desc)) {
+                $desc_ = '&uarr;';
+                $filter = 'asc';
+            } else {
+                $desc_ = '';
+                $filter = 'desc';
+            }
 
-HTML;
-		return $HTML;
-	}
-
-	public function paginationTh($th_, $sort_html)
-	{
-		return "<th>{$th_}{$sort_html}</th>";
+            if (empty($asc) && empty($desc)) {
+                return '<th><a href="' . $order_url . '&order=asc" class="click-elegance">' . $th_ . '</a></th>';
+            } else {
+                return '<th><a href="' . $order_url . '&order=' . $filter . '" class="click-elegance">' . $th_ . $asc_ . $desc_ . '</a></th>';
+            }
+        } else {
+            return "<th>{$th_}</th>";
+        }
 	}
 
 	public function paginationNav($url, $class)
 	{
+
+        switch ($class) {
+            case 'ff':
+                $name = '<i class="icon-forward"></i>';
+            break;
+
+            case 'rw':
+                $name = '<i class="icon-backward"></i>';
+            break;
+
+            case 'next':
+                $name = '<i class="icon-chevron-right"></i>';
+            break;
+
+            case 'last':
+                $name = '<i class="icon-fast-forward"></i>';
+            break;
+
+            case 'first':
+                $name = '<i class="icon-fast-backward"></i>';
+            break;
+
+            case 'previous':
+                $name = '<i class="icon-chevron-left"></i>';
+            break;
+        }
+
 		return <<<HTML
 
-			<li class="paginationicon">
-				<a href="{$url}"><span class="{$class}"></span></a>
-			</li>
+			<li><a href="{$url}" class="click-elegance">{$name}</a></li>
 
 HTML;
 	}
 
 	public function paginationNavEmpty($class)
 	{
-		return <<<HTML
 
-				<li class="paginationicondisabled">
-					<span class="{$class}"></span>
-				</li>
+        // This allows you to also style buttons that are disabled,
+        // however lets leave this to show nothing as default.
+        switch ($class) {
+            case 'ff':
+                $name = '<i class="icon-forward"></i>';
+                break;
 
-HTML;
+            case 'rw':
+                $name = '<i class="icon-backward"></i>';
+                break;
+
+            case 'next':
+                $name = '<i class="icon-chevron-right"></i>';
+                break;
+
+            case 'last':
+                $name = '<i class="icon-fast-forward"></i>';
+                break;
+
+            case 'first':
+                $name = '<i class="icon-fast-backward"></i>';
+                break;
+
+            case 'previous':
+                $name = '<i class="icon-chevron-left"></i>';
+                break;
+        }
+
+        return '';
 	}
 
 	public function activeName ($name)
@@ -752,8 +806,8 @@ JS;
 					$forType = $field;
 			}
 
-			if (!empty($error['message']) && !empty($error['type'])) {
-				$errorStyling = '<div class="control-group error"><label class="control-label">' . $error['message'] . '</label></div>';
+			if ($error['type'] == 'error') {
+				$errorStyling = '<div class="control-group error"><label class="control-label error-label">' . $error['message'] . '</label></div>';
 				$message .= "$('$errorStyling').insertBefore('{$forType}');";
 			}
 		}
@@ -804,13 +858,40 @@ HTML;
 
 		$checkbox = <<<HTML
 
-			<label>
-				<input type="checkbox" name="{$name}" value="{$value}" {$checked} title="{$label}">{$label}
-			</label><br>
+			<label class="checkbox">
+				<input type="checkbox" name="{$name}" value="{$value}" {$checked} title="{$label}"> {$label}
+			</label>
 
 HTML;
 		return $checkbox;
 	}
+
+
+    public function ulCheckbox($tree)
+    {
+        $treehtml = <<<HTML
+
+            <ul>
+                {$tree}
+            </ul>
+
+HTML;
+
+        return $treehtml;
+    }
+
+    public function liCheckbox($menu_id, $inputname, $menu_name, $checked)
+    {
+        $checkbox = <<<HTML
+
+            <li>
+                <label class="checkbox">
+                    <input type="checkbox" name="{$inputname}[{$menu_id}]" $checked> {$menu_name}
+                </label>
+            </li>
+HTML;
+        return $checkbox;
+    }
 
 	public function formRadio($name, $value, $label, $checked='')
 	{
@@ -821,13 +902,80 @@ HTML;
 
 		$checkbox = <<<HTML
 
-			<label>
-				<input type="radio" name="{$name}" value="{$value}" {$checked} title="{$label}">{$label}
-			</label><br>
+			<label class="radio">
+				<input type="radio" name="{$name}" value="{$value}" {$checked} title="{$label}"> {$label}
+			</label>
 
 HTML;
 		return $checkbox;
 	}
+
+    public function taggerArea($taglist, $tagnametext, $tagvaluetext)
+    {
+
+        $existingtags   = (string) '';
+
+        if (! empty($taglist)) {
+            asort($taglist);
+            foreach ($taglist as $tag) {
+                $tagname    = trim($tag['tagName']);
+                $tagvalue   = trim($tag['tagValue']);
+                $tagid      = $tag['tagID'];
+                if ((empty($tagname) && empty($tagvalue)) || empty($tagid)) continue;
+
+                $existingtags .= <<<HTML
+
+                    <div>
+                        <p class="delete-tag pull-right">
+                            <button type="button" class="btn btn-warning"><i class="icon-minus icon-white"></i></button>
+                        </p>
+                        <p>
+                            <input type="hidden" name="tagger_id[{$tagid}_update]" value="{$tagid}">
+                            <input type="text" name="tagger_name[{$tagid}_update]" value="{$tagname}" placeholder="{$tagnametext}"><br>
+                            <textarea id="tagger" name="tagger_value[{$tagid}_update]" placeholder="{$tagvaluetext}">{$tagvalue}</textarea>
+                        </p>
+                    </div>
+
+HTML;
+
+            }
+        } else {
+            $existingtags = '';
+        }
+
+        $HTML = <<<HTML
+            <p id="moretags" class="pull-right">
+                <button id="addtag" type="button" class="btn btn-info"><i class="icon-plus icon-white"></i></button>
+            </p>
+            <div class="clonetags">
+                <p>
+                    <input type="text" name="tagger_name[]" value="" placeholder="{$tagnametext}"><br>
+                    <textarea id="tagger" name="tagger_value[]" value="" placeholder="{$tagvaluetext}"></textarea>
+                </p>
+            </div>
+
+            <hr>
+            {$existingtags}
+			<script type="text/javascript">
+                $(function() {
+                    $("#addtag").click(function () {
+                        $(".clonetags p").clone().insertAfter("#moretags");
+                    });
+
+                    $(".delete-tag button").click(function() {
+                        $(this).parent().parent().fadeTo('slow', '0.5', function() {
+                            $("button", this).addClass("disabled");
+                            $("i", this).removeClass('icon-minus icon-white').addClass('icon-trash');
+                            $("input", this).attr('name', 'tagger_delete[]').attr("readonly", "readonly");
+                            $("textarea", this).attr("readonly", "readonly");
+                        });
+                    });
+                });
+            </script>
+HTML;
+
+        return $HTML;
+    }
 
     public function securityToken($token)
 	{
