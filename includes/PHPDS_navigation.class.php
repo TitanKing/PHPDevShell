@@ -300,7 +300,7 @@ class PHPDS_navigation extends PHPDS_dependant
 				$plugin = $navigation[$extend]['plugin'];
 		}
 		if (empty($plugin))
-			$plugin = 'PHPDevShell';
+			$plugin = 'AdminTools';
 		if (empty($menu_link))
 			$menu_link = '';
 		return array($plugin, $menu_link);
@@ -612,7 +612,7 @@ class PHPDS_navigation extends PHPDS_dependant
 	 */
 	public function pageNotFound ()
 	{
-		$menu_id = $this->db->getSettings(array('404_error_page'), 'PHPDevShell');
+		$menu_id = $this->db->getSettings(array('404_error_page'), 'AdminTools');
 		return $this->buildURL($menu_id['404_error_page']);
 	}
 }

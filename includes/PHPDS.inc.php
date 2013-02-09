@@ -1030,7 +1030,7 @@ class PHPDS
 		}
 
 		// Check PHPDS's own include folder
-		$phpdev_include_class = $absolute_path . 'plugins/PHPDevShell/includes/' . $class_name . '.class.php';
+		$phpdev_include_class = $absolute_path . 'plugins/AdminTools/includes/' . $class_name . '.class.php';
 		if ($this->sneakClass($class_name, $phpdev_include_class)) return true;
 
 		// Oh this is becoming a problem, perhaps we can locate the file here.

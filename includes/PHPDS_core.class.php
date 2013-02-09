@@ -815,7 +815,7 @@ class PHPDS_core extends PHPDS_dependant
 		if (! empty($configuration['m']) && ! empty($navigation->navigation[$configuration['m']]['plugin'])) {
 			return $navigation->navigation[$this->configuration['m']]['plugin'];
 		} else {
-			return 'PHPDevShell';
+			return 'AdminTools';
 		}
 	}
 

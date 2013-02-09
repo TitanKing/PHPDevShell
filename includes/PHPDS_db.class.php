@@ -398,7 +398,7 @@ class PHPDS_db extends PHPDS_dependant
 
 		return $a;
 	}
-	
+
 	/**
 	 * Will convert object configuration into array for parsing.
 	 *
@@ -658,7 +658,7 @@ class PHPDS_db extends PHPDS_dependant
 	{
 		// Pull essential settings and assign it to essential_settings.
 		if ($this->cacheEmpty('essential_settings')) {
-			$this->essentialSettings = $this->getSettings($this->configuration['preloaded_settings'], 'PHPDevShell');
+			$this->essentialSettings = $this->getSettings($this->configuration['preloaded_settings'], 'AdminTools');
 			// Write essential settings data to cache.
 			$this->cacheWrite('essential_settings', $this->essentialSettings);
 		} else {

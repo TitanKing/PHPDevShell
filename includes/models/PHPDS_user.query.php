@@ -163,7 +163,7 @@ class USER_getRolesQuery extends PHPDS_query
 		// First try to assign default user id.
 		if (empty($user_id))
 			(! empty($configuration['user_id'])) ? $user_id = $configuration['user_id'] : $user_id = 0;
-		
+
 		// Check if user is a guest.
 		if (! empty($user_id)) {
 			// Check roles cache.
@@ -307,7 +307,7 @@ class USER_getGroupsQuery extends PHPDS_query
 		if (empty($user_id)) {
 			(!empty($configuration['user_id'])) ? $user_id = $configuration['user_id'] : $user_id = false;
 		}
-		
+
 		// Check if user is a guest.
 		if (!empty($user_id)) {
 			// Check groups cache.
@@ -358,7 +358,7 @@ class USER_getGroupsQuery extends PHPDS_query
 						// Get all extra groups for user.
 						$query = " WHERE user_id = $user_id ";
 						$group_array = $db->invokeQuery('USER_getExtraGroupsQuery', $query);
-						
+
 						// Also check children of main group.
 						$group_array[$group_main] = array('user_group_id'=>$group_main);
 
@@ -389,7 +389,7 @@ class USER_getGroupsQuery extends PHPDS_query
 			// Nothing there? Fallback to nothing.
 			if (empty($user->mergeGroups))
 				$user->mergeGroups = 0;
-	
+
 			// What should we return, array or , string.
 			if ($return_array == false) {
 				// Ok return string.
@@ -432,13 +432,13 @@ class USER_getGroupsbyAliasQuery extends PHPDS_query
 			user_group_id
 		FROM
 			_db_core_user_groups
-		WHERE 
+		WHERE
 			user_group_id IN (%s)
 		AND
 			alias = '%s'
 		LIMIT 0,1
 	";
-	
+
 	protected $singleValue = true;
 }
 
@@ -506,7 +506,7 @@ class USER_groupExistQuery extends PHPDS_query
 	{
 		$group_id = $parameters[0];
 		$user = $this->user;
-		
+
 		if (empty($user->groupsArray)) {
 			// Do groups query.
 			$groups = parent::invoke();
@@ -536,14 +536,10 @@ class USER_belongsToRoleQuery extends PHPDS_query
 			t1.user_id
 		FROM
 			_db_core_users t1
-		LEFT JOIN
-			_db_core_user_extra_roles t2
-		ON
-			t1.user_id = t2.user_id
 		WHERE
-			(t1.user_role = %u or t2.user_role_id = %u)
+			(t1.user_role = %u)
 		AND
-			(t1.user_id = %u or t2.user_id = %u)
+			(t1.user_id = %u)
 	";
 
 	protected $singleRow = true;
@@ -562,10 +558,10 @@ class USER_belongsToRoleQuery extends PHPDS_query
 		// Check if we have a user id.
 		if (empty($user_id)) {
 			// Use default id.
-			(!empty($this->configuration['user_id'])) ? $user_id = $this->configuration['user_id'] : $user_id = false;
+			(!empty($this->configuration['user_id'])) ? $user_id = $this->configuration['user_id'] : $user_id = null;
 		}
 		// First lets query if this user belongs to given role.
-		$check_user_in_role_db = parent::invoke(array($user_role, $user_role, $user_id, $user_id));
+		$check_user_in_role_db = parent::invoke(array($user_role, $user_id));
 
 		// Lets check if this user exists.
 		if ($check_user_in_role_db['user_id'] == $user_id) {

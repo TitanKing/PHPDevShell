@@ -13,7 +13,7 @@ class controlPanel extends PHPDS_dependant
 	public function doPanel($behaviour = 'deprecated')
 	{
 		// Get settings values.
-		$setting = $this->db->getSettings(array('limit_messages'), 'PHPDevShell');
+		$setting = $this->db->getSettings(array('limit_messages'), 'AdminTools');
 
 		// Check what should be shown.
 		if (!empty($setting['limit_messages'])) {
@@ -42,5 +42,5 @@ class controlPanel extends PHPDS_dependant
 		// Output Template.
 		$view->show('control-panel.tpl', 'ControlPanel');
 	}
-	
+
 }

@@ -87,7 +87,7 @@ class ReadMeExample extends PHPDS_controller
 
 		// And many more, look at System Info to get a list of available session data.
 		// I can use a simple method to call a menu item I want.
-		$info_url = $this->navigation->buildURLFromPath('system-admin/admin.php', 'PHPDevShell');
+		$info_url = $this->navigation->buildURLFromPath('system-admin/admin.php', 'AdminTools');
 		$view->set('info_url', $info_url);
 
 		// Looking at array $this->navigation->navigation we can find anything about current users access to menus.

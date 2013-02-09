@@ -169,8 +169,9 @@ class PHPDS_user extends PHPDS_dependant
 	 *
 	 * @param string $alias
 	 * @param integer $user_id
+     * @return boolean
 	 */
-	public function groupCan($alias, $user_id=null)
+	public function groupCan($alias, $user_id=0)
 	{
 		return $this->belongsToGroup($user_id, null, $alias);
 	}
@@ -183,7 +184,7 @@ class PHPDS_user extends PHPDS_dependant
 	 * @param string $query_root_request If you want a query to be processed for a root user seperately.
 	 * @return mixed
 	 */
-	public function setRoleQuery($query_request, $query_root_request = false)
+	public function setRoleQuery($query_request, $query_root_request = null)
 	{
 		if ($this->user->isRoot()) {
 			if (!empty($query_root_request)) {
@@ -196,15 +197,15 @@ class PHPDS_user extends PHPDS_dependant
 		}
 	}
 
-	/**
-	 * Creates a query to extend a group query, it will return false if user is root so everything can get listed.
-	 * This is meant to be used inside an existing group query.
-	 *
-	 * @param string $query_request Normal query to be returned if user is not a root user.
-	 * @param string $query_root_request If you want a query to be processed for a root user seperately.
-	 * @return mixed
-	 */
-	public function setGroupQuery($query_request, $query_root_request = false)
+    /**
+     * Creates a query to extend a group query, it will return false if user is root so everything can get listed.
+     * This is meant to be used inside an existing group query.
+     *
+     * @param string $query_request Normal query to be returned if user is not a root user.
+     * @param string $query_root_request If you want a query to be processed for a root user seperately.
+     * @return mixed
+     */
+	public function setGroupQuery($query_request, $query_root_request = null)
 	{
 		if ($this->user->isRoot()) {
 			if (!empty($query_root_request)) {
@@ -374,7 +375,6 @@ class PHPDS_user extends PHPDS_dependant
 		if (! isset($_SESSION['user_id']) || ! empty($_POST['login']) || ! empty($_REQUEST['logout'])) {
 			$this->factory('StandardLogin')->controlLogin();
 		}
-
 		$this->userConfig();
 	}
 }

@@ -36,7 +36,11 @@ class mailer extends PHPDS_dependant
 	{
 		$db = $this->db;
 		// Load email settings from Database...
-		$this->mailsetting = $db->getSettings(array('email_fromname' , 'from_email' , 'email_order' , 'setting_admin_email' , 'email_option' , 'sendmail_path' , 'smtp_secure' , 'smtp_host' , 'smtp_port' , 'smtp_username' , 'smtp_password' , 'smtp_timeout' , 'smtp_helo' , 'email_charset' , 'email_encoding' , 'email_hostname' , 'massmail_limit'), 'PHPDevShell');
+		$this->mailsetting = $db->getSettings(array(
+            'email_fromname' , 'from_email' , 'email_order' , 'setting_admin_email' , 'email_option' ,
+            'sendmail_path' , 'smtp_secure' , 'smtp_host' , 'smtp_port' , 'smtp_username' , 'smtp_password' ,
+            'smtp_timeout' , 'smtp_helo' , 'email_charset' , 'email_encoding' , 'email_hostname' , 'massmail_limit'),
+            'AdminTools');
 		// Charset
 		$this->CharSet = $this->mailsetting['email_charset'];
 		// Encoding

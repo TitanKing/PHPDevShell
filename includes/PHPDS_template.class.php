@@ -440,7 +440,7 @@ class PHPDS_template extends PHPDS_dependant
 						$logo = $this->mod->logoText($configuration['scripts_name_version']);
 				} else {
 						// Oops we have no logo, so lets just default to the orginal PHPDevShell logo.
-						$logo = $this->mod->logo($this->CDN . '/', "{$this->CDN}/plugins/PHPDevShell/images/logo.png", $configuration['scripts_name_version'], $configuration['scripts_name_version']);
+						$logo = $this->mod->logo($this->CDN . '/', "{$this->CDN}/plugins/AdminTools/images/logo.png", $configuration['scripts_name_version'], $configuration['scripts_name_version']);
 				}
 			}
 			// Ok return the logo.
@@ -480,9 +480,9 @@ class PHPDS_template extends PHPDS_dependant
 		} elseif (file_exists($image_url_root_default) && $is_parent) {
 			return $this->CDN . '/' . $image_url_root_default;
 		} elseif (!file_exists($image_url_root_default) && $is_parent) {
-			return $this->CDN . '/plugins/PHPDevShell/images/default-root.png';
+			return $this->CDN . '/plugins/AdminTools/images/default-root.png';
 		} else {
-			return $this->CDN . '/plugins/PHPDevShell/images/default.png';
+			return $this->CDN . '/plugins/AdminTools/images/default.png';
 		}
 	}
 

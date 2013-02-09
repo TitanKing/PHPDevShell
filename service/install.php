@@ -155,7 +155,7 @@ function get_queries()
 	$query[] = 'REPLACE INTO `' . $data['db_prefix'] . "core_users` VALUES ('1', 'Root User', '" . $data['admin_username'] . "', '" . $admin_password . "', '" . $data['admin_email'] . "', '1', '1', '" . $time . "', 'en', 'UTC', 'US');";
 
 	// Update version.
-	$query[] = 'REPLACE INTO `' . $data['db_prefix'] . "core_plugin_activation` VALUES ('PHPDevShell', 'install', '" . $db_version . "', '1');";
+	$query[] = 'REPLACE INTO `' . $data['db_prefix'] . "core_plugin_activation` VALUES ('AdminTools', 'install', '" . $db_version . "', '1');";
 
 	return $query;
 }

@@ -593,7 +593,7 @@ public function iconType($extension_lookup)
 		try {
 			// Get database settings.
 			if (empty($this->setting)) {
-				$this->setting = $db->getSettings(array('log_uploads', 'default_upload_directory', 'cmod', 'max_filesize', 'max_imagesize', 'allowed_ext', 'do_create_thumb', 'do_create_resize_image', 'image_quality', 'thumbnail_type', 'resize_thumb_dimension', 'resize_image_dimension', 'resize_thumb_percent', 'crop_thumb_fromcenter', 'crop_thumb_dimension', 'do_thumb_reflect', 'thumb_reflect_settings', 'graphics_engine', 'resize_adaptive_dimension'), 'PHPDevShell');
+				$this->setting = $db->getSettings(array('log_uploads', 'default_upload_directory', 'cmod', 'max_filesize', 'max_imagesize', 'allowed_ext', 'do_create_thumb', 'do_create_resize_image', 'image_quality', 'thumbnail_type', 'resize_thumb_dimension', 'resize_image_dimension', 'resize_thumb_percent', 'crop_thumb_fromcenter', 'crop_thumb_dimension', 'do_thumb_reflect', 'thumb_reflect_settings', 'graphics_engine', 'resize_adaptive_dimension'), 'AdminTools');
 			}
 			// Do we have files uploaded?
 			if (!empty($_FILES[$input_name]['tmp_name']) && !empty($_FILES[$input_name]['name'])) {
@@ -933,7 +933,7 @@ public function iconType($extension_lookup)
 			return $files;
 		} else {
 			return false;
-		} 
+		}
 	}
 
 	/**
@@ -977,7 +977,7 @@ public function iconType($extension_lookup)
 		$query_grouped = $this->buildFileQuery($file_id, $alias, $sub_id, $menu_id);
 		// Load files from database.
 		$load_files_db = $db->invokeQuery('FM_readFilesLogsQuery', $query_grouped, $file_id, $order, $limit);
-		
+
 		if (! empty($load_files_db)) {
 			// Loop and gather results.
 			foreach ($load_files_db as $files_array) {

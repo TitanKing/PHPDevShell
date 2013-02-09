@@ -124,7 +124,7 @@ function get_queries()
 	}
 
 	// Update version at the end of the query batch
-	$query[] = 'REPLACE INTO `' . $data['db_prefix'] . "core_plugin_activation` VALUES ('PHPDevShell', 'install', '" . $db_version . "', '1');";
+	$query[] = 'REPLACE INTO `' . $data['db_prefix'] . "core_plugin_activation` VALUES ('AdminTools', 'install', '" . $db_version . "', '1');";
 
 	return $query;
 }
