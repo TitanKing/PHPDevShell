@@ -438,26 +438,11 @@ class PHPDS_db extends PHPDS_dependant
 	}
 
 	/**
-	 * Method logs menu access per user.
-	 *
-	 */
-	public function logMenuAccess()
-	{
-		$configuration = $this->configuration;
-		// Check if we need to log.
-		// Log menu access...
-		if ($configuration['access_logging'] == true && ! empty($configuration['m']))
-			$this->invokeQuery('DB_logMenuAccessQuery', $configuration['m'], $configuration['user_id'], $configuration['time']);
-	}
-
-	/**
 	 * This method logs error and success entries to the database.
 	 *
-	 * @param integer $log_type
-	 * @param string $log_description
 	 * @author Jason Schoeman <titan@phpdevshell.org>
 	 *
-	 * @version 1.0.1 	Changed mysql_escape_string() to mysql_real_escape_string() [see http://www.php.net/manual/en/function.mysql-escape-string.php ]
+	 * @version 1.0.1 Changed mysql_escape_string() to mysql_real_escape_string() [see http://www.php.net/manual/en/function.mysql-escape-string.php ]
 	 */
 	public function logThis()
 	{

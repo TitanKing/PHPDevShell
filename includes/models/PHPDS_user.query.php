@@ -106,23 +106,6 @@ class USER_isSameGroupQuery extends PHPDS_query
 }
 
 /**
- * USER - Get extra users roles.
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
- *
- */
-class USER_getExtraRolesQuery extends PHPDS_query
-{
-	protected $sql = "
-		SELECT
-			user_role_id
-		FROM
-			_db_core_user_extra_roles
-		WHERE
-			user_id = %u
-	";
-}
-
-/**
  * USER - Get users roles.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  *
@@ -145,10 +128,7 @@ class USER_getRolesQuery extends PHPDS_query
 	 *
 	 * Parameters are ($user_id, $return_array) - $user_id can be 0 for current user
 	 *
-	 * @version 1.0.2
-	 *
-	 * @date 20110215 (greg) (v1.0.1) added checks to avoid error if $select_user_roles_db is not an array
-	 * @date 20110315 (jason) (v1.0.2) improved functionality and stability.
+	 * @version 2.0
 	 *
 	 * @param array
 	 * @return array
@@ -158,65 +138,22 @@ class USER_getRolesQuery extends PHPDS_query
 		list($user_id, $return_array) = $parameters;
 		$configuration = $this->configuration;
 		$db = $this->db;
-		$user = $this->user;
 
-		// First try to assign default user id.
 		if (empty($user_id))
-			(! empty($configuration['user_id'])) ? $user_id = $configuration['user_id'] : $user_id = 0;
+			$user_id = (! empty($configuration['user_id'])) ? $configuration['user_id'] : 0;
 
 		// Check if user is a guest.
 		if (! empty($user_id)) {
-			// Check roles cache.
-			if ($db->cacheEmpty("roles_{$user_id}")) {
-				// Check if we have a saved array.
-				if (empty($user->mergeRoles)) {
-					// Pull user roles.
-					if ($user_id == $configuration['user_id']) {
-						$role_main = $configuration['user_role'];
-					} else {
-						$role_main = parent::invoke($user_id);
-					}
-
-					// Get all extra roles for user..
-					$role_array = $db->invokeQuery('USER_getExtraRolesQuery', $user_id);
-
-					// Set.
-					$role_string = '';
-
-					// Check if anything is selected.
-					if (is_array($role_array)) {
-						// Loop Roles and return string.
-						foreach ($role_array as $role_arr) {
-							$role_string .= "{$role_arr['user_role_id']},";
-						}
-					}
-					// Merger primary and extra roles.
-					$user->mergeRoles = rtrim("$role_main," . $role_string, ',');
-				}
-				// Write to cache.
-				$db->cacheWrite("roles_{$user_id}", $this->user->mergeRoles);
-			} else {
-				// Read from cache.
-				$user->mergeRoles = $db->cacheRead("roles_{$user_id}");
-			}
-
-			// Nothing there? Fallback to nothing.
-			if (empty($user->mergeRoles))
-				$user->mergeRoles = 0;
-
-			// What should we return, array or , string.
-			if ($return_array == false) {
-				// Ok return string.
-				return $user->mergeRoles;
-			} else {
-				// Ok return array.
-				return explode(',', $user->mergeRoles);
-			}
-
+            if ($user_id == $configuration['user_id']) {
+                return $configuration['user_role'];
+            } else {
+                $role = parent::invoke($user_id);
+                return ($return_array) ? array($role)  : $role;
+            }
 		} else {
 			$settings = $db->essentialSettings;
 			$guest_role = $settings['guest_role'];
-			if (empty($guest_role)) throw new PHPDS_Exception('Unable to get the GUEST ROLE from the essential settings.');
+			if (empty($guest_role)) throw new PHPDS_Exception('Unable to get the GUEST ROLE from essential settings.');
 			return $return_array ? array($guest_role) : $guest_role;
 		}
 	}
@@ -236,39 +173,6 @@ class USER_getExtraGroupsQuery extends PHPDS_query
 			_db_core_user_extra_groups
 		%s
 	";
-}
-
-/**
- * USER - Find group children.
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
- *
- * @date 20110504 (jason) (v1.0.0)
- *
- */
-class USER_findGroupChildren extends PHPDS_query
-{
-	/**
-	 * Initiate query invoke command.
-	 * @param array
-	 * @return string
-	 */
-	public function invoke($parameters = null)
-	{
-		list($group_id) = $parameters;
-		$user = $this->user;
-		$group_string = '';
-		// Check what children belongs to parent.
-		if (! empty($user->parentGroups[$group_id])) {
-			foreach ($user->parentGroups[$group_id] as $group) {
-				// Seek grand children.
-				if (! empty($user->parentGroups[$group]))
-					$group_string .= $user->findGroupChildren($group);
-				$group_string .= "{$group},";
-			}
-		}
-		// Return found results.
-		return $group_string;
-	}
 }
 
 /**

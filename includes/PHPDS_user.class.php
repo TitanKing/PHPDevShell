@@ -277,7 +277,7 @@ class PHPDS_user extends PHPDS_dependant
 	public function isSameGroup($user_id)
 	{
 		$edit = $this->db->invokeQuery('USER_isSameGroupQuery', $user_id);
-		return (!empty($edit['user_id']));
+		return (! empty($edit['user_id']));
 	}
 
 	/**

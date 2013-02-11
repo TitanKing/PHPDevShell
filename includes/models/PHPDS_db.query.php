@@ -32,26 +32,6 @@ class DB_countRowsQuery extends PHPDS_query
 }
 
 /**
- * DB - Log Menu Access.
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
- *
- */
-class DB_logMenuAccessQuery extends PHPDS_query
-{
-	/**
-	 * Initiate query invoke command.
-	 * @param array
-	 * @return array
-	 */
-	protected $sql = "
-		INSERT INTO
-			_db_core_menu_access_logs (log_id, menu_id, user_id, timestamp)
-		VALUES
-			(NULL, '%s', '%u', '%s')
-		";
-}
-
-/**
  * DB - General Logs.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  *

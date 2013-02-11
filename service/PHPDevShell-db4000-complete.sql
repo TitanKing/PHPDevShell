@@ -46,15 +46,6 @@ CREATE TABLE `pds_core_logs` (
 	PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
--- Create menu access logs table.;
-CREATE TABLE `pds_core_menu_access_logs` (
-	`log_id` int(20) NOT NULL AUTO_INCREMENT,
-	`menu_id` varchar(64) NOT NULL,
-	`user_id` int(10) DEFAULT NULL,
-	`timestamp` int(10) DEFAULT NULL,
-	PRIMARY KEY (`log_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
 -- Create table for default menu items.;
 CREATE TABLE `pds_core_menu_items` (
 	`menu_id` varchar(64) NOT NULL,
@@ -260,27 +251,6 @@ INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable,
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('crud', 'PHPDS_crud', 'CRUD', '1', '1');
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('botBlock', 'PHPDS_botBlock', 'BotBlock', '1', '1');
 
--- Create table for registrations that is in queue.;
-CREATE TABLE `pds_core_registration_queue` (
-	`user_id` int(20) unsigned NOT NULL DEFAULT '0',
-	`registration_type` int(1) DEFAULT NULL,
-	`token_id` int(20) DEFAULT NULL,
-	PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Create table for registration tokens.;
-CREATE TABLE `pds_core_registration_tokens` (
-	`token_id` int(10) NOT NULL AUTO_INCREMENT,
-	`token_name` varchar(255) DEFAULT NULL,
-	`user_role_id` int(10) DEFAULT NULL,
-	`user_group_id` int(10) DEFAULT NULL,
-	`token_key` varchar(42) DEFAULT NULL,
-	`registration_option` int(1) DEFAULT NULL,
-	`available_tokens` int(25) DEFAULT NULL,
-	PRIMARY KEY (`token_id`),
-	KEY `index` (`token_key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 -- Create session table.;
 CREATE TABLE `pds_core_session` (
 	`cookie_id` int(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -440,28 +410,6 @@ INSERT INTO `pds_core_templates` VALUES ('844895956', 'cloud');
 INSERT INTO `pds_core_templates` VALUES ('1757887940', 'empty');
 INSERT INTO `pds_core_templates` VALUES ('3566024413', 'emptyCloud');
 INSERT INTO `pds_core_templates` VALUES ('3814588639', 'default');
-
--- Create file upload storing registry and logs.;
-CREATE TABLE `pds_core_upload_logs` (
-  `file_id` int(20) unsigned NOT NULL AUTO_INCREMENT,
-  `sub_id` int(20) DEFAULT NULL,
-  `menu_id` varchar(64) NOT NULL,
-  `alias` varchar(255) DEFAULT NULL,
-  `original_filename` varchar(255) DEFAULT NULL,
-  `new_filename` varchar(255) DEFAULT NULL,
-  `relative_path` text,
-  `thumbnail` text,
-  `resized` text,
-  `extention` varchar(5) DEFAULT NULL,
-  `mime_type` varchar(255) DEFAULT NULL,
-  `file_desc` varchar(255) DEFAULT NULL,
-  `group_id` int(20) DEFAULT NULL,
-  `user_id` int(20) DEFAULT NULL,
-  `date_stored` int(10) unsigned DEFAULT NULL,
-  `file_size` int(14) DEFAULT NULL,
-  `file_explained` text,
-  PRIMARY KEY (`file_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- Create important user table to store all users.;
 CREATE TABLE `pds_core_users` (
