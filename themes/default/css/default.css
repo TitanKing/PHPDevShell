@@ -44,7 +44,7 @@ h3 code {
     float: left;
 }
 
-#search-field-outer, .toggle-disabled-buttons {
+#search-field-outer {
     margin-top: 20px;
 }
 

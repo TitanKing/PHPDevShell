@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Tagger - Search for tags.
- * @author Greg
- *
- * @version 1.1
- * @date 20120105 (v1.1) (greg) added search by value
- */
 class PHPDS_taggerListQuery extends PHPDS_query
 {
 	protected $sql = "
@@ -30,10 +23,6 @@ class PHPDS_taggerListQuery extends PHPDS_query
 
 }
 
-/**
- * Tagger - Look for tags.
- * @author Greg
- */
 class PHPDS_taggerLookupQuery extends  PHPDS_taggerListQuery
 {
 	protected $singleRow = true;
@@ -45,10 +34,6 @@ class PHPDS_taggerLookupQuery extends  PHPDS_taggerListQuery
 	}
 }
 
-/**
- * Tagger - Add tags
- * @author Greg
- */
 class PHPDS_taggerMarkQuery extends PHPDS_query
 {
 	protected $sql = "
@@ -71,10 +56,6 @@ class PHPDS_taggerMarkQuery extends PHPDS_query
 	}
 }
 
-/**
- * Tagger - List available tags.
- * @author Jason Schoeman
- */
 class PHPDS_taggerListTargetQuery extends PHPDS_query
 {
 	protected $sql = "
@@ -89,10 +70,6 @@ class PHPDS_taggerListTargetQuery extends PHPDS_query
 		";
 }
 
-/**
- * Tagger - Delete all tags related to target and object.
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
- */
 class PHPDS_deleteTagsQuery extends PHPDS_query
 {
 	protected $sql = "
@@ -106,10 +83,6 @@ class PHPDS_deleteTagsQuery extends PHPDS_query
 	protected $autoProtect = true;
 }
 
-/**
- * Tagger - Delete all tags related to target, object and name
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
- */
 class PHPDS_deleteStrictTagsQuery extends PHPDS_query
 {
     protected $sql = "
@@ -125,10 +98,6 @@ class PHPDS_deleteStrictTagsQuery extends PHPDS_query
     protected $autoProtect = true;
 }
 
-/**
- * Tagger - Update tags in database.
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
- */
 class PHPDS_updateTagsQuery extends PHPDS_query
 {
     protected $sql = "
@@ -138,9 +107,6 @@ class PHPDS_updateTagsQuery extends PHPDS_query
 	      %s
 	";
 
-	/**
-	 * Initiate query invoke command.
-	 */
 	public function invoke($parameters = null)
 	{
 		list($object, $target, $taggernames, $taggervalues, $taggerids, $taggerdeletes) = $parameters;

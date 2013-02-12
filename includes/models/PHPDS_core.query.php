@@ -1,9 +1,5 @@
 <?php
-/**
- * Template - Get user roles.
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
- *
- */
+
 class TEMPLATE_cronExecutionLogQuery extends PHPDS_query
 {
 	protected $sql = "
@@ -15,6 +11,7 @@ class TEMPLATE_cronExecutionLogQuery extends PHPDS_query
 			t1.menu_id = '%s'
 	";
 }
+
 class TEMPLATE_rollbackQuery extends PHPDS_query
 {
 	protected $sql = "ROLLBACK";

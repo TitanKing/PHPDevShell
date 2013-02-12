@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Navigation - Check if we can find a menu id by using the alias.
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
- *
- */
 class NAVIGATION_findMenuQuery extends PHPDS_query
 {
 	protected $sql = "
@@ -21,11 +16,6 @@ class NAVIGATION_findMenuQuery extends PHPDS_query
 	protected $singleValue = true;
 }
 
-/**
- * Navigation - Check if we can find an alias by menu id.
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
- *
- */
 class NAVIGATION_findAliasQuery extends PHPDS_query
 {
 	protected $sql = "
@@ -40,11 +30,6 @@ class NAVIGATION_findAliasQuery extends PHPDS_query
 	protected $singleValue = true;
 }
 
-/**
- * Navigation - Extract all available menus user belings too.
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
- *
- */
 class NAVIGATION_extractMenuQuery extends PHPDS_query
 {
 	protected $sql = "
@@ -73,18 +58,6 @@ class NAVIGATION_extractMenuQuery extends PHPDS_query
 		ASC
 	";
 
-	/**
-	 * Loads favorite control panel menu items.
-	 *
-	 * @version 2.0
-	 * @date 20120611 (2.0) (greg) added charset conversion for 'param' ; rewrote the loop to optimize
-	 * @author Jason <titan@phpdevshell.org>
-	 *
-	 * The actual parameter is an array whose first element is the list of roles (as a string)
-	 *
-	 * @param array array of parameters
-	 * @return array
-	 */
 	public function invoke($parameters = null)
 	{
 		$all_user_roles = $parameters[0];
@@ -115,7 +88,7 @@ class NAVIGATION_extractMenuQuery extends PHPDS_query
 			} else {
 				$new_menu['href'] = $aburl.'/index.php?m='.($mr['menu_type'] != PHPDS_navigation::node_jumpto_link ? $mr['menu_id'] : $mr['extend']);
 			}
-			
+
 			// Writing children for single level dropdown.
 			if (! empty($mr['parent_menu_id'])) {
 				$navigation->child[$mr['parent_menu_id']][] = $mr['menu_id'];

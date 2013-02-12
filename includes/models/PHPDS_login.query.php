@@ -1,10 +1,5 @@
 <?php
 
-/**
- * LOGIN - Selects users persistant login details.
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org, Ross Kuyper
- *
- */
 class LOGIN_selectUserPersistentQuery extends PHPDS_query
 {
 	protected $sql = "
@@ -24,15 +19,10 @@ class LOGIN_selectUserPersistentQuery extends PHPDS_query
 		WHERE
 			t1.user_id = '%s'
 	";
-	
+
 	protected $singleRow = true;
 }
 
-/**
- * LOGIN - Selects users cookie data.
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
- *
- */
 class LOGIN_selectCookieQuery extends PHPDS_query
 {
 	protected $sql = "
@@ -45,11 +35,6 @@ class LOGIN_selectCookieQuery extends PHPDS_query
 	";
 }
 
-/**
- * LOGIN - Deletes users cookie data.
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
- *
- */
 class LOGIN_deleteCookieQuery extends PHPDS_query
 {
 	protected $sql = "
@@ -60,11 +45,6 @@ class LOGIN_deleteCookieQuery extends PHPDS_query
 	";
 }
 
-/**
- * LOGIN - Insert persistant cookie data.
- * @author Ross Kuyper
- *
- */
 class LOGIN_setPersistentCookieQuery extends PHPDS_query
 {
 	protected $sql = "
@@ -87,11 +67,6 @@ class LOGIN_setPersistentCookieQuery extends PHPDS_query
 	}
 }
 
-/**
- * LOGIN - Remove persistant cookie from database
- * @author Ross Kuyper
- *
- */
 class LOGIN_deletePersistentCookieQuery extends PHPDS_query
 {
 	protected $sql = "
