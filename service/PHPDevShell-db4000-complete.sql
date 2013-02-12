@@ -271,16 +271,12 @@ CREATE TABLE `pds_core_settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Insert default settings to make system work.;
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_access_logging', '1', 'Should access be logged?');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_allowed_ext', 'jpg,jpeg,png,gif,zip,tar,doc,xls,pdf', 'Extensions allowed when uploading.');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_allow_registration', '2', 'Should new registrations be allowed.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_allow_remember', '1', 'Should users be allowed to login with remember.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_banned_role', '6', 'The banned role. No access allowed.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_charset', 'UTF-8', 'Site wide charset.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_charset_format', '.{charset}', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_cmod', '0777', 'How does a writable folder ');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_crop_thumb_dimension', '0,0,100,50', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_crop_thumb_fromcenter', '150', '');
+INSERT INTO `pds_core_settings` VALUES ('AdminTools_cmod', '0777', 'Writable forlder permissions');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_crypt_key', 'eDucDjodz8ZiMqFe8zeJ', 'General crypt key to protect system.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_custom_logo', '', 'Default system logo.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_date_format', 'F j, Y, g:i a O', 'Date format according to DateTime function of PHP.');
@@ -293,9 +289,6 @@ INSERT INTO `pds_core_settings` VALUES ('AdminTools_default_template_id', '38145
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_default_upload_directory', 'write/upload/', 'Writable upload directory.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_demo_mode', '0', 'Should system be set into demo mode, no transactions will occur.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_spam_assassin', '1', 'Should system attempt to protect public forms from spam bots?');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_do_create_resize_image', '1', 'Should image resize versions be created.');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_do_create_thumb', '1', 'Should thumbnails be created.');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_do_thumb_reflect', '1', 'Should image reflections be created.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_email_charset', 'UTF-8', 'Default email charset.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_email_critical', '1', 'Should critical errors be emailed to admin.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_email_encoding', '8bit', '');
@@ -305,7 +298,6 @@ INSERT INTO `pds_core_settings` VALUES ('AdminTools_email_new_registrations', '1
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_email_option', 'smtp', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_empty_template_id', '1757887940', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_footer_notes', 'PHPDevShell.org (c) 2011 GNU/GPL License.', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_force_core_changes', '0', 'Should core changes be forced, like deleting root user.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_from_email', 'no-reply@phphdevshell.org', 'From Email address.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_front_page_id', 'readme', 'The page to show when site is access.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_front_page_id_in', 'cp', 'The page to show when logged in and home or page is accessed.');
@@ -317,36 +309,20 @@ INSERT INTO `pds_core_settings` VALUES ('AdminTools_ftp_root', '', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_ftp_ssl', '0', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_ftp_timeout', '90', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_ftp_username', 'usernameFTP', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_graphics_engine', 'gd', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_guest_group', '3', 'The systems guest group.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_guest_role', '5', 'The systems guest role.');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_image_quality', '80', 'What is the compressions ratio for resized images.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_language', 'en', 'Default language.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_languages_available', 'en', 'List of language codes available');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_limit_favorite', '5', 'Control panel favorite menus limit.');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_limit_messages', '5', 'Control panel log limit.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_locale_format', '{lang}_{region}{charset}', 'Complete locale format.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_loginandout', 'login', 'The page to use to log-in and log-out.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_login_message', '', 'a Default message to welcome users loging in.');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_log_uploads', '1', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_massmail_limit', '100', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_max_filesize', '200000', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_max_filesize_show', '200 Kb', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_max_imagesize', '200000', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_max_imagesize_show', '200 Kb', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_meta_description', 'Administrative user interface based on AdminTools and other modern technologies.', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_meta_keywords', 'administrative, administrator, AdminTools, interface, ui, user', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_move_verified_group', '2', 'When user is approved, he will be moved to this group by default.');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_move_verified_role', '2', 'When user is approved, he will be moved to this role by default.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_printable_template', 'default', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_queries_count', '1', 'Should queries be counted and info show.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_redirect_login', 'login', 'When a user logs in, where should he be redirected to?');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_region', 'US', 'Region settings.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_regions_available', 'US', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_registration_group', '3', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_registration_message', '', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_registration_page', 'register-account', 'Default registration page.');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_registration_role', '4', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_resize_adaptive_dimension', '250,150', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_resize_image_dimension', '500,500', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_resize_thumb_dimension', '250,150', '');
@@ -360,7 +336,6 @@ INSERT INTO `pds_core_settings` VALUES ('AdminTools_sef_url', '0', 'Should SEF u
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_sendmail_path', '/usr/sbin/sendmail', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_setting_admin_email', 'admin@phpdevshell.org', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_setting_support_email', 'default:System Support Query,default:General Query', 'Allows you to have multiple option for a email query.');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_skin', 'flick', 'Default skin to use for styling.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_smtp_helo', '', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_smtp_host', 'smtp.gmail.com', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_smtp_password', '', '');
@@ -374,18 +349,8 @@ INSERT INTO `pds_core_settings` VALUES ('AdminTools_system_down_message', '%s is
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_system_logging', '1', 'Should logs be written to database.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_system_timezone', 'UTC', 'Timezone.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_test_email', 'test_email', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_test_ftp', 'on', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_thumbnail_type', 'adaptive', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_thumb_reflect_settings', '40,40,80,true,--a4a4a4', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_trim_logs', '1000000', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_url_append', '.html', 'The url extension in the end.');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_verify_registration', '1', 'Does users need to be verified after registration.');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_menu_behaviour', 'dynamic', 'How the menu system should behave when navigating');
-
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_reg_email_admin', 'Dear Admin,\r\n\r\nYou have received a new registration at %1$s.\r\nThe user registered with the name %2$s, on this date %3$s, with the username %4$s.\r\n\r\nThank You,\r\n%5$s.%6$s %7$s %8$s\r\n\r\nYou must be logged-in to ban or approve users.', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_reg_email_approve', 'Dear %1$s,\r\n\r\nYou completed the registration at %2$s.\r\nYour registration was successful but is still pending for approval from admin staff.\r\n\r\nThank you for registering at %3$s, an Admin will attend to your request soon.', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_reg_email_direct', 'Dear %1$s,\r\n\r\nYou completed the registration at %2$s.\r\nYour registration was successful.\r\n\r\nThank you for registering at %3$s.', '');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_reg_email_verify', 'Dear %1$s,\r\n\r\nYou requested registration at %2$s.\r\nYour registration was successful.\r\n\r\nPlease click on the *link\r\n%3$s\r\nto complete the registration process.\r\n\r\nThank you for registering at %4$s.\r\n\r\n*If you cannot click on the link, copy and paste the url in your browsers address bar.', '');
 
 -- Create tags table for tagging data.;
 CREATE TABLE `pds_core_tags` (
@@ -434,17 +399,15 @@ CREATE TABLE `pds_core_user_groups` (
 	`user_group_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`user_group_name` varchar(255) DEFAULT NULL,
 	`user_group_note` tinytext,
-	`alias` varchar(255) DEFAULT NULL,
-	PRIMARY KEY (`user_group_id`),
-	KEY `index` (`alias`)
+	PRIMARY KEY (`user_group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Insert primary groups table a user can belong to.;
-INSERT INTO `pds_core_user_groups` VALUES ('1', 'Super', null, '');
-INSERT INTO `pds_core_user_groups` VALUES ('2', 'Registered', null, '');
-INSERT INTO `pds_core_user_groups` VALUES ('3', 'Guest', null, '');
-INSERT INTO `pds_core_user_groups` VALUES ('4', 'Limited Admin', null, '');
-INSERT INTO `pds_core_user_groups` VALUES ('5', 'Demo', null, '');
+INSERT INTO `pds_core_user_groups` VALUES ('1', 'Super', null);
+INSERT INTO `pds_core_user_groups` VALUES ('2', 'Registered', null);
+INSERT INTO `pds_core_user_groups` VALUES ('3', 'Guest', null);
+INSERT INTO `pds_core_user_groups` VALUES ('4', 'Limited Admin', null);
+INSERT INTO `pds_core_user_groups` VALUES ('5', 'Demo', null);
 
 -- Create primary roles table a user can belong to.;
 CREATE TABLE `pds_core_user_roles` (
@@ -455,14 +418,14 @@ CREATE TABLE `pds_core_user_roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Insert primary roles table a user can belong to.;
-INSERT INTO `pds_core_user_roles` VALUES ('1', 'Super', '');
+INSERT INTO `pds_core_user_roles` VALUES ('1', 'Super', null);
 INSERT INTO `pds_core_user_roles` VALUES ('2', 'Registered', null);
-INSERT INTO `pds_core_user_roles` VALUES ('4', 'Awaiting Confirmation', '');
-INSERT INTO `pds_core_user_roles` VALUES ('5', 'Guest', '');
-INSERT INTO `pds_core_user_roles` VALUES ('6', 'Disabled', '');
-INSERT INTO `pds_core_user_roles` VALUES ('7', 'Limited Admin', '');
-INSERT INTO `pds_core_user_roles` VALUES ('8', 'Branch Admin', '');
-INSERT INTO `pds_core_user_roles` VALUES ('9', 'Demo', '');
+INSERT INTO `pds_core_user_roles` VALUES ('4', 'Awaiting Confirmation', null);
+INSERT INTO `pds_core_user_roles` VALUES ('5', 'Guest', null);
+INSERT INTO `pds_core_user_roles` VALUES ('6', 'Disabled', null);
+INSERT INTO `pds_core_user_roles` VALUES ('7', 'Limited Admin', null);
+INSERT INTO `pds_core_user_roles` VALUES ('8', 'Branch Admin', null);
+INSERT INTO `pds_core_user_roles` VALUES ('9', 'Demo', null);
 
 -- Create security role permissions table.;
 CREATE TABLE `pds_core_user_role_permissions` (

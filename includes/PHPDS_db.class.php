@@ -403,7 +403,7 @@ class PHPDS_db extends PHPDS_dependant
 	 * Will convert object configuration into array for parsing.
 	 *
 	 */
-	private function debugConfig()
+	public function debugConfig()
 	{
 		foreach ($this->configuration as $key => $extended_config) {
 			$converted_config[$key] = $extended_config;
@@ -698,30 +698,6 @@ class PHPDS_db extends PHPDS_dependant
 	public function deleteQuick($from_table_name, $where_column_name, $is_equal_to_column_value, $return_column_value = false)
 	{
 		return $this->invokeQuery('DB_deleteQuickQuery', $from_table_name, $where_column_name, $is_equal_to_column_value, $return_column_value);
-	}
-
-	/**
-	 * This method is used to generate a new name value for a particular string in the database.
-	 *
-	 * Usage Example :
-	 * <code>
-	 *  // This code generates a copy of the text "Some Value". The name_of_new_copy function
-	 *  // checks that it doesn't duplicate the name.
-	 *  $result = $db->nameOfNewCopy('PHPDS_table', 'some_field', 'Some Value');
-	 *
-	 *  // name_of_new_copy() returns 'Copy of Some Value', unless 'Copy of Some Value' already exists. If
-	 *  // it does, the function will return with 'Copy (x) of Some Value' where x is the next available
-	 *  // number that is not in use.
-	 * </code>
-	 *
-	 * @param string The name of the table to search within.
-	 * @param string The fieldname to search withing.
-	 * @param string The original text to search for.
-	 * @author Don Schoeman <don@delphexonline.com>
-	 */
-	function nameOfNewCopy($table_name, $name_field, $orig_name)
-	{
-		return $this->invokeQuery('DB_nameOfNewCopyQuery', $table_name, $name_field, $orig_name);
 	}
 
 	/**

@@ -11,14 +11,14 @@ REPLACE INTO `pds_core_users` VALUES (DEFAULT, 'Test User 11', 'test2', '63a9f0e
 REPLACE INTO `pds_core_users` VALUES (DEFAULT, 'Test User 12', 'test2', '63a9f0ea7bb98050796b649e85481845', 'test12@phpdevshell.org', '5', '9', '12569537329', 'en', 'UTC', 'US');
 REPLACE INTO `pds_core_users` VALUES (DEFAULT, 'Test User 13', 'test2', '63a9f0ea7bb98050796b649e85481845', 'test13@phpdevshell.org', '5', '9', '12569537329', 'en', 'UTC', 'US');
 
-INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 1', '', '');
-INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 2', '', '');
-INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 3', '', '');
-INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 4', '', '');
-INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 5', '', '');
-INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 6', '', '');
-INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 7', '', '');
-INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 8', '', '');
+INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 1', '');
+INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 2', '');
+INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 3', '');
+INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 4', '');
+INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 5', '');
+INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 6', '');
+INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 7', '');
+INSERT INTO `pds_core_user_groups` VALUES (DEFAULT, 'Test Group 8', '');
 
 INSERT INTO `pds_core_user_roles` VALUES (DEFAULT, 'Test Role 1', '');
 INSERT INTO `pds_core_user_roles` VALUES (DEFAULT, 'Test Role 2', '');

@@ -3,18 +3,6 @@
 class PHPDS_user extends PHPDS_dependant
 {
 	/**
-	 * Stores string of groups for specific user.
-	 *
-	 * @var string
-	 */
-	public $mergeGroups;
-	/**
-	 * Stores string of roles for specific user.
-	 *
-	 * @var string
-	 */
-	public $mergeRoles;
-	/**
 	 * Set roles that exists.
 	 *
 	 * @var array
@@ -26,61 +14,33 @@ class PHPDS_user extends PHPDS_dependant
 	 * @var array
 	 */
 	public $groupsArray;
-	/**
-	 * Array contains parent groups.
-	 *
-	 * @var array
-	 */
-	public $parentGroups;
-	/**
-	 * Array contains alias permission for groups.
-	 *
-	 * @var array
-	 */
-	public $userBelongsToGroupByAlias;
 
 	/**
-	 * This function gets all role id's for a given user id, while returning a string divided by ',' character or an array with ids.
-	 * To pull multiple user roles, provide a string for $user_ids like so: '2,5,10,19'.
+	 * Return roles id for a given user id,
 	 *
-	 * @param string $user_id
-	 * @param boolean $return_array
-	 * @return mixed If $return_array = false a comma delimited string will be returned, else an array.
+	 * @param integer $user_id
+	 * @return integer
 	 * @author Jason Schoeman <titan@phpdevshell.org>
 	 */
-	public function getRoles($user_id = false, $return_array = false)
+	public function getRoles($user_id = null)
 	{
-		return $this->db->invokeQuery('USER_getRolesQuery', $user_id, $return_array);
+		return $this->db->invokeQuery('USER_getRolesQuery', $user_id);
 	}
 
-	/**
-	 * This function gets all group id's for given user ids, while returning a string divided by ',' character or an array with ids.
-	 * To pull multiple user groups, provide a string for $user_ids like so : '2,5,10,19'.
-	 *
-	 * @param string $user_id Leave this field empty if you want skip if user is root.
-	 * @param boolean $return_array
-	 * @return mixed If $return_array = false a comma delimited string will be returned, else an array.
-	 * @author Jason Schoeman <titan@phpdevshell.org>
-	 */
-	public function getGroups($user_id = false, $return_array = false, $alias_only = false)
-	{
-		$groups = $this->db->invokeQuery('USER_getGroupsQuery', $user_id, $return_array);
-		return $groups;
-	}
+    /**
+     * Return groups id for a given user id,
+     *
+     * @param integer $user_id
+     * @return integer
+     * @author Jason Schoeman <titan@phpdevshell.org>
+     */
+    public function getGroups($user_id = null)
+    {
+        return $this->db->invokeQuery('USER_getGroupsQuery', $user_id);
+    }
 
 	/**
-	 * Will dig deeper for children of groups.
-	 *
-	 * @param int $group_id
-	 * @return string
-	 */
-	public function findGroupChildren($group_id)
-	{
-		return $this->db->invokeQuery('USER_findGroupChildren',$group_id);
-	}
-
-	/**
-	 * Simple check to see if a certain role exists.
+	 * Check to see if a certain role exists.
 	 *
 	 * @param integer $role_id
 	 * @return boolean
@@ -91,7 +51,7 @@ class PHPDS_user extends PHPDS_dependant
 	}
 
 	/**
-	 * Simple check to see if a certain group exists.
+	 * Check to see if a certain group exists.
 	 *
 	 * @param integer $group_id
 	 * @return boolean
@@ -102,79 +62,30 @@ class PHPDS_user extends PHPDS_dependant
 	}
 
 	/**
-	 * Check if user belongs to given role. Returns true if user belongs to user role.
+	 * Check if user belongs to given role.
 	 *
 	 * @param integer $user_id
 	 * @param integer $user_role
-	 * @param string $alias
-	 * @return boolean Returns true if user belongs to user role.
+	 * @return boolean
 	 * @author Jason Schoeman <titan@phpdevshell.org>
 	 */
-	public function belongsToRole($user_id = false, $user_role=null, $alias=null)
+	public function belongsToRole($user_id = false, $user_role=null)
 	{
 		return $this->db->invokeQuery('USER_belongsToRoleQuery', $user_id, $user_role);
 	}
 
-	/**
-	 * Check if user belongs to given group. Returns true if user belongs to user group.
-	 *
-	 * @param integer $user_id
-	 * @param integer $user_group
-	 * @param string $alias
-	 * @return boolean Returns true if user belongs to user group.
-	 * @author Jason Schoeman <titan@phpdevshell.org>
-	 */
-	public function belongsToGroup($user_id = null, $user_group=null, $alias=null)
-	{
-		if ($this->user->isRoot($user_id)) return true;
-		if (empty($user_id)) {
-			(!empty($this->configuration['user_id'])) ? $user_id = $this->configuration['user_id'] : $user_id = false;
-		}
-
-		if (! empty($user_group)) {
-			$forarrayflip = $this->getGroups($user_id, true);
-			if (is_array($forarrayflip)) {
-				$user_groups_arr = array_flip($this->getGroups($user_id, true));
-			} else {
-				return false;
-			}
-			if (array_key_exists($user_group, $user_groups_arr)) {
-				return true;
-			} else {
-				return false;
-			}
-		}
-		if (! empty($alias)) {
-			if (! empty($this->userBelongsToGroupByAlias[$user_id][$alias]))
-				return true;
-
-			$groups = $this->getGroups($user_id);
-
-			if (! empty($groups)) {
-				$byalias = $this->db->invokeQuery('USER_getGroupsbyAliasQuery', $groups, $alias);
-				if (! empty($byalias)) {
-					$this->userBelongsToGroupByAlias[$user_id][$alias] = true;
-					return true;
-				} else {
-					return false;
-				}
-			} else {
-				return false;
-			}
-		} return false;
-	}
-
-	/**
-	 * Check if user belongs to given group by alias for performed actions on a page. Returns true if user belongs to user group.
-	 *
-	 * @param string $alias
-	 * @param integer $user_id
+    /**
+     * Check if user belongs to given group.
+     *
+     * @param integer $user_id
+     * @param integer $user_role
      * @return boolean
-	 */
-	public function groupCan($alias, $user_id=0)
-	{
-		return $this->belongsToGroup($user_id, null, $alias);
-	}
+     * @author Jason Schoeman <titan@phpdevshell.org>
+     */
+    public function belongsToGroup($user_id = false, $user_group=null)
+    {
+        return $this->db->invokeQuery('USER_belongsToGroupQuery', $user_id, $user_group);
+    }
 
 	/**
 	 * Creates a query to extend a role query, it will return false if user is root so everything can get listed.
@@ -265,14 +176,13 @@ class PHPDS_user extends PHPDS_dependant
 
 	/**
 	 * Check if the currently logged in user is the same group as the given user.
-	 *
 	 * This can be used to check if the current user is allowed access to the given user's data
 	 *
 	 * @date 20100222
 	 * @version	1.0
 	 * @author greg
-	 * @param $user_id integer, the ID of the other user
-	 * @return boolean, whether the current user is in the same group
+	 * @param integer $user_id The ID of the other user
+	 * @return boolean
 	 */
 	public function isSameGroup($user_id)
 	{
@@ -327,8 +237,8 @@ class PHPDS_user extends PHPDS_dependant
 	 * @version 1.0.1
 	 * @date 20091105 fixed a possible warning when the menu is not in the list (i.e. the user is not allowed)
 	 *
-	 * @param mixed This can have both the menu id as an integer or as a string.
-	 * @param string The type of item requested, menu_id, menu_name etc...
+	 * @param mixed $menu_id This can have both the menu id as an integer or as a string.
+	 * @param string $type The type of item requested, menu_id, menu_name etc...
 	 * @return boolean Will return requested variable if user has access to requested menu item menu item.
 	 */
 	public function canAccessMenu($menu_id, $type = 'menu_id')

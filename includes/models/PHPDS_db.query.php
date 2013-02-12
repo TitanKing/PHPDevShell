@@ -403,67 +403,6 @@ class DB_deleteQuickQuery extends PHPDS_query
 }
 
 /**
- * DB - This method is used to generate a new name value for a particular string in the database.
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
- *
- */
-class DB_nameOfNewCopyQuery extends PHPDS_query
-{
-	protected $sql = "
-		SELECT
-			COUNT(%s)
-		FROM
-			%s
-		WHERE
-			%s = '%s'
-	";
-
-	protected $singleValue = true;
-
-	/**
-	 * Initiate query invoke command.
-	 * @param array
-	 * @return array
-	 */
-	public function invoke($parameters = null)
-	{
-		list($table_name, $name_field, $orig_name) = $parameters;
-		// Define.
-		$copy_count = 1;
-		$new_name = $orig_name;
-		while (1) {
-			// Check if the new name already exists within one of the other records
-			$row_count = parent::invoke(array($name_field, $table_name, $name_field, $new_name));
-			if ($row_count > 0) {
-				if ($row_count > $copy_count) {
-					$copy_count = $row_count + 1;
-				} else {
-					$copy_count++;
-				}
-				if (stripos($new_name, 'Copy of') !== false) {
-					// The name already exists, add a number, i.e. "Copy (1) of xxxxx"
-					$new_name = preg_replace('/' . 'Copy of ' . ' /i', '', $orig_name);
-					$new_name = sprintf('Copy (%d) of' . ' ', $copy_count + 1) . $new_name;
-				} else if (stripos($new_name, 'Copy (') !== false) {
-					// The name already exists, add a number, i.e. "Copy (1) of xxxxx"
-					// but first remove the old "Copy (x) of" part.
-					$copypos = stripos($new_name, 'Copy (');
-					$ofpos = stripos($new_name, ' of ', $copypos);
-					$copyofpart = substr($new_name, $new_name, $ofpos + strlen(' of '));
-					$newcopyofpart = sprintf('Copy (%d) of', $copy_count + 1);
-					$new_name = preg_replace("/$copyofpart/", $newcopyofpart, $new_name);
-				} else {
-					$new_name = 'Copy of ' . ' ' . $new_name;
-				}
-			} else {
-				break;
-			}
-		}
-		return $new_name;
-	}
-}
-
-/**
  * DB - Lists all installed plugins on PHPDevShell.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  *
