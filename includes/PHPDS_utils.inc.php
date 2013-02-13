@@ -99,7 +99,7 @@ function PU_buildParsedURL($p)
 	if (empty($p['host']))
 		$p['host'] = $_SERVER["HTTP_HOST"];
 	if (empty($p['port']))
-		$p['port'] = ''; 
+		$p['port'] = '';
 	else
 		$p['port'] = ':' . $p['port'];
 	if (empty($p['user']))
@@ -111,7 +111,7 @@ function PU_buildParsedURL($p)
 	if (empty($p['query']))
 		$p['query'] = '';
 	if (empty($p['fragment']))
-		$p['fragment'] = ''; 
+		$p['fragment'] = '';
 	else
 		$p['fragment'] = '#' . $p['fragment'];
 
@@ -170,7 +170,7 @@ function PU_BuildURL($target = null, $includeInGet = null, $excludeFromGet = nul
  * @param $excludeFromGet (optional) array of strings: parameters to remove from GET in the url
  * @param $target (optional) string: the target script url (current script if missing)
  * @return string the complete html link
- * 
+ *
  * TODO: support attrs!!!
  */
 function PU_BuildHREF($label, $includeInGet = null, $excludeFromGet = null, $target = null, array $attrs = null)
@@ -205,7 +205,7 @@ function PU_CleanString($string, $clean_htlm = false)
  *
  * @version 1.1
  * @date 20120309 (v1.1) (greg) $htmlize can now specify a target encoding
- * 
+ *
  * @param $string the string to convert
  * @param $htmlize if true the string is converted to HTML, if nul to UTF8; otherwise specified encoding
  *
@@ -363,8 +363,8 @@ if (function_exists('gettext')) {
  * Outputs an array in html
  *
  * A slightly better version of print_r()
- * 
- * Note: this output is html 
+ *
+ * Note: this output is html
  *
  * @version 2.0
  * @author greg
@@ -380,11 +380,11 @@ if (function_exists('gettext')) {
 function PU_dumpArray($a, $title = null, $htmlize = false)
 {
 	$s = $title ? "<p>$title</p>" : '';
-	
+
 	if (!(is_array($a) || is_object($a))) {
 		$a = array($a);
 	}
-	
+
 	if (count($a) == 0) {
 		$s .= '(empty array)';
 	} else {
@@ -393,9 +393,9 @@ function PU_dumpArray($a, $title = null, $htmlize = false)
 			$t = gettype($e);
 			switch ($t) {
 				case 'array': $t .= ', '.count($e).' elements'; break;
-				case 'string': 
-						$t .= ', '.strlen($e).' chars, '.mb_detect_encoding($e); 
-						
+				case 'string':
+						$t .= ', '.strlen($e).' chars, '.mb_detect_encoding($e);
+
 					break;
 				case 'object': $t .= ' of class "'.get_class($e).'"'; break;
 			}
@@ -411,7 +411,7 @@ function PU_dumpArray($a, $title = null, $htmlize = false)
 		}
 		$s .= '</ul>';
 	}
-	
+
 	return $s;
 }
 
@@ -468,7 +468,7 @@ function PU_silentHeader($header)
  */
 function PU_isAJAX($json = false)
 {
-	$ajax = isset($_SERVER["HTTP_X_REQUESTED_WITH"]) && ($_SERVER["HTTP_X_REQUESTED_WITH"] == 'XMLHttpRequest');
+	$ajax = !empty($_SERVER["HTTP_X_REQUESTED_WITH"]) && strtolower($_SERVER["HTTP_X_REQUESTED_WITH"] == 'XMLHttpRequest');
 	if ($ajax && $json) {
 		PU_cleanBuffers();
 		PU_silentHeader('Content-Type: application/json');
@@ -514,7 +514,7 @@ function PU_exitToAJAX($data)
  * Get rid of null values inside an array
  *
  * All values which are null in the array are remove, shortening the array
- * 
+ *
  * @version 2.0
  * @date 20121010 (v2.0) (greg) rewrote using a simple loop as clever array_walk didn't work
  *
@@ -539,10 +539,10 @@ function PU_array_compact(array $a)
  *  'second'=> '2nd'
  * ));
  * @author nate at frickenate dot com
- * 
+ *
  * @version 1.0.1
  * @date 20120724 (v1.0.1) (greg) cleaned up exception
- * 
+ *
  * @param string $format sprintf format string, with any number of named arguments
  * @param array $args array of [ 'arg_name' => 'arg value', ... ] replacements to be made
  * @return string|false result of sprintf call, or bool false on error
@@ -602,12 +602,12 @@ function PU_buildHTMLoptions($a, $selected = null)
 
 /**
  * Add an include path to check in for classes.
- * 
+ *
  * @version 1.1
  * @author greg <greg@phpdevshell.org>
- * 
+ *
  * @date 20120606 (v1.1) (greg) ensure the given path actually exists before adding it
- * 
+ *
  * @param string $path
  */
 function PU_addIncludePath($path)
@@ -887,8 +887,8 @@ function PU_GetDBSettings($configuration, $db = '')
 /**
  * Pack all available environnement variable into a DB safe string
  * Useful mainly for log functions
- * 
- * @return string 
+ *
+ * @return string
  */
 function PU_PackEnv()
 {
@@ -919,16 +919,16 @@ function PU_DebugLog($text, $filename = '')
 
 /**
  * Flattens the given $path and ensure it's below the given root
- * 
+ *
  * The goal is to avoid getting access to files outside the web site tree
- * 
+ *
  * @version 1.1
- * 
+ *
  * @date 20120607 (v1.1) (greg) added support for both absolute path and relative path (relative to the given root)
  *
- * @param string $path 
+ * @param string $path
  * @param string $root
- * @return string|false the actual path or false 
+ * @return string|false the actual path or false
  */
 function PU_SafeSubpath($path, $root)
 {
@@ -938,7 +938,7 @@ function PU_SafeSubpath($path, $root)
 	error_log('testing '.$path.' against '.$root);
 	$path = realpath($path);
 	$result = (substr($path, 0, strlen($root)) == $root) ? $path : false;
-	
+
 	return $result;
 }
 
@@ -946,8 +946,8 @@ function PU_SafeSubpath($path, $root)
 /**
  * Returns the numerical value of the given value
  * Equivalent of intval() but safe for large number
- * 
- * @param mixed $value 
+ *
+ * @param mixed $value
  */
 function numval($value)
 {

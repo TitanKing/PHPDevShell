@@ -29,9 +29,7 @@ class UserGroupAdminList extends PHPDS_controller
                             $this->template->warning(__('Permission denied.'));
                             $error[0] = true;
                         }
-
                         if (empty($error)) {
-
                             $group_deleted = $this->db->deleteQuick('_db_core_user_groups', 'user_group_id', $iddelete, 'user_group_name');
                             $this->db->deleteQuick('_db_core_user_extra_groups', 'user_group_id', $iddelete);
                             $this->db->invokeQuery('PHPDS_updateDeletedGroupUsersQuery', $iddelete);
