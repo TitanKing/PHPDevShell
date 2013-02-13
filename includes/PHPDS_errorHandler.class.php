@@ -345,59 +345,60 @@ class PHPDS_errorHandler extends PHPDS_dependant
         }
 
 		$emsg = empty($label) ? $msg : "($label) $msg";
+        $ajax_error = (PU_isAJAX()) ? true : false;
 
 		switch ($level) {
 			case PHPDS_debug::ERROR:
-					if ($this->display) {
+					if ($this->display && !$ajax_error) {
 						if (!method_exists($template,'error')) echo $this->message($emsg);
 					}
 
-					if ($this->firephp && ! headers_sent()) $this->firephp->error($msg, $label);
+					if ($this->firephp && !headers_sent()) $this->firephp->error($msg, $label);
 
 					if ($this->serverlog) $this->error_log('ERROR', $emsg);
 				break;
 
 			case PHPDS_debug::WARN:
-					if ($this->display) {
+					if ($this->display && !$ajax_error) {
 						if (method_exists($template,'warning')) echo $template->warning($emsg, 'return');
 						else echo $this->message($emsg);
 					}
 
-					if ($this->firephp && ! headers_sent()) $this->firephp->warn($msg, $label);
+					if ($this->firephp && !headers_sent()) $this->firephp->warn($msg, $label);
 
 					if ($this->serverlog) $this->error_log('WARNING', $emsg);
 				break;
 
 			case PHPDS_debug::INFO:
 
-					if ($this->display) {
+					if ($this->display && !$ajax_error) {
 						if (method_exists($template,'notice')) echo $template->notice($emsg, 'return');
 						else echo $this->message($emsg);
 					}
 
-					if ($this->firephp && ! headers_sent()) $this->firephp->info($msg, $label);
+					if ($this->firephp && !headers_sent()) $this->firephp->info($msg, $label);
 
 					if ($this->serverlog) $this->error_log('NOTICE', $emsg);
 				break;
 
 			case PHPDS_debug::DEBUG:
-					if ($this->display) {
+					if ($this->display && !$ajax_error) {
 						if (method_exists($template,'debug')) echo $template->debug($emsg, 'return');
 						else echo $this->message($emsg);
 					}
 
-					if ($this->firephp && ! headers_sent()) $this->firephp->log($msg, $label);
+					if ($this->firephp && !headers_sent()) $this->firephp->log($msg, $label);
 
 					if ($this->serverlog) $this->error_log('DEBUG', $emsg);
 				break;
 
 			default:
-					if ($this->display) {
+					if ($this->display && !$ajax_error) {
 						if (method_exists($template,'note')) echo $template->note($emsg, 'return');
 						else echo $this->message($emsg);
 					}
 
-					if ($this->firephp && ! headers_sent()) $this->firephp->log($msg, $label);
+					if ($this->firephp && !headers_sent()) $this->firephp->log($msg, $label);
 
 					if ($this->serverlog) $this->error_log('LOG', $emsg);
 				break;
@@ -486,9 +487,9 @@ class PHPDS_errorHandler extends PHPDS_dependant
 	 * @return string the whole output
 	 *
 	 * @param Exception $e (optional) the exception to explain
-	 * @param boolean $detailled whether the detaills should be displayed or replaced y a generic message
+	 * @param boolean $detailed whether the details should be displayed or replaced y a generic message
 	 */
-	public function showException(Exception $e = null, $detailled = true)
+	public function showException(Exception $e = null, $detailed = true)
 	{
 		// we stop on the first unhandled error
 		$this->I_give_up = true;
@@ -544,14 +545,14 @@ class PHPDS_errorHandler extends PHPDS_dependant
 		}
 
 		if (PU_isAJAX()) {
-			// If the error occured during an AJAX request, we'll send back a lightweight ouput
-			$message = $display ? "$message - file $filepath line $lineno" : 'Concealed error';
+			// If the error occurred during an AJAX request, we'll send back a lightweight ouput
+			$message = $this->display ? "$message - file $filepath line $lineno" : 'Error Concealed - Disabled in config';
 			PU_silentHeader('Status: 500 '.$message);
 			PU_silentHeader('HTTP/1.1 500 '.$message);
 			print $message;
 		} else {
 			// for a regular request, we present a nicely formatted html page; if provided, an extended description of the error is displayed
-			if ($detailled) {
+			if ($detailed) {
 				echo $output;
 			} else {
 				$message = '';
@@ -564,7 +565,7 @@ class PHPDS_errorHandler extends PHPDS_dependant
 }
 
 /**
- * Generate a pretty (formated to be read) backtrace, skipping the first lines if asked
+ * Generate a pretty (formatted to be read) backtrace, skipping the first lines if asked
  *
  * @param $ignore				integer, number of frames to skip (optional, defaults to 0)
  * @param $backtrace		the backtrace (optional)

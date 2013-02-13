@@ -534,8 +534,6 @@ class PHPDS
 			// We require templating system for final output
 			// Run template as required.
 			$this->PHPDS_core()->startController();
-			// Lets log access to menu item if so required.
-			$this->PHPDS_db()->logMenuAccess();
 			// Write collected logs to database.
 			$this->PHPDS_db()->logThis();
 		} catch (Exception $e) {

@@ -171,12 +171,12 @@ class PHPDS_controller extends PHPDS_dependant
 		}
 		return $result;
 	}
-	
+
 	/**
 	 * Run a controller when called with ajax
 	 *
 	 * @version 1.0
-	 * @date 20120717 (1.0) (greg) added 
+	 * @date 20120717 (1.0) (greg) added
 	 * @since 3.2.1
 	 * @author greg <greg@phpdevshell.org>
 	 *
@@ -202,11 +202,10 @@ class PHPDS_controller extends PHPDS_dependant
 	public function runAJAX()
 	{
 		// TODO: catch exception and signal back to the ajax caller
-		$raw_data = false;
+		$raw_data = '';
 		if (isset($_SERVER["HTTP_X_REMOTE_CALL"])) {
 			$f = 'ajax'.$_SERVER["HTTP_X_REMOTE_CALL"];
 			if (method_exists($this, $f)) {
-				
 				if (class_exists('ReflectionMethod')) {
 					$classname = get_class($this);
 					$method = new ReflectionMethod($classname, $f);
@@ -226,7 +225,7 @@ class PHPDS_controller extends PHPDS_dependant
 		} else {
 			$raw_data = $this->viaAJAX();
 		}
-		
+
 		return $this->handleResult($raw_data);
 	}
 
@@ -236,7 +235,7 @@ class PHPDS_controller extends PHPDS_dependant
 	 * @version 1.1
 	 * @since 3.0.5
 	 * @author greg <greg@phpdevshell.org>
-	 * 
+	 *
 	 * @date 20120717 (v1.1) (greg) now used for both ajax and regular requests
 	 *
 	 * @param mixed $raw_data
@@ -245,7 +244,7 @@ class PHPDS_controller extends PHPDS_dependant
 	public function handleResult($raw_data)
 	{
 		$core = $this->core;
-		
+
 		$encoded_data = PU_isJSON($raw_data);
 		if (false !== $encoded_data) {
 			$core->themeFile = '';
