@@ -351,16 +351,16 @@ class PHPDS_user extends PHPDS_dependant
 	{
 		$conf = $this->configuration;
 
-		$conf['user_id'] = empty($_SESSION['user_id']) ? 0 : $_SESSION['user_id'];
-		$conf['user_name'] = empty($_SESSION['user_name']) ? '' : $_SESSION['user_name'];
-		$conf['user_display_name'] = empty($_SESSION['user_display_name']) ? '' : $_SESSION['user_display_name'];
-		$conf['user_group'] = empty($_SESSION['user_group']) ? 0 : $_SESSION['user_group'];
-		$conf['user_role'] = empty($_SESSION['user_role']) ? 0 : $_SESSION['user_role'];
-		$conf['user_email'] = empty($_SESSION['user_email']) ? '' : $_SESSION['user_email'];
-		$conf['user_language'] = empty($_SESSION['user_language']) ? '' : $_SESSION['user_language'];
-		$conf['user_region'] = empty($_SESSION['user_region']) ? '' : $_SESSION['user_region'];
-		$conf['user_timezone'] = empty($_SESSION['user_timezone']) ? '' : $_SESSION['user_timezone'];
-		$conf['user_locale'] = empty($_SESSION['user_locale']) ? $this->core->formatLocale() : $_SESSION['user_locale'];
+        $conf['user_id']           = empty($_SESSION['user_id']) ? 0 : $_SESSION['user_id'];
+        $conf['user_name']         = empty($_SESSION['user_name']) ? '' : $_SESSION['user_name'];
+        $conf['user_display_name'] = empty($_SESSION['user_display_name']) ? '' : $_SESSION['user_display_name'];
+        $conf['user_group']        = empty($_SESSION['user_group']) ? 0 : $_SESSION['user_group'];
+        $conf['user_role']         = empty($_SESSION['user_role']) ? 0 : $_SESSION['user_role'];
+        $conf['user_email']        = empty($_SESSION['user_email']) ? '' : $_SESSION['user_email'];
+        $conf['user_language']     = empty($_SESSION['user_language']) ? '' : $_SESSION['user_language'];
+        $conf['user_region']       = empty($_SESSION['user_region']) ? '' : $_SESSION['user_region'];
+        $conf['user_timezone']     = empty($_SESSION['user_timezone']) ? '' : $_SESSION['user_timezone'];
+        $conf['user_locale']       = empty($_SESSION['user_locale']) ? $this->core->formatLocale() : $_SESSION['user_locale'];
 	}
 
 	/**
