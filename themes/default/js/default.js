@@ -76,6 +76,31 @@ function PHPDS_documentReady (root) {
 }
 
 (function ($) {
+    $.fn.getDelete = function () {
+        var bg = this;
+        bg.on('click', ".first-click", function () {
+            var first = this;
+            $(first).removeClass("first-click").addClass("ajax-click btn-danger").parents("tr").addClass("error");
+            $("i", first).removeClass("icon-remove").addClass("icon-trash icon-white");
+            return false;
+        });
+        bg.on('click', ".ajax-click", function () {
+            var item = this;
+            var url = $(item).attr('href');
+            $(item).addClass("disabled");
+            $("i", item).removeClass("icon-trash").append('<img src="themes/default/images/loader.gif" width="15" height="15" />');
+            $.get(url, function () {
+                $(item).parents("tr").fadeOut('slow');
+            });
+            return false;
+        });
+    }
+}(jQuery));
+
+/**
+ * Check multiple checkboxes at once.
+ */
+(function ($) {
     $.fn.checkAllCheckbox = function () {
         var checkall = this;
         return this.each(function () {
@@ -90,7 +115,7 @@ function PHPDS_documentReady (root) {
 }(jQuery));
 
 /**
- * Simple plugin to only allow buttons to be pressed when checkboxes are pressed.
+ * Plugin to only allow buttons to be pressed when certain checkboxes are pressed.
  */
 (function ($) {
     $.fn.enableButtonWhenChecked = function (buttonwrapper) {

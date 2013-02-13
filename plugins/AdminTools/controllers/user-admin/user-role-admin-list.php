@@ -14,8 +14,11 @@ class UserRoleAdminList extends PHPDS_controller
 	 */
 	public function execute()
 	{
+        $this->template->heading(__('Access Roles'));
+
 		$RESULTS = $this->db->invokeQuery('PHPDS_readRoleQuery');
 
+        /* @var $view views */
 		$view = $this->factory('views');
 
 		$view->set('self_url', $this->navigation->buildURL());
@@ -37,10 +40,9 @@ class UserRoleAdminList extends PHPDS_controller
     {
         $iddelete = $this->G('delete-role');
         // Delete role.
-        //$deleted_role = $this->db->deleteQuick('_db_core_user_roles', 'user_role_id',  $iddelete, 'user_role_name');
-        //$this->db->deleteQuick('_db_core_user_role_permissions', 'user_role_id',  $iddelete);
-        //$this->db->invokeQuery('PHPDS_updateUserQuery',  $iddelete);
-        $delete_role = '';
+        $deleted_role = $this->db->deleteQuick('_db_core_user_roles', 'user_role_id',  $iddelete, 'user_role_name');
+        $this->db->deleteQuick('_db_core_user_role_permissions', 'user_role_id',  $iddelete);
+        $this->db->invokeQuery('PHPDS_updateUserQuery',  $iddelete);
         if ($deleted_role) {
             $this->template->ok(sprintf(__("Role %s was deleted."), $deleted_role));
             return 'true';

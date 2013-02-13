@@ -13,11 +13,11 @@ class menuArray extends PHPDS_dependant
 	/**
 	 * Creates an array of the complete menu database.
 	 *
-	 * @param integer Gets data from specific menu id only.
-	 * @param boolean Should the system try to determine the menu name.
+	 * @param integer $menu_id Gets data from specific menu id only.
+	 * @param boolean $determine_menu_name Should the system try to determine the menu name.
 	 * @author Jason Schoeman
 	 */
-	public function loadMenuArray($menu_id = false, $determine_menu_name = true)
+	public function loadMenuArray($menu_id = 0, $determine_menu_name = true)
 	{
 		$configuration      = $this->configuration;
 		$navigation         = $this->navigation;

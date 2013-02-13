@@ -94,8 +94,6 @@ class menuStructure extends PHPDS_dependant
 
 	/**
 	 * Write generated structure to database.
-	 *
-	 * @param integer $menu_id
 	 */
 	public function writeMenuStructure()
 	{

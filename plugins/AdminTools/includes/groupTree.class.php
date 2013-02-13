@@ -17,15 +17,15 @@ class groupTree extends PHPDS_dependant
 	 * Queries group database and starts tree listing.
 	 *
 	 * @param string $extra_sql Allows one to add an additional sql string.
-	 * @param boolean Select group to skip in listing.
+	 * @param boolean $skip_group_id Select group to skip in listing.
 	 */
-	public function callGroups($extra_sql = false, $skip_group_id = false)
+	public function callGroups($extra_sql = '', $skip_group_id = false)
 	{
 		$db = $this->db;
 		if (!empty($extra_sql)) $extra_sql = " $extra_sql ";
 		// Call all groups from database.
 		$select_user_group = $db->invokeQuery('PHPDS_readGroupTreeQuery', $extra_sql);
-		
+
 		// Assign groups to array, this will be used by tree compiling methods.
 		foreach ($select_user_group as $g_arr) {
 			// Assign group data.

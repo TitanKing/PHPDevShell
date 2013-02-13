@@ -10,7 +10,7 @@ class iana extends PHPDS_dependant
 	/**
 	 * Actual method that reads the iana language registry from the local language folder.
 	 * It puts it in an array (language_code, description)
-	 *
+	 * @param string $type
 	 * @return array
 	 */
 	public function readIanaRegistry ($type = 'language')

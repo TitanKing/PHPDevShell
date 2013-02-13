@@ -1,21 +1,6 @@
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#bg").on('click', ".first-click", function () {
-            first = this;
-            $(first).removeClass("first-click").addClass("ajax-click btn-danger").parents("tr").addClass("error");
-            $("i", first).removeClass("icon-remove").addClass("icon-trash icon-white");
-            return false;
-        });
-        $("#bg").on('click', ".ajax-click", function () {
-            item = this;
-            var url = $(item).attr('href');
-            $(item).addClass("disabled");
-            $("i", item).removeClass("icon-trash").append('<img src="themes/default/images/loader.gif" width="15" height="15" />');
-            $.get(url, function() {
-                $(item).parents("tr").fadeOut('slow');
-            });
-            return false;
-        });
+        $("#bg").getDelete();
     });
 </script>
 <div class="row-fluid">
