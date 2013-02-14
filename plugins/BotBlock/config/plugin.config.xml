@@ -47,15 +47,15 @@
 
 	<install version="1000">
 		<!--
-		[contains][All query, menu, settings installation tags.]
+		[contains][All query, node, settings installation tags.]
 	    [param][version][int][mandatory][The latest database version in numbers only.]
 	    [note][This is how the plugin manager will know to what version upgrade scripts should be executed.]
-	    [note][Always keep install maintained to the latest menu, query and setting versions.]
+	    [note][Always keep install maintained to the latest node, query and setting versions.]
 		-->
 		<queries>
 		</queries>
-		<menus>
-		</menus>
+		<nodes>
+		</nodes>
 		<dependencies>
 		</dependencies>
 		<classes>

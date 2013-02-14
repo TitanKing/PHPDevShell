@@ -285,17 +285,17 @@ class PHPDS_sprintfnException extends PHPDS_exception
 /**
  * Exception extention.
  */
-class PHPDS_extendMenuException extends PHPDS_exception
+class PHPDS_extendNodeException extends PHPDS_exception
 {
 	/*protected $ignoreLines = 0;
 	protected $extendedMessage = '';*/
 	protected $extend = 0;
-	protected $menuid = 0;
+	protected $nodeid = 0;
 
 	public function __construct($message = "", $code = 0, $previous = null) // CAUTION this declaration is NOT correct but PHP insists on this declaration
 	{
-		list($this->menuid, $this->extend) = $message;
-		$msg = sprintf('Problem occurred extending menu item %s, it does not seem to exist.', $this->extend);
+		list($this->nodeid, $this->extend) = $message;
+		$msg = sprintf('Problem occurred extending node item %s, it does not seem to exist.', $this->extend);
 
 		parent::__construct($msg, 0, $previous);
 	}
@@ -320,13 +320,13 @@ class PHPDS_extendMenuException extends PHPDS_exception
 	{
 		$navigation = $this->navigation;
 		$result = array(
-			'The current menu item is acually a link to a base menu item, which cannot be accessed',
+			'The current node item is acually a link to a base node item, which cannot be accessed',
 			array(
-				array('The "extend" field of the menu item maybe incorrect (wrong value, base menu has been deleted...)',
-						'Edit the menu item and specify a base menu item to extend from.'
+				array('The "extend" field of the node item maybe incorrect (wrong value, base node has been deleted...)',
+						'Edit the node item and specify a base node item to extend from.'
 				),
-				array('The base menu may exists but not be accessible for the current user',
-						'Edit the base menu item and check its authorizations.'
+				array('The base node may exists but not be accessible for the current user',
+						'Edit the base node item and check its authorizations.'
 				)
 			)
 		);

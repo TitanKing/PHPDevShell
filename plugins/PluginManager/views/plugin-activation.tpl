@@ -56,7 +56,7 @@
 						<dd>{$p.class}</dd>
 						<dt>{_e('Plugin Folder')}</dt>
 						<dd>{$p.object}</dd>
-						<dt>{_e('Menu Language File')}</dt>
+						<dt>{_e('Node Language File')}</dt>
 						<dd>{$p.plugin_lang_message}</dd>
 						<dt>{_e('Plugin Help')}</dt>
 						<dd>{$p.plugin.info}</dd>

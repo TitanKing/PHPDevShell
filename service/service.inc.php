@@ -402,7 +402,7 @@ function checkConfigFiles()
  * @date 20120306 (v1.1) (greg) support in-query relaxed error code
  *
  * To state that a sql query can fail on certains code, start the query with a special comment :
- *			/ *[1061]* /CREATE UNIQUE INDEX `index` USING BTREE ON `pds_core_menu_structure`(`menu_id`) ;
+ *			/ *[1061]* /CREATE UNIQUE INDEX `index` USING BTREE ON `pds_core_node_structure`(`node_id`) ;
  * (remove the space between slashes and stars)
  * multiple codes can be separated with commas, NO SPACES allowed
  *

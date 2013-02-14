@@ -99,20 +99,20 @@ class PHPDS_userGroupsDbQuery extends PHPDS_query
 }
 
 /**
- * General Settings - Get all menus.
+ * General Settings - Get all nodes.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_menuDbQuery extends PHPDS_query
+class PHPDS_nodeDbQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
-			t1.menu_id, t1.menu_name, t1.menu_link
+			t1.node_id, t1.node_name, t1.node_link
 		FROM
-			_db_core_menu_items t1
+			_db_core_node_items t1
 		LEFT JOIN
-			_db_core_menu_structure t2
+			_db_core_node_structure t2
 		ON
-			t1.menu_id = t2.menu_id
+			t1.node_id = t2.node_id
 		ORDER BY
 			t2.id
     ";

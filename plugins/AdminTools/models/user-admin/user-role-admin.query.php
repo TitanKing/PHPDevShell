@@ -19,15 +19,15 @@ class PHPDS_readRoleUserQuery extends PHPDS_query
 }
 
 /**
- * User Role Admin - Read Role Menu Permission.
+ * User Role Admin - Read Role Node Permission.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  *
  */
-class PHPDS_readRoleMenuQuery extends PHPDS_query
+class PHPDS_readRoleNodeQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
-			menu_id
+			node_id
 		FROM
 			_db_core_user_role_permissions
 		WHERE
@@ -43,13 +43,13 @@ class PHPDS_readRoleMenuQuery extends PHPDS_query
 	{
 		$r = parent::invoke($parameters);
 		if (empty($r)) $r = array();
-		foreach ($r as $role_per_menu_array) {
-			$selected_menu[$role_per_menu_array['menu_id']] = 'on';
+		foreach ($r as $role_per_node_array) {
+			$selected_node[$role_per_node_array['node_id']] = 'on';
 		}
-		if (!empty($selected_menu)) {
-			return $selected_menu;
+		if (!empty($selected_node)) {
+			return $selected_node;
 		} else {
-			return $selected_menu = array();
+			return $selected_node = array();
 		}
 	}
 }
@@ -95,7 +95,7 @@ class PHPDS_writePermissionsQuery extends PHPDS_query
 {
 	protected $sql = "
 		REPLACE INTO
-			_db_core_user_role_permissions (user_role_id, menu_id)
+			_db_core_user_role_permissions (user_role_id, node_id)
 		VALUES
 			%s
 		";
@@ -112,16 +112,16 @@ class PHPDS_writePermissionsQuery extends PHPDS_query
 
 		if (!empty($permission)) {
 			// Save permissions.
-			foreach ($permission as $menu_id => $on) {
-				$cols[] = array($user_role_id, $menu_id);
-				// Also set selected role menu items.
+			foreach ($permission as $node_id => $on) {
+				$cols[] = array($user_role_id, $node_id);
+				// Also set selected role node items.
 			}
 			$user_role_id_db = $this->rows($cols);
 		}
 
 		// Set new assigned value.
 		if (!empty($user_role_id_db)) {
-			// Insert menu permissions.
+			// Insert node permissions.
 			return parent::invoke(array($user_role_id_db));
 		} else {
 			return false;
@@ -130,22 +130,22 @@ class PHPDS_writePermissionsQuery extends PHPDS_query
 }
 
 /**
- * User Role Admin - Read Role Menu Permission.
+ * User Role Admin - Read Role Node Permission.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  *
  */
-class PHPDS_readMenusQuery extends PHPDS_query
+class PHPDS_readNodesQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
-			t1.menu_id, t1.menu_name, t1.parent_menu_id, t1.menu_link, t1.menu_type,
+			t1.node_id, t1.node_name, t1.parent_node_id, t1.node_link, t1.node_type,
 			t2.is_parent
 		FROM
-			_db_core_menu_items t1
+			_db_core_node_items t1
 		LEFT JOIN
-			_db_core_menu_structure t2
+			_db_core_node_structure t2
 		ON
-			t1.menu_id = t2.menu_id
+			t1.node_id = t2.node_id
 		ORDER BY
 			t2.id
 		ASC
@@ -162,46 +162,46 @@ class PHPDS_readMenusQuery extends PHPDS_query
         $nav = $this->navigation;
 
 		if (!empty($parameters[0])) {
-			$selected_menu = $parameters[0];
+			$selected_node = $parameters[0];
 		} else {
-			$selected_menu = array();
+			$selected_node = array();
 		}
 
 		$r = parent::invoke();
 
         foreach ($r as $mnr) {
-            $menur[$mnr['menu_id']]['menu_id']             = $mnr['menu_id'];
-            $menur[$mnr['menu_id']]['parent_menu_id']      = $mnr['parent_menu_id'];
-            $menur[$mnr['menu_id']]['menu_name']           = $nav->determineMenuName($mnr['menu_name'], $mnr['menu_link'], $mnr['menu_id']);
-            $menur[$mnr['menu_id']]['is_parent']           = $mnr['is_parent'];
-            if (! empty($mnr['parent_menu_id'])) {
-                $childr[$mnr['parent_menu_id']][]          = $mnr['menu_id'];
+            $noder[$mnr['node_id']]['node_id']             = $mnr['node_id'];
+            $noder[$mnr['node_id']]['parent_node_id']      = $mnr['parent_node_id'];
+            $noder[$mnr['node_id']]['node_name']           = $nav->determineNodeName($mnr['node_name'], $mnr['node_link'], $mnr['node_id']);
+            $noder[$mnr['node_id']]['is_parent']           = $mnr['is_parent'];
+            if (! empty($mnr['parent_node_id'])) {
+                $childr[$mnr['parent_node_id']][]          = $mnr['node_id'];
             }
 
-            if (empty($selected_menu[$mnr['menu_id']])) {
-                $menur[$mnr['menu_id']]['checked'] = '';
+            if (empty($selected_node[$mnr['node_id']])) {
+                $noder[$mnr['node_id']]['checked'] = '';
             } else {
-                $menur[$mnr['menu_id']]['checked'] = 'checked';
+                $noder[$mnr['node_id']]['checked'] = 'checked';
             }
         }
 
         $nodeul = '';
 
-		foreach ($menur as $menu_id => $menu) {
-            if (((string) $menu['parent_menu_id'] == '0')) {
-                if ($menu['is_parent'] == 1) {
+		foreach ($noder as $node_id => $node) {
+            if (((string) $node['parent_node_id'] == '0')) {
+                if ($node['is_parent'] == 1) {
 
-                    $family = $this->callFamily($menu_id, $menur, $childr);
+                    $family = $this->callFamily($node_id, $noder, $childr);
                     if (! empty($family)) {
                         $family = $mod->ulCheckbox($family);
                     } else {
                         $family = '';
                     }
-                    $nodeul .= $mod->liCheckbox($menu_id, 'permission', $menu['menu_name'], $menu['checked']);
+                    $nodeul .= $mod->liCheckbox($node_id, 'permission', $node['node_name'], $node['checked']);
                     $nodeul .= $family;
 
                 } else {
-                    $nodeul .= $mod->liCheckbox($menu_id, 'permission', $menu['menu_name'], $menu['checked']);
+                    $nodeul .= $mod->liCheckbox($node_id, 'permission', $node['node_name'], $node['checked']);
                 }
             }
 
@@ -213,27 +213,27 @@ class PHPDS_readMenusQuery extends PHPDS_query
 		}
 	}
 
-    public function callFamily($menu_id, $menur, $childr)
+    public function callFamily($node_id, $noder, $childr)
     {
         $mod = $this->template->mod;
         $nodeul = '';
 
-        if (! empty($childr[$menu_id])) {
-            $child = $childr[$menu_id];
+        if (! empty($childr[$node_id])) {
+            $child = $childr[$node_id];
             foreach ($child as $m) {
-                if ($menur[$m]['is_parent'] == 1) {
+                if ($noder[$m]['is_parent'] == 1) {
 
-                    $family = $this->callFamily($m, $menur, $childr);
+                    $family = $this->callFamily($m, $noder, $childr);
                     if (! empty($family)) {
                         $family = $mod->ulCheckbox($family);
                     } else {
                         $family = '';
                     }
-                    $nodeul .= $mod->liCheckbox($m, 'permission', $menur[$m]['menu_name'], $menur[$m]['checked']);
+                    $nodeul .= $mod->liCheckbox($m, 'permission', $noder[$m]['node_name'], $noder[$m]['checked']);
                     $nodeul .= $family;
 
                 } else {
-                    $nodeul .= $mod->liCheckbox($m, 'permission', $menur[$m]['menu_name'], $menur[$m]['checked']);
+                    $nodeul .= $mod->liCheckbox($m, 'permission', $noder[$m]['node_name'], $noder[$m]['checked']);
                 }
             }
         }

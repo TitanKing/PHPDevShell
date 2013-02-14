@@ -160,8 +160,9 @@ class PHPDS
 	 *
 	 * If it's ok, its name is added to $configuration['config_files']
 	 *
-	 * @param $path absolute file name
-	 * @return boolean	whether it's successfull
+	 * @param string $path absolute file name
+     * @param array $configuration
+	 * @return boolean whether it's successfull
 	 * @date 20090521	Added
 	 * @date 20091006 Changed to dual list of files (used/missing)
 	 * @date 20100630 (v1.1.1) (greg) fixed the misplaced _log() call
@@ -186,8 +187,9 @@ class PHPDS
 	/**
 	 * Load one config file, if it exists; also tried a ".local" with the same name
 	 *
-	 * @param $filename	short file name
-	 * @return nothing
+	 * @param string $filename	short file name
+     * @param array $configuration
+	 * @return boolean
 	 * @date 20090521	Added
 	 * @date 20091006 Changed to dual list of files (used/missing)
 	 * @version 1.0
@@ -205,7 +207,7 @@ class PHPDS
 	 * Load plugin-specific host-style config
 	 *
 	 * This allows plugins to provide a configuration, for example when 1 plugin <=> 1 site
-	 *
+	 * @param array $configuration
 	 */
 	protected function loadPluginsConfig(&$configuration)
 	{
@@ -230,7 +232,7 @@ class PHPDS
 	 * @date 20110225 (v1.1.1) (greg) added support for plugin-specific host-style config files
 	 * @version	1.1.1
 	 *
-	 * @return PHPDS the current instance
+	 * @return object
 	 */
 	protected function loadConfig()
 	{
@@ -290,8 +292,8 @@ class PHPDS
 	 *
 	 * @date 20090427
 	 * @version	1.0
-	 *
-	 * @return PHPDS the current instance
+	 * @throws PHPDS_sessionException
+	 * @return object
 	 */
 	protected function configSession()
 	{
@@ -354,13 +356,11 @@ class PHPDS
 	/**
 	 * Copy settings from the database-loaded array. Converts and defaults to false if the value isn't set
 	 *
-	 * @date 		20100219
-	 * @author		greg
-	 * @version		1.1
-	 * @param		$source		array, the array to extract values from
-	 * @param		$target		array, the array to add the values to
-	 * @param		$indexes	array, the indexes of the values to copy
-	 * @param		$type			string, the type of value to cast (currently only boolean or null for everything else)
+	 * @date 20100219
+	 * @author greg
+	 * @version 1.1
+     * @param array
+	 * @param $type the type of value to cast (currently only boolean or null for everything else)
 	 * @return nothing
 	 */
 	protected function copySettings($settings, $type = null)
@@ -451,7 +451,7 @@ class PHPDS
 	}
 
 	/**
-	 * Main configuration method: load settings, create menus, templates, and so on
+	 * Main configuration method: load settings, create nodes, templates, and so on
 	 * After that, everything is ready to run
 	 * all config_*() methods are meant to be called only at startup time by config()
 	 *
@@ -494,13 +494,13 @@ class PHPDS
 		// Checks which plugins is installed.  ////////////////////////////////
 		$this->db->installedPlugins(); ////////////////////////////////////////
 
-		// Loads menu language translation engine. ////////////////////////////
-		$this->PHPDS_core()->loadMenuLanguage(); //////////////////////////////
+		// Loads node language translation engine. ////////////////////////////
+		$this->PHPDS_core()->loadNodeLanguage(); //////////////////////////////
 
 		// This is both for templates and security: it builds the list of /////
 		// resources the current user is allowed to ///////////////////////////
-		// Parse the request string and set the menu item. ////////////////////
-		$this->PHPDS_navigation()->extractMenu()->parseRequestString(); ///////
+		// Parse the request string and set the node item. ////////////////////
+		$this->PHPDS_navigation()->extractNode()->parseRequestString(); ///////
 
 		// Template Folder ////////////////////////////////////////////////////
 		$this->configuration['template_folder'] = $this->PHPDS_core()->activeTemplate();
@@ -746,7 +746,7 @@ class PHPDS
 	 * @date 20090427
 	 * @version	1.0
 	 *
-	 * @return security
+	 * @return $this->security
 	 */
 	public function PHPDS_security()
 	{
@@ -824,9 +824,7 @@ class PHPDS
 
 	/**
 	 * Allow access to the aynschronous notifications subsystem
-	 *
 	 * One is created if necessary.
-	 *
 	 * You can override to use you own tagging subsystem
 	 *
 	 * @date 20110615
@@ -845,9 +843,7 @@ class PHPDS
 
 	/**
 	 * Allow access to the (formerly) global templating subsystem
-	 *
 	 * One is created if necessary.
-	 *
 	 * You can override to use you own templating subsystem
 	 *
 	 * @date 20090427
@@ -876,6 +872,7 @@ class PHPDS
 	 * @version	1.0
 	 *
 	 * @param $field
+     * @throws Exception
 	 * @return mixed depends on what is asked for
 	 */
 	public function get($field)
@@ -950,7 +947,7 @@ class PHPDS
 	}
 
 	/**
-	 * Autoloader: when a class is instanciated, this method will load the proper php file
+	 * Autoloader: when a class is instantiated, this method will load the proper php file
 	 *
 	 * Note: the various folders where the files are looked for depends on the
 	 * 	instance configuration, and on the current plugin
@@ -1262,7 +1259,7 @@ class PHPDS_dependant
 	 *
 	 * @version 1.0.3
 	 * @author greg
-	 *
+	 * @param object
 	 * @return object
 	 */
 	public function debugInstance($domain = null)

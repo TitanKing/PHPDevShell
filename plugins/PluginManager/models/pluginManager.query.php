@@ -1,32 +1,32 @@
 <?php
 
 /**
- * Plugin Manager - Get max rank for menu items.
+ * Plugin Manager - Get max rank for node items.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_readMaxMenusRankQuery extends PHPDS_query
+class PHPDS_readMaxNodesRankQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
 			MAX(t1.rank)
 		FROM
-			_db_core_menu_items t1
+			_db_core_node_items t1
     ";
 
 	protected $singleValue = true;
 }
 
 /**
- * Plugin Manager - Get min rank for menu items.
+ * Plugin Manager - Get min rank for node items.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_readMinMenusRankQuery extends PHPDS_query
+class PHPDS_readMinNodesRankQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
 			MIN(t1.rank)
 		FROM
-			_db_core_menu_items t1
+			_db_core_node_items t1
     ";
 
 	protected $singleValue = true;
@@ -56,7 +56,7 @@ class PHPDS_deleteRolePermissionsPluginQuery extends PHPDS_query
 		DELETE FROM
 			_db_core_user_role_permissions
 		WHERE
-			menu_id = '%s'
+			node_id = '%s'
 		AND
 			user_role_id = %u
     ";
@@ -70,21 +70,21 @@ class PHPDS_writeRolePermissionsPluginQuery extends PHPDS_query
 {
 	protected $sql = "
 		REPLACE INTO
-			_db_core_user_role_permissions (user_role_id, menu_id)
+			_db_core_user_role_permissions (user_role_id, node_id)
 		VALUES
 			(%u, '%s')
     ";
 }
 
 /**
- * Plugin Manager - Write new menu.
+ * Plugin Manager - Write new node.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_writeMenuPluginQuery extends PHPDS_query
+class PHPDS_writeNodePluginQuery extends PHPDS_query
 {
 	protected $sql = "
 		REPLACE INTO
-			_db_core_menu_items (menu_id, parent_menu_id, menu_name, menu_link, plugin, menu_type, extend, new_window, rank, hide, template_id, alias, layout, params)
+			_db_core_node_items (node_id, parent_node_id, node_name, node_link, plugin, node_type, extend, new_window, rank, hide, template_id, alias, layout, params)
 		VALUES
 			('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')
     ";
@@ -263,34 +263,34 @@ class PHPDS_setDefaultLogoQuery extends PHPDS_query
 }
 
 /**
- * Plugin Manager - Does menu actually exist.
+ * Plugin Manager - Does node actually exist.
  */
-class PHPDS_doesMenuExist extends PHPDS_query
+class PHPDS_doesNodeExist extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
-			t1.menu_id
+			t1.node_id
 		FROM
-			_db_core_menu_items t1
+			_db_core_node_items t1
 		WHERE
-			t1.menu_id = '%s'
+			t1.node_id = '%s'
 	";
 
 	protected $singleValue = true;
 }
 
 /**
- * Plugin Manager - Update menu link.
+ * Plugin Manager - Update node link.
  */
-class PHPDS_updateMenuLink extends PHPDS_query
+class PHPDS_updateNodeLink extends PHPDS_query
 {
 	protected $sql = "
 		UPDATE
-			_db_core_menu_items
+			_db_core_node_items
 		SET
-			menu_link = '%s'
+			node_link = '%s'
 		WHERE
-			menu_id = '%s'
+			node_id = '%s'
 	";
 }
 

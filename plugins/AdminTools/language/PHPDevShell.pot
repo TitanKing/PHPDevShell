@@ -473,7 +473,7 @@ msgid "Edit Cronjob"
 msgstr ""
 
 #: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:37
-msgid "No menu id present"
+msgid "No node id present"
 msgstr ""
 
 #: plugins/PHPDevShell/controllers/cron-admin/cronjob-admin.php:45
@@ -586,7 +586,7 @@ msgstr ""
 #: plugins/PHPDevShell/views/system-admin/general-settings.tpl:838
 #: plugins/PHPDevShell/views/system-admin/general-settings.tpl:870
 #: plugins/PHPDevShell/views/system-admin/general-settings.tpl:906
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:120
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:120
 msgid "No"
 msgstr ""
 
@@ -739,7 +739,7 @@ msgstr ""
 
 #: plugins/PHPDevShell/controllers/logs-admin/fileupload-logs.php:42
 #: plugins/PHPDevShell/controllers/logs-admin/system-logs.php:35
-#: plugins/PHPDevShell/controllers/logs-admin/menu-access-logs.php:35
+#: plugins/PHPDevShell/controllers/logs-admin/node-access-logs.php:35
 msgid "Delete all logs"
 msgstr ""
 
@@ -756,8 +756,8 @@ msgstr ""
 msgid "There are no log files written in %s."
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/logs-admin/menu-access-logs.php:13
-msgid "Menu Access Logs"
+#: plugins/PHPDevShell/controllers/logs-admin/node-access-logs.php:13
+msgid "Node Access Logs"
 msgstr ""
 
 #: plugins/PHPDevShell/controllers/cron/optimize-database.php:13
@@ -787,231 +787,231 @@ msgstr ""
 msgid "Trim logs to the given amount in the config gui, this helps keeping your database manageable."
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-list.php:19
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin-list.php:19
 #: plugins/PHPDevShell/language/gettext.lang.php:28
-msgid "Menu Admin"
+msgid "Node Admin"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-list.php:32
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-permissions.php:31
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin-list.php:32
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin-permissions.php:31
 #, php-format
-msgid "Menu item %s (%s) was deleted!"
+msgid "Node item %s (%s) was deleted!"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-list.php:32
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-permissions.php:31
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin-list.php:32
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin-permissions.php:31
 #: plugins/PHPDevShell/controllers/user-admin/user-role-admin-list.php:58
 msgid "You cannot delete a core item, the system will be unable to function correctly. Switch force core changes on in General Settings GUI for bypass."
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-list.php:34
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-permissions.php:33
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin-list.php:34
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin-permissions.php:33
 #, php-format
-msgid "You cannot delete menu item \"%s\" as it is still set to be used in general settings."
+msgid "You cannot delete node item \"%s\" as it is still set to be used in general settings."
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-list.php:37
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-permissions.php:36
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin-list.php:37
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin-permissions.php:36
 #, php-format
-msgid "No menu \"%s\" to delete."
+msgid "No node \"%s\" to delete."
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-list.php:61
-msgid "Adjusted menu settings."
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin-list.php:61
+msgid "Adjusted node settings."
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin-permissions.php:18
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin-permissions.php:18
 msgid "Set Access Permission"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:62
-#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-list.query.php:105
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:62
+#: plugins/PHPDevShell/models/node-admin/node-item-admin-list.query.php:105
 msgid "Item Found"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:63
-#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-list.query.php:106
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:63
+#: plugins/PHPDevShell/models/node-admin/node-item-admin-list.query.php:106
 msgid "Item Not Found"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:66
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:562
-#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-permissions.query.php:205
-#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-list.query.php:108
-msgid "Edit Menu Item"
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:66
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:562
+#: plugins/PHPDevShell/models/node-admin/node-item-admin-permissions.query.php:205
+#: plugins/PHPDevShell/models/node-admin/node-item-admin-list.query.php:108
+msgid "Edit Node Item"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:68
-msgid "New Menu Item"
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:68
+msgid "New Node Item"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:162
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:162
 msgid "Controller file available"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:165
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:168
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:165
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:168
 msgid "Controller file NOT available"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:174
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:174
 msgid "Model file available"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:176
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:176
 msgid "Model file NOT available"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:183
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:183
 msgid "View file available"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:185
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:185
 msgid "View file NOT available"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:199
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:199
 msgid "View template available"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:201
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:201
 msgid "View template NOT available"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:209
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:209
 msgid "View class available"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:211
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:211
 msgid "View class NOT available"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:265
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:265
 msgid "Leave Current"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:307
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:307
 msgid "You did not complete all the required fields."
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:312
-msgid "You cannot link a menu item to itself."
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:312
+msgid "You cannot link a node item to itself."
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:321
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:321
 #, php-format
-msgid "Another menu is already using menu id %s"
+msgid "Another node is already using node id %s"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:330
-msgid "You cannot have a menu item be a parent of itself. Please choose another parent for this item."
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:330
+msgid "You cannot have a node item be a parent of itself. Please choose another parent for this item."
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:357
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:357
 #, php-format
 msgid "Cannot find the plugin controller in the specified directory: %s"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:365
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:375
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:397
-msgid "You need to select a menu item to link with."
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:365
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:375
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:397
+msgid "You need to select a node item to link with."
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:385
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:385
 #, php-format
-msgid "Cannot find the external file you wish to create a menu item with, looked in: %s"
+msgid "Cannot find the external file you wish to create a node item with, looked in: %s"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:391
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:391
 msgid "An external URL was selected."
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:406
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:406
 msgid "You must provide iFrame with a height."
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:416
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:416
 #, php-format
-msgid "Cannot find the plugin cron file you wish to create a menu item with, looked in: %s"
+msgid "Cannot find the plugin cron file you wish to create a node item with, looked in: %s"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:422
-msgid "You need to select at least one menu type."
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:422
+msgid "You need to select at least one node type."
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:432
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:432
 #, php-format
-msgid "Menu id changed, the new menu item id is %s and replaced old menu id %s."
+msgid "Node id changed, the new node item id is %s and replaced old node id %s."
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:469
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:469
 #, php-format
-msgid "Menu item %s was saved."
+msgid "Node item %s was saved."
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:530
-#: plugins/PHPDevShell/includes/menuArray.class.php:35
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:530
+#: plugins/PHPDevShell/includes/nodeArray.class.php:35
 msgid "Plugin Item"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:531
-#: plugins/PHPDevShell/includes/menuArray.class.php:36
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:531
+#: plugins/PHPDevShell/includes/nodeArray.class.php:36
 msgid "Link Existing Plugin Item"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:532
-#: plugins/PHPDevShell/includes/menuArray.class.php:37
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:532
+#: plugins/PHPDevShell/includes/nodeArray.class.php:37
 msgid "Link Existing Plugin Item and Jump to its Group"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:533
-#: plugins/PHPDevShell/includes/menuArray.class.php:38
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:533
+#: plugins/PHPDevShell/includes/nodeArray.class.php:38
 msgid "Execute External File"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:534
-#: plugins/PHPDevShell/includes/menuArray.class.php:39
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:534
+#: plugins/PHPDevShell/includes/nodeArray.class.php:39
 msgid "External http URL"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:535
-#: plugins/PHPDevShell/includes/menuArray.class.php:40
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:535
+#: plugins/PHPDevShell/includes/nodeArray.class.php:40
 msgid "Unclickable Place Holder"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:536
-#: plugins/PHPDevShell/includes/menuArray.class.php:41
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:536
+#: plugins/PHPDevShell/includes/nodeArray.class.php:41
 msgid "iFrame Item"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:537
-#: plugins/PHPDevShell/includes/menuArray.class.php:42
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:537
+#: plugins/PHPDevShell/includes/nodeArray.class.php:42
 #: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:12
 msgid "Cronjob Item"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:538
-#: plugins/PHPDevShell/includes/menuArray.class.php:43
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:538
+#: plugins/PHPDevShell/includes/nodeArray.class.php:43
 msgid "HTML Ajax Widget"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:539
-#: plugins/PHPDevShell/includes/menuArray.class.php:44
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:539
+#: plugins/PHPDevShell/includes/nodeArray.class.php:44
 msgid "HTML Ajax"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:540
-#: plugins/PHPDevShell/includes/menuArray.class.php:45
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:540
+#: plugins/PHPDevShell/includes/nodeArray.class.php:45
 msgid "HTML Ajax Lightbox"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:541
-#: plugins/PHPDevShell/includes/menuArray.class.php:46
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:541
+#: plugins/PHPDevShell/includes/nodeArray.class.php:46
 msgid "Raw Ajax"
 msgstr ""
 
-#: plugins/PHPDevShell/controllers/menu-admin/menu-item-admin.php:599
+#: plugins/PHPDevShell/controllers/node-admin/node-item-admin.php:599
 msgid "URL/File Path Location/Linked Items (anything unique)"
 msgstr ""
 
@@ -1063,7 +1063,7 @@ msgstr ""
 
 #: plugins/PHPDevShell/controllers/template-admin/template-admin-list.php:56
 #, php-format
-msgid "There are menu items depending on theme \"%s\" or it is set as system default, please assign to another theme first."
+msgid "There are node items depending on theme \"%s\" or it is set as system default, please assign to another theme first."
 msgstr ""
 
 #: plugins/PHPDevShell/controllers/template-admin/template-admin-list.php:68
@@ -1511,15 +1511,15 @@ msgid "File Log Viewer"
 msgstr ""
 
 #: plugins/PHPDevShell/language/gettext.lang.php:29
-msgid "Manage Menus"
+msgid "Manage Nodes"
 msgstr ""
 
 #: plugins/PHPDevShell/language/gettext.lang.php:30
-msgid "New Menu"
+msgid "New Node"
 msgstr ""
 
 #: plugins/PHPDevShell/language/gettext.lang.php:31
-msgid "Edit Menu"
+msgid "Edit Node"
 msgstr ""
 
 #: plugins/PHPDevShell/language/gettext.lang.php:32
@@ -1735,7 +1735,7 @@ msgstr ""
 
 #: plugins/PHPDevShell/includes/pluginManager.class.php:250
 #, php-format
-msgid "Checked/Updated menu for %s with id (%s) and linked to %s."
+msgid "Checked/Updated node for %s with id (%s) and linked to %s."
 msgstr ""
 
 #: plugins/PHPDevShell/includes/pluginManager.class.php:363
@@ -1745,7 +1745,7 @@ msgstr ""
 
 #: plugins/PHPDevShell/includes/pluginManager.class.php:399
 #, php-format
-msgid "Installed menu for %s with id (%s) and linked to %s."
+msgid "Installed node for %s with id (%s) and linked to %s."
 msgstr ""
 
 #: plugins/PHPDevShell/includes/pluginManager.class.php:475
@@ -1770,7 +1770,7 @@ msgstr ""
 
 #: plugins/PHPDevShell/includes/pluginManager.class.php:560
 #, php-format
-msgid "Uninstall menus for %s."
+msgid "Uninstall nodes for %s."
 msgstr ""
 
 #: plugins/PHPDevShell/includes/pluginManager.class.php:576
@@ -1810,7 +1810,7 @@ msgstr ""
 
 #: plugins/PHPDevShell/includes/pluginManager.class.php:719
 #, php-format
-msgid "Uninstalled some menus on upgrade for %s."
+msgid "Uninstalled some nodes on upgrade for %s."
 msgstr ""
 
 #: plugins/PHPDevShell/includes/pluginManager.class.php:744
@@ -1894,12 +1894,12 @@ msgstr ""
 
 #: plugins/PHPDevShell/models/cron-admin/run-cron.query.php:60
 #, php-format
-msgid "Cronjob %s (%s) - FAILED - No plugin found for cron menu item. Also check access rights for this cron."
+msgid "Cronjob %s (%s) - FAILED - No plugin found for cron node item. Also check access rights for this cron."
 msgstr ""
 
 #: plugins/PHPDevShell/models/cron-admin/run-cron.query.php:69
 #, php-format
-msgid "Cronjob %s (%s) - FAILED - No link found for cron menu item."
+msgid "Cronjob %s (%s) - FAILED - No link found for cron node item."
 msgstr ""
 
 #: plugins/PHPDevShell/models/cron-admin/run-cron.query.php:155
@@ -1962,8 +1962,8 @@ msgstr ""
 #: plugins/PHPDevShell/models/user-admin/user-admin-pending.query.php:145
 #: plugins/PHPDevShell/models/user-admin/user-admin-list.query.php:529
 #: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:55
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:30
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:45
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-permissions.tpl:30
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:45
 msgid "Delete"
 msgstr ""
 
@@ -2009,7 +2009,7 @@ msgid "No plugin settings were saved."
 msgstr ""
 
 #: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:42
-#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:40
+#: plugins/PHPDevShell/models/logs-admin/node-access-logs.query.php:40
 #: plugins/PHPDevShell/models/logs-admin/fileupload-logs.query.php:40
 msgid "Logs table cleared."
 msgstr ""
@@ -2019,7 +2019,7 @@ msgid "Type of log (1,2,3)"
 msgstr ""
 
 #: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:79
-msgid "Menu Link"
+msgid "Node Link"
 msgstr ""
 
 #: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:80
@@ -2029,10 +2029,10 @@ msgid "Description"
 msgstr ""
 
 #: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:81
-#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:82
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:15
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:15
-msgid "Menu ID"
+#: plugins/PHPDevShell/models/logs-admin/node-access-logs.query.php:82
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-permissions.tpl:15
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:15
+msgid "Node ID"
 msgstr ""
 
 #: plugins/PHPDevShell/models/logs-admin/system-logs.query.php:82
@@ -2078,43 +2078,43 @@ msgstr ""
 msgid "User Logged Out"
 msgstr ""
 
-#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:79
+#: plugins/PHPDevShell/models/logs-admin/node-access-logs.query.php:79
 #: plugins/PHPDevShell/views/logs-admin/file-log-viewer.tpl:26
 msgid "Log Type"
 msgstr ""
 
-#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:80
+#: plugins/PHPDevShell/models/logs-admin/node-access-logs.query.php:80
 msgid "Log ID"
 msgstr ""
 
-#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:81
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:21
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:21
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:21
-msgid "Menu Name"
+#: plugins/PHPDevShell/models/logs-admin/node-access-logs.query.php:81
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-permissions.tpl:21
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:21
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:21
+msgid "Node Name"
 msgstr ""
 
-#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:83
+#: plugins/PHPDevShell/models/logs-admin/node-access-logs.query.php:83
 msgid "Name"
 msgstr ""
 
-#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:84
+#: plugins/PHPDevShell/models/logs-admin/node-access-logs.query.php:84
 msgid "Log Time"
 msgstr ""
 
-#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:93
+#: plugins/PHPDevShell/models/logs-admin/node-access-logs.query.php:93
 msgid "Page not Found!"
 msgstr ""
 
-#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:94
+#: plugins/PHPDevShell/models/logs-admin/node-access-logs.query.php:94
 msgid "Viewed"
 msgstr ""
 
-#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:106
+#: plugins/PHPDevShell/models/logs-admin/node-access-logs.query.php:106
 msgid "Guest User"
 msgstr ""
 
-#: plugins/PHPDevShell/models/logs-admin/menu-access-logs.query.php:110
+#: plugins/PHPDevShell/models/logs-admin/node-access-logs.query.php:110
 msgid "Page not found!"
 msgstr ""
 
@@ -2211,20 +2211,20 @@ msgstr ""
 msgid "I need to trim <b>%s</b> <b>access</b> logs."
 msgstr ""
 
-#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-permissions.query.php:168
+#: plugins/PHPDevShell/models/node-admin/node-item-admin-permissions.query.php:168
 msgid "Permissions saved."
 msgstr ""
 
-#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-permissions.query.php:172
+#: plugins/PHPDevShell/models/node-admin/node-item-admin-permissions.query.php:172
 msgid "There was an unknown problem, permissions not saved."
 msgstr ""
 
-#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-permissions.query.php:204
-#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-list.query.php:107
-msgid "Delete Menu Item"
+#: plugins/PHPDevShell/models/node-admin/node-item-admin-permissions.query.php:204
+#: plugins/PHPDevShell/models/node-admin/node-item-admin-list.query.php:107
+msgid "Delete Node Item"
 msgstr ""
 
-#: plugins/PHPDevShell/models/menu-admin/menu-item-admin-permissions.query.php:232
+#: plugins/PHPDevShell/models/node-admin/node-item-admin-permissions.query.php:232
 msgid "Alias: "
 msgstr ""
 
@@ -2257,7 +2257,7 @@ msgid "Resides in Plugin"
 msgstr ""
 
 #: plugins/PHPDevShell/models/plugin-admin/class-registry.query.php:98
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:36
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:36
 msgid "Rank"
 msgstr ""
 
@@ -2410,7 +2410,7 @@ msgid "Check latest available version"
 msgstr ""
 
 #: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:389
-msgid "Reinstall Menus and Items"
+msgid "Reinstall Nodes and Items"
 msgstr ""
 
 #: plugins/PHPDevShell/models/plugin-admin/plugin-activation.query.php:401
@@ -2529,8 +2529,8 @@ msgstr ""
 #: plugins/PHPDevShell/models/user-admin/user-admin-list.query.php:528
 #: plugins/PHPDevShell/models/registration-token-admin/registration-token-admin-list.query.php:54
 #: plugins/PHPDevShell/views/cron-admin/cronjob-admin-list.tpl:33
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:27
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:42
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-permissions.tpl:27
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:42
 msgid "Edit"
 msgstr ""
 
@@ -2695,9 +2695,9 @@ msgstr ""
 #: plugins/PHPDevShell/views/system-admin/general-settings.tpl:854
 #: plugins/PHPDevShell/views/system-admin/general-settings.tpl:928
 #: plugins/PHPDevShell/views/system-admin/config-manager.tpl:54
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:10
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:10
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:171
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-permissions.tpl:10
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:10
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:171
 #: plugins/PHPDevShell/views/plugin-admin/class-registry.tpl:69
 #: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:54
 #: plugins/PHPDevShell/views/user-admin/user-admin-list.tpl:74
@@ -2784,7 +2784,7 @@ msgstr ""
 #: plugins/PHPDevShell/views/system-admin/general-settings.tpl:752
 #: plugins/PHPDevShell/views/system-admin/general-settings.tpl:851
 #: plugins/PHPDevShell/views/system-admin/general-settings.tpl:925
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:167
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:167
 #: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:50
 #: plugins/PHPDevShell/views/user-admin/user-admin.tpl:113
 #: plugins/PHPDevShell/views/user-admin/user-admin-import.tpl:85
@@ -2909,7 +2909,7 @@ msgid "Cronjob Detail"
 msgstr ""
 
 #: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:7
-msgid "Cronjob (Menu) ID"
+msgid "Cronjob (Node) ID"
 msgstr ""
 
 #: plugins/PHPDevShell/views/cron-admin/cronjob-admin.tpl:22
@@ -3146,7 +3146,7 @@ msgid "Limit database results to this number before splitting to another page"
 msgstr ""
 
 #: plugins/PHPDevShell/views/system-admin/general-settings.tpl:244
-msgid "Limit control panel favorite menus. 0 to disable."
+msgid "Limit control panel favorite nodes. 0 to disable."
 msgstr ""
 
 #: plugins/PHPDevShell/views/system-admin/general-settings.tpl:250
@@ -3162,7 +3162,7 @@ msgid "Default Theme"
 msgstr ""
 
 #: plugins/PHPDevShell/views/system-admin/general-settings.tpl:291
-msgid "Menu Behaviour"
+msgid "Node Behaviour"
 msgstr ""
 
 #: plugins/PHPDevShell/views/system-admin/general-settings.tpl:293
@@ -3170,7 +3170,7 @@ msgid "Dynamic - Change level while navigating"
 msgstr ""
 
 #: plugins/PHPDevShell/views/system-admin/general-settings.tpl:294
-msgid "Static - Stay in root of menu"
+msgid "Static - Stay in root of node"
 msgstr ""
 
 #: plugins/PHPDevShell/views/system-admin/general-settings.tpl:298
@@ -3653,11 +3653,11 @@ msgstr ""
 msgid "Save Settings"
 msgstr ""
 
-#: plugins/PHPDevShell/views/logs-admin/menu-access-logs.tpl:23
+#: plugins/PHPDevShell/views/logs-admin/node-access-logs.tpl:23
 msgid "No access logs found matching your search criteria."
 msgstr ""
 
-#: plugins/PHPDevShell/views/logs-admin/menu-access-logs.tpl:39
+#: plugins/PHPDevShell/views/logs-admin/node-access-logs.tpl:39
 #: plugins/PHPDevShell/views/logs-admin/system-logs.tpl:42
 #: plugins/PHPDevShell/views/logs-admin/fileupload-logs.tpl:54
 msgid "Delete All Logs"
@@ -3742,256 +3742,256 @@ msgstr ""
 msgid "Job Status for Access Logs"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:9
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:9
-msgid "Save Menu Settings"
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-permissions.tpl:9
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:9
+msgid "Save Node Settings"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:18
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:18
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-permissions.tpl:18
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:18
 msgid "Node"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-permissions.tpl:24
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-permissions.tpl:24
 msgid "User Role"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:24
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:131
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:24
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:131
 msgid "New Window"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:27
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:27
 msgid "Hide"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:30
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:141
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:30
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:141
 msgid "Theme"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:33
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:33
 msgid "Custom View"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:39
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:39
 msgid "Check"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:71
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:71
 msgid "Never"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:72
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:121
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:72
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:121
 msgid "From All"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:73
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:73
 msgid "From_CP"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:74
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:123
-msgid "From Menu Only"
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:74
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:123
+msgid "From Node Only"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin-list.tpl:75
+#: plugins/PHPDevShell/views/node-admin/node-item-admin-list.tpl:75
 msgid "onInactive"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:5
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:5
 msgid "Node Detail"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:8
-msgid "Menu Item ID"
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:8
+msgid "Node Item ID"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:15
-msgid "Default Menu Name"
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:15
+msgid "Default Node Name"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:26
-msgid "Menu URL Alias"
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:26
+msgid "Node URL Alias"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:31
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:31
 msgid "Parent Item"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:33
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:33
 msgid "../"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:40
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:40
 msgid "Select node type"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:42
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:42
 msgid "Plugin Node"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:43
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:43
 msgid "(1) Standard Web Page"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:44
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:44
 msgid "(9) HTML Ajax Widget Module (Bordered)"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:45
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:45
 msgid "(10) HTML Ajax Call (Styled)"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:46
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:46
 msgid "(11) HTML Ajax Lightbox (Overlay)"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:47
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:47
 msgid "(12) RAW Ajax Call (Json, XML, text, etc.)"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:50
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:50
 msgid "Link Existing Node"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:52
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:52
 msgid "(2) Plain Link"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:53
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:53
 msgid "(3) Jump To Link"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:54
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:54
 msgid "(6) Place Holder"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:63
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:63
 msgid "External File"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:64
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:64
 msgid "(4) Load External File from outside plugin"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:68
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:68
 msgid "HTTP URL"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:69
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:69
 msgid "(5) Normal external http link"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:73
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:73
 msgid "iFrame"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:74
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:74
 msgid "(7) Http location inside iframe"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:75
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:75
 msgid "Height"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:80
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:80
 msgid "Cronjob Node"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:81
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:81
 msgid "(8) Automatic cronjob"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:85
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:85
 msgid "Plugin Name/Folder"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:90
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:90
 msgid "URL/File Path Location/Virtual Path Identifier if linked item)"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:98
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:98
 msgid "Plugin Detail"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:101
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:101
 msgid "Default MVC Paths"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:102
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:102
 msgid "(Model)"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:103
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:103
 msgid "(View)"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:104
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:104
 msgid "(View Class)"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:105
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:105
 msgid "(Controller)"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:109
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:109
 msgid "Ranking"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:111
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:111
 msgid "Rank First"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:113
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:113
 msgid "Rank Last"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:118
-msgid "Hide Menu"
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:118
+msgid "Hide Node"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:122
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:122
 msgid "From Control Panel Only"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:124
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:124
 msgid "When Inactive Only"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:129
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:129
 msgid "Open Window In"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:130
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:130
 msgid "Same Window"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:134
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:134
 msgid "User Role Permission - Who can access this node?"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:149
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:149
 msgid "Custom view file for contoller ex. \"alternative\""
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:154
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:154
 msgid "Custom parameters (development purposes (json,xml etc...))"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:159
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:159
 #: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:42
 #: plugins/PHPDevShell/views/user-admin/user-admin.tpl:104
 #: plugins/PHPDevShell/views/user-admin/user-role-admin.tpl:40
 msgid "Line Break Separated (tag:[auto] or tag:value)"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:170
-msgid "Save Menu"
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:170
+msgid "Save Node"
 msgstr ""
 
-#: plugins/PHPDevShell/views/menu-admin/menu-item-admin.tpl:172
+#: plugins/PHPDevShell/views/node-admin/node-item-admin.tpl:172
 #: plugins/PHPDevShell/views/user-admin/user-group-admin.tpl:55
 #: plugins/PHPDevShell/views/user-admin/user-admin.tpl:118
 #: plugins/PHPDevShell/views/user-admin/user-role-admin.tpl:52
@@ -4032,7 +4032,7 @@ msgid "Plugin Folder"
 msgstr ""
 
 #: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:59
-msgid "Menu Language File"
+msgid "Node Language File"
 msgstr ""
 
 #: plugins/PHPDevShell/views/plugin-admin/plugin-activation.tpl:61

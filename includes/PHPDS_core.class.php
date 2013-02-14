@@ -55,11 +55,11 @@ class PHPDS_core extends PHPDS_dependant
 		$configuration = $this->configuration;
 		$navigation = $this->navigation->navigation;
 
-		$current_menu = $navigation[$configuration['m']];
+		$current_node = $navigation[$configuration['m']];
 
-		if (! empty($current_menu['menu_id'])) {
-			// Determine correct menu theme.
-			switch ($current_menu['menu_type']) {
+		if (! empty($current_node['node_id'])) {
+			// Determine correct node theme.
+			switch ($current_node['node_type']) {
 				// HTML Widget.
 				case 9:
 					$this->themeFile = 'widget.php';
@@ -259,7 +259,7 @@ class PHPDS_core extends PHPDS_dependant
 		 *
 		 */
 
-		// Menu Types:
+		// Node Types:
 		// 1. Standard Page from Plugin
 		// 2. Link to Existing Node
 		// 3. Jump to Existing Node
@@ -273,14 +273,14 @@ class PHPDS_core extends PHPDS_dependant
 		// 11. HTML Ajax Lightbox (Floats overtop of web page)
 		// 12. Raw Ajax (json, xml, etc.)
 		// Load script to buffer.
-		if (! empty($navigation[$configuration['m']]['menu_id'])) {
-			// We need to assign active menu_id.
-			$menu_id = $configuration['m'];
-			// Determine correct menu action.
-			switch ($navigation[$configuration['m']]['menu_type']) {
+		if (! empty($navigation[$configuration['m']]['node_id'])) {
+			// We need to assign active node_id.
+			$node_id = $configuration['m'];
+			// Determine correct node action.
+			switch ($navigation[$configuration['m']]['node_type']) {
 				// Plugin File.
 				case 1:
-					$menu_case = 1;
+					$node_case = 1;
 					break;
 				// Link.
 				case 2:
@@ -290,187 +290,187 @@ class PHPDS_core extends PHPDS_dependant
 					break;
 				// External File.
 				case 4:
-					$menu_case = 4;
+					$node_case = 4;
 					break;
 				// HTTP URL.
 				case 5:
-					$menu_case = 5;
+					$node_case = 5;
 					break;
 				// Placeholder.
 				case 6:
 					break;
 				// iFrame.
 				case 7:
-					$menu_case = 7;
+					$node_case = 7;
 					break;
 				// Cronjob.
 				case 8:
-					$menu_case = 8;
+					$node_case = 8;
 					break;
 				// HTML Widget.
 				case 9:
-					$menu_case = 9;
+					$node_case = 9;
 					break;
 				// HTML Ajax.
 				case 10:
-					$menu_case = 10;
+					$node_case = 10;
 				// HTML Ajax Lightbox.
 				case 11:
-					$menu_case = 11;
+					$node_case = 11;
 					break;
 				// Raw Ajax (json,xml,etc).
 				case 12:
-					$menu_case = 12;
+					$node_case = 12;
 					break;
 				default:
 					// Do case.
-					$menu_case = 1;
+					$node_case = 1;
 					break;
 			}
 			///////////////////////////////////
 			// Do further checking on links. //
 			///////////////////////////////////
-			if (empty($menu_case)) {
+			if (empty($node_case)) {
 				// So we have some kind of link, we now need to see what kind of link we have.
-				// Get menu extended data.
-				$extend = $navigation[$menu_id]['extend'];
-				// Get menu type.
-				if (!empty($navigation[$extend]['menu_type'])) {
-					$linked_menu_type = $navigation[$extend]['menu_type'];
+				// Get node extended data.
+				$extend = $navigation[$node_id]['extend'];
+				// Get node type.
+				if (!empty($navigation[$extend]['node_type'])) {
+					$linked_node_type = $navigation[$extend]['node_type'];
 				} else {
-					throw new PHPDS_extendMenuException(array($navigation[$configuration['m']]['menu_id'], $extend));
+					throw new PHPDS_extendNodeException(array($navigation[$configuration['m']]['node_id'], $extend));
 				}
-				// We now have the linked menu type and can now work accordingly.
-				// Determine correct menu action.
-				switch ($linked_menu_type) {
+				// We now have the linked node type and can now work accordingly.
+				// Determine correct node action.
+				switch ($linked_node_type) {
 					// Plugin File.
 					case 1:
-						$menu_case = 1;
-						$menu_id = $extend;
+						$node_case = 1;
+						$node_id = $extend;
 						break;
 					// Link.
 					case 2:
-						$menu_case = 2;
-						$menu_id = $this->navigation->extendMenuLoop($navigation[$extend]['extend']);
+						$node_case = 2;
+						$node_id = $this->navigation->extendNodeLoop($navigation[$extend]['extend']);
 						break;
 					// Jump.
 					case 3:
-						$menu_case = 2;
-						$menu_id = $this->navigation->extendMenuLoop($navigation[$extend]['extend']);
+						$node_case = 2;
+						$node_id = $this->navigation->extendNodeLoop($navigation[$extend]['extend']);
 						break;
 					// External File.
 					case 4:
-						$menu_case = 4;
-						$menu_id = $extend;
+						$node_case = 4;
+						$node_id = $extend;
 						break;
 					// HTTP URL.
 					case 5:
-						$menu_case = 5;
-						$menu_id = $extend;
+						$node_case = 5;
+						$node_id = $extend;
 						break;
 					// Placeholder.
 					case 6:
-						$menu_case = 2;
-						$menu_id = $this->navigation->extendMenuLoop($navigation[$extend]['extend']);
+						$node_case = 2;
+						$node_id = $this->navigation->extendNodeLoop($navigation[$extend]['extend']);
 						break;
 					// iFrame.
 					case 7:
-						$menu_case = 7;
-						$menu_id = $extend;
+						$node_case = 7;
+						$node_id = $extend;
 						break;
 					// Cronjob.
 					case 8:
-						$menu_case = 8;
-						$menu_id = $extend;
+						$node_case = 8;
+						$node_id = $extend;
 						break;
 					// HTML Ajax Widget.
 					case 9:
-						$menu_case = 9;
-						$menu_id = $extend;
+						$node_case = 9;
+						$node_id = $extend;
 						break;
 					// HTML Ajax.
 					case 10:
-						$menu_case = 10;
-						$menu_id = $extend;
+						$node_case = 10;
+						$node_id = $extend;
 						break;
 					// HTML Ajax Lightbox.
 					case 11:
-						$menu_case = 11;
-						$menu_id = $extend;
+						$node_case = 11;
+						$node_id = $extend;
 						break;
 					// Raw Ajax.
 					case 12:
-						$menu_case = 12;
-						$menu_id = $extend;
+						$node_case = 12;
+						$node_id = $extend;
 						break;
 					default:
-						$menu_case = 1;
-						$menu_id = $extend;
+						$node_case = 1;
+						$node_id = $extend;
 						break;
 				}
 			}
-			// Execute repeated menu cases.
-			switch ($menu_case) {
+			// Execute repeated node cases.
+			switch ($node_case) {
 				// Plugin Script.
 				case 1:
-					$this->loadControllerFile($menu_id);
+					$this->loadControllerFile($node_id);
 					break;
 				// Link, Jump, Placeholder.
 				case 2:
-					// Is this an empty menu item?
-					if (empty($menu_id)) {
+					// Is this an empty node item?
+					if (empty($node_id)) {
 						// Lets take user to the front page as last option.
 						// Get correct frontpage id.
-						($this->user->isLoggedIn()) ? $menu_id = $configuration['front_page_id_in'] : $menu_id = $configuration['front_page_id'];
+						($this->user->isLoggedIn()) ? $node_id = $configuration['front_page_id_in'] : $node_id = $configuration['front_page_id'];
 					}
-					$this->loadControllerFile($menu_id);
+					$this->loadControllerFile($node_id);
 					break;
 				// External File.
 				case 4:
 					// Require external file.
-					if (!$this->loadFile($navigation[$menu_id]['menu_link'])) {
-						throw new PHPDS_exception(sprintf(___('File could not be found after trying to execute filename : %s'), $navigation[$menu_id]['menu_link']));
+					if (!$this->loadFile($navigation[$node_id]['node_link'])) {
+						throw new PHPDS_exception(sprintf(___('File could not be found after trying to execute filename : %s'), $navigation[$node_id]['node_link']));
 					}
 					break;
 				// HTTP URL.
 				case 5:
 					// Redirect to external http url.
-					$this->ok(sprintf(___('You are now being redirected to an external url, %s'), $navigation[$menu_id]['menu_link']), false, false);
-					$this->navigation->redirect($navigation[$menu_id]['menu_link']);
+					$this->ok(sprintf(___('You are now being redirected to an external url, %s'), $navigation[$node_id]['node_link']), false, false);
+					$this->navigation->redirect($navigation[$node_id]['node_link']);
 					break;
 				// iFrame.
 				case 7:
 					// Clean up height.
-					$height = preg_replace('/px/i', '', $navigation[$menu_id]['extend']);
+					$height = preg_replace('/px/i', '', $navigation[$node_id]['extend']);
 					// Create Iframe.
-					$this->data = $this->template->mod->iFrame($navigation[$menu_id]['menu_link'], $height, '100%');
+					$this->data = $this->template->mod->iFrame($navigation[$node_id]['node_link'], $height, '100%');
 					break;
 				// Cronjob.
 				case 8:
 					// Require script.
-					if (!$this->loadControllerFile($menu_id)) {
+					if (!$this->loadControllerFile($node_id)) {
 						$time_now = time();
 						// Update last execution.
-						$this->db->invokeQuery('TEMPLATE_cronExecutionLogQuery', $time_now, $menu_id);
+						$this->db->invokeQuery('TEMPLATE_cronExecutionLogQuery', $time_now, $node_id);
 						// Always log manual touched cronjobs.
-						$this->template->ok(sprintf(___('Cronjob %s executed manually.'), $navigation[$menu_id]['menu_name']));
+						$this->template->ok(sprintf(___('Cronjob %s executed manually.'), $navigation[$node_id]['node_name']));
 					}
 					break;
 				// HTML Ajax Widget.
 				case 9:
-					$this->loadControllerFile($menu_id);
+					$this->loadControllerFile($node_id);
 					break;
 				// HTML Ajax.
 				case 10:
-					$this->loadControllerFile($menu_id);
+					$this->loadControllerFile($node_id);
 					break;
 				// HTML Ajax Lightbox.
 				case 11:
-					$this->loadControllerFile($menu_id);
+					$this->loadControllerFile($node_id);
 					break;
 				// HTML Ajax Lightbox.
 				case 12:
-					$this->loadControllerFile($menu_id);
+					$this->loadControllerFile($node_id);
 					break;
 			}
 		}
@@ -512,24 +512,24 @@ class PHPDS_core extends PHPDS_dependant
 	 * @date 20120606 (v1.0.2) (greg) add the "includes/" folder of the plugin in the include path
 	 *
 	 * @author Jason Schoeman
-	 * @param int $menu_id
+	 * @param int $node_id
 	 * @param string|boolean $include_model if set, load the model file before the controller is run (either a prefix or true for default "query" prefix) - default is not to
 	 * @param string|boolean $include_view $include_model if set, run the view file after the controller is run (a prefix) ; default is the "view" prefix)
 	 */
-	public function loadControllerFile ($menu_id, $include_model = false, $include_view = 'view')
+	public function loadControllerFile ($node_id, $include_model = false, $include_view = 'view')
 	{
 		$navigation = $this->navigation->navigation;
 
-		if (!empty($navigation[$menu_id])) {
-			$plugin_folder = $navigation[$menu_id]['plugin_folder'];
+		if (!empty($navigation[$node_id])) {
+			$plugin_folder = $navigation[$node_id]['plugin_folder'];
 			$old_include_path = PU_addIncludePath($plugin_folder.'/includes/');
 
 			if ($include_model) {
 				if ($include_model === true) $include_model = 'query';
-				$this->loadFile($plugin_folder . 'models/' . preg_replace("/.php/", '.' . $include_model . '.php', $navigation[$menu_id]['menu_link']));
+				$this->loadFile($plugin_folder . 'models/' . preg_replace("/.php/", '.' . $include_model . '.php', $navigation[$node_id]['node_link']));
 			}
 
-			$active_dir = $plugin_folder . '%s' . $navigation[$menu_id]['menu_link'];
+			$active_dir = $plugin_folder . '%s' . $navigation[$node_id]['node_link'];
 			$result_ = $this->loadFile(sprintf($active_dir, 'controllers/'));
 			if ($result_ === false) {
 				$result_ = $this->loadFile(sprintf($active_dir, ''));
@@ -542,7 +542,7 @@ class PHPDS_core extends PHPDS_dependant
 
 			// Load view class.
 			if ($include_view && !empty($this->themeFile)) {
-				$load_view = preg_replace("/.php/", '.' . $include_view . '.php', $navigation[$menu_id]['menu_link']);
+				$load_view = preg_replace("/.php/", '.' . $include_view . '.php', $navigation[$node_id]['node_link']);
 				$view_result = $this->loadFile($plugin_folder . 'views/' . $load_view);
 				if (is_string($view_result) && class_exists($view_result)) {
 					$view = $this->factory($view_result);
@@ -553,7 +553,7 @@ class PHPDS_core extends PHPDS_dependant
 			set_include_path($old_include_path);
 		}
 		if ($result_ === false && empty($this->haltController)) {
-			throw new PHPDS_exception(sprintf(___('The controller of menu id %d could not be found after trying to execute filename : "%s"'), $menu_id, sprintf($active_dir, '{controllers/}')));
+			throw new PHPDS_exception(sprintf(___('The controller of node id %d could not be found after trying to execute filename : "%s"'), $node_id, sprintf($active_dir, '{controllers/}')));
 		}
 		return $result_;
 	}
@@ -569,12 +569,12 @@ class PHPDS_core extends PHPDS_dependant
 		$configuration = $this->configuration;
 		$navigation = $this->navigation;
 
-		// Menu link.
+		// Node link.
 		if (empty($navigation->navigation[$configuration['m']]['extend'])) {
-			$menu_link = $navigation->navigation[$configuration['m']]['menu_link'];
+			$node_link = $navigation->navigation[$configuration['m']]['node_link'];
 		} else {
-			$menu_link = $navigation->navigation[$navigation->navigation[$configuration['m']]['extend']]['menu_link'];
-			// Set plugin for this menu item.
+			$node_link = $navigation->navigation[$navigation->navigation[$configuration['m']]['extend']]['node_link'];
+			// Set plugin for this node item.
 			$plugin_extend = $navigation->navigation[$navigation->navigation[$configuration['m']]['extend']]['plugin'];
 		}
 		// Do template engine.
@@ -592,13 +592,13 @@ class PHPDS_core extends PHPDS_dependant
 		}
 		// Check if we have a custom layout otherwise use default.
 		if (empty($load_view)) {
-			$tpl_dir = str_replace($menu_link, '%s/' . str_replace('.php', '.tpl', $menu_link), $plugin_folder . $menu_link);
+			$tpl_dir = str_replace($node_link, '%s/' . str_replace('.php', '.tpl', $node_link), $plugin_folder . $node_link);
 		} else {
-			$link = strrchr($menu_link, '/');
+			$link = strrchr($node_link, '/');
 			if (empty($link)) {
 				$tpl_dir = $plugin_folder . '%s/' . $load_view;
 			} else {
-				$link = str_replace($link, '', $menu_link);
+				$link = str_replace($link, '', $node_link);
 				$tpl_dir = $plugin_folder . '%s/' . $link . '/' . $load_view;
 			}
 		}
@@ -778,11 +778,11 @@ class PHPDS_core extends PHPDS_dependant
 	}
 
 	/**
-	 * This method loads the default menu language array and assigns it to a variable.
+	 * This method loads the default node language array and assigns it to a variable.
 	 *
 	 * @author Jason Schoeman
 	 */
-	public function loadMenuLanguage ()
+	public function loadNodeLanguage ()
 	{
 		// Lets loop the installed plugins.
 		foreach ($this->db->pluginsInstalled as $installed_plugins_array) {

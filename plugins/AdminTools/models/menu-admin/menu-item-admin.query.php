@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Menu Item Admin - Menu Item Permissions
+ * Node Item Admin - Node Item Permissions
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
-class PHPDS_getAdminMenuItemPermissionsQuery extends PHPDS_query
+class PHPDS_getAdminNodeItemPermissionsQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
@@ -13,7 +13,7 @@ class PHPDS_getAdminMenuItemPermissionsQuery extends PHPDS_query
 		FROM
 			_db_core_user_role_permissions t1
 		WHERE
-			t1.menu_id = '%s'
+			t1.node_id = '%s'
 		ORDER BY
 			t1.user_role_id
 		ASC
@@ -39,19 +39,19 @@ class PHPDS_getAdminMenuItemPermissionsQuery extends PHPDS_query
 }
 
 /**
- * Menu Item Admin - Last Rank Menu Item
+ * Node Item Admin - Last Rank Node Item
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
-class PHPDS_lastRankMenuItemQuery extends PHPDS_query
+class PHPDS_lastRankNodeItemQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
 			MAX(t1.rank)
 		FROM
-			_db_core_menu_items t1
+			_db_core_node_items t1
 		WHERE
-			t1.parent_menu_id = '%s'
+			t1.parent_node_id = '%s'
 	";
 	public $singleValue = true;
 
@@ -68,52 +68,52 @@ class PHPDS_lastRankMenuItemQuery extends PHPDS_query
 }
 
 /**
- * Menu Item Admin - Delete Old Menu Permissions
+ * Node Item Admin - Delete Old Node Permissions
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
-class PHPDS_deleteOldMenuPermissionsQuery extends PHPDS_query
+class PHPDS_deleteOldNodePermissionsQuery extends PHPDS_query
 {
 	protected $sql = "
 		DELETE FROM
 			_db_core_user_role_permissions
 		WHERE
-			menu_id = '%s'
+			node_id = '%s'
 	";
 }
 
 /**
- * Menu Item Admin - Insert Menu Permissions
+ * Node Item Admin - Insert Node Permissions
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
-class PHPDS_insertMenuPermissionsQuery extends PHPDS_query
+class PHPDS_insertNodePermissionsQuery extends PHPDS_query
 {
 	protected $sql = "
 		REPLACE INTO
-			_db_core_user_role_permissions (user_role_id, menu_id)
+			_db_core_user_role_permissions (user_role_id, node_id)
 		VALUES
 			%s
 	";
 }
 
 /**
- * Menu Item Admin - Get All Menu Items
+ * Node Item Admin - Get All Node Items
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
-class PHPDS_getAllMenuItemsQuery extends PHPDS_query
+class PHPDS_getAllNodeItemsQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
-			t1.menu_id, t1.menu_name, t1.parent_menu_id, t1.menu_link, t1.menu_type, t1.extend, t1.alias, t1.layout, t1.params,
+			t1.node_id, t1.node_name, t1.parent_node_id, t1.node_link, t1.node_type, t1.extend, t1.alias, t1.layout, t1.params,
 			t2.is_parent
 		FROM
-			_db_core_menu_items t1
+			_db_core_node_items t1
 		LEFT JOIN
-			_db_core_menu_structure t2
+			_db_core_node_structure t2
 		ON
-			t1.menu_id = t2.menu_id
+			t1.node_id = t2.node_id
 		ORDER BY
 			t2.id
 		ASC
@@ -134,60 +134,60 @@ class PHPDS_getAllMenuItemsQuery extends PHPDS_query
 		$show_existing_link = false;
 		if (empty($select_parent)) $select_parent = array();
 		foreach ($select_parent as $select_parent_array) {
-			// Set menu array.
+			// Set node array.
 			$parent = $select_parent_array;
 			// Define.
 			if (empty($edit['link_to'])) $edit['link_to'] = false;
 			$indent = false;
-			// Determine menu name.
-			$menu_name = $this->navigation->determineMenuName($parent['menu_name'], $parent['menu_link'], $parent['menu_id']);
+			// Determine node name.
+			$node_name = $this->navigation->determineNodeName($parent['node_name'], $parent['node_link'], $parent['node_id']);
 			// Calculate folder indention.
 			if ($parent['is_parent'] == 1) {
 				// Define.
-				if (empty($indent_item[$parent['parent_menu_id']]))
-						$indent_item[$parent['parent_menu_id']] = false;
-				$indent_item[$parent['menu_id']] = $indent_item[$parent['parent_menu_id']] + 1;
+				if (empty($indent_item[$parent['parent_node_id']]))
+						$indent_item[$parent['parent_node_id']] = false;
+				$indent_item[$parent['node_id']] = $indent_item[$parent['parent_node_id']] + 1;
 			}
-			if (!empty($indent_item[$parent['parent_menu_id']])) {
-				$indent_integer = $indent_item[$parent['parent_menu_id']];
+			if (!empty($indent_item[$parent['parent_node_id']])) {
+				$indent_integer = $indent_item[$parent['parent_node_id']];
 			} else {
 				$indent_integer = false;
 			}
-			// Check if item was already looped, ruling a loop to be created only once per menu group.
-			if (!key_exists($parent['parent_menu_id'], $indent_group)) {
+			// Check if item was already looped, ruling a loop to be created only once per node group.
+			if (!key_exists($parent['parent_node_id'], $indent_group)) {
 				// Loop and create indent string.
 				for ($i = 0; $i <= $indent_integer; $i++) {
 					$indent .= '&nbsp;';
 				}
-				$indent_group[$parent['parent_menu_id']] = $indent;
+				$indent_group[$parent['parent_node_id']] = $indent;
 			}
 			// If user is editing choose correct selected option.
-			($parent['menu_id'] == $edit['parent_menu_id']) ? $menu_id_selected = 'selected' : $menu_id_selected = false;
+			($parent['node_id'] == $edit['parent_node_id']) ? $node_id_selected = 'selected' : $node_id_selected = false;
 			// Create options.
-			if ($parent['menu_id'] != $edit['menu_id'])
-					$show_parent .= '<option value="' . $parent['menu_id'] . '" ' . $menu_id_selected . '>' . $indent_group[$parent['parent_menu_id']] . $menu_name . '</option>';
+			if ($parent['node_id'] != $edit['node_id'])
+					$show_parent .= '<option value="' . $parent['node_id'] . '" ' . $node_id_selected . '>' . $indent_group[$parent['parent_node_id']] . $node_name . '</option>';
 			// Create Existing Link.
-			if ($parent['menu_id'] == $edit['link_to']) {
+			if ($parent['node_id'] == $edit['link_to']) {
 				$existing_link_selected = 'selected';
-				$existing_link_id = $parent['menu_id'];
+				$existing_link_id = $parent['node_id'];
 			} else {
 				$existing_link_selected = false;
 			}
 			// Define.
-			(empty($this->navigation->navigation[$parent['menu_id']]['extend'])) ? $extend = false : $extend = $this->navigation->navigation[$parent['menu_id']]['extend'];
+			(empty($this->navigation->navigation[$parent['node_id']]['extend'])) ? $extend = false : $extend = $this->navigation->navigation[$parent['node_id']]['extend'];
 			// Check if link should be shown.
-			if (empty($edit['menu_id']) && empty($extend)) {
+			if (empty($edit['node_id']) && empty($extend)) {
 				$show_elink = true;
 			} else {
-				if ($edit['menu_id'] != $extend && empty($extend)) {
+				if ($edit['node_id'] != $extend && empty($extend)) {
 					$show_elink = true;
 				} else {
 					$show_elink = false;
 				}
 			}
 			// Create existing options.
-			if (!empty($show_elink) && ($parent['menu_id'] != $edit['menu_id'])) {
-				$show_existing_link .= '<option value="' . $parent['menu_id'] . '" ' . $existing_link_selected . '>' . $indent_group[$parent['parent_menu_id']] . $menu_name . '</option>';
+			if (!empty($show_elink) && ($parent['node_id'] != $edit['node_id'])) {
+				$show_existing_link .= '<option value="' . $parent['node_id'] . '" ' . $existing_link_selected . '>' . $indent_group[$parent['parent_node_id']] . $node_name . '</option>';
 			}
 			// Clear indent.
 			$indent = false;
@@ -204,7 +204,7 @@ class PHPDS_getAllMenuItemsQuery extends PHPDS_query
 }
 
 /**
- * Menu Item Admin - Get All User Roles
+ * Node Item Admin - Get All User Roles
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
@@ -254,7 +254,7 @@ class PHPDS_getAllUserRolesQuery extends PHPDS_query
 }
 
 /**
- * Menu Item Admin - Get All Available Templates
+ * Node Item Admin - Get All Available Templates
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
@@ -301,37 +301,37 @@ class PHPDS_getAllAvailableTemplatesQuery extends PHPDS_query
 }
 
 /**
- * Menu Item Admin - Check link query
+ * Node Item Admin - Check link query
  * @author Greg
  */
-class PHPDS_findMenuLinkUnicity extends PHPDS_query
+class PHPDS_findNodeLinkUnicity extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
 			*
 		FROM
-			_db_core_menu_items
+			_db_core_node_items
 		WHERE
-			menu_type = 2
+			node_type = 2
 		AND
-			menu_link = '%s'
+			node_link = '%s'
 		AND
-			menu_id != '%s'"
+			node_id != '%s'"
 	;
 	public $singleValue = true;
 }
 
 /**
- * Menu Item Admin - Check alias query
+ * Node Item Admin - Check alias query
  * @author Greg
  */
-class PHPDS_findMenuAliasUnicity extends PHPDS_query
+class PHPDS_findNodeAliasUnicity extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
 			*
 		FROM
-			_db_core_menu_items
+			_db_core_node_items
 		WHERE
 			alias = '%s'"
 	;
@@ -342,6 +342,6 @@ class PHPDS_findMenuAliasUnicity extends PHPDS_query
 	 */
 	public function extraBuild($parameters = null)
 	{
-		return (count($parameters) > 1) ? " AND menu_id != '%s'" : '';
+		return (count($parameters) > 1) ? " AND node_id != '%s'" : '';
 	}
 }

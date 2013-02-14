@@ -26,7 +26,7 @@
 * A few new 16x16 applications icons
 0.9.1
 =====
-* A new Faenza-Darker theme with light monochrome icons for (dark) panels and menus and dark monochrome icons for toolbars
+* A new Faenza-Darker theme with light monochrome icons for (dark) panels and nodes and dark monochrome icons for toolbars
 * Fix wrong links for system actions displayed in panel with Faenza-Darkest
 * Fix missing links for XFCE panel
 * Add gnome-fs-bookmark
@@ -58,7 +58,7 @@
 * New applications: desktop effects, easytag, emacs, emesene, flashplayer, gnome panel launcher, hardinfo, icedove, iceweasel, im-chooser, keepassx, last.fm, radio, mitter, monodevelop, openoffice template, openoffice printeradmin, pidgin, pino, pithos, podcast, firewall, sound juicer, truecrypt, wikipedia, wireshark, youtube
 * New 16x16 icons for common applications
 * A wide bunch of common mimetypes in all sizes
-* New icons for treeviews, menu and toolbars in brasero, rhythmbox, banshee, synaptic and software center
+* New icons for treeviews, node and toolbars in brasero, rhythmbox, banshee, synaptic and software center
 * New monochrome status icons: dropbox, file copy, printer, getting things gnome, root privilege, pino.
 * New logos for Archlinux and Frugalware.
 * Some fixes for missing links and dark status icons
@@ -68,10 +68,10 @@
 0.6
 ===
 * New icons for applications: audacity, audacious, deluge, dropbox, eclipse, f-spot, google chrome, google earth, gmail, gtk-recordmydesktop, guayadeque, leafpad, midori, minitube, minitunes, pidgin, shotwell, skype, spotify, shutter, ubuntu-tweak, ubuntuone, wine, wine configuration, wine uninstaller, wine folder, zeitgeist.
-* New icons for system preferences and administration: gparted, jockey, logviewer, network, sound, windows and shortcuts preferences, emerald, menu editor, gnome panel, opera widget manager, ATI catalyst control center.
+* New icons for system preferences and administration: gparted, jockey, logviewer, network, sound, windows and shortcuts preferences, emerald, node editor, gnome panel, opera widget manager, ATI catalyst control center.
 * New icons for games: all standard Gnome games, defcon, gbrainy, openttd, world of goo
 * New icons for devices: keyboard, scanner, floppy, pda.
-* New bunch of monochromatic distributor logos for gnome main menu.
+* New bunch of monochromatic distributor logos for gnome main node.
 * Some fixes for dark status icons and wrong or missing icons names.
 
 0.5

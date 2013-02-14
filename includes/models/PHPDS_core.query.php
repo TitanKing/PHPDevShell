@@ -8,7 +8,7 @@ class TEMPLATE_cronExecutionLogQuery extends PHPDS_query
 		SET
 			t1.last_execution = '%s'
 		WHERE
-			t1.menu_id = '%s'
+			t1.node_id = '%s'
 	";
 }
 

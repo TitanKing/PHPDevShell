@@ -39,11 +39,11 @@ class TemplateAdminList extends PHPDS_controller
 			// Convert template id.
 			$template_folder_delete = $this->security->get['ut'];
 			$template_id_delete = $this->core->nameToId("$template_folder_delete");
-			// Check if we have menu items assigned to this template.
-			$count_menu_items_dep = $this->db->invokeQuery('PHPDS_countTemplateQuery', $template_id_delete);
+			// Check if we have node items assigned to this template.
+			$count_node_items_dep = $this->db->invokeQuery('PHPDS_countTemplateQuery', $template_id_delete);
 
 			// Check if it is safe to delete.
-			if (empty($count_menu_items_dep) && ($template_id_delete != $this->configuration['default_template_id'])) {
+			if (empty($count_node_items_dep) && ($template_id_delete != $this->configuration['default_template_id'])) {
 				// Now we can delete template item.
 				$deleted_template = $this->db->deleteQuick('_db_core_templates', 'template_id', $template_id_delete, 'template_folder');
 
@@ -53,7 +53,7 @@ class TemplateAdminList extends PHPDS_controller
 					$this->template->warning(sprintf(__('No theme "%s" to delete.'), $template_folder_delete));
 				}
 			} else {
-				$this->template->warning(sprintf(__('There are menu items depending on theme "%s" or it is set as system default, please assign to another theme first.'), $template_folder_delete));
+				$this->template->warning(sprintf(__('There are node items depending on theme "%s" or it is set as system default, please assign to another theme first.'), $template_folder_delete));
 			}
 		}
 
@@ -61,7 +61,7 @@ class TemplateAdminList extends PHPDS_controller
 		$template_option_ = $template_option_ar['dropdown'];
 		$template_id_db = $template_option_ar['selected'];
 
-		// Set template default per menu.
+		// Set template default per node.
 		if (! empty($this->security->post['set'])) {
 			// Check if we have a complete form for changing templates.
 			if (empty($this->security->post['set_to'])) {

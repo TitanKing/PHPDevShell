@@ -127,7 +127,7 @@
 							<input name="email_critical" type="radio" value="0" {$verify_email_critical1} title="{_e('No')}">{_e('No')}
 						</p>
 						<p>
-							<span title="{_e('When a menu item has an alias and .htaccess was enable with mod_rewrite urls will appear more friendly.')}">
+							<span title="{_e('When a node item has an alias and .htaccess was enable with mod_rewrite urls will appear more friendly.')}">
 								{_e('Enable Friendly URLs')}
 							</span><br>
 							<input name="sef_url" type="radio" value="1" {$sef_url0} title="{_e('Yes')}">{_e('Yes')}
@@ -241,8 +241,8 @@
 						</p>
 						<p>
 							<label>
-								{_e('Limit control panel favorite menus. 0 to disable.')}
-								<input type="text" size="5" name="limit_favorite" value="{$sa.limit_favorite}" title="{_e('When viewing the control panel you see a favorite menus list, you can increase or decrease that number here.')}">
+								{_e('Limit control panel favorite nodes. 0 to disable.')}
+								<input type="text" size="5" name="limit_favorite" value="{$sa.limit_favorite}" title="{_e('When viewing the control panel you see a favorite nodes list, you can increase or decrease that number here.')}">
 							</label>
 						</p>
 						<p>
@@ -287,11 +287,11 @@
 							</label>
 						</p>
 						<p>
-							<span title="{_e('How the menu system should behave while navigating.')}">
-								{_e('Menu Behaviour')}
+							<span title="{_e('How the node system should behave while navigating.')}">
+								{_e('Node Behaviour')}
 							</span><br>
-							<input name="menu_behaviour" type="radio" value="dynamic" {$menu_behaviour_dynamic} title="{_e('Dynamic - Change level while navigating')}">{_e('Dynamic - Change level while navigating')}<br>
-							<input name="menu_behaviour" type="radio" value="static" {$menu_behaviour_static} title="{_e('Static - Stay in root of menu')}">{_e('Static - Stay in root of menu')}
+							<input name="node_behaviour" type="radio" value="dynamic" {$node_behaviour_dynamic} title="{_e('Dynamic - Change level while navigating')}">{_e('Dynamic - Change level while navigating')}<br>
+							<input name="node_behaviour" type="radio" value="static" {$node_behaviour_static} title="{_e('Static - Stay in root of node')}">{_e('Static - Stay in root of node')}
 						</p>
 						<p>
 							<label>
@@ -314,7 +314,7 @@
 						<p>
 							<label>
 								{_e('Frontpage Link (When logged out)')}
-								<select class="select" name="front_page_id" title="{_e('The menu you would like to use for the front page when a user is logged out. When the front page are accessed this script will run.')}">
+								<select class="select" name="front_page_id" title="{_e('The node you would like to use for the front page when a user is logged out. When the front page are accessed this script will run.')}">
 									<option value="">...</option>
 									{$frontpage_id_option}
 								</select>
@@ -323,7 +323,7 @@
 						<p>
 							<label>
 								{_e('Frontpage Link (When logged in)')}
-								<select class="select" name="front_page_id_in" title="{_e('The menu you would like to use for the front page when a user is logged in. When the front page are accessed this script will run.')}">
+								<select class="select" name="front_page_id_in" title="{_e('The node you would like to use for the front page when a user is logged in. When the front page are accessed this script will run.')}">
 									<option value="">...</option>
 									{$frontpage_id_in_option}
 								</select>

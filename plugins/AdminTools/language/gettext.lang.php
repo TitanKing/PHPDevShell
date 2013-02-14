@@ -1,8 +1,8 @@
 <?php
 
 // It is import to leave these commented out, this is here only so that it can be extracted
-// for the translation system list. If your menu items is not listed here. The user can change it
-// manually from the menu item management.
+// for the translation system list. If your node items is not listed here. The user can change it
+// manually from the node item management.
 // LEAVE THIS COMMENTED OUT, IT SERVES ONLY FOR LANGUAGE EXTRACTION APPLICATIONS.
 _('Readme');
 _('Register Account');
@@ -25,10 +25,10 @@ _('System Logs');
 _('Access Logs');
 _('Upload Logs');
 _('File Log Viewer');
-_('Menu Admin');
-_('Manage Menus');
-_('New Menu');
-_('Edit Menu');
+_('Node Admin');
+_('Manage Nodes');
+_('New Node');
+_('Edit Node');
 _('Access Control');
 _('Cronjob Admin');
 _('Manage Cronjobs');

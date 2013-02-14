@@ -148,8 +148,8 @@ class GeneralSettings extends PHPDS_controller
 		// Query available groups.
 		$user_groups_db = $this->db->invokeQuery('PHPDS_userGroupsDbQuery');
 
-		// Query available menu items.
-		$menu_db = $this->db->invokeQuery('PHPDS_menuDbQuery');
+		// Query available node items.
+		$node_db = $this->db->invokeQuery('PHPDS_nodeDbQuery');
 
 		// Query available themes.
 		$select_template = $this->db->invokeQuery('PHPDS_selectTemplateQuery');
@@ -179,12 +179,12 @@ class GeneralSettings extends PHPDS_controller
 		$root_role_option = '';
 		$root_group_option = '';
 		// redirect_login /////////////////////////////////////////////
-		foreach ($menu_db as $menu_array) {
-			// Determine menu name.
-			$menu_name = $this->navigation->determineMenuName($menu_array['menu_name'], $menu_array['menu_link'], $menu_array['menu_id']);
+		foreach ($node_db as $node_array) {
+			// Determine node name.
+			$node_name = $this->navigation->determineNodeName($node_array['node_name'], $node_array['node_link'], $node_array['node_id']);
 			// Selected?
-			($sa['redirect_login'] == $menu_array['menu_id']) ? $redirect_select = 'selected' : $redirect_select = false;
-			$redirect_option .= '<option value="' . $menu_array['menu_id'] . "\" $redirect_select>" . $menu_name . '</option>';
+			($sa['redirect_login'] == $node_array['node_id']) ? $redirect_select = 'selected' : $redirect_select = false;
+			$redirect_option .= '<option value="' . $node_array['node_id'] . "\" $redirect_select>" . $node_name . '</option>';
 		}
 		// root_id ////////////////////////////////////////////////////
 		foreach ($get_user_db as $get_users_array) {
@@ -275,9 +275,9 @@ class GeneralSettings extends PHPDS_controller
 		$loginandout_option = false;
 		$frontpage_id_option = false;
 		$frontpage_id_in_option = false;
-		$menu_behaviour_dynamic = false;
-		$menu_behaviour_static = false;
-		($sa['menu_behaviour'] == 'dynamic') ? $menu_behaviour_dynamic = 'checked' : $menu_behaviour_static = 'checked';
+		$node_behaviour_dynamic = false;
+		$node_behaviour_static = false;
+		($sa['node_behaviour'] == 'dynamic') ? $node_behaviour_dynamic = 'checked' : $node_behaviour_static = 'checked';
 		// default_template & printable_template//////////////////////////////
 		foreach ($select_template as $select_template_array) {
 			// Check if if item should be selected.
@@ -297,18 +297,18 @@ class GeneralSettings extends PHPDS_controller
 			$skin_option_ .= '<option value="' . $skin['folder'] . "\" $skin_selected_>" . $skin['folder'] . '</option>';
 		}
 		// front_page_id //////////////////////////////////////////////
-		foreach ($menu_db as $menu_array) {
-			// Determine menu name.
-			$menu_name = $this->navigation->determineMenuName($menu_array['menu_name'], $menu_array['menu_link'], $menu_array['menu_id']);
+		foreach ($node_db as $node_array) {
+			// Determine node name.
+			$node_name = $this->navigation->determineNodeName($node_array['node_name'], $node_array['node_link'], $node_array['node_id']);
 			// Logged in and out page?
-			($sa['loginandout'] == $menu_array['menu_id']) ? $loginandout_select = 'selected' : $loginandout_select = false;
-			$loginandout_option .= '<option value="' . $menu_array['menu_id'] . "\" $loginandout_select>" . $menu_name . '</option>';
+			($sa['loginandout'] == $node_array['node_id']) ? $loginandout_select = 'selected' : $loginandout_select = false;
+			$loginandout_option .= '<option value="' . $node_array['node_id'] . "\" $loginandout_select>" . $node_name . '</option>';
 			// Logged Out Front Page Selected?
-			($sa['front_page_id'] == $menu_array['menu_id']) ? $frontpage_select = 'selected' : $frontpage_select = false;
-			$frontpage_id_option .= '<option value="' . $menu_array['menu_id'] . "\" $frontpage_select>" . $menu_name . '</option>';
+			($sa['front_page_id'] == $node_array['node_id']) ? $frontpage_select = 'selected' : $frontpage_select = false;
+			$frontpage_id_option .= '<option value="' . $node_array['node_id'] . "\" $frontpage_select>" . $node_name . '</option>';
 			// Logged IN Front Page Selected?
-			($sa['front_page_id_in'] == $menu_array['menu_id']) ? $frontpage_select_in = 'selected' : $frontpage_select_in = false;
-			$frontpage_id_in_option .= '<option value="' . $menu_array['menu_id'] . "\" $frontpage_select_in>" . $menu_name . '</option>';
+			($sa['front_page_id_in'] == $node_array['node_id']) ? $frontpage_select_in = 'selected' : $frontpage_select_in = false;
+			$frontpage_id_in_option .= '<option value="' . $node_array['node_id'] . "\" $frontpage_select_in>" . $node_name . '</option>';
 		}
 		if (empty($sa['custom_css'])) $sa['custom_css'] = '';
 		///////////////////////////////////////////////////////////////
@@ -414,12 +414,12 @@ class GeneralSettings extends PHPDS_controller
 		// registration_page //////////////////////////////////////////
 		// Set.
 		$registration_page_option = false;
-		foreach ($menu_db as $menu_array) {
-			// Determine menu name.
-			$menu_name = $this->navigation->determineMenuName($menu_array['menu_name'], $menu_array['menu_link'], $menu_array['menu_id']);
+		foreach ($node_db as $node_array) {
+			// Determine node name.
+			$node_name = $this->navigation->determineNodeName($node_array['node_name'], $node_array['node_link'], $node_array['node_id']);
 			// Selected?
-			($sa['registration_page'] == $menu_array['menu_id']) ? $registration_page_select = 'selected' : $registration_page_select = false;
-			$registration_page_option .= '<option value="' . $menu_array['menu_id'] . "\" $registration_page_select>" . $menu_name . '</option>';
+			($sa['registration_page'] == $node_array['node_id']) ? $registration_page_select = 'selected' : $registration_page_select = false;
+			$registration_page_option .= '<option value="' . $node_array['node_id'] . "\" $registration_page_select>" . $node_name . '</option>';
 		}
 		///////////////////////////////////////////////////////////////
 		// verify_registration ////////////////////////////////////////
@@ -694,8 +694,8 @@ class GeneralSettings extends PHPDS_controller
 		# <!-- ******************** TEMPLATE SETTINGS ******************** -->
 		// Set Values.
 		$view->set('template_option_', $template_option_);
-		$view->set('menu_behaviour_dynamic', $menu_behaviour_dynamic);
-		$view->set('menu_behaviour_static', $menu_behaviour_static);
+		$view->set('node_behaviour_dynamic', $node_behaviour_dynamic);
+		$view->set('node_behaviour_static', $node_behaviour_static);
 		$view->set('skin_option_', $skin_option_);
 		$view->set('loginandout_option', $loginandout_option);
 		$view->set('frontpage_id_option', $frontpage_id_option);

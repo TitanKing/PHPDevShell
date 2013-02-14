@@ -21,29 +21,29 @@ class PHPDS_navigation extends PHPDS_dependant
 	 */
 	protected $breadcrumbArray = null;
 	/**
-	 * @var array of arrays, for each menu which have children, an array of the children IDs
+	 * @var array of arrays, for each node which have children, an array of the children IDs
 	 */
 	public $child = null;
 	/**
-	 * Holds all menu item information.
+	 * Holds all node item information.
 	 *
 	 * @var array
 	 */
 	public $navigation;
 	/**
-	 * Holds all menu item information.
+	 * Holds all node item information.
 	 *
 	 * @var array
 	 */
 	public $navAlias;
 
 	/**
-	 * This methods loads the menu structure, this according to permission and conditions.
+	 * This methods loads the node structure, this according to permission and conditions.
 	 *
 	 * @return string
 	 * @author Jason Schoeman
 	 */
-	public function extractMenu ()
+	public function extractNode ()
 	{
 		$db = $this->db;
 		$all_user_roles = $this->user->getRoles($this->configuration['user_id']);
@@ -51,7 +51,7 @@ class PHPDS_navigation extends PHPDS_dependant
 			if (empty($this->navigation)) $this->navigation = array();
 			if (empty($this->child)) $this->child = array();
 			if (empty($this->navAlias)) $this->navAlias = array();
-			$db->invokeQuery('NAVIGATION_extractMenuQuery', $all_user_roles);
+			$db->invokeQuery('NAVIGATION_extractNodeQuery', $all_user_roles);
 
 			$db->cacheWrite('navigation', $this->navigation);
 			$db->cacheWrite('child_navigation', $this->child);
@@ -65,32 +65,32 @@ class PHPDS_navigation extends PHPDS_dependant
 	}
 
 	/**
-	 * Determines what the menu item should be named.
+	 * Determines what the node item should be named.
 	 *
 	 * @param string $replacement_name
-	 * @param string $menu_link
-	 * @param int $menu_id
+	 * @param string $node_link
+	 * @param int $node_id
 	 * @return string
 	 */
-	public function determineMenuName ($replacement_name = '', $menu_link = '', $menu_id = false, $plugin='')
+	public function determineNodeName ($replacement_name = '', $node_link = '', $node_id = false, $plugin='')
 	{
 		if (! empty($replacement_name)) {
 			return __("$replacement_name", "$plugin");
 		} else {
-			return $menu_link;
+			return $node_link;
 		}
 	}
 
 	/**
-	 * Returns true if menu should show.
+	 * Returns true if node should show.
 	 *
 	 * @param integer $hide_type
-	 * @param integer $menu_id
+	 * @param integer $node_id
 	 * @param integer $active_id
 	 */
-	public function showMenu ($hide_type, $menu_id = null, $active_id = null)
+	public function showNode ($hide_type, $node_id = null, $active_id = null)
 	{
-		if (! empty($menu_id) && ($hide_type == 4) && $active_id == $menu_id) {
+		if (! empty($node_id) && ($hide_type == 4) && $active_id == $node_id) {
 			return true;
 		} else {
 			if ($hide_type == 0 || $hide_type == 2) {
@@ -102,61 +102,61 @@ class PHPDS_navigation extends PHPDS_dependant
 	}
 
 	/**
-	 * Compiles menu items in order.
+	 * Compiles node items in order.
 	 *
 	 * @return string
 	 * @author Jason Schoeman
 	 */
 	public function createMenuStructure ()
 	{
-		$menu = false;
+		$node = false;
 		$configuration = $this->configuration;
 		$nav = $this->navigation;
 		$mod = $this->template->mod;
 
 		if (! empty($nav)) {
-			// Start the main loop, the main loop handles the top level menus.
-			// When child menus are found the callFamily function is used to render those menus. The callFamily function may or may not go recursive at that point.
+			// Start the main loop, the main loop handles the top level nodes.
+			// When child nodes are found the callFamily function is used to render those nodes. The callFamily function may or may not go recursive at that point.
 			foreach ($nav as $m) {
-				if ($this->showMenu($m['hide'], $m['menu_id'], $configuration['m']) && ((string) $nav[$m['menu_id']]['parent_menu_id'] == '0')) {
-					($m['menu_id'] == $configuration['m']) ? $url_active = 'active' : $url_active = 'inactive';
+				if ($this->showNode($m['hide'], $m['node_id'], $configuration['m']) && ((string) $nav[$m['node_id']]['parent_node_id'] == '0')) {
+					($m['node_id'] == $configuration['m']) ? $url_active = 'active' : $url_active = 'inactive';
 					if ($m['is_parent'] == 1) {
-						$call_family = $this->callFamily($m['menu_id']);
+						$call_family = $this->callFamily($m['node_id']);
 						if (! empty($call_family)) {
 							$call_family = $mod->menuUlParent($call_family);
 							$p_type = 'grand-parent';
 						} else {
 							$p_type = $url_active;
 						}
-						$menu .= $mod->menuLiParent($call_family, $mod->menuA($m, 'nav-grand'), $p_type, $m);
+						$node .= $mod->menuLiParent($call_family, $mod->menuA($m, 'nav-grand'), $p_type, $m);
 					} else {
-						$menu .= $mod->menuLiChild($mod->menuA($m, 'first-child'), $url_active, $m);
+						$node .= $mod->menuLiChild($mod->menuA($m, 'first-child'), $url_active, $m);
 					}
 				}
 			}
-			if (empty($menu)) {
-				$menu = $mod->menuLiChild($mod->menuA($nav[$configuration['m']]), 'active');
+			if (empty($node)) {
+				$node = $mod->menuLiChild($mod->menuA($nav[$configuration['m']]), 'active');
 			}
 		}
-		return $menu;
+		return $node;
 	}
 
 	/**
-	 * Assists write_menu in calling menu children.
+	 * Assists write_node in calling node children.
 	 *
-	 * @param int $menu_id
+	 * @param int $node_id
 	 */
-	public function callFamily ($menu_id = false)
+	public function callFamily ($node_id = false)
 	{
-		$menu = '';
+		$node = '';
 		$configuration = $this->configuration;
 		$nav = $this->navigation;
 		$mod = $this->template->mod;
 
-		if (! empty($this->child[$menu_id])) {
-			$child = $this->child[$menu_id];
+		if (! empty($this->child[$node_id])) {
+			$child = $this->child[$node_id];
 			foreach ($child as $m) {
-				if ($this->showMenu($nav[$m]['hide'], $m, $configuration['m'])) {
+				if ($this->showNode($nav[$m]['hide'], $m, $configuration['m'])) {
 					($m == $configuration['m']) ? $url_active = 'active' : $url_active = 'inactive';
 					if ($nav[$m]['is_parent'] == 1) {
 						$call_family = $this->callFamily($m);
@@ -166,31 +166,31 @@ class PHPDS_navigation extends PHPDS_dependant
 						} else {
 							$p_type = $url_active;
 						}
-						$menu .= $mod->subMenuLiParent($call_family, $mod->menuA($nav[$m], 'nav-parent'), $p_type, $nav[$m]);
+						$node .= $mod->subMenuLiParent($call_family, $mod->menuA($nav[$m], 'nav-parent'), $p_type, $nav[$m]);
 					} else {
-						$menu .= $mod->subMenuLiChild($mod->menuA($nav[$m], 'child'), $url_active, $nav[$m]);
+						$node .= $mod->subMenuLiChild($mod->menuA($nav[$m], 'child'), $url_active, $nav[$m]);
 					}
 				}
 			}
 		}
-		return $menu;
+		return $node;
 	}
 
 	/**
-	 * This method compiles the history tree seen, this is the tree that the user sees expand when going deeper into menu levels.
-	 * On the default template this is the navigation link string top left above the menus.
+	 * This method compiles the history tree seen, this is the tree that the user sees expand when going deeper into node levels.
+	 * On the default template this is the navigation link string top left above the nodes.
 	 *
 	 * @return string
 	 */
 	public function createSubnav ()
 	{
-		$menu = '';
+		$node = '';
 		$configuration = $this->configuration;
 		$nav = $this->navigation;
 		$mod = $this->template->mod;
 
 		if (empty($nav[$configuration['m']]['is_parent'])) {
-			$parentid = (! empty($nav[$configuration['m']]['parent_menu_id'])) ? $nav[$configuration['m']]['parent_menu_id'] : '0';
+			$parentid = (! empty($nav[$configuration['m']]['parent_node_id'])) ? $nav[$configuration['m']]['parent_node_id'] : '0';
 		} else {
 			$parentid = $configuration['m'];
 		}
@@ -198,14 +198,14 @@ class PHPDS_navigation extends PHPDS_dependant
 		if (! empty($this->child[$parentid])) {
 			$child = $this->child[$parentid];
 			foreach ($child as $m) {
-				if ($this->showMenu($nav[$m]['hide'], $m, $configuration['m'])) {
+				if ($this->showNode($nav[$m]['hide'], $m, $configuration['m'])) {
 					($m == $configuration['m']) ? $url_active = 'active' : $url_active = 'inactive';
-					$menu .= $mod->subNavMenuLi($mod->menuASubNav($nav[$m]), $url_active, $nav[$m]);
+					$node .= $mod->subNavMenuLi($mod->menuASubNav($nav[$m]), $url_active, $nav[$m]);
 				}
 			}
 		}
 
-		return $menu;
+		return $node;
 	}
 
 	/**
@@ -214,32 +214,32 @@ class PHPDS_navigation extends PHPDS_dependant
 	 * @param integer
 	 * @return array
 	 */
-	private function callbackParentItem ($menu_id_)
+	private function callbackParentItem ($node_id_)
 	{
 		$nav = $this->navigation;
-		if (! empty($nav[$menu_id_]['parent_menu_id'])) {
-			$recall_parent_menu_id = $nav[$menu_id_]['parent_menu_id'];
+		if (! empty($nav[$node_id_]['parent_node_id'])) {
+			$recall_parent_node_id = $nav[$node_id_]['parent_node_id'];
 		} else {
-			$recall_parent_menu_id = '0';
+			$recall_parent_node_id = '0';
 		}
-		$this->breadcrumbArray[] = $menu_id_;
-		if ($recall_parent_menu_id) {
-			$this->callbackParentItem($recall_parent_menu_id);
+		$this->breadcrumbArray[] = $node_id_;
+		if ($recall_parent_node_id) {
+			$this->callbackParentItem($recall_parent_node_id);
 		}
 	}
 
 	/**
-	 * Simply returns current menu id.
+	 * Simply returns current node id.
 	 *
 	 * @return int
 	 */
-	public function currentMenuID()
+	public function currentNodeID()
 	{
 		return $this->configuration['m'];
 	}
 
 	/**
-	 * Returns the complete current menu structure
+	 * Returns the complete current node structure
 	 *
 	 * @version 1.0
 	 * @author greg <greg@phpdevshell.org>
@@ -247,68 +247,68 @@ class PHPDS_navigation extends PHPDS_dependant
 	 *
 	 * @return array
 	 */
-	public function currentMenu()
+	public function currentNode()
 	{
-		return $this->navigation[$this->currentMenuID()];
+		return $this->navigation[$this->currentNodeID()];
 	}
 
 	/**
-	 * Will try and locate the full path of a filename of a given menu id, if it is a link, the original filename will be returned.
+	 * Will try and locate the full path of a filename of a given node id, if it is a link, the original filename will be returned.
 	 *
-	 * @param int $menu_id
+	 * @param int $node_id
 	 * @param string $plugin
-	 * @return string
+	 * @return string|boolean
 	 */
-	public function menuFile ($menu_id=false, $plugin=false)
+	public function nodeFile ($node_id=0, $plugin='')
 	{
-		if (empty($menu_id)) $menu_id = $this->configuration['m'];
+		if (empty($node_id)) $node_id = $this->configuration['m'];
 		$absolute_path = $this->configuration['absolute_path'];
-		list($plugin, $menu_link) = $this->menuPath($menu_id, $plugin);
-		if (file_exists($absolute_path . 'plugins/' . $plugin . '/controllers/' . $menu_link)) {
-			return $absolute_path . 'plugins/' . $plugin . '/controllers/' . $menu_link;
-		} else if (file_exists($absolute_path . 'plugins/' . $plugin . '/' . $menu_link)) {
-			return $absolute_path . 'plugins/' . $plugin . '/' . $menu_link;
+		list($plugin, $node_link) = $this->nodePath($node_id, $plugin);
+		if (file_exists($absolute_path . 'plugins/' . $plugin . '/controllers/' . $node_link)) {
+			return $absolute_path . 'plugins/' . $plugin . '/controllers/' . $node_link;
+		} else if (file_exists($absolute_path . 'plugins/' . $plugin . '/' . $node_link)) {
+			return $absolute_path . 'plugins/' . $plugin . '/' . $node_link;
 		} else {
 			return false;
 		}
 	}
 
 	/**
-	 * Will locate the menus item full path.
+	 * Will locate the nodes item full path.
 	 *
-	 * @param int $menu_id
+	 * @param int $node_id
 	 * @param string $plugin
 	 * @return array
 	 */
-	public function menuPath ($menu_id=false, $plugin=false)
+	public function nodePath ($node_id=0, $plugin='')
 	{
 		$configuration = $this->configuration;
 		$navigation = $this->navigation;
 		if (empty($configuration['m']))
 			$configuration['m'] = 0;
-		if (empty($menu_id)) $menu_id =  $configuration['m'];
-		if (empty($navigation[$menu_id]['extend'])) {
-			if (!empty($navigation[$menu_id])) {
-				$menu_link = $navigation[$menu_id]['menu_link'];
+		if (empty($node_id)) $node_id =  $configuration['m'];
+		if (empty($navigation[$node_id]['extend'])) {
+			if (!empty($navigation[$node_id])) {
+				$node_link = $navigation[$node_id]['node_link'];
 				if (empty($plugin))
-					$plugin = $navigation[$menu_id]['plugin'];
+					$plugin = $navigation[$node_id]['plugin'];
 			}
 		} else {
-			$extend = $navigation[$menu_id]['extend'];
-			$menu_link = $navigation[$extend]['menu_link'];
+			$extend = $navigation[$node_id]['extend'];
+			$node_link = $navigation[$extend]['node_link'];
 			if (empty($plugin))
 				$plugin = $navigation[$extend]['plugin'];
 		}
 		if (empty($plugin))
 			$plugin = 'AdminTools';
-		if (empty($menu_link))
-			$menu_link = '';
-		return array($plugin, $menu_link);
+		if (empty($node_link))
+			$node_link = '';
+		return array($plugin, $node_link);
 	}
 
 	/**
-	 * Will return the url for a certain menu item when path is provided.
-	 * @param string $item_path The string to the path of the menu item, 'user/control-panel.php'
+	 * Will return the url for a certain node item when path is provided.
+	 * @param string $item_path The string to the path of the node item, 'user/control-panel.php'
 	 * @param string $plugin_name The plugin name to look for it under, if empty, active plugin will be used.
 	 * @param string $extend_url Will extend url with some get values.
 	 * @return string Will return complete and cleaned sef url if available else normal url will be returned.
@@ -317,34 +317,34 @@ class PHPDS_navigation extends PHPDS_dependant
 	{
 		if (empty($plugin_name))
 			$plugin_name = $this->core->activePlugin();
-		$lookup = array('plugin'=>$plugin_name, 'menu_link'=>$item_path);
-		$menu_id = PU_ArraySearch($lookup, $this->navigation);
-		if (! empty($menu_id)) {
-			return $this->buildURL($menu_id, $extend_url);
+		$lookup = array('plugin'=>$plugin_name, 'node_link'=>$item_path);
+		$node_id = PU_ArraySearch($lookup, $this->navigation);
+		if (! empty($node_id)) {
+			return $this->buildURL($node_id, $extend_url);
 		} else {
 			return $this->pageNotFound();
 		}
 	}
 
 	/**
-	 * Returns the correct string for use in href when creating a link for a menu id. Will return sef url if possible.
-	 * Will return self url when no menu id is given. No starting & or ? is needed, this gets auto determined!
-	 * If left empty it will return current active menu.
+	 * Returns the correct string for use in href when creating a link for a node id. Will return sef url if possible.
+	 * Will return self url when no node id is given. No starting & or ? is needed, this gets auto determined!
+	 * If left empty it will return current active node.
 	 *
-	 * @param mixed The menu id or menu file location to create a url from.
+	 * @param mixed The node id or node file location to create a url from.
 	 * @param string extend_url
 	 * @param boolean strip_trail Will strip unwanted empty operators at the end.
 	 * @return string
 	 * @author Jason Schoeman
 	 */
-	public function buildURL ($menu_id = null, $extend_url = '', $strip_trail = true)
+	public function buildURL ($node_id = null, $extend_url = '', $strip_trail = true)
 	{
-		if (empty($menu_id)) $menu_id = $this->configuration['m'];
+		if (empty($node_id)) $node_id = $this->configuration['m'];
 		if (! empty($this->configuration['sef_url'])) {
-			if (empty($this->navigation["$menu_id"]['alias'])) {
-				$alias = $this->db->invokeQuery('NAVIGATION_findAliasQuery', $menu_id);
+			if (empty($this->navigation["$node_id"]['alias'])) {
+				$alias = $this->db->invokeQuery('NAVIGATION_findAliasQuery', $node_id);
 			} else {
-				$alias = $this->navigation["$menu_id"]['alias'];
+				$alias = $this->navigation["$node_id"]['alias'];
 			}
 			if (! empty($extend_url)) {
 				$extend_url = "?$extend_url";
@@ -361,7 +361,7 @@ class PHPDS_navigation extends PHPDS_dependant
 			} else {
 				$extend_url = '';
 			}
-			$url = 'index.php?m=' . "$menu_id" . "$extend_url";
+			$url = 'index.php?m=' . "$node_id" . "$extend_url";
 		}
 		if (! empty($url)) {
 			return $this->configuration['absolute_url'] . "/$url";
@@ -396,9 +396,9 @@ class PHPDS_navigation extends PHPDS_dependant
 		}
 		if (! empty($_GET['m'])) {
 			$configuration['m'] = $_GET['m'];
-			$get_menu_id = $_GET['m'];
+			$get_node_id = $_GET['m'];
 		} else {
-			$get_menu_id = null;
+			$get_node_id = null;
 		}
 		if(! empty($configuration['sef_url'])) {
 
@@ -436,13 +436,13 @@ class PHPDS_navigation extends PHPDS_dependant
 						$configuration['m'] = $this->navAlias[$alias];
 						return true;
 					} else {
-						return $this->urlAccessError($alias, $get_menu_id);
+						return $this->urlAccessError($alias, $get_node_id);
 					}
 				} else {
 					// This is used when sef url is on but normal url is used.
-					if (! empty($get_menu_id)) {
-						if (empty($this->navigation["$get_menu_id"])) {
-							return $this->urlAccessError(null, $get_menu_id);
+					if (! empty($get_node_id)) {
+						if (empty($this->navigation["$get_node_id"])) {
+							return $this->urlAccessError(null, $get_node_id);
 						} else {
 							return true;
 						}
@@ -456,9 +456,9 @@ class PHPDS_navigation extends PHPDS_dependant
 				}
 			}
 		} else {
-			if (! empty($get_menu_id)) {
-				if (empty($this->navigation["$get_menu_id"])) {
-					return $this->urlAccessError(null, $get_menu_id);
+			if (! empty($get_node_id)) {
+				if (empty($this->navigation["$get_node_id"])) {
+					return $this->urlAccessError(null, $get_node_id);
 				} else {
 					return true;
 				}
@@ -479,11 +479,11 @@ class PHPDS_navigation extends PHPDS_dependant
 	 * @param string
 	 * @author Jason Schoeman
 	 */
-	public function urlAccessError ($alias = null, $get_menu_id = null)
+	public function urlAccessError ($alias = null, $get_node_id = null)
 	{
-		$required_menu_id = $this->db->invokeQuery('NAVIGATION_findMenuQuery', $alias, $get_menu_id);
+		$required_node_id = $this->db->invokeQuery('NAVIGATION_findNodeQuery', $alias, $get_node_id);
 
-		if (empty($required_menu_id)) {
+		if (empty($required_node_id)) {
 			$this->core->haltController = array('type'=>'404','message'=>___('Page not found'));
 			return false;
 		} else {
@@ -492,39 +492,39 @@ class PHPDS_navigation extends PHPDS_dependant
 				return false;
 			} else {
 				$this->core->haltController = array('type'=>'auth','message'=>___('Authentication Required'));
-				$this->configuration['m'] = $required_menu_id;
+				$this->configuration['m'] = $required_node_id;
 				return false;
 			}
 		}
 	}
 
 	/**
-	 * This function support output_script by looking deeper into menu structure to find last linked menu item that is not linked to another.
+	 * This function support output_script by looking deeper into node structure to find last linked node item that is not linked to another.
 	 *
-	 * @param integer $extendedMenuId
+	 * @param integer $extendedNodeId
 	 * @return integer
 	 */
-	public function extendMenuLoop ($extended_menu_id)
+	public function extendNodeLoop ($extended_node_id)
 	{
 		$navigation = $this->navigation;
 
 		// Assign extention value.
-		$extend_more = $navigation[$extended_menu_id]['extend'];
-		// Check if we should look higher up for a working menu id and prevent endless looping.
-		if (! empty($extend_more) && ($extended_menu_id != $navigation[$extend_more]['extend'])) {
-			$this->extendMenuLoop($extend_more);
+		$extend_more = $navigation[$extended_node_id]['extend'];
+		// Check if we should look higher up for a working node id and prevent endless looping.
+		if (! empty($extend_more) && ($extended_node_id != $navigation[$extend_more]['extend'])) {
+			$this->extendNodeLoop($extend_more);
 		} else {
 			// Final check, to see if we had an endless loop that still has an extention.
-			if (! empty($navigation[$extended_menu_id]['extend'])) {
-				if (! empty($navigation[$extended_menu_id]['parent_menu_id'])) {
+			if (! empty($navigation[$extended_node_id]['extend'])) {
+				if (! empty($navigation[$extended_node_id]['parent_node_id'])) {
 					// Lets look even higher up now that we jumped the endless loop.
-					$this->extendMenuLoop($navigation[$extended_menu_id]['parent_menu_id']);
+					$this->extendNodeLoop($navigation[$extended_node_id]['parent_node_id']);
 				} else {
 					// We now have no other choice but to show default home page.
 					return '0';
 				}
 			} else {
-				return $extended_menu_id;
+				return $extended_node_id;
 			}
 		}
 	}
@@ -552,22 +552,22 @@ class PHPDS_navigation extends PHPDS_dependant
 	 */
 	public function purl ($file_path, $extend_url = '', $strip_trail = true)
 	{
-		$menu_id = $this->createMenuId($file_path);
-		return $this->buildURL($menu_id, $extend_url, $strip_trail);
+		$node_id = $this->createNodeId($file_path);
+		return $this->buildURL($node_id, $extend_url, $strip_trail);
 	}
 
 	/**
 	 * Simply converts a url to a clean SEF url if SEF is enabled.
 	 *
-	 * @param int $menu_id
+	 * @param int $node_id
 	 * @param string $extend_url 'test1=foo1&test2=foo2&test3=foobar'
 	 * @param boolean $strip_trail should extending ? be removed.
 	 *
 	 * @return string
 	 */
-	public function sefURL ($menu_id = null, $extend_url = '', $strip_trail = true)
+	public function sefURL ($node_id = null, $extend_url = '', $strip_trail = true)
 	{
-		$url = $this->buildURL($menu_id, $extend_url, $strip_trail);
+		$url = $this->buildURL($node_id, $extend_url, $strip_trail);
 
 		if (! empty($this->configuration['sef_url'])) {
 			return preg_replace(array('/\?/', '/\&/', '/\=/'), '/', $url);
@@ -577,13 +577,13 @@ class PHPDS_navigation extends PHPDS_dependant
 	}
 
 	/**
-	 * Convert plugin file location to unsigned CRC32 value. This is unique and allows one to locate a menu item from location as well.
+	 * Convert plugin file location to unsigned CRC32 value. This is unique and allows one to locate a node item from location as well.
 	 *
 	 * @param string The plugin folder the file is in.
 	 * @return integer
 	 * @author Jason Schoeman
 	 */
-	public function createMenuId ($path)
+	public function createNodeId ($path)
 	{
 		return sprintf('%u', crc32(str_ireplace('/', '', $path)));
 	}
@@ -598,9 +598,9 @@ class PHPDS_navigation extends PHPDS_dependant
 	public function redirect ($url = false, $time = 0)
 	{
 		if ($url == false) {
-			$redirect_url = $this->template->mod->menuRedirect($this->buildURL($this->configuration['m']), $time);
+			$redirect_url = $this->template->mod->nodeRedirect($this->buildURL($this->configuration['m']), $time);
 		} else {
-			$redirect_url = $this->template->mod->menuRedirect($url, $time);
+			$redirect_url = $this->template->mod->nodeRedirect($url, $time);
 		}
 		print $redirect_url;
 	}
@@ -612,7 +612,7 @@ class PHPDS_navigation extends PHPDS_dependant
 	 */
 	public function pageNotFound ()
 	{
-		$menu_id = $this->db->getSettings(array('404_error_page'), 'AdminTools');
-		return $this->buildURL($menu_id['404_error_page']);
+		$node_id = $this->db->getSettings(array('404_error_page'), 'AdminTools');
+		return $this->buildURL($node_id['404_error_page']);
 	}
 }

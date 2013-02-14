@@ -159,7 +159,7 @@ class PHPDS_controller extends PHPDS_dependant
 		if (PU_isAJAX ()) {
 			/**
 			 * This allows to load a widget/ajax theme controller via ajax without triggering the runAjax.
-			 * Now runAjax can still be used within the widget/ajax menu type controller.
+			 * Now runAjax can still be used within the widget/ajax node type controller.
 			 */
 			if ($this->core->ajaxType == false || ! empty($this->_GET['widget']) || ! empty($this->_GET['ajax']) || ! empty($this->_GET['lightbox'])) {
 				$result = $this->execute();

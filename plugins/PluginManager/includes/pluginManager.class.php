@@ -8,13 +8,13 @@ class pluginManager extends PHPDS_dependant
 {
 	protected $plugin;
 	protected $action;
-	protected $menuStructure;
-	protected $menu;
+	protected $nodeStructure;
+	protected $node;
 	protected $pluginUpgraded;
 	public $log;
 
 	/**
-	 * Runs all necesary queries to enter a plugin and its menu items into the database.
+	 * Runs all necesary queries to enter a plugin and its node items into the database.
 	 *
 	 * @param string Folder and unique name where plugin is copied.
 	 * @param string Action taken to manipulate plugin.
@@ -31,15 +31,15 @@ class pluginManager extends PHPDS_dependant
 		$this->plugin = $xml;
 		$this->action = $action;
 		// Extra class required.
-		$this->menuStructure = $this->factory('menuStructure');
+		$this->nodeStructure = $this->factory('nodeStructure');
 		/////////////////////////////////////////////////////////
 		///////////////////// INSTALL ///////////////////////////
 		/////////////////////////////////////////////////////////
 		// Create actions that needs to be taken.
 		// Complete Install
 		if ($action == 'install') {
-			// Install menu items to database.
-			$this->installMenus($plugin_folder);
+			// Install node items to database.
+			$this->installNodes($plugin_folder);
 			// Install settings.
 			$this->installSettings($plugin_folder);
 			// Install classes.
@@ -50,8 +50,8 @@ class pluginManager extends PHPDS_dependant
 			$this->installQueries($plugin_folder);
 			// Write installed plugin.
 			$this->installVersion($plugin_folder, 'install');
-			// Write the menu structure.
-			$this->menuStructure->writeMenuStructure();
+			// Write the node structure.
+			$this->nodeStructure->writeNodeStructure();
 			// Clear old cache.
 			$db->cacheClear();
 		} else //////////////////////////////////////////////////
@@ -59,8 +59,8 @@ class pluginManager extends PHPDS_dependant
 		/////////////////////////////////////////////////////////
 		// Complete Uninstall
 		if ($action == 'uninstall') {
-			// Remove menu items from database.
-			$this->uninstallMenus($plugin_folder);
+			// Remove node items from database.
+			$this->uninstallNodes($plugin_folder);
 			// Remove plugin settings if any.
 			$this->uninstallSettings($plugin_folder);
 			// Remove plugin classes if any.
@@ -69,20 +69,20 @@ class pluginManager extends PHPDS_dependant
 			$this->uninstallQueries($plugin_folder);
 			// Remove plugin from registry.
 			$this->uninstallVersion($plugin_folder);
-			// Write the menu structure.
-			$this->menuStructure->writeMenuStructure();
+			// Write the node structure.
+			$this->nodeStructure->writeNodeStructure();
 			// Clear old cache.
 			$db->cacheClear();
 		} else //////////////////////////////////////////////////
 		///////////////////// REINSTALL /////////////////////////
 		/////////////////////////////////////////////////////////
-		// Complete Re-Install Menu Items.
+		// Complete Re-Install Node Items.
 		if ($action == 'reinstall') {
-			// Install menu items to database.
-			$this->installMenus($plugin_folder, true);
+			// Install node items to database.
+			$this->installNodes($plugin_folder, true);
 			// Before we install anything lets first clear old hooks to this plugin.
-			// Write the menu structure.
-			$this->menuStructure->writeMenuStructure();
+			// Write the node structure.
+			$this->nodeStructure->writeNodeStructure();
 			// Clear old Cache.
 			$db->cacheClear();
 		} else //////////////////////////////////////////////////
@@ -92,16 +92,16 @@ class pluginManager extends PHPDS_dependant
 		if ($action == 'upgrade') {
 			// Upgrade custom database query.
 			$this->upgradeQueries($plugin_folder, $version);
-			// Install menu items to database.
-			$this->installMenus($plugin_folder, true);
+			// Install node items to database.
+			$this->installNodes($plugin_folder, true);
 			// Before we install anything lets first clear old classes to this plugin.
 			$this->uninstallClasses($plugin_folder);
 			// Install classes.
 			$this->installClasses($plugin_folder);
 			// Write database string.
 			$this->upgradeDatabase($plugin_folder, 'install');
-			// Write the menu structure.
-			$this->menuStructure->writeMenuStructure();
+			// Write the node structure.
+			$this->nodeStructure->writeNodeStructure();
 			// Clear old Cache.
 			$db->cacheClear();
 		} else //////////////////////////////////////////////////
@@ -203,11 +203,11 @@ class pluginManager extends PHPDS_dependant
 	}
 
 	/**
-	 * Runs all necesary queries to install a plugins menus.
+	 * Runs all necesary queries to install a plugins nodes.
 	 *
 	 * @param string Folder and unique name where plugin was copied.
 	 */
-	private function installMenus ($plugin_folder, $update=false)
+	private function installNodes ($plugin_folder, $update=false)
 	{
 		$core = $this->core;
 		$template = $this->template;
@@ -218,57 +218,57 @@ class pluginManager extends PHPDS_dependant
 
 		// Get default and empty template id's.
 		$templates_array = $db->getSettings(array('default_template_id' , 'empty_template_id'), 'AdminTools');
-		// Assign menus q to install.
-		$menus_array = $this->plugin->install->menus;
+		// Assign nodes q to install.
+		$nodes_array = $this->plugin->install->nodes;
 		// Define.
-		$last_menu_template_insert = false;
-		// Execute installation of menu items.
-		if (! empty($menus_array)) {
-			$this->installMenusDigger($menus_array);
-			$menus_array = $this->menu;
-			if (count($menus_array) > 0) {
-				// Insert new menu items into database.
-				foreach ($menus_array as $ranking => $menu) {
+		$last_node_template_insert = false;
+		// Execute installation of node items.
+		if (! empty($nodes_array)) {
+			$this->installNodesDigger($nodes_array);
+			$nodes_array = $this->node;
+			if (count($nodes_array) > 0) {
+				// Insert new node items into database.
+				foreach ($nodes_array as $ranking => $node) {
 
-					// Create menu link.
-					$menu_link = (string) $menu['link'];
+					// Create node link.
+					$node_link = (string) $node['link'];
 
-					// Provide your own menu id... not a problem.
-					if (empty($menu['menuid'])) {
-						// Create master menu_id.
-						$menu_id = $this->menuStructure->createMenuId($plugin_folder, $menu_link);
+					// Provide your own node id... not a problem.
+					if (empty($node['nodeid'])) {
+						// Create master node_id.
+						$node_id = $this->nodeStructure->createNodeId($plugin_folder, $node_link);
 					} else {
-						$menu_id = $menu['menuid'];
+						$node_id = $node['nodeid'];
 					}
 
-					// Check if menu is not just an update, we dont want to override custom settings.
+					// Check if node is not just an update, we dont want to override custom settings.
 					if ($update == true) {
-						if ($db->invokeQuery('PHPDS_doesMenuExist', $menu_id)) {
+						if ($db->invokeQuery('PHPDS_doesNodeExist', $node_id)) {
 							// Before we continue, update the link incase it changed.
-							$db->invokeQuery('PHPDS_updateMenuLink', $menu_link, $menu_id);
+							$db->invokeQuery('PHPDS_updateNodeLink', $node_link, $node_id);
 
-							$this->log .= $template->ok(sprintf(__("Checked/Updated menu for %s with id (%s) and linked to %s.", 'AdminTools'), $plugin_folder, $menu_id, $menu_link), 'return');
+							$this->log .= $template->ok(sprintf(__("Checked/Updated node for %s with id (%s) and linked to %s.", 'AdminTools'), $plugin_folder, $node_id, $node_link), 'return');
 							continue;
 						}
 					}
-					// Check if menu item should be installed to other menu structure or if it is using different plugin.
-					if (! empty($menu['plugin'])) {
-						$parent_plugin_folder = $menu['plugin'];
-					} else if (! empty($menu['pluginauto'])) {
-						$parent_plugin_folder = $menu['pluginauto'];
+					// Check if node item should be installed to other node structure or if it is using different plugin.
+					if (! empty($node['plugin'])) {
+						$parent_plugin_folder = $node['plugin'];
+					} else if (! empty($node['pluginauto'])) {
+						$parent_plugin_folder = $node['pluginauto'];
 					} else {
 						$parent_plugin_folder = $plugin_folder;
 					}
-					// Compile parent menu id from user input.
-					if (! empty($menu['parentlink'])) {
-						// Create parent menu id.
-						$parent_id = $this->menuStructure->createMenuId($parent_plugin_folder, $menu['parentlink']);
-					} else if (! empty($menu['parentlinkauto'])) {
-						if (empty($menu['parentmenuid'])) {
-							// Try compiling menu from auto parent link.
-							$parent_id = $this->menuStructure->createMenuId($parent_plugin_folder, $menu['parentlinkauto']);
-						} else if (! empty($menu['parentmenuid'])) {
-							$parent_id = $menu['parentmenuid'];
+					// Compile parent node id from user input.
+					if (! empty($node['parentlink'])) {
+						// Create parent node id.
+						$parent_id = $this->nodeStructure->createNodeId($parent_plugin_folder, $node['parentlink']);
+					} else if (! empty($node['parentlinkauto'])) {
+						if (empty($node['parentnodeid'])) {
+							// Try compiling node from auto parent link.
+							$parent_id = $this->nodeStructure->createNodeId($parent_plugin_folder, $node['parentlinkauto']);
+						} else if (! empty($node['parentnodeid'])) {
+							$parent_id = $node['parentnodeid'];
 						} else {
 							$parent_id = '0';
 						}
@@ -277,32 +277,32 @@ class pluginManager extends PHPDS_dependant
 						$parent_id = '0';
 					}
 					// Link to original plugin item or parent plugin item script.
-					if (! empty($menu['symlink'])) {
-						$extend_to = $this->menuStructure->createMenuId($parent_plugin_folder, $menu['symlink']);
+					if (! empty($node['symlink'])) {
+						$extend_to = $this->nodeStructure->createNodeId($parent_plugin_folder, $node['symlink']);
 						if (empty($navigation->navigation["{$extend_to}"]))
-							$extend_to = $this->menuStructure->createMenuId($plugin_folder, $menu['symlink']);
+							$extend_to = $this->nodeStructure->createNodeId($plugin_folder, $node['symlink']);
 					} else {
 						$extend_to = '';
 					}
 
-					// Create custom menu name.
-					$menu_name = trim($security->sqlWatchdog($menu['name']));
+					// Create custom node name.
+					$node_name = trim($security->sqlWatchdog($node['name']));
 
-					// Create menu type.
-					if (! empty($menu['type'])) {
-						$menu_type = (int) $menu['type'];
+					// Create node type.
+					if (! empty($node['type'])) {
+						$node_type = (int) $node['type'];
 					} else {
-						$menu_type = 1;
+						$node_type = 1;
 					}
 					// Create sef alias.
-					if (! empty($menu_type)) {
-						(! empty($menu_name)) ? $menu_name_ = $menu_name : $menu_name_ = $menu_link;
-						$alias = $core->safeName($navigation->determineMenuName($menu['alias'], $core->replaceAccents($menu_name_), $menu_id));
+					if (! empty($node_type)) {
+						(! empty($node_name)) ? $node_name_ = $node_name : $node_name_ = $node_link;
+						$alias = $core->safeName($navigation->determineNodeName($node['alias'], $core->replaceAccents($node_name_), $node_id));
 					} else {
 						$alias = false;
 					}
-					// What type of menu extention should be used.
-					switch ($menu['type']) {
+					// What type of node extention should be used.
+					switch ($node['type']) {
 						case 2:
 							$extend = $extend_to;
 							break;
@@ -313,110 +313,110 @@ class pluginManager extends PHPDS_dependant
 							$extend = $extend_to;
 							break;
 						case 7:
-							$extend = (string) $menu['height'];
+							$extend = (string) $node['height'];
 							break;
 						default:
 							$extend = false;
 							break;
 					}
 					// Should item be opened in new window.
-					if (! empty($menu['newwindow'])) {
-						$new_window = (int) $menu['newwindow'];
+					if (! empty($node['newwindow'])) {
+						$new_window = (int) $node['newwindow'];
 					} else {
 						$new_window = 0;
 					}
 					// How should items be ranked.
-					if (! empty($menu['rank'])) {
-						if ($menu['rank'] == 'last') {
-							$last_rank = $db->invokeQuery('PHPDS_readMaxMenusRankQuery');
+					if (! empty($node['rank'])) {
+						if ($node['rank'] == 'last') {
+							$last_rank = $db->invokeQuery('PHPDS_readMaxNodesRankQuery');
 
 							$rank = $last_rank + 1;
-						} else if ($menu['rank'] == 'first') {
-							$last_rank = $db->invokeQuery('PHPDS_readMinMenusRankQuery');
+						} else if ($node['rank'] == 'first') {
+							$last_rank = $db->invokeQuery('PHPDS_readMinNodesRankQuery');
 
 							$rank = $last_rank - 1;
 						} else {
-							$rank = (int) $menu['rank'];
+							$rank = (int) $node['rank'];
 						}
 					} else {
 						$rank = $ranking;
 					}
 					// How should item be hide.
-					if (! empty($menu['hide'])) {
-						$hide = (int) $menu['hide'];
+					if (! empty($node['hide'])) {
+						$hide = (int) $node['hide'];
 					} else {
 						$hide = 0;
 					}
 					// Create a template id or use default.
-					if ($menu['template'] == 'empty') {
-						$menu_template_insert = $templates_array['empty_template_id'];
-					} else if (empty($menu['template'])) {
-						$menu_template_insert = $templates_array['default_template_id'];
+					if ($node['template'] == 'empty') {
+						$node_template_insert = $templates_array['empty_template_id'];
+					} else if (empty($node['template'])) {
+						$node_template_insert = $templates_array['default_template_id'];
 					} else {
 						// Get a unique id.
-						$menu_template_insert = $core->nameToId($menu['template']);
+						$node_template_insert = $core->nameToId($node['template']);
 						// Check if item needs to be created.
-						if ($last_menu_template_insert != $menu_template_insert) {
-							// Create a new menu item...
-							if ($db->invokeQuery('PHPDS_createTemplateQuery', $menu_template_insert, $menu['template'])) {
+						if ($last_node_template_insert != $node_template_insert) {
+							// Create a new node item...
+							if ($db->invokeQuery('PHPDS_createTemplateQuery', $node_template_insert, $node['template'])) {
 								// Show execution.
-								$template->ok(sprintf(__("Installed new template for %s.", 'AdminTools'), $menu['template']));
+								$template->ok(sprintf(__("Installed new template for %s.", 'AdminTools'), $node['template']));
 							}
 							// Assign so we dont create it twice.
-							$last_menu_template_insert = $menu_template_insert;
+							$last_node_template_insert = $node_template_insert;
 						}
 					}
 					// Create template layout.
-					if (! empty($menu['layout'])) {
-						$layout = (string) $menu['layout'];
+					if (! empty($node['layout'])) {
+						$layout = (string) $node['layout'];
 					} else {
 						$layout = '';
 					}
 
 					// Params
-					if (! empty($menu['params'])) {
-						$params = (string) $menu['params'];
+					if (! empty($node['params'])) {
+						$params = (string) $node['params'];
 					} else {
 						$params = '';
 					}
 					////////////////////////////////
 					// Role Permissions.
 					// Now we need to delete old values, if any, to prevent duplicates.
-					// Delete Menu Permissions.
-					$db->invokeQuery('PHPDS_deleteRolePermissionsPluginQuery', $menu_id, $configuration['user_role']);
+					// Delete Node Permissions.
+					$db->invokeQuery('PHPDS_deleteRolePermissionsPluginQuery', $node_id, $configuration['user_role']);
 
 					// Check if we should add_permission.
-					if (empty($menu['noautopermission'])) {
-						// INSERT Menu Permissions.
-						$db->invokeQuery('PHPDS_writeRolePermissionsPluginQuery', $configuration['user_role'], $menu_id);
+					if (empty($node['noautopermission'])) {
+						// INSERT Node Permissions.
+						$db->invokeQuery('PHPDS_writeRolePermissionsPluginQuery', $configuration['user_role'], $node_id);
 					}
 					////////////////////////////////
 					// Save new item to database.
 					// Although it is not my style doing queries inside a loop,
-					// this situation is very unique and I think the only way getting the parent menus id.
-					if ($db->invokeQuery('PHPDS_writeMenuPluginQuery', $menu_id, $parent_id, $menu_name, $menu_link, $plugin_folder, $menu_type, $extend, $new_window, $rank, $hide, $menu_template_insert, $alias, $layout, $params)) {
+					// this situation is very unique and I think the only way getting the parent nodes id.
+					if ($db->invokeQuery('PHPDS_writeNodePluginQuery', $node_id, $parent_id, $node_name, $node_link, $plugin_folder, $node_type, $extend, $new_window, $rank, $hide, $node_template_insert, $alias, $layout, $params)) {
 						// Show execution.
-						$this->log .= $template->ok(sprintf(__("Installed menu for %s with id (%s) and linked to %s.", 'AdminTools'), $plugin_folder, $menu_id, $menu_link), 'return');
+						$this->log .= $template->ok(sprintf(__("Installed node for %s with id (%s) and linked to %s.", 'AdminTools'), $plugin_folder, $node_id, $node_link), 'return');
 					}
 				}
-				// For safety unset menu properties.
-				unset($menu);
+				// For safety unset node properties.
+				unset($node);
 			}
 		}
 	}
 
 	/*
-	 * This class support installMenus providing a way of digging deeper into the menu structure to locate child menu items.
+	 * This class support installNodes providing a way of digging deeper into the node structure to locate child node items.
 	 *
-	 * @param $child Object containing XML menu tree.
+	 * @param $child Object containing XML node tree.
 	 */
-	private function installMenusDigger ($child)
+	private function installNodesDigger ($child)
 	{
-		// Looping through all XML menu items while compiling values.
+		// Looping through all XML node items while compiling values.
 		foreach ($child->children() as $children) {
-			// Create menu values for each menu item.
-			$m['parentmenuid'] = (string) $child['menuid'];
-			$m['menuid'] = (string) $children['menuid'];
+			// Create node values for each node item.
+			$m['parentnodeid'] = (string) $child['nodeid'];
+			$m['nodeid'] = (string) $children['nodeid'];
 			$m['parentlinkauto'] = (string) $child['link'];
 			$m['parentlink'] = (string) $children['parentlink'];
 			$m['alias'] = (string) $children['alias'];
@@ -434,10 +434,10 @@ class pluginManager extends PHPDS_dependant
 			$m['newwindow'] = (int) $children['newwindow'];
 			$m['hide'] = (int) $children['hide'];
 			$m['noautopermission'] = (int) $children['noautopermission'];
-			// Assign menu values.
-			$this->menu[] = array('menuid'=>$m['menuid'] , 'parentmenuid'=>$m['parentmenuid'] , 'parentlinkauto' => $m['parentlinkauto'] , 'parentlink' => $m['parentlink'] , 'alias' => $m['alias'] , 'link' => $m['link'] , 'symlink' => $m['symlink'] , 'name' => $m['name'] , 'pluginauto' => $m['pluginauto'] , 'plugin' => $m['plugin'] , 'template' => $m['template'] , 'layout' => $m['layout'] , 'height' => $m['height'] , 'type' => $m['type'] , 'newwindow' => $m['newwindow'] , 'rank' => $m['rank'] , 'hide' => $m['hide'] , 'noautopermission' => $m['noautopermission'] , 'params' => $m['params']);
-			// Recall for children menu items.
-			$this->installMenusDigger($children);
+			// Assign node values.
+			$this->node[] = array('nodeid'=>$m['nodeid'] , 'parentnodeid'=>$m['parentnodeid'] , 'parentlinkauto' => $m['parentlinkauto'] , 'parentlink' => $m['parentlink'] , 'alias' => $m['alias'] , 'link' => $m['link'] , 'symlink' => $m['symlink'] , 'name' => $m['name'] , 'pluginauto' => $m['pluginauto'] , 'plugin' => $m['plugin'] , 'template' => $m['template'] , 'layout' => $m['layout'] , 'height' => $m['height'] , 'type' => $m['type'] , 'newwindow' => $m['newwindow'] , 'rank' => $m['rank'] , 'hide' => $m['hide'] , 'noautopermission' => $m['noautopermission'] , 'params' => $m['params']);
+			// Recall for children node items.
+			$this->installNodesDigger($children);
 		}
 	}
 
@@ -547,17 +547,17 @@ class pluginManager extends PHPDS_dependant
 	}
 
 	/**
-	 * Runs all necesary queries to uninstall a plugins menus from the database.
+	 * Runs all necesary queries to uninstall a plugins nodes from the database.
 	 *
 	 * @param string Folder and unique name where plugin was copied.
 	 */
-	private function uninstallMenus ($plugin_folder, $delete_critical_only = false)
+	private function uninstallNodes ($plugin_folder, $delete_critical_only = false)
 	{
 		$db = $this->db;
 		$template = $this->template;
 		if (! empty($plugin_folder)) {
-			if ($this->menuStructure->deleteMenu(false, $plugin_folder, $delete_critical_only)) // Show execution.
-			$this->log .= $template->ok(sprintf(__("Uninstall menus for %s.", 'AdminTools'), $plugin_folder), 'return');
+			if ($this->nodeStructure->deleteNode(false, $plugin_folder, $delete_critical_only)) // Show execution.
+			$this->log .= $template->ok(sprintf(__("Uninstall nodes for %s.", 'AdminTools'), $plugin_folder), 'return');
 		}
 	}
 
@@ -702,24 +702,24 @@ class pluginManager extends PHPDS_dependant
 					if ($db->deleteSettings($param_delete, $plugin_folder)) // Show execution.
 					$this->log .= $template->ok(sprintf(__("Uninstalled some setting on upgrade for %s.", 'AdminTools'), $plugin_folder), 'return');
 				}
-				// Make sure menu upgrades is not empty.
-				if (isset($upgrade->menus->menu)) {
-					// Lets loop through menus and see what needs to be deleted.
-					foreach ($upgrade->menus->menu as $menu) {
-						// Menu link to delete.
-						$delete_menu_link = (string) $menu['delete'];
-						// Create menu id for deletion.
-						$menu_id_to_delete[] = $this->menuStructure->createMenuId($plugin_folder, $delete_menu_link);
+				// Make sure node upgrades is not empty.
+				if (isset($upgrade->nodes->node)) {
+					// Lets loop through nodes and see what needs to be deleted.
+					foreach ($upgrade->nodes->node as $node) {
+						// Node link to delete.
+						$delete_node_link = (string) $node['delete'];
+						// Create node id for deletion.
+						$node_id_to_delete[] = $this->nodeStructure->createNodeId($plugin_folder, $delete_node_link);
 					}
 				}
 				// Check if we have items to delete.
-				if (! empty($menu_id_to_delete)) {
-					// Delete menu item.
-					if ($this->menuStructure->deleteMenu($menu_id_to_delete)) // Show execution.
-					$this->log .= $template->ok(sprintf(__("Uninstalled some menus on upgrade for %s.", 'AdminTools'), $plugin_folder), 'return');
+				if (! empty($node_id_to_delete)) {
+					// Delete node item.
+					if ($this->nodeStructure->deleteNode($node_id_to_delete)) // Show execution.
+					$this->log .= $template->ok(sprintf(__("Uninstalled some nodes on upgrade for %s.", 'AdminTools'), $plugin_folder), 'return');
 				}
 				// Unset items for new loop.
-				unset($menu_id_to_delete, $param_write, $param_delete);
+				unset($node_id_to_delete, $param_write, $param_delete);
 				// Assign last version executed.
 				$this->pluginUpgraded = $active_loop_version;
 			}

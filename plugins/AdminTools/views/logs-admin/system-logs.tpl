@@ -10,9 +10,9 @@
     {strip}
         <tr>
             <td>{$logs.log_type}</td>
-            <td>{$logs.menu_name_url}</td>
+            <td>{$logs.node_name_url}</td>
             <td>{$logs.log_description}</td>
-            <td>{$logs.menu_id}</td>
+            <td>{$logs.node_id}</td>
             <td>{$logs.file_name}</td>
             <td>{$logs.user_id}</td>
             <td>{$logs.user_display_name}</td>

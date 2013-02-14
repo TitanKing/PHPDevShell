@@ -33,7 +33,7 @@
 				<legend>{_e('Role Access Permission')}</legend>
 				<label class="checkbox"><input type="checkbox" class="checkall"> <strong>{_e('Select All')}</strong></label>
                 <ul class="selectcheckboxes unstyled">
-                    {$menus_select}
+                    {$nodes_select}
                 </ul>
 			</fieldset>
         </div>

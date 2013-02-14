@@ -35,7 +35,7 @@ class PHPDS_deleteLogsQuery extends PHPDS_query
 }
 
 /**
- * Trim Logs - Count menu access logs.
+ * Trim Logs - Count node access logs.
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
@@ -45,13 +45,13 @@ class PHPDS_countAccessLogsQuery extends PHPDS_query
 		SELECT
 			COUNT(*)
 		FROM
-			_db_core_menu_access_logs
+			_db_core_node_access_logs
 	";
 	protected $singleValue = true;
 }
 
 /**
- * Trim Logs - Delete menu access logs.
+ * Trim Logs - Delete node access logs.
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
@@ -59,7 +59,7 @@ class PHPDS_deleteAccessLogsQuery extends PHPDS_query
 {
 	protected $sql = "
 		DELETE FROM
-			_db_core_menu_access_logs
+			_db_core_node_access_logs
 		ORDER BY
 			timestamp
 		ASC

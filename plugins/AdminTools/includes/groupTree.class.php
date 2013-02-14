@@ -74,7 +74,7 @@ class groupTree extends PHPDS_dependant
 					$this->outputGroupArray[$user_group_id] = array('parent_group_id' => $this->groupListingArray[$user_group_id]['parent_group_id'], 'user_group_name' => $this->groupListingArray[$user_group_id]['user_group_name'], 'user_group_note' => $this->groupListingArray[$user_group_id]['user_group_note'], 'alias' => $this->groupListingArray[$user_group_id]['alias'], 'type' => 'folder_root', 'is_parent' => 0);
 				} else {
 					// Root item with children.
-					$this->outputGroupArray[$user_group_id] = array('parent_group_id' => $this->groupListingArray[$user_group_id]['parent_group_id'], 'user_group_name' => $this->groupListingArray[$user_group_id]['user_group_name'], 'user_group_note' => $this->groupListingArray[$user_group_id]['user_group_note'], 'alias' => $this->groupListingArray[$user_group_id]['alias'], 'type' => 'folder_root_menu', 'is_parent' => 1);
+					$this->outputGroupArray[$user_group_id] = array('parent_group_id' => $this->groupListingArray[$user_group_id]['parent_group_id'], 'user_group_name' => $this->groupListingArray[$user_group_id]['user_group_name'], 'user_group_note' => $this->groupListingArray[$user_group_id]['user_group_note'], 'alias' => $this->groupListingArray[$user_group_id]['alias'], 'type' => 'folder_root_node', 'is_parent' => 1);
 					// Call its children.
 					$this->callChildGroup($user_group_id);
 				}
@@ -95,10 +95,10 @@ class groupTree extends PHPDS_dependant
 				// Check deeper parents.
 				if (empty($this->groupPListingArray[$user_group_id_])) {
 					// List child group.
-					$this->outputGroupArray[$user_group_id_] = array('parent_group_id' => $this->groupListingArray[$user_group_id_]['parent_group_id'], 'user_group_name' => $this->groupListingArray[$user_group_id_]['user_group_name'], 'user_group_note' => $this->groupListingArray[$user_group_id_]['user_group_note'], 'alias' => $this->groupListingArray[$user_group_id_]['alias'], 'type' => 'folder_open_menu', 'is_parent' => 0);
+					$this->outputGroupArray[$user_group_id_] = array('parent_group_id' => $this->groupListingArray[$user_group_id_]['parent_group_id'], 'user_group_name' => $this->groupListingArray[$user_group_id_]['user_group_name'], 'user_group_note' => $this->groupListingArray[$user_group_id_]['user_group_note'], 'alias' => $this->groupListingArray[$user_group_id_]['alias'], 'type' => 'folder_open_node', 'is_parent' => 0);
 				} else {
 					// List Children - Parent group.
-					$this->outputGroupArray[$user_group_id_] = array('parent_group_id' => $this->groupListingArray[$user_group_id_]['parent_group_id'], 'user_group_name' => $this->groupListingArray[$user_group_id_]['user_group_name'], 'user_group_note' => $this->groupListingArray[$user_group_id_]['user_group_note'], 'alias' => $this->groupListingArray[$user_group_id_]['alias'], 'type' => 'folder_parent_open_menu', 'is_parent' => 1);
+					$this->outputGroupArray[$user_group_id_] = array('parent_group_id' => $this->groupListingArray[$user_group_id_]['parent_group_id'], 'user_group_name' => $this->groupListingArray[$user_group_id_]['user_group_name'], 'user_group_note' => $this->groupListingArray[$user_group_id_]['user_group_note'], 'alias' => $this->groupListingArray[$user_group_id_]['alias'], 'type' => 'folder_parent_open_node', 'is_parent' => 1);
 					// Call its children.
 					$this->callChildGroup($user_group_id_);
 				}
@@ -110,7 +110,7 @@ class groupTree extends PHPDS_dependant
 	 * Will compile the needed HTML for group tree structure ready for output.
 	 *
 	 * @param boolean $create_html If it should create HTML results.
-	 * @param boolean $create_array If it should create short array of menu items in order.
+	 * @param boolean $create_array If it should create short array of node items in order.
 	 * @param string $extra_sql Additional sql data to be processed.
 	 * @param int Select group to skip in listing.
 	 */
@@ -152,7 +152,7 @@ class groupTree extends PHPDS_dependant
 				} else {
 					$indent_integer = false;
 				}
-				// Check if item was already looped, ruling a loop to be created only once per menu group.
+				// Check if item was already looped, ruling a loop to be created only once per node group.
 				if (!array_key_exists($parent_group_id, $indent_group)) {
 					// Define.
 					$indent = '';

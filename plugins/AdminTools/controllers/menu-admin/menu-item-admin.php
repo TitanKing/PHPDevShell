@@ -1,6 +1,6 @@
 <?php
 
-class MenuItemAdmin extends PHPDS_controller
+class NodeItemAdmin extends PHPDS_controller
 {
 
 	/**
@@ -11,25 +11,25 @@ class MenuItemAdmin extends PHPDS_controller
 	{
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Load Extra Classes ////////////////////////////////////////////////////////////////////////////////////////////////////
-		$menu_structure = $this->factory('menuStructure'); //////////////////////////////////////////////////////////////////////
-		$menu_array = $this->factory('menuArray'); //////////////////////////////////////////////////////////////////////////////
+		$node_structure = $this->factory('nodeStructure'); //////////////////////////////////////////////////////////////////////
+		$node_array = $this->factory('nodeArray'); //////////////////////////////////////////////////////////////////////////////
 		$template = $this->template;
 		$configuration = $this->configuration;
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Define.
-		$menu_type_selected_1 = 'checked';
-		$menu_type_selected_2 = '';
-		$menu_type_selected_3 = '';
-		$menu_type_selected_4 = '';
-		$menu_type_selected_5 = '';
-		$menu_type_selected_6 = '';
-		$menu_type_selected_7 = '';
-		$menu_type_selected_8 = '';
-		$menu_type_selected_9 = '';
-		$menu_type_selected_10 = '';
-		$menu_type_selected_11 = '';
-		$menu_type_selected_12 = '';
+		$node_type_selected_1 = 'checked';
+		$node_type_selected_2 = '';
+		$node_type_selected_3 = '';
+		$node_type_selected_4 = '';
+		$node_type_selected_5 = '';
+		$node_type_selected_6 = '';
+		$node_type_selected_7 = '';
+		$node_type_selected_8 = '';
+		$node_type_selected_9 = '';
+		$node_type_selected_10 = '';
+		$node_type_selected_11 = '';
+		$node_type_selected_12 = '';
 		$hide_selected_1 = '';
 		$hide_selected_2 = '';
 		$hide_selected_3 = '';
@@ -37,13 +37,13 @@ class MenuItemAdmin extends PHPDS_controller
 		$hide_selected_5 = '';
 		$new_window_selected_1 = '';
 		$new_window_selected_2 = '';
-		$edit['parent_menu_id'] = 0;
-		$edit['menu_id'] = 0;
+		$edit['parent_node_id'] = 0;
+		$edit['node_id'] = 0;
 		$edit['plugin'] = '';
-		$edit['menu_type'] = false;
+		$edit['node_type'] = false;
 		$edit['new_window'] = 0;
-		$edit['menu_link'] = '';
-		$edit['menu_name'] = '';
+		$edit['node_link'] = '';
+		$edit['node_name'] = '';
 		$edit['alias'] = '';
 		$edit['height'] = '';
 		$edit['layout'] = '';
@@ -57,34 +57,34 @@ class MenuItemAdmin extends PHPDS_controller
 		$view_found = '';
 		$view_class_found = '';
 		$controller_found = '';
-		$replace_old_menu = false;
+		$replace_old_node = false;
 
 		$icon_found = $template->icon('tick-circle', __('Item Found'));
 		$icon_notfound = $template->icon('cross-circle', __('Item Not Found'));
 		// Head.
-		if (! empty($this->security->post['save']) || !empty($edit_menu_id)) {
-			$template->heading(__('Edit Menu Item'));
+		if (! empty($this->security->post['save']) || !empty($edit_node_id)) {
+			$template->heading(__('Edit Node Item'));
 		} else {
-			$template->heading(__('New Menu Item'));
+			$template->heading(__('New Node Item'));
 		}
-		// Saving menu item.
+		// Saving node item.
 		if (! empty($this->security->get['em']))
-			$edit_menu_id = $this->security->get['em'];
+			$edit_node_id = $this->security->get['em'];
 		else
-			$edit_menu_id = null;
-		if (! empty($this->security->post['save']) || ! empty($edit_menu_id) || ! empty($this->security->post['new'])) {
+			$edit_node_id = null;
+		if (! empty($this->security->post['save']) || ! empty($edit_node_id) || ! empty($this->security->post['new'])) {
 			// Check if it is a edit request or save request.
-			if (! empty($edit_menu_id)) {
+			if (! empty($edit_node_id)) {
 				// Get values of item to edit.
-				$menu_array->loadMenuArray($edit_menu_id, false);
+				$node_array->loadNodeArray($edit_node_id, false);
 				// Save array value.
-				$edit = $menu_array->menuArray[$edit_menu_id];
+				$edit = $node_array->nodeArray[$edit_node_id];
 				// Define.
 				if (empty($edit['height'])) $edit['height'] = false;
 				if (empty($edit['new_window'])) $edit['new_window'] = 0;
 				if (empty($edit['params'])) $edit['params'] = '';
 				// Do extend column.
-				switch ($edit['menu_type']) {
+				switch ($edit['node_type']) {
 					case 2: $edit['link_to'] = $edit['extend'];
 						break;
 					case 3: $edit['link_to'] = $edit['extend'];
@@ -95,14 +95,14 @@ class MenuItemAdmin extends PHPDS_controller
 						break;
 				}
 				// Permissions.
-				$selected_user_roles = $this->db->invokeQuery('PHPDS_getAdminMenuItemPermissionsQuery', $edit['menu_id']);
+				$selected_user_roles = $this->db->invokeQuery('PHPDS_getAdminNodeItemPermissionsQuery', $edit['node_id']);
 			}
 			// On save assign $this->security->post global variable.
 			if (! empty($this->security->post['save']) || ! empty($this->security->post['new'])) {
 				// Get the new variables on save.
 				$edit = $this->security->post;
-				  // menu_type
-				  if (empty($edit['menu_type'])) $edit['menu_type'] = 1;
+				  // node_type
+				  if (empty($edit['node_type'])) $edit['node_type'] = 1;
 				  // new_window
 				  if (empty($edit['new_window'])) $edit['new_window'] = 0;
 
@@ -113,19 +113,19 @@ class MenuItemAdmin extends PHPDS_controller
 					}
 				}
 			}
-			// menu_id
-			if (! empty($edit['menu_id'])) {
-				// We have a custom menu id it seems.
-				$edit['menu_id'] = $this->core->safeName($edit['menu_id']);
-			} else if (! empty($edit['plugin']) && ! empty($edit['menu_link'])) {
-				$edit['menu_id'] = $menu_structure->createMenuId($edit['plugin'], $edit['menu_link']);
+			// node_id
+			if (! empty($edit['node_id'])) {
+				// We have a custom node id it seems.
+				$edit['node_id'] = $this->core->safeName($edit['node_id']);
+			} else if (! empty($edit['plugin']) && ! empty($edit['node_link'])) {
+				$edit['node_id'] = $node_structure->createNodeId($edit['plugin'], $edit['node_link']);
 			} else {
-				$edit['menu_id'] = '';
+				$edit['node_id'] = '';
 			}
 			/////////////////////////////////////////////////////////////////////////////////////////////
-			// menu_type.
-			$menu_type_selected_1 = '';
-			switch ($edit['menu_type']) {
+			// node_type.
+			$node_type_selected_1 = '';
+			switch ($edit['node_type']) {
 				// Plugin File.
 				case 1:
 				case 8:
@@ -133,34 +133,34 @@ class MenuItemAdmin extends PHPDS_controller
 				case 10:
 				case 11:
 				case 12:
-					switch ($edit['menu_type']) {
+					switch ($edit['node_type']) {
 						case 1:
-							$menu_type_selected_1 = 'checked';
+							$node_type_selected_1 = 'checked';
 							break;
 						case 8:
-							$menu_type_selected_8 = 'checked';
+							$node_type_selected_8 = 'checked';
 							break;
 						case 9:
-							$menu_type_selected_9 = 'checked';
+							$node_type_selected_9 = 'checked';
 							break;
 						case 10:
-							$menu_type_selected_10 = 'checked';
+							$node_type_selected_10 = 'checked';
 							break;
 						case 11:
-							$menu_type_selected_11 = 'checked';
+							$node_type_selected_11 = 'checked';
 							break;
 						case 12:
-							$menu_type_selected_12 = 'checked';
+							$node_type_selected_12 = 'checked';
 							break;
 					}
 					$found_check = true;
 					// Remove first slash.
-					$edit['menu_link'] = ltrim($edit['menu_link'], '/');
-					$controller_file = 'plugins/' . $edit['plugin'] . '/controllers/' . $edit['menu_link'];
+					$edit['node_link'] = ltrim($edit['node_link'], '/');
+					$controller_file = 'plugins/' . $edit['plugin'] . '/controllers/' . $edit['node_link'];
 					if (file_exists($controller_file)) {
 						$found = $icon_found;
 						$controller_found = $template->icon('block--plus', __('Controller file available')) . ' ' . $controller_file;
-					} else if (file_exists('plugins/' . $edit['plugin'] . '/' . $edit['menu_link'])) {
+					} else if (file_exists('plugins/' . $edit['plugin'] . '/' . $edit['node_link'])) {
 						$found = $icon_found;
 						$controller_found = $template->icon('block--exclamation', __('Controller file NOT available')) . ' ' . $controller_file;
 					} else {
@@ -168,7 +168,7 @@ class MenuItemAdmin extends PHPDS_controller
 						$controller_found = $template->icon('block--exclamation', __('Controller file NOT available')) . ' ' . $controller_file;
 					}
 
-					$query_file = preg_replace('/\.php$/', '.query.php', $edit['menu_link']);
+					$query_file = preg_replace('/\.php$/', '.query.php', $edit['node_link']);
 					$query_file = 'plugins/' . $edit['plugin'] . '/models/' . $query_file;
 					if (is_file($query_file)) {
 						$query_found = $template->icon('database--plus', __('Model file available')) . ' ' . $query_file;
@@ -177,7 +177,7 @@ class MenuItemAdmin extends PHPDS_controller
 					}
 
 					if (empty($edit['layout'])) {
-						$view_file = preg_replace('/\.php$/', '.tpl', $edit['menu_link']);
+						$view_file = preg_replace('/\.php$/', '.tpl', $edit['node_link']);
 						$view_file = 'plugins/' . $edit['plugin'] . '/views/' . $view_file;
 						if (is_file($view_file)) {
 							$view_found = $template->icon('eye--plus', __('View file available')) . ' ' . $view_file;
@@ -186,13 +186,13 @@ class MenuItemAdmin extends PHPDS_controller
 						}
 					} else {
 						$custom_view = $edit['layout'];
-						$foldernr = strrchr($edit['menu_link'], "/");
+						$foldernr = strrchr($edit['node_link'], "/");
 						if ($foldernr)
 							$original_controller_file = substr($foldernr, 1);
 						else
-							$original_controller_file = $edit['menu_link'];
+							$original_controller_file = $edit['node_link'];
 
-						$view_file = preg_replace("/{$original_controller_file}/", $custom_view . '.tpl', $edit['menu_link']);
+						$view_file = preg_replace("/{$original_controller_file}/", $custom_view . '.tpl', $edit['node_link']);
 						$view_file = preg_replace("/.tpl.tpl/", '.tpl', $view_file);
 						$view_file = 'plugins/' . $edit['plugin'] . '/views/' . $view_file;
 						if (is_file($view_file)) {
@@ -203,7 +203,7 @@ class MenuItemAdmin extends PHPDS_controller
 					}
 
 					// custom view class
-					$view_class = preg_replace('/\.php$/', '.view.php', $edit['menu_link']);
+					$view_class = preg_replace('/\.php$/', '.view.php', $edit['node_link']);
 					$view_class = 'plugins/' . $edit['plugin'] . '/views/' . $view_class;
 					if (is_file($view_class)) {
 						$view_class_found = $template->icon('paint-brush--plus', __('View class available')) . ' ' . $view_class;
@@ -211,21 +211,21 @@ class MenuItemAdmin extends PHPDS_controller
 						$view_class_found = $template->icon('paint-brush--exclamation', __('View class NOT available')) . ' ' . $view_class;
 					}
 					break;
-				// Link Existing Menu Item (Own Group).
+				// Link Existing Node Item (Own Group).
 				case 2:
-					$menu_type_selected_2 = 'checked';
+					$node_type_selected_2 = 'checked';
 					$found = $icon_found;
 					break;
-				// Link Existing Menu Item (Jump To).
+				// Link Existing Node Item (Jump To).
 				case 3:
-					$menu_type_selected_3 = 'checked';
+					$node_type_selected_3 = 'checked';
 					$found = $icon_found;
 					break;
 				// External File.
 				case 4:
-					$menu_type_selected_4 = 'checked';
+					$node_type_selected_4 = 'checked';
 					// Check if we can find file.
-					if (file_exists($edit['menu_link'])) {
+					if (file_exists($edit['node_link'])) {
 						$found = $icon_found;
 					} else {
 						$found = $icon_notfound;
@@ -233,17 +233,17 @@ class MenuItemAdmin extends PHPDS_controller
 					break;
 				// HTTP URL.
 				case 5:
-					$menu_type_selected_5 = 'checked';
+					$node_type_selected_5 = 'checked';
 					$found = $icon_found;
 					break;
 				// Empty Place Holder.
 				case 6:
-					$menu_type_selected_6 = 'checked';
+					$node_type_selected_6 = 'checked';
 					$found = $icon_found;
 					break;
 				// iFrame.
 				case 7:
-					$menu_type_selected_7 = 'checked';
+					$node_type_selected_7 = 'checked';
 					$found = $icon_found;
 					break;
 			}
@@ -251,7 +251,7 @@ class MenuItemAdmin extends PHPDS_controller
 			// rank
 			switch ($edit['rank']) {
 				case 'last':
-					$last_rank = $this->db->invokeQuery('PHPDS_lastRankMenuItemQuery', $edit['parent_menu_id']);
+					$last_rank = $this->db->invokeQuery('PHPDS_lastRankNodeItemQuery', $edit['parent_node_id']);
 					break;
 				case 'first':
 					$last_rank = 1;
@@ -303,48 +303,48 @@ class MenuItemAdmin extends PHPDS_controller
 				$edit['alias'] = $this->core->safeName($edit['alias']);
 
 				// Error 1 = Check for empty fields.
-				if (empty($edit['menu_link']) || empty($edit['plugin'])) {
+				if (empty($edit['node_link']) || empty($edit['plugin'])) {
 					$template->warning(__('You did not complete all the required fields.'));
 					$error[1] = true;
 				}
-				// Error 2 = See if menu item and link item is the same, that wont work!
-				if ($edit['menu_id'] == $edit['link_to']) {
-					$template->warning(__('You cannot link a menu item to itself.'));
+				// Error 2 = See if node item and link item is the same, that wont work!
+				if ($edit['node_id'] == $edit['link_to']) {
+					$template->warning(__('You cannot link a node item to itself.'));
 					$error[2] = true;
 				}
-				// Error 3 = Check if menu already exists, we can prevent complications.
-				if (! empty($edit['old_menu_id']) && $edit['old_menu_id'] != $edit['menu_id']) {
-					$replace_old_menu = true;
-					// Lets see if such a menu already exists, we cant override it, if it belongs to some other menu.
-					$check_menu_existing = $menu_structure->menuIdExist($edit['menu_id']);
-					if (! empty($check_menu_existing)) {
-						$template->warning(sprintf(__('Another menu is already using menu id %s'), $edit['menu_id']));
-						$edit['menu_id'] = $edit['old_menu_id'];
+				// Error 3 = Check if node already exists, we can prevent complications.
+				if (! empty($edit['old_node_id']) && $edit['old_node_id'] != $edit['node_id']) {
+					$replace_old_node = true;
+					// Lets see if such a node already exists, we cant override it, if it belongs to some other node.
+					$check_node_existing = $node_structure->nodeIdExist($edit['node_id']);
+					if (! empty($check_node_existing)) {
+						$template->warning(sprintf(__('Another node is already using node id %s'), $edit['node_id']));
+						$edit['node_id'] = $edit['old_node_id'];
 						$error[3] = true;
 					}
 				} else {
-					$replace_old_menu = false;
+					$replace_old_node = false;
 				}
-				// Error 4 = Check if menu is parent of itself.
-				if ($edit['menu_id'] == $edit['parent_menu_id']) {
-					$template->warning(__('You cannot have a menu item be a parent of itself. Please choose another parent for this item.'));
+				// Error 4 = Check if node is parent of itself.
+				if ($edit['node_id'] == $edit['parent_node_id']) {
+					$template->warning(__('You cannot have a node item be a parent of itself. Please choose another parent for this item.'));
 					$error[4] = true;
 				}
 				// Create file directory location.
-				$menu_directory_c = $this->configuration['absolute_path'] . 'plugins/' . $edit['plugin'] . '/controllers/' . $edit['menu_link'];
-				$menu_directory_n = $this->configuration['absolute_path'] . 'plugins/' . $edit['plugin'] . '/' . $edit['menu_link'];
-				if (file_exists($menu_directory_c)) {
-					$menu_directory = $menu_directory_c;
-					$menu_dir_exists = true;
-				} else if (file_exists($menu_directory_n)) {
-					$menu_directory = $menu_directory_n;
-					$menu_dir_exists = true;
+				$node_directory_c = $this->configuration['absolute_path'] . 'plugins/' . $edit['plugin'] . '/controllers/' . $edit['node_link'];
+				$node_directory_n = $this->configuration['absolute_path'] . 'plugins/' . $edit['plugin'] . '/' . $edit['node_link'];
+				if (file_exists($node_directory_c)) {
+					$node_directory = $node_directory_c;
+					$node_dir_exists = true;
+				} else if (file_exists($node_directory_n)) {
+					$node_directory = $node_directory_n;
+					$node_dir_exists = true;
 				} else {
-					$menu_dir_exists = false;
+					$node_dir_exists = false;
 				}
 
-				// Error Combined = Do appropriate checks on different menu types.
-				switch ($edit['menu_type']) {
+				// Error Combined = Do appropriate checks on different node types.
+				switch ($edit['node_type']) {
 					// Plugin File.
 					case 1:
 					case 8:
@@ -353,26 +353,26 @@ class MenuItemAdmin extends PHPDS_controller
 					case 11:
 					case 12:
 						// Check if file exists.
-						if (!$menu_dir_exists) {
-							$template->warning(sprintf(__('Cannot find the plugin controller in the specified directory: %s'), $menu_directory_c));
+						if (!$node_dir_exists) {
+							$template->warning(sprintf(__('Cannot find the plugin controller in the specified directory: %s'), $node_directory_c));
 							$error[3] = true;
 						}
 						break;
-					// Link Existing Menu Item.
+					// Link Existing Node Item.
 					case 2:
 						// Check if linked item was selected.
 						if (empty($edit['link_to'])) {
-							$template->warning(__('You need to select a menu item to link with.'));
+							$template->warning(__('You need to select a node item to link with.'));
 							$error[3] = true;
 						}
 						// Set correct extend variable.
 						$edit['extend'] = $edit['link_to'];
 						break;
-					// Link Existing Menu Item (Jump To).
+					// Link Existing Node Item (Jump To).
 					case 3:
 						// Check if linked item was selected.
 						if (empty($edit['link_to'])) {
-							$template->warning(__('You need to select a menu item to link with.'));
+							$template->warning(__('You need to select a node item to link with.'));
 							$error[3] = true;
 						}
 						// Set correct extend variable.
@@ -381,8 +381,8 @@ class MenuItemAdmin extends PHPDS_controller
 					// External File.
 					case 4:
 						// Check if file exists.
-						if (!file_exists($edit['menu_link'])) {
-							$template->warning(sprintf(__('Cannot find the external file you wish to create a menu item with, looked in: %s'), $edit['menu_link']));
+						if (!file_exists($edit['node_link'])) {
+							$template->warning(sprintf(__('Cannot find the external file you wish to create a node item with, looked in: %s'), $edit['node_link']));
 							$error[3] = true;
 						}
 						break;
@@ -394,7 +394,7 @@ class MenuItemAdmin extends PHPDS_controller
 					case 6:
 						// Check if linked item was selected.
 						if (empty($edit['link_to'])) {
-							$template->warning(__('You need to select a menu item to link with.'));
+							$template->warning(__('You need to select a node item to link with.'));
 							$error[3] = true;
 						}
 						// Set correct extend variable.
@@ -412,28 +412,28 @@ class MenuItemAdmin extends PHPDS_controller
 					// Cron File.
 					case 8:
 						// Check if file exists.
-						if (!file_exists($menu_directory)) {
-							$template->warning(sprintf(__('Cannot find the plugin cron file you wish to create a menu item with, looked in: %s'), $menu_directory));
+						if (!file_exists($node_directory)) {
+							$template->warning(sprintf(__('Cannot find the plugin cron file you wish to create a node item with, looked in: %s'), $node_directory));
 							$error[3] = true;
 						}
 						break;
 					// Plugin File.
 					default:
-						$template->warning(__('You need to select at least one menu type.'));
+						$template->warning(__('You need to select at least one node type.'));
 						$error[3] = true;
 						break;
 				}
 
 				if (empty($error)) {
 
-					// Check if we have an old menu id.
-					if ($replace_old_menu) {
-						$menu_structure->updateMenuId($edit['menu_id'], $edit['old_menu_id']);
-						$template->ok(sprintf(__('Menu id changed, the new menu item id is %s and replaced old menu id %s.'), $edit['menu_id'], $edit['old_menu_id']));
+					// Check if we have an old node id.
+					if ($replace_old_node) {
+						$node_structure->updateNodeId($edit['node_id'], $edit['old_node_id']);
+						$template->ok(sprintf(__('Node id changed, the new node item id is %s and replaced old node id %s.'), $edit['node_id'], $edit['old_node_id']));
 					}
 
 					// Insert new item into database.
-					$menu_structure->insertMenu($edit['menu_id'], $edit['parent_menu_id'], $edit['menu_name'], $edit['menu_link'], $edit['plugin'], $edit['menu_type'], $edit['extend'], $edit['new_window'], $last_rank, $edit['hide'], $edit['template_id'], $edit['alias'], $edit['layout'], $edit['params']);
+					$node_structure->insertNode($edit['node_id'], $edit['parent_node_id'], $edit['node_name'], $edit['node_link'], $edit['plugin'], $edit['node_type'], $edit['extend'], $edit['new_window'], $last_rank, $edit['hide'], $edit['template_id'], $edit['alias'], $edit['layout'], $edit['params']);
 
 					////////////////////////////////////
 					// END Save new item to database. //
@@ -441,8 +441,8 @@ class MenuItemAdmin extends PHPDS_controller
 					/////////////////////////
 					// Permissions saving. //
 					/////////////////////////
-					// Delete old menu permissions.
-					$this->db->invokeQuery("PHPDS_deleteOldMenuPermissionsQuery", $edit['menu_id']);
+					// Delete old node permissions.
+					$this->db->invokeQuery("PHPDS_deleteOldNodePermissionsQuery", $edit['node_id']);
 
 					// Make sure we have a value for a loop!
 					$user_role_id_db = false;
@@ -450,38 +450,38 @@ class MenuItemAdmin extends PHPDS_controller
 						// Define.
 						// Save permissions.
 						foreach ($edit['permission'] as $user_role_id) {
-							$user_role_id_db .= "('$user_role_id', '{$edit['menu_id']}'),";
+							$user_role_id_db .= "('$user_role_id', '{$edit['node_id']}'),";
 						}
 					}
 					// Set new assigned value.
 					$user_role_id_db = rtrim($user_role_id_db, ',');
 					if (!empty($user_role_id_db)) {
-						// Insert menu permissions.
-						$this->db->invokeQuery('PHPDS_insertMenuPermissionsQuery', $user_role_id_db);
+						// Insert node permissions.
+						$this->db->invokeQuery('PHPDS_insertNodePermissionsQuery', $user_role_id_db);
 					}
 					// Set variable global for hooks.
-					$template->global['menu_id'] = $edit['menu_id'];
+					$template->global['node_id'] = $edit['node_id'];
 
 					/////////////////////////////
 					// END Permissions saving. //
 					/////////////////////////////
 					// Give OK message according to edit or newly saved.
-					$template->ok(sprintf(__('Menu item %s was saved.'), $edit['menu_name']));
+					$template->ok(sprintf(__('Node item %s was saved.'), $edit['node_name']));
 				}
 			}
 		}
 
 		//////////////////////////
-		// Get all menu items. ///
+		// Get all node items. ///
 		//////////////////////////
-		$allMenuItems = $this->db->invokeQuery("PHPDS_getAllMenuItemsQuery", $edit);
+		$allNodeItems = $this->db->invokeQuery("PHPDS_getAllNodeItemsQuery", $edit);
 
-		$edit = $allMenuItems['edit'];
-		$show_existing_link = $allMenuItems['show_existing_link'];
-		$existing_link_id = $allMenuItems['existing_link_id'];
-		$show_parent = $allMenuItems['show_parent'];
+		$edit = $allNodeItems['edit'];
+		$show_existing_link = $allNodeItems['show_existing_link'];
+		$existing_link_id = $allNodeItems['existing_link_id'];
+		$show_parent = $allNodeItems['show_parent'];
 
-		unset($allMenuItems);
+		unset($allNodeItems);
 
 		//////////////////////////
 		// Get all user roles.  //
@@ -505,19 +505,19 @@ class MenuItemAdmin extends PHPDS_controller
 		unset($allAvailTemplates);
 
 		// Load taglist.
-		if (empty($edit['menu_name'])) {
+		if (empty($edit['node_name'])) {
 			$tagname = $default_name;
 		} else {
-			$tagname = $edit['menu_name'];
+			$tagname = $edit['node_name'];
 		}
 
 		$tagArea = $this->POST('tagger');
-		$tagger = $this->tagger->tagArea('menu', $edit['menu_id'], $tagArea, $tagname);
+		$tagger = $this->tagger->tagArea('node', $edit['node_id'], $tagArea, $tagname);
 
 		// Save and new.
 		if (! empty($this->security->post['new'])) {
-			$edit['menu_id'] = 0;
-			$edit['menu_name'] = '';
+			$edit['node_id'] = 0;
+			$edit['node_name'] = '';
 			$edit['alias'] = '';
 			$edit['params'] = '';
 		}
@@ -546,21 +546,21 @@ class MenuItemAdmin extends PHPDS_controller
 		$view->set('edit_existing_link', $this->navigation->buildURL(false, 'em='));
 		$view->set('default_name', $default_name);
 		$view->set('show_parent', $show_parent);
-		$view->set('menu_type_selected_1', $menu_type_selected_1);
-		$view->set('menu_type_selected_2', $menu_type_selected_2);
-		$view->set('menu_type_selected_3', $menu_type_selected_3);
-		$view->set('menu_type_selected_4', $menu_type_selected_4);
-		$view->set('menu_type_selected_5', $menu_type_selected_5);
-		$view->set('menu_type_selected_6', $menu_type_selected_6);
-		$view->set('menu_type_selected_7', $menu_type_selected_7);
-		$view->set('menu_type_selected_8', $menu_type_selected_8);
-		$view->set('menu_type_selected_9', $menu_type_selected_9);
-		$view->set('menu_type_selected_10', $menu_type_selected_10);
-		$view->set('menu_type_selected_11', $menu_type_selected_11);
-		$view->set('menu_type_selected_12', $menu_type_selected_12);
+		$view->set('node_type_selected_1', $node_type_selected_1);
+		$view->set('node_type_selected_2', $node_type_selected_2);
+		$view->set('node_type_selected_3', $node_type_selected_3);
+		$view->set('node_type_selected_4', $node_type_selected_4);
+		$view->set('node_type_selected_5', $node_type_selected_5);
+		$view->set('node_type_selected_6', $node_type_selected_6);
+		$view->set('node_type_selected_7', $node_type_selected_7);
+		$view->set('node_type_selected_8', $node_type_selected_8);
+		$view->set('node_type_selected_9', $node_type_selected_9);
+		$view->set('node_type_selected_10', $node_type_selected_10);
+		$view->set('node_type_selected_11', $node_type_selected_11);
+		$view->set('node_type_selected_12', $node_type_selected_12);
 		$view->set('show_existing_link', $show_existing_link);
 		$view->set('existing_link_id', $existing_link_id);
-		$view->set('edit_link', $template->icon('task--pencil', __('Edit Menu Item')));
+		$view->set('edit_link', $template->icon('task--pencil', __('Edit Node Item')));
 		$view->set('found', $found);
 		$view->set('tagger', $tagger);
 		$view->set('query_found', $query_found);
@@ -589,8 +589,8 @@ class MenuItemAdmin extends PHPDS_controller
 	 */
 	public function viaAJAX()
 	{
-		$menu_id = $this->GET('menu_id');
-		$menu_type = $this->GET('menu_type');
+		$node_id = $this->GET('node_id');
+		$node_type = $this->GET('node_type');
 		$plugin = $this->GET('plugin');
 
 		$_target = $this->GET('_target');
@@ -601,25 +601,25 @@ class MenuItemAdmin extends PHPDS_controller
 		);
 
 		switch ($_target) {
-			case 'menu_link_check':
-				switch ($menu_type) {
+			case 'node_link_check':
+				switch ($node_type) {
 					case 1:
 					case 8:
 					case 9:
 					case 10:
 					case 11:
 					case 12:
-						$menu_link = $this->GET('menu_link');
-						if ($menu_link && $plugin) {
-							if (file_exists(BASEPATH . 'plugins/' . $plugin . '/controllers/' . $menu_link)) {
+						$node_link = $this->GET('node_link');
+						if ($node_link && $plugin) {
+							if (file_exists(BASEPATH . 'plugins/' . $plugin . '/controllers/' . $node_link)) {
 								$path1 = BASEPATH . 'plugins/' . $plugin . '/controllers';
-								$path2 = $path1 . '/' . $menu_link;
-							} else if (file_exists(BASEPATH . 'plugins/' . $plugin . '/' . $menu_link)) {
+								$path2 = $path1 . '/' . $node_link;
+							} else if (file_exists(BASEPATH . 'plugins/' . $plugin . '/' . $node_link)) {
 								$path1 = BASEPATH . 'plugins/' . $plugin;
-								$path2 = $path1 . '/' . $menu_link;
+								$path2 = $path1 . '/' . $node_link;
 							} else {
 								$path1 = BASEPATH . 'plugins/' . $plugin;
-								$path2 = $path1 . '/' . $menu_link;
+								$path2 = $path1 . '/' . $node_link;
 							}
 
 							$result = array(
@@ -630,9 +630,9 @@ class MenuItemAdmin extends PHPDS_controller
 						}
 						break;
 					case 2:
-						$menu_link = $this->GET('menu_link');
-						if ($menu_id && $menu_link) {
-							$exists = $this->db->invokeQuery('PHPDS_findMenuLinkUnicity', $menu_link, $menu_id);
+						$node_link = $this->GET('node_link');
+						if ($node_id && $node_link) {
+							$exists = $this->db->invokeQuery('PHPDS_findNodeLinkUnicity', $node_link, $node_id);
 
 							$result = array(
 								'result' => $exists ? 'error' : 'yes',
@@ -654,7 +654,7 @@ class MenuItemAdmin extends PHPDS_controller
 			case 'alias_check':
 				$alias = $this->GET('alias');
 				if ($alias) {
-					$exists = $this->db->invokeQuery('PHPDS_findMenuAliasUnicity', $alias, $menu_id);
+					$exists = $this->db->invokeQuery('PHPDS_findNodeAliasUnicity', $alias, $node_id);
 					$result = array(
 						'result' => $exists ? 'error' : 'yes'
 					);
@@ -666,4 +666,4 @@ class MenuItemAdmin extends PHPDS_controller
 	}
 }
 
-return 'MenuItemAdmin';
+return 'NodeItemAdmin';

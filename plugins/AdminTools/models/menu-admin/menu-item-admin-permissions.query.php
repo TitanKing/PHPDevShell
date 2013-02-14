@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Menu Item Admin Permissions - Reset role permissions primary key.
+ * Node Item Admin Permissions - Reset role permissions primary key.
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
@@ -15,7 +15,7 @@ class PHPDS_resetRolePermissionsQuery extends PHPDS_query
 }
 
 /**
- * Menu Item Admin Permissions - Write role permissions.
+ * Node Item Admin Permissions - Write role permissions.
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
@@ -23,14 +23,14 @@ class PHPDS_writeRolePermissionsQuery extends PHPDS_query
 {
 	protected $sql = "
 		REPLACE INTO
-			_db_core_user_role_permissions (user_role_id, menu_id)
+			_db_core_user_role_permissions (user_role_id, node_id)
 		VALUES
 			%s
 	";
 }
 
 /**
- * Menu Item Admin Permissions - Update Permissions
+ * Node Item Admin Permissions - Update Permissions
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
@@ -57,7 +57,7 @@ class PHPDS_updatePermissionsQuery extends PHPDS_query
 }
 
 /**
- * Menu Item Admin Permissions - Get Role Permissions
+ * Node Item Admin Permissions - Get Role Permissions
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
@@ -65,7 +65,7 @@ class PHPDS_getRolePermissionsQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
-			t1.user_role_id, t1.menu_id
+			t1.user_role_id, t1.node_id
 		FROM
 			_db_core_user_role_permissions t1
 		ORDER BY
@@ -77,7 +77,7 @@ class PHPDS_getRolePermissionsQuery extends PHPDS_query
 }
 
 /**
- * Menu Item Admin Permissions - Get All Permissions
+ * Node Item Admin Permissions - Get All Permissions
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
@@ -110,22 +110,22 @@ class PHPDS_getAllPermissionsQuery extends PHPDS_query
 		if (empty($select_role_permission)) $select_role_permission = array();
 		foreach ($select_role_permission as $select_role_permission_array) {
 			$user_role_id = $select_role_permission_array['user_role_id'];
-			$menu_id = $select_role_permission_array['menu_id'];
+			$node_id = $select_role_permission_array['node_id'];
 			// Define.
-			if (empty($permissions[$menu_id])) $permissions[$menu_id] = false;
-			if (empty($user_role_field_info[$menu_id]))
-					$user_role_field_info[$menu_id] = false;
+			if (empty($permissions[$node_id])) $permissions[$node_id] = false;
+			if (empty($user_role_field_info[$node_id]))
+					$user_role_field_info[$node_id] = false;
 			if (empty($user_role_description[$user_role_id]))
 					$user_role_description[$user_role_id] = false;
-			$permissions[$menu_id] .= $user_role_id . ',';
-			$user_role_field_info[$menu_id] .= "[" . $user_role_id . '&#61;&#62;' . $user_role_description[$user_role_id] . "] ";
+			$permissions[$node_id] .= $user_role_id . ',';
+			$user_role_field_info[$node_id] .= "[" . $user_role_id . '&#61;&#62;' . $user_role_description[$user_role_id] . "] ";
 		}
 		return array(rtrim($user_roles_info, ","), $permissions, $user_role_field_info);
 	}
 }
 
 /**
- * Menu Item Admin Permissions - Compile permission rows.
+ * Node Item Admin Permissions - Compile permission rows.
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
@@ -177,11 +177,11 @@ class PHPDS_writePermissionRowsQuery extends PHPDS_query
 }
 
 /**
- * Menu Item Admin Permissions - List menus.
+ * Node Item Admin Permissions - List nodes.
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
-class PHPDS_listMenusQuery extends PHPDS_query
+class PHPDS_listNodesQuery extends PHPDS_query
 {
 	/**
 	 * Initiate query invoke command.
@@ -194,26 +194,26 @@ class PHPDS_listMenusQuery extends PHPDS_query
 		$core = $this->core;
 		$template = $this->template;
 		$navigation = $this->navigation;
-		$menu_array = $this->factory('menuArray');
+		$node_array = $this->factory('nodeArray');
 
 		// Page variables.
 		$page_edit = $this->navigation->buildURL('3440897808', 'em=');
 		$page_delete = $this->navigation->buildURL(false, 'dm=');
 
 		// Icons.
-		$delete_menu_icon = $template->icon('task--minus', __('Delete Menu Item'));
-		$edit_menu_icon = $template->icon('task--pencil', __('Edit Menu Item'));
+		$delete_node_icon = $template->icon('task--minus', __('Delete Node Item'));
+		$edit_node_icon = $template->icon('task--pencil', __('Edit Node Item'));
 
-		// Menu Array.
-		$menu_array->loadMenuArray();
+		// Node Array.
+		$node_array->loadNodeArray();
 
-		foreach ($menu_array->menuArray as $select_menu_items_array) {
+		foreach ($node_array->nodeArray as $select_node_items_array) {
 			// Set values.
-			$item = $select_menu_items_array;
+			$item = $select_node_items_array;
 
 			// Role permissions.
-			if (!empty($permissions[$item['menu_id']])) {
-				$permissions_role = rtrim(trim($permissions[$item['menu_id']]), ',');
+			if (!empty($permissions[$item['node_id']])) {
+				$permissions_role = rtrim(trim($permissions[$item['node_id']]), ',');
 			} else {
 				$permissions_role = false;
 			}
@@ -224,16 +224,16 @@ class PHPDS_listMenusQuery extends PHPDS_query
 				$hide_ = 'ui-state-disabled';
 			}
 			// Define.
-			if (empty($user_role_field_info[$item['menu_id']]))
-					$user_role_field_info[$item['menu_id']] = false;
+			if (empty($user_role_field_info[$item['node_id']]))
+					$user_role_field_info[$item['node_id']] = false;
 			$RESULTS[] = array(
 				'item' => $item,
 				'hide_' => $hide_,
-				'i_url_name' => "{$item['menu_link']}<br>" . __('Alias: ') . "{$item['alias']}",
+				'i_url_name' => "{$item['node_link']}<br>" . __('Alias: ') . "{$item['alias']}",
 				'permissions_role' => $permissions_role,
-				'i_item_permission' => $user_role_field_info[$item['menu_id']],
-				'edit' => "<a href=\"{$page_edit}{$item['menu_id']}\" class=\"button\">{$edit_menu_icon}</a>",
-				'delete' => "<a href=\"{$page_delete}{$item['menu_id']}\" {$core->confirmLink(sprintf(__('Are you sure you want to DELETE : %s'), $item['menu_name']))} class=\"button\">{$delete_menu_icon}</a>"
+				'i_item_permission' => $user_role_field_info[$item['node_id']],
+				'edit' => "<a href=\"{$page_edit}{$item['node_id']}\" class=\"button\">{$edit_node_icon}</a>",
+				'delete' => "<a href=\"{$page_delete}{$item['node_id']}\" {$core->confirmLink(sprintf(__('Are you sure you want to DELETE : %s'), $item['node_name']))} class=\"button\">{$delete_node_icon}</a>"
 			);
 		}
 		if (! empty($RESULTS)) {

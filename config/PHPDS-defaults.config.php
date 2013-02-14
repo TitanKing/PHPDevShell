@@ -394,7 +394,7 @@ $configuration['preloaded_settings'] = array(
 	'skin',
 	'meta_keywords',
 	'meta_description',
-	'menu_behaviour',
+	'node_behaviour',
 	'spam_assassin',
 	'custom_css'
 );

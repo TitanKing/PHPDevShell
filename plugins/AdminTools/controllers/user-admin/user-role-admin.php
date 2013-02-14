@@ -28,7 +28,7 @@ class UserRoleAdmin extends PHPDS_controller
 
 			if ($crud->GET('er')) {
 				$crud->importFields($this->db->invokeQuery('PHPDS_readRoleUserQuery', $crud->GET('er')));
-				$permission = $this->db->invokeQuery('PHPDS_readRoleMenuQuery', $crud->GET('er'));
+				$permission = $this->db->invokeQuery('PHPDS_readRoleNodeQuery', $crud->GET('er'));
 			}
 
 			if ($crud->POST('save') || $crud->POST('new')) {
@@ -60,7 +60,7 @@ class UserRoleAdmin extends PHPDS_controller
 			}
 		}
 
-		$menu_item_options = $this->db->invokeQuery('PHPDS_readMenusQuery', $permission);
+		$node_item_options = $this->db->invokeQuery('PHPDS_readNodesQuery', $permission);
 
 		$tagger = $this->tagger->tagArea('role', $crud->f->user_role_id, $this->P('tagger_name'), $this->P('tagger_value'), $this->P('tagger_id'), $this->P('tagger_delete'));
 
@@ -77,7 +77,7 @@ class UserRoleAdmin extends PHPDS_controller
 		$view->set('user_role_name', $crud->f->user_role_name);
 		$view->set('user_role_note', $crud->f->user_role_note);
 		$view->set('tagger', $tagger);
-		$view->set('menus_select', $menu_item_options);
+		$view->set('nodes_select', $node_item_options);
 
 		$view->show();
 	}

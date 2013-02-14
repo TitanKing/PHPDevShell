@@ -386,11 +386,11 @@ VERSION;
 							}
 
 							// Set.
-							$reinstall_menus_text = __('Reinstall Menus and Items');
+							$reinstall_nodes_text = __('Reinstall Nodes and Items');
 							$action = <<<ACTION
 								$update_message_object
 								$uninstall_button
-								<button type="submit" value="reinstall" name="reinstall" title="$reinstall_menus_text">{$reinstall_icon}</button>
+								<button type="submit" value="reinstall" name="reinstall" title="$reinstall_nodes_text">{$reinstall_icon}</button>
 								$version_check
 								<input type="hidden" name="plugin" value="$object">
 								<input type="hidden" name="version" value="{$plugin['database_version']}">

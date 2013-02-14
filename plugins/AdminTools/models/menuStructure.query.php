@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Menu Stucture - Read structure.
+ * Node Stucture - Read structure.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
 class PHPDS_readStructureQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
-			t1.menu_id, t1.parent_menu_id
+			t1.node_id, t1.parent_node_id
 		FROM
-			_db_core_menu_items t1
+			_db_core_node_items t1
 		ORDER BY
 			t1.rank
 		ASC
@@ -18,76 +18,76 @@ class PHPDS_readStructureQuery extends PHPDS_query
 }
 
 /**
- * Menu Stucture - Delete structure.
+ * Node Stucture - Delete structure.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
 class PHPDS_deleteStructureQuery extends PHPDS_query
 {
 	protected $sql = "
 		DELETE FROM
-			_db_core_menu_structure
+			_db_core_node_structure
     ";
 }
 
 /**
- * Menu Stucture - Reset structure pointer.
+ * Node Stucture - Reset structure pointer.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
 class PHPDS_resetStructureQuery extends PHPDS_query
 {
 	protected $sql = "
 		ALTER TABLE
-			_db_core_menu_structure
+			_db_core_node_structure
 		AUTO_INCREMENT = 0;
     ";
 }
 
 /**
- * Menu Stucture - Write new structure.
+ * Node Stucture - Write new structure.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
 class PHPDS_writeStructureQuery extends PHPDS_query
 {
 	protected $sql = "
 		INSERT INTO
-			_db_core_menu_structure (id, menu_id, is_parent, type)
+			_db_core_node_structure (id, node_id, is_parent, type)
 		VALUES
 			%s
     ";
 }
 
 /**
- * Menu Stucture - Delete Menus.
+ * Node Stucture - Delete Nodes.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_deleteMenusQuery extends PHPDS_query
+class PHPDS_deleteNodesQuery extends PHPDS_query
 {
 	protected $sql = "
 		DELETE FROM
-			_db_core_menu_items
+			_db_core_node_items
 		WHERE
-			menu_id
+			node_id
 		%s
     ";
 }
 
 /**
- * Menu Stucture - Delete menu structure.
+ * Node Stucture - Delete node structure.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_deleteMenuStructureQuery extends PHPDS_query
+class PHPDS_deleteNodeStructureQuery extends PHPDS_query
 {
 	protected $sql = "
 		DELETE FROM
-			_db_core_menu_structure
+			_db_core_node_structure
 		WHERE
-			menu_id
+			node_id
 		%s
     ";
 }
 
 /**
- * Menu Stucture - Delete role permissions.
+ * Node Stucture - Delete role permissions.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
 class PHPDS_deleteRolePermissionsQuery extends PHPDS_query
@@ -96,13 +96,13 @@ class PHPDS_deleteRolePermissionsQuery extends PHPDS_query
 		DELETE FROM
 			_db_core_user_role_permissions
 		WHERE
-			menu_id
+			node_id
 		%s
     ";
 }
 
 /**
- * Menu Stucture - Delete filters.
+ * Node Stucture - Delete filters.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
 class PHPDS_deleteFiltersQuery extends PHPDS_query
@@ -111,13 +111,13 @@ class PHPDS_deleteFiltersQuery extends PHPDS_query
 		DELETE FROM
 			_db_core_filter
 		WHERE
-			menu_id
+			node_id
 		%s
     ";
 }
 
 /**
- * Menu Stucture - Delete crons.
+ * Node Stucture - Delete crons.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
 class PHPDS_deleteCronsQuery extends PHPDS_query
@@ -126,22 +126,22 @@ class PHPDS_deleteCronsQuery extends PHPDS_query
 		DELETE FROM
 			_db_core_cron
 		WHERE
-			menu_id
+			node_id
 		%s
     ";
 }
 
 /**
- * Menu Stucture - Delete one or many menus.
+ * Node Stucture - Delete one or many nodes.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_deleteMenuQuery extends PHPDS_query
+class PHPDS_deleteNodeQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
-			menu_id
+			node_id
 		FROM
-			_db_core_menu_items
+			_db_core_node_items
 		WHERE
 			plugin = '%s'
     ";
@@ -155,16 +155,16 @@ class PHPDS_deleteMenuQuery extends PHPDS_query
 	{
 		$db = $this->db;
 
-		list($menu_id, $plugin, $delete_critical_only) = $parameters;
+		list($node_id, $plugin, $delete_critical_only) = $parameters;
 		// Define.
 		$db_condition = '';
 		// Check if plugin item should be deleted.
-		if ($plugin != false && $menu_id == false) {
-			$menu_id_db = parent::invoke(array($plugin));
+		if ($plugin != false && $node_id == false) {
+			$node_id_db = parent::invoke(array($plugin));
 
-            if (! empty($menu_id_db)) {
-                foreach ($menu_id_db as $menu_id_array) {
-                    $db_condition .= "'{$menu_id_array['menu_id']}',";
+            if (! empty($node_id_db)) {
+                foreach ($node_id_db as $node_id_array) {
+                    $db_condition .= "'{$node_id_array['node_id']}',";
                 }
             }
 			// Check if there is any condition.
@@ -175,9 +175,9 @@ class PHPDS_deleteMenuQuery extends PHPDS_query
 				$condition = " IN ($db_condition)";
 			}
 		} // The user may want to give an array of items to be deleted.
-		else if (is_array($menu_id)) {
-			foreach ($menu_id as $item_to_delete) {
-				// Check if item needs to be converted to menu item.
+		else if (is_array($node_id)) {
+			foreach ($node_id as $item_to_delete) {
+				// Check if item needs to be converted to node item.
 				$db_condition .= "'$item_to_delete',";
 			}
 			// Check if there is any condition.
@@ -189,25 +189,25 @@ class PHPDS_deleteMenuQuery extends PHPDS_query
 			}
 		} else {
 			// Complete condition.
-			$condition = " = '$menu_id'";
+			$condition = " = '$node_id'";
 		}
 		// Only execute when not empty.
 		if (!empty($condition)) {
-			// Delete Menu Items.
-			$db->invokeQuery('PHPDS_deleteMenusQuery', $condition);
+			// Delete Node Items.
+			$db->invokeQuery('PHPDS_deleteNodesQuery', $condition);
 
-			// Delete Menu Structure.
-			$db->invokeQuery('PHPDS_deleteMenuStructureQuery', $condition);
+			// Delete Node Structure.
+			$db->invokeQuery('PHPDS_deleteNodeStructureQuery', $condition);
 
 			// Continue deleting?
 			if ($delete_critical_only == false) {
-				// Delete Menu Permissions.
+				// Delete Node Permissions.
 				$db->invokeQuery('PHPDS_deleteRolePermissionsQuery', $condition);
 
-				// Delete all filters that belongs to this menu item.
+				// Delete all filters that belongs to this node item.
 				$db->invokeQuery('PHPDS_deleteFiltersQuery', $condition);
 
-				// Delete all cron items connected to this menu.
+				// Delete all cron items connected to this node.
 				$db->invokeQuery('PHPDS_deleteCronsQuery', $condition);
 			}
 			return true;
@@ -216,50 +216,50 @@ class PHPDS_deleteMenuQuery extends PHPDS_query
 }
 
 /**
- * Menu Stucture - Write menu item.
+ * Node Stucture - Write node item.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_writeMenuQuery extends PHPDS_query
+class PHPDS_writeNodeQuery extends PHPDS_query
 {
 	protected $sql = "
 		REPLACE INTO
-			_db_core_menu_items (menu_id, parent_menu_id, menu_name, menu_link, plugin, menu_type, extend, new_window, rank, hide, template_id, alias, layout, params)
+			_db_core_node_items (node_id, parent_node_id, node_name, node_link, plugin, node_type, extend, new_window, rank, hide, template_id, alias, layout, params)
 		VALUES
 			('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')
     ";
 }
 
 /**
- * Menu Stucture - Get plugin name from menu id.
+ * Node Stucture - Get plugin name from node id.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_readPluginFromMenuIdQuery extends PHPDS_query
+class PHPDS_readPluginFromNodeIdQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
 			plugin
 		FROM
-			_db_core_menu_items
+			_db_core_node_items
 		WHERE
-			menu_id = '%s'
+			node_id = '%s'
     ";
 
 	protected $singleValue = true;
 }
 
 /**
- * Menu Stucture - Get plugin name from menu id.
+ * Node Stucture - Get plugin name from node id.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_readMenuIdFromMenuLinkQuery extends PHPDS_query
+class PHPDS_readNodeIdFromNodeLinkQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
-			menu_id
+			node_id
 		FROM
-			_db_core_menu_items
+			_db_core_node_items
 		WHERE
-			menu_link = '%s'
+			node_link = '%s'
 		AND
 			plugin = '%s'
     ";
@@ -268,28 +268,28 @@ class PHPDS_readMenuIdFromMenuLinkQuery extends PHPDS_query
 }
 
 /**
- * Menu Stucture - Delete one or many menus.
+ * Node Stucture - Delete one or many nodes.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_doesMenuIdExistQuery extends PHPDS_query
+class PHPDS_doesNodeIdExistQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
-			menu_id
+			node_id
 		FROM
-			_db_core_menu_items
+			_db_core_node_items
 		WHERE
-			menu_id = '%s';
+			node_id = '%s';
 	";
 
 	protected $singleValue = true;
 }
 
 /**
- * Menu Stucture - Update a complete set of menu ids all over with new menu id.
+ * Node Stucture - Update a complete set of node ids all over with new node id.
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_updateMenuIdQuery extends PHPDS_query
+class PHPDS_updateNodeIdQuery extends PHPDS_query
 {
 	/**
 	 * Initiate invoke.
@@ -302,128 +302,128 @@ class PHPDS_updateMenuIdQuery extends PHPDS_query
 
 		list($new_id, $old_id) = $parameters;
 
-		$db->invokeQuery('PHPDS_updateMenuItemsIdQuery', $new_id, $old_id);
-		$db->invokeQuery('PHPDS_updateParentMenuItemsIdQuery', $new_id, $old_id);
-		$db->invokeQuery('PHPDS_updateMenuItemsExtendQuery', $new_id, $old_id);
-		$db->invokeQuery('PHPDS_updateCoreCronMenuIdQuery', $new_id, $old_id);
-		$db->invokeQuery('PHPDS_updateCoreFilterMenuIdQuery', $new_id, $old_id);
-		$db->invokeQuery('PHPDS_updateCoreAccessLogsMenuIdQuery', $new_id, $old_id);
-		$db->invokeQuery('PHPDS_updateCoreMenuStructurMenuIdQuery', $new_id, $old_id);
-		$db->invokeQuery('PHPDS_updateCoreUploadLogsMenuIdQuery', $new_id, $old_id);
-		$db->invokeQuery('PHPDS_updateCoreUserRolePermissionsMenuIdQuery', $new_id, $old_id);
-		$db->invokeQuery('PHPDS_updateCoreSettingsMenuIdQuery', $new_id, $old_id);
-		$db->invokeQuery('PHPDS_updateCoreTagsMenuIdQuery', $new_id, $old_id);
+		$db->invokeQuery('PHPDS_updateNodeItemsIdQuery', $new_id, $old_id);
+		$db->invokeQuery('PHPDS_updateParentNodeItemsIdQuery', $new_id, $old_id);
+		$db->invokeQuery('PHPDS_updateNodeItemsExtendQuery', $new_id, $old_id);
+		$db->invokeQuery('PHPDS_updateCoreCronNodeIdQuery', $new_id, $old_id);
+		$db->invokeQuery('PHPDS_updateCoreFilterNodeIdQuery', $new_id, $old_id);
+		$db->invokeQuery('PHPDS_updateCoreAccessLogsNodeIdQuery', $new_id, $old_id);
+		$db->invokeQuery('PHPDS_updateCoreNodeStructurNodeIdQuery', $new_id, $old_id);
+		$db->invokeQuery('PHPDS_updateCoreUploadLogsNodeIdQuery', $new_id, $old_id);
+		$db->invokeQuery('PHPDS_updateCoreUserRolePermissionsNodeIdQuery', $new_id, $old_id);
+		$db->invokeQuery('PHPDS_updateCoreSettingsNodeIdQuery', $new_id, $old_id);
+		$db->invokeQuery('PHPDS_updateCoreTagsNodeIdQuery', $new_id, $old_id);
 
 		return true;
 	}
 }
 
 /**
- * Menu Stucture - UPDATE `_db_core_menu_items` (menu_id)
+ * Node Stucture - UPDATE `_db_core_node_items` (node_id)
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_updateMenuItemsIdQuery extends PHPDS_query
+class PHPDS_updateNodeItemsIdQuery extends PHPDS_query
 {
 	protected $sql = "
-		UPDATE `_db_core_menu_items` SET menu_id='%s' WHERE menu_id='%s';
+		UPDATE `_db_core_node_items` SET node_id='%s' WHERE node_id='%s';
 	";
 }
 
 /**
- * Menu Stucture - UPDATE `_db_core_menu_items` (parent_menu_id)
+ * Node Stucture - UPDATE `_db_core_node_items` (parent_node_id)
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_updateParentMenuItemsIdQuery extends PHPDS_query
+class PHPDS_updateParentNodeItemsIdQuery extends PHPDS_query
 {
 	protected $sql = "
-		UPDATE `_db_core_menu_items` SET parent_menu_id='%s' WHERE parent_menu_id='%s';
+		UPDATE `_db_core_node_items` SET parent_node_id='%s' WHERE parent_node_id='%s';
 	";
 }
 
 /**
- * Menu Stucture - UPDATE `_db_core_menu_items` (extend)
+ * Node Stucture - UPDATE `_db_core_node_items` (extend)
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_updateMenuItemsExtendQuery extends PHPDS_query
+class PHPDS_updateNodeItemsExtendQuery extends PHPDS_query
 {
 	protected $sql = "
-		UPDATE `_db_core_menu_items` SET extend='%s' WHERE extend='%s';
+		UPDATE `_db_core_node_items` SET extend='%s' WHERE extend='%s';
 	";
 }
 
 /**
- * Menu Stucture - UPDATE `_db_core_cron` (menu_id)
+ * Node Stucture - UPDATE `_db_core_cron` (node_id)
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_updateCoreCronMenuIdQuery extends PHPDS_query
+class PHPDS_updateCoreCronNodeIdQuery extends PHPDS_query
 {
 	protected $sql = "
-		UPDATE `_db_core_cron` SET menu_id='%s' WHERE menu_id='%s';
+		UPDATE `_db_core_cron` SET node_id='%s' WHERE node_id='%s';
 	";
 }
 
 /**
- * Menu Stucture - UPDATE `_db_core_filter` (menu_id)
+ * Node Stucture - UPDATE `_db_core_filter` (node_id)
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_updateCoreFilterMenuIdQuery extends PHPDS_query
+class PHPDS_updateCoreFilterNodeIdQuery extends PHPDS_query
 {
 	protected $sql = "
-		UPDATE `_db_core_filter` SET menu_id='%s' WHERE menu_id='%s';
+		UPDATE `_db_core_filter` SET node_id='%s' WHERE node_id='%s';
 	";
 }
 
 /**
- * Menu Stucture - UPDATE `_db_core_menu_access_logs` (menu_id)
+ * Node Stucture - UPDATE `_db_core_node_access_logs` (node_id)
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_updateCoreAccessLogsMenuIdQuery extends PHPDS_query
+class PHPDS_updateCoreAccessLogsNodeIdQuery extends PHPDS_query
 {
 	protected $sql = "
-		UPDATE `_db_core_menu_access_logs` SET menu_id='%s' WHERE menu_id='%s';
-	";
-}
-
-
-/**
- * Menu Stucture - UPDATE `_db_core_menu_structure` (menu_id)
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
- */
-class PHPDS_updateCoreMenuStructurMenuIdQuery extends PHPDS_query
-{
-	protected $sql = "
-		UPDATE `_db_core_menu_structure` SET menu_id='%s' WHERE menu_id='%s';
-	";
-}
-
-/**
- * Menu Stucture - UPDATE `_db_core_upload_logs` (menu_id)
- * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
- */
-class PHPDS_updateCoreUploadLogsMenuIdQuery extends PHPDS_query
-{
-	protected $sql = "
-		UPDATE `_db_core_upload_logs` SET menu_id='%s' WHERE menu_id='%s';
+		UPDATE `_db_core_node_access_logs` SET node_id='%s' WHERE node_id='%s';
 	";
 }
 
 
 /**
- * Menu Stucture - UPDATE `_db_core_user_role_permissions` (menu_id)
+ * Node Stucture - UPDATE `_db_core_node_structure` (node_id)
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_updateCoreUserRolePermissionsMenuIdQuery extends PHPDS_query
+class PHPDS_updateCoreNodeStructurNodeIdQuery extends PHPDS_query
 {
 	protected $sql = "
-		UPDATE `_db_core_user_role_permissions` SET menu_id='%s' WHERE menu_id='%s';
+		UPDATE `_db_core_node_structure` SET node_id='%s' WHERE node_id='%s';
 	";
 }
 
 /**
- * Menu Stucture - UPDATE `_db_core_settings` (setting_value)
+ * Node Stucture - UPDATE `_db_core_upload_logs` (node_id)
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_updateCoreSettingsMenuIdQuery extends PHPDS_query
+class PHPDS_updateCoreUploadLogsNodeIdQuery extends PHPDS_query
+{
+	protected $sql = "
+		UPDATE `_db_core_upload_logs` SET node_id='%s' WHERE node_id='%s';
+	";
+}
+
+
+/**
+ * Node Stucture - UPDATE `_db_core_user_role_permissions` (node_id)
+ * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
+ */
+class PHPDS_updateCoreUserRolePermissionsNodeIdQuery extends PHPDS_query
+{
+	protected $sql = "
+		UPDATE `_db_core_user_role_permissions` SET node_id='%s' WHERE node_id='%s';
+	";
+}
+
+/**
+ * Node Stucture - UPDATE `_db_core_settings` (setting_value)
+ * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
+ */
+class PHPDS_updateCoreSettingsNodeIdQuery extends PHPDS_query
 {
 	protected $sql = "
 		UPDATE `_db_core_settings` SET setting_value='%s' WHERE setting_value='%s';
@@ -431,10 +431,10 @@ class PHPDS_updateCoreSettingsMenuIdQuery extends PHPDS_query
 }
 
 /**
- * Menu Stucture - UPDATE `_db_core_tags` (core_tags)
+ * Node Stucture - UPDATE `_db_core_tags` (core_tags)
  * @author Jason Schoeman, Contact: titan [at] phpdevshell [dot] org.
  */
-class PHPDS_updateCoreTagsMenuIdQuery extends PHPDS_query
+class PHPDS_updateCoreTagsNodeIdQuery extends PHPDS_query
 {
 	protected $sql = "
 		UPDATE `_db_core_tags` SET tagTarget='%s' WHERE tagTarget='%s';

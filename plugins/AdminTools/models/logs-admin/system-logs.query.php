@@ -56,7 +56,7 @@ class PHPDS_getAllSystemLogsQuery extends PHPDS_query
 	 */
 	protected $sql = "
         SELECT
-            t1.id, t1.log_type, t1.log_description, t1.log_time, t1.user_id, t1.user_display_name, t1.menu_id, t1.file_name, t1.menu_name, t1.user_ip
+            t1.id, t1.log_type, t1.log_description, t1.log_time, t1.user_id, t1.user_display_name, t1.node_id, t1.file_name, t1.node_name, t1.user_ip
         FROM
             _db_core_logs t1
     ";
@@ -76,9 +76,9 @@ class PHPDS_getAllSystemLogsQuery extends PHPDS_query
 		$pagination = $this->factory('pagination');
 		$pagination->columns = array(
 			_('Type of log (1,2,3)') => 't1.log_type',
-			_('Menu Link') => 't1.menu_id',
+			_('Node Link') => 't1.node_id',
 			_('Description') => 't1.log_description',
-			_('Menu ID') => 't1.menu_id',
+			_('Node ID') => 't1.node_id',
 			_('In File') => 't1.file_name',
 			_('User ID') => 't1.user_id',
 			_('User') => 't1.user_display_name',
@@ -104,9 +104,9 @@ class PHPDS_getAllSystemLogsQuery extends PHPDS_query
 			$log_time = $get_logs_array['log_time'];
 			$user_id = $get_logs_array['user_id'];
 			$user_display_name = $get_logs_array['user_display_name'];
-			$menu_id = $get_logs_array['menu_id'];
+			$node_id = $get_logs_array['node_id'];
 			$file_name = $get_logs_array['file_name'];
-			$menu_name = $get_logs_array['menu_name'];
+			$node_name = $get_logs_array['node_name'];
 			$user_ip = $get_logs_array['user_ip'];
 			// Write log types out/
 			switch ($log_type) {
@@ -128,9 +128,9 @@ class PHPDS_getAllSystemLogsQuery extends PHPDS_query
 			}
 			$RESULTS['list'][] = array(
 				'log_type' => $log_type,
-				'menu_name_url' => "<a href=\"{$navigation->buildURL($menu_id)}\">$menu_name</a>",
+				'node_name_url' => "<a href=\"{$navigation->buildURL($node_id)}\">$node_name</a>",
 				'log_description' => $log_description,
-				'menu_id' => $menu_id,
+				'node_id' => $node_id,
 				'file_name' => $file_name,
 				'user_id' => $user_id,
 				'user_display_name' => $user_display_name,

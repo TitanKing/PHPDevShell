@@ -22,7 +22,7 @@ class PHPDS_updateTemplateQuery extends PHPDS_query
 {
 	protected $sql = "
 		UPDATE
-			_db_core_menu_items
+			_db_core_node_items
 		SET
 			template_id = '%s'
 		WHERE
@@ -40,7 +40,7 @@ class PHPDS_countTemplateQuery extends PHPDS_query
 		SELECT
 			COUNT(template_id)
 		FROM
-			_db_core_menu_items
+			_db_core_node_items
 		WHERE
 			template_id = '%s'
 	";

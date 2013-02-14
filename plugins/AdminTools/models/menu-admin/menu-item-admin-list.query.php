@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Menu Item Admin - Save Item List
+ * Node Item Admin - Save Item List
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
-class PHPDS_menuItemListSaveQuery extends PHPDS_query
+class PHPDS_nodeItemListSaveQuery extends PHPDS_query
 {
 	protected $sql = "
 		UPDATE
-			_db_core_menu_items
+			_db_core_node_items
 		SET
 			new_window  = '%s',
 			hide        = '%s',
@@ -17,7 +17,7 @@ class PHPDS_menuItemListSaveQuery extends PHPDS_query
 			template_id = '%s',
 			layout 		= '%s'
 		WHERE
-			menu_id = '%s'
+			node_id = '%s'
 	";
 
 	/**
@@ -26,7 +26,7 @@ class PHPDS_menuItemListSaveQuery extends PHPDS_query
 	public function invoke($parameters = null)
 	{
 		// Assign
-		$menu_id_array = $parameters[0];
+		$node_id_array = $parameters[0];
 		$new_window_array = $parameters[1];
 		$hide_array = $parameters[2];
 		$rank_array = $parameters[3];
@@ -34,18 +34,18 @@ class PHPDS_menuItemListSaveQuery extends PHPDS_query
 		$layout_array = $parameters[5];
 
 		// Loop
-		if (empty($menu_id_array)) $menu_id_array = array();
-		foreach ($menu_id_array as $menu_id__) {
+		if (empty($node_id_array)) $node_id_array = array();
+		foreach ($node_id_array as $node_id__) {
 			// new_window
-			(!empty($new_window_array[$menu_id__])) ? $new_window = '1' : $new_window = '0';
+			(!empty($new_window_array[$node_id__])) ? $new_window = '1' : $new_window = '0';
 			// Replace in database.
-			parent::invoke(array($new_window, $hide_array[$menu_id__], $rank_array[$menu_id__], $template_id_array[$menu_id__], $layout_array[$menu_id__], $menu_id__));
+			parent::invoke(array($new_window, $hide_array[$node_id__], $rank_array[$node_id__], $template_id_array[$node_id__], $layout_array[$node_id__], $node_id__));
 		}
 	}
 }
 
 /**
- * Menu Item Admin - Get All Templates
+ * Node Item Admin - Get All Templates
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
@@ -77,11 +77,11 @@ class PHPDS_getAllTemplatesListQuery extends PHPDS_query
 }
 
 /**
- * Menu Item Admin - List all menus.
+ * Node Item Admin - List all nodes.
  * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper, Contact: rosskuyper@gmail.com.
  *
  */
-class PHPDS_listMenusQuery extends PHPDS_query
+class PHPDS_listNodesQuery extends PHPDS_query
 {
 	/**
 	 * Initiate query invoke command.
@@ -92,7 +92,7 @@ class PHPDS_listMenusQuery extends PHPDS_query
 		$core = $this->core;
 		$template = $this->template;
 		$navigation = $this->navigation;
-		$menu_array = $this->factory('menuArray');
+		$node_array = $this->factory('nodeArray');
 
 		// Page variables.
 		$page_edit = $this->navigation->buildURL('3440897808', 'em=');
@@ -104,14 +104,14 @@ class PHPDS_listMenusQuery extends PHPDS_query
 		// Icons.
 		$icon_found = $template->icon('tick-circle', __('Item Found'));
 		$icon_notfound = $template->icon('cross-circle', __('Item Not Found'));
-		$delete_menu_icon = $template->icon('task--minus', __('Delete Menu Item'));
-		$edit_menu_icon = $template->icon('task--pencil', __('Edit Menu Item'));
+		$delete_node_icon = $template->icon('task--minus', __('Delete Node Item'));
+		$edit_node_icon = $template->icon('task--pencil', __('Edit Node Item'));
 
-		$menu_array->loadMenuArray();
+		$node_array->loadNodeArray();
 
-		foreach ($menu_array->menuArray as $select_menu_items_array) {
-			// Set menu array.
-			$item = $select_menu_items_array;
+		foreach ($node_array->nodeArray as $select_node_items_array) {
+			// Set node array.
+			$item = $select_node_items_array;
 			// Define.
 			$template_option_ = false;
 			$hide_selected_1 = false;
@@ -158,7 +158,7 @@ class PHPDS_listMenusQuery extends PHPDS_query
 			}
 
 			// Check if the file could be located
-			switch ($item['menu_type']) {
+			switch ($item['node_type']) {
 				// Plugin File.
 				case 1:
 				case 8:
@@ -167,30 +167,30 @@ class PHPDS_listMenusQuery extends PHPDS_query
 				case 11:
 				case 12:
 					// Remove first slash.
-					$item['menu_link'] = ltrim($item['menu_link'], '/');
+					$item['node_link'] = ltrim($item['node_link'], '/');
 
 					// Check if we can find file.
-					if (file_exists('plugins/' . $item['plugin'] . '/controllers/' . $item['menu_link'])) {
+					if (file_exists('plugins/' . $item['plugin'] . '/controllers/' . $item['node_link'])) {
 						$found = $icon_found;
-					} else if (file_exists('plugins/' . $item['plugin'] . '/' . $item['menu_link'])) {
+					} else if (file_exists('plugins/' . $item['plugin'] . '/' . $item['node_link'])) {
 						$found = $icon_found;
 					} else {
 						$found = $icon_notfound;
 					}
 					break;
-				// Link Existing Menu Item.
+				// Link Existing Node Item.
 				case 2:
-					// Check if we have a menu item from link.
-					if (!empty($menu_array->menuArray[$item['extend']])) {
+					// Check if we have a node item from link.
+					if (!empty($node_array->nodeArray[$item['extend']])) {
 						$found = $icon_found;
 					} else {
 						$found = $icon_notfound;
 					}
 					break;
-				// Link Existing Menu Item (Jump To Link).
+				// Link Existing Node Item (Jump To Link).
 				case 3:
-					// Check if we have a menu item from link.
-					if (!empty($menu_array->menuArray[$item['extend']])) {
+					// Check if we have a node item from link.
+					if (!empty($node_array->nodeArray[$item['extend']])) {
 						$found = $icon_found;
 					} else {
 						$found = $icon_notfound;
@@ -199,7 +199,7 @@ class PHPDS_listMenusQuery extends PHPDS_query
 				// External File.
 				case 4:
 					// Check if we can find file.
-					if (file_exists($item['menu_link'])) {
+					if (file_exists($item['node_link'])) {
 						$found = $icon_found;
 					} else {
 						$found = $icon_notfound;
@@ -221,7 +221,7 @@ class PHPDS_listMenusQuery extends PHPDS_query
 			$RESULTS[] = array(
 				'hide_' => $hide_,
 				'item' => $item,
-				'i_url_name' => "[{$item['menu_link']}]" . " [{$item['alias']}]",
+				'i_url_name' => "[{$item['node_link']}]" . " [{$item['alias']}]",
 				'check_new_window' => $check_new_window,
 				'hide_selected_1' => $hide_selected_1,
 				'hide_selected_2' => $hide_selected_2,
@@ -231,8 +231,8 @@ class PHPDS_listMenusQuery extends PHPDS_query
 				'template_option_' => $template_option_,
 				'type_name' => $item['type_name'],
 				'found' => $found,
-				'edit' => "<a href=\"{$page_edit}{$item['menu_id']}\" class=\"button\">{$edit_menu_icon}</a>",
-				'delete' => "<a href=\"{$page_delete}{$item['menu_id']}\" {$core->confirmLink(sprintf(__('Are you sure you want to DELETE : %s'), $item['menu_name']))} class=\"button\">{$delete_menu_icon}</a>"
+				'edit' => "<a href=\"{$page_edit}{$item['node_id']}\" class=\"button\">{$edit_node_icon}</a>",
+				'delete' => "<a href=\"{$page_delete}{$item['node_id']}\" {$core->confirmLink(sprintf(__('Are you sure you want to DELETE : %s'), $item['node_name']))} class=\"button\">{$delete_node_icon}</a>"
 			);
 
 			// Clear variables.

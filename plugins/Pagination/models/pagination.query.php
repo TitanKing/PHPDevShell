@@ -12,7 +12,7 @@ class PAGINATION_readFilterCacheQuery extends PHPDS_query
         FROM
             _db_core_filter t1
         WHERE
-            t1.menu_id = '%s'
+            t1.node_id = '%s'
         AND
             t1.user_id = %u
         LIMIT

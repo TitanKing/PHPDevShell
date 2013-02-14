@@ -232,19 +232,19 @@ class PHPDS_user extends PHPDS_dependant
 	}
 
 	/**
-	 * Check if a user has access to a given menu id.
+	 * Check if a user has access to a given node id.
 	 *
 	 * @version 1.0.1
-	 * @date 20091105 fixed a possible warning when the menu is not in the list (i.e. the user is not allowed)
+	 * @date 20091105 fixed a possible warning when the node is not in the list (i.e. the user is not allowed)
 	 *
-	 * @param mixed $menu_id This can have both the menu id as an integer or as a string.
-	 * @param string $type The type of item requested, menu_id, menu_name etc...
-	 * @return boolean Will return requested variable if user has access to requested menu item menu item.
+	 * @param mixed $node_id This can have both the node id as an integer or as a string.
+	 * @param string $type The type of item requested, node_id, node_name etc...
+	 * @return boolean Will return requested variable if user has access to requested node item node item.
 	 */
-	public function canAccessMenu($menu_id, $type = 'menu_id')
+	public function canAccessNode($node_id, $type = 'node_id')
 	{
-		if (!empty($this->navigation->navigation[$menu_id][$type])) {
-			return $this->navigation->navigation[$menu_id][$type];
+		if (!empty($this->navigation->navigation[$node_id][$type])) {
+			return $this->navigation->navigation[$node_id][$type];
 		} else {
 			return false;
 		}

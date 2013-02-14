@@ -20,7 +20,7 @@ class DB_logThisQuery extends PHPDS_query
 {
 	protected $sql = "
 		INSERT INTO
-			_db_core_logs (id, log_type, log_description, log_time, user_id, user_display_name, menu_id, file_name, menu_name, user_ip)
+			_db_core_logs (id, log_type, log_description, log_time, user_id, user_display_name, node_id, file_name, node_name, user_ip)
 		VALUES
 			%s
 		";
@@ -46,17 +46,17 @@ class DB_logThisQuery extends PHPDS_query
 					$logged_data['user_id'] = $this->configuration['user_id'];
 				if (empty($logged_data['logged_by']))
 					$logged_data['logged_by'] = $this->configuration['user_display_name'];
-				if (empty($logged_data['menu_id']))
-					$logged_data['menu_id'] = $this->configuration['m'];
-				if (empty($logged_data['file_name']) && !empty($navigation[$this->configuration['m']]['menu_link'])) {
-					$logged_data['file_name'] = $navigation[$this->configuration['m']]['menu_link'];
+				if (empty($logged_data['node_id']))
+					$logged_data['node_id'] = $this->configuration['m'];
+				if (empty($logged_data['file_name']) && !empty($navigation[$this->configuration['m']]['node_link'])) {
+					$logged_data['file_name'] = $navigation[$this->configuration['m']]['node_link'];
 				} else {
 					$logged_data['file_name'] = ___('N/A');
 				}
-				if (empty($logged_data['menu_name']) && !empty($navigation[$this->configuration['m']]['menu_name'])) {
-					$logged_data['menu_name'] = $navigation[$this->configuration['m']]['menu_name'];
+				if (empty($logged_data['node_name']) && !empty($navigation[$this->configuration['m']]['node_name'])) {
+					$logged_data['node_name'] = $navigation[$this->configuration['m']]['node_name'];
 				} else {
-					$logged_data['menu_name'] = ___('N/A');
+					$logged_data['node_name'] = ___('N/A');
 				}
 				if (empty($logged_data['user_ip']))
 					$logged_data['user_ip'] = $this->user->userIp();
@@ -66,7 +66,7 @@ class DB_logThisQuery extends PHPDS_query
 				$logged_data = $this->protectArray($logged_data);
 
 				if (!empty($logged_data['log_type']) || !empty($logged_data['log_description']))
-					$database_log_string .= "(NULL, '{$logged_data['log_type']}', '{$logged_data['log_description']}', '{$logged_data['timestamp']}', '{$logged_data['user_id']}', '{$logged_data['logged_by']}', '{$logged_data['menu_id']}', '{$logged_data['file_name']}', '{$logged_data['menu_name']}', '{$logged_data['user_ip']}'),";
+					$database_log_string .= "(NULL, '{$logged_data['log_type']}', '{$logged_data['log_description']}', '{$logged_data['timestamp']}', '{$logged_data['user_id']}', '{$logged_data['logged_by']}', '{$logged_data['node_id']}', '{$logged_data['file_name']}', '{$logged_data['node_name']}', '{$logged_data['user_ip']}'),";
 			}
 			$database_log_string = rtrim($database_log_string, ',');
 			if (!empty($database_log_string))

@@ -1,10 +1,10 @@
 <?php
 
-class MenuItemAdminPermissions extends PHPDS_controller
+class NodeItemAdminPermissions extends PHPDS_controller
 {
 
 	/**
-	 * Menu Item Admin Permissions
+	 * Node Item Admin Permissions
 	 * @author Jason Schoeman [titan@phpdevshell.org], Ross Kuyper
 	 * @since 29 June 2010
 	 */
@@ -12,28 +12,28 @@ class MenuItemAdminPermissions extends PHPDS_controller
 	{
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Load Extra Classes ////////////////////////////////////////////////////////////////////////////////////////////////////
-		$menu_structure = $this->factory('menuStructure'); ///////////////////////////////////////////////////////////////////////
+		$node_structure = $this->factory('nodeStructure'); ///////////////////////////////////////////////////////////////////////
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Header information
 		$this->template->heading(__('Set Access Permission'));
 
-		// Delete menu item.
+		// Delete node item.
 		if (!empty($this->security->get['dm']) && $this->user->isRoot()) {
 
 			// Get name of item being deleted for log purposes.
-			$deleted_menu_item = $this->db->selectQuick('_db_core_menu_items', 'menu_link', 'menu_id', $this->security->get['dm']);
-			if ($deleted_menu_item) {
+			$deleted_node_item = $this->db->selectQuick('_db_core_node_items', 'node_link', 'node_id', $this->security->get['dm']);
+			if ($deleted_node_item) {
 				// Get redirect login.
 				$settings = $this->db->getSettings(array('redirect_login'));
 				// Check if we can delete this item and that it is not assigned to default settings.
 				if ($this->security->get['dm'] != $this->configuration['front_page_id'] && $this->security->get['dm'] != $this->configuration['front_page_id_in'] && $this->security->get['dm'] != $settings['redirect_login']) {
 					// Call the delete.
-					($menu_structure->getDelete()) ? $this->template->ok(sprintf(__('Menu item %s (%s) was deleted!'), $deleted_menu_item, $this->security->get['dm'])) : $this->template->warning(__('You cannot delete a core item, the system will be unable to function correctly. Switch force core changes on in General Settings GUI for bypass.'));
+					($node_structure->getDelete()) ? $this->template->ok(sprintf(__('Node item %s (%s) was deleted!'), $deleted_node_item, $this->security->get['dm'])) : $this->template->warning(__('You cannot delete a core item, the system will be unable to function correctly. Switch force core changes on in General Settings GUI for bypass.'));
 				} else {
-					$this->template->warning(sprintf(__('You cannot delete menu item "%s" as it is still set to be used in general settings.'), $this->security->get['dm']));
+					$this->template->warning(sprintf(__('You cannot delete node item "%s" as it is still set to be used in general settings.'), $this->security->get['dm']));
 				}
 			} else {
-				$this->template->warning(sprintf(__('No menu "%s" to delete.'), $this->security->get['dm']));
+				$this->template->warning(sprintf(__('No node "%s" to delete.'), $this->security->get['dm']));
 			}
 		}
 		// When saved is submitted.
@@ -43,8 +43,8 @@ class MenuItemAdminPermissions extends PHPDS_controller
 		// Get all user roles for information viewing.
 		list($user_roles_info, $permissions, $user_role_field_info) = $this->db->invokeQuery("PHPDS_getAllPermissionsQuery");
 
-		// Menu list.
-		$RESULTS = $this->db->invokeQuery('PHPDS_listMenusQuery', $permissions, $user_role_field_info);
+		// Node list.
+		$RESULTS = $this->db->invokeQuery('PHPDS_listNodesQuery', $permissions, $user_role_field_info);
 
 		// Load views.
 		$view = $this->factory('views');
@@ -63,4 +63,4 @@ class MenuItemAdminPermissions extends PHPDS_controller
 	}
 }
 
-return 'MenuItemAdminPermissions';
+return 'NodeItemAdminPermissions';

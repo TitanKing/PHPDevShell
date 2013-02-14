@@ -6,19 +6,19 @@
 		<thead>
 			<tr>
 				<th colspan="6">
-					<button type="submit" name="save" value="save"><span class="save"></span><span>{_e('Save Menu Settings')}</span></button>
+					<button type="submit" name="save" value="save"><span class="save"></span><span>{_e('Save Node Settings')}</span></button>
 					<button type="reset"><span class="reset"></span><span>{_e('Reset')}</span></button>
 				</th>
 			</tr>
 			<tr>
 				<th>
-					{_e('Menu ID')}
+					{_e('Node ID')}
 				</th>
 				<th>
 					{_e('Node')}
 				</th>
 				<th>
-					{_e('Menu Name')}
+					{_e('Node Name')}
 				</th>
 				<th>
 					{_e('User Role')}
@@ -39,19 +39,19 @@
 			{strip}
 			<tr class="{$m.hide_}">
 				<td>
-					{$m.item.menu_id}<br>
+					{$m.item.node_id}<br>
 					<small>{$m.item.plugin}</small>
 				</td>
 				<td>
-					<div class="img_left">{$m.item.menu_type_d}</div>{$m.item.type_name}
+					<div class="img_left">{$m.item.node_type_d}</div>{$m.item.type_name}
 				</td>
 				<td>
-					{$m.item.menu_indent}
+					{$m.item.node_indent}
 					{$m.item.div_folder}
 					{$m.item.url_name}
 				</td>
 				<td>
-					<input type="text" size="45" name="item_permission[{$m.item.menu_id}]" value="{$m.permissions_role}" title="{$m.i_item_permission}">
+					<input type="text" size="45" name="item_permission[{$m.item.node_id}]" value="{$m.permissions_role}" title="{$m.i_item_permission}">
 				</td>
 				<td>
 					{$m.edit}

@@ -23,7 +23,7 @@ Always do a database and file backup before upgrading.
 2. Rename /config/single-site.config.php.RENAME to /config/single-site.config.php and change the settings.
 3. Execute /other/service/service.php from your installed PHPDevShell directory.
 4. Complete the instructions in your browser.
-5. To make sure you have all the added UI functions, goto Plugin Manager, next to PHPDevShell click Reinstall Menus (no customization will be overwrite).
+5. To make sure you have all the added UI functions, goto Plugin Manager, next to PHPDevShell click Reinstall Nodes (no customization will be overwrite).
 
 * PS: If you have PHP notices turned on, you might see a notice until you ran the upgrade, ignore these notices.
 

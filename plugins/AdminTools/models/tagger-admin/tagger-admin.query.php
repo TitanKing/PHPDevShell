@@ -124,18 +124,18 @@ function tag_field_object ($selected='', $id=0)
 {
 	// Define.
 	$user_selected = '';
-	$menu_selected = '';
+	$node_selected = '';
 	$role_selected = '';
 	$group_selected = '';
 	$req = 'required="required"';
-	
+
 	switch ($selected) {
 		case 'user':
 			$user_selected = 'selected';
 		break;
 
-		case 'menu':
-			$menu_selected = 'selected';
+		case 'node':
+			$node_selected = 'selected';
 		break;
 
 		case 'role':
@@ -154,7 +154,7 @@ function tag_field_object ($selected='', $id=0)
 		<select name="tagObject[$id]" $req>
 		  <option value=""></option>
 		  <option value="user" $user_selected>User</option>
-		  <option value="menu" $menu_selected>Menu</option>
+		  <option value="node" $node_selected>Node</option>
 		  <option value="role" $role_selected>Role</option>
 		  <option value="group" $group_selected>Group</option>
 		</select>

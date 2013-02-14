@@ -287,16 +287,16 @@ class PHPDS_db extends PHPDS_dependant
 		$good = (class_exists($query_name, false));
 		if (!$good) {
 			$phpds = $this->PHPDS_dependance();
-			list($plugin, $menu_link) = $navigation->menuPath();
-			$query_file = 'models/' . $menu_link;
+			list($plugin, $node_link) = $navigation->nodePath();
+			$query_file = 'models/' . $node_link;
 			$query_file = preg_replace('/\.php$/', '.query.php', $query_file);
 			$query_file = $configuration['absolute_path'] . 'plugins/' . $plugin . '/' . $query_file;
 			$good = $phpds->sneakClass($query_name, $query_file);
 			// Execute class file.
 			if (!$good) {
-				$menu = $configuration['m'];
-				if (!empty($navigation->navigation[$menu])) {
-					$plugin = $navigation->navigation[$menu]['plugin'];
+				$node = $configuration['m'];
+				if (!empty($navigation->navigation[$node])) {
+					$plugin = $navigation->navigation[$node]['plugin'];
 					$query_file = $configuration['absolute_path'] . 'plugins/' . $plugin . '/models/plugin.query.php';
 					$good = $phpds->sneakClass($query_name, $query_file);
 				}

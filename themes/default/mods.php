@@ -177,13 +177,13 @@ HTML;
 		return $HTML;
 	}
 
-    public function loggedInInfo ($name, $logouturl, $logoutname, $role, $group, $menu_data = null)
+    public function loggedInInfo ($name, $logouturl, $logoutname, $role, $group, $node_data = null)
     {
 
-        if (! empty($menu_data['user-preferences'])) {
-            $p     = $menu_data['user-preferences'];
+        if (! empty($node_data['user-preferences'])) {
+            $p     = $node_data['user-preferences'];
             $prefs = <<<HTML
-                <a href="{$p['href']}" class="btn btn-primary options">{$p['menu_name']}</a>
+                <a href="{$p['href']}" class="btn btn-primary options">{$p['node_name']}</a>
 HTML;
         }
 
@@ -525,15 +525,15 @@ HTML;
 	public function menuA($mr, $class='')
 	{
 		// Check if we have a place marker.
-		if ($mr['menu_type'] == 6) {
+		if ($mr['node_type'] == 6) {
 			$noclick = 'onclick="return false;"';
 			// Create URL.
 			$url = "&#35;";
 		} else {
 			$noclick = '';
 			// Last check if it is a link item that should be jumped to.
-			if ($mr['menu_type'] == 5) {
-				$url = $mr['menu_link'];
+			if ($mr['node_type'] == 5) {
+				$url = $mr['node_link'];
 			} else {
 				$url = $mr['href'];
 			}
@@ -542,7 +542,7 @@ HTML;
 		$extra = ($class == 'nav-grand') ? 'data-toggle="dropdown" class="dropdown-toggle"' : '';
 
 		return <<<HTML
-				<a tabindex="-1" href="{$url}" target="{$target}" {$extra} {$noclick}>{$mr['menu_name']}</a>
+				<a tabindex="-1" href="{$url}" target="{$target}" {$extra} {$noclick}>{$mr['node_name']}</a>
 HTML;
 	}
 
@@ -571,9 +571,9 @@ HTML;
 		*/
 	}
 
-	public function menuLiParent($tree, $link, $class, $menu_data = null)
+	public function menuLiParent($tree, $link, $class, $node_data = null)
 	{
-		$id = empty($menu_data['menu_id']) ? '' : ' id="menu_'.PU_safeName($menu_data['menu_id']).'"';
+		$id = empty($node_data['node_id']) ? '' : ' id="menu_'.PU_safeName($node_data['node_id']).'"';
 		return <<<HTML
 
 			<li class="{$class} dropdown" {$id}>
@@ -584,17 +584,17 @@ HTML;
 HTML;
 	}
 
-	public function subMenuLiParent($tree, $link, $class, $menu_data = null)
+	public function subMenuLiParent($tree, $link, $class, $node_data = null)
 	{
-		$id = empty($menu_data['menu_id']) ? '' : ' id="menu_'.PU_safeName($menu_data['menu_id']).'"';
+		$id = empty($node_data['node_id']) ? '' : ' id="menu_'.PU_safeName($node_data['node_id']).'"';
 
 		return <<<HTML
 
-			<li class="{$class} nav-header" {$id}>{$menu_data['menu_name']}</li>
+			<li class="{$class} nav-header" {$id}>{$node_data['node_name']}</li>
 			{$tree}
 
 HTML;
-		// You could also make a tree type menu, but remember users with touch screens will find it hard to navigate, they can't hover.
+		// You could also make a tree type node, but remember users with touch screens will find it hard to navigate, they can't hover.
 		/*
 		return <<<HTML
 				<li class="{$class} dropdown-submenu" {$id}>
@@ -605,14 +605,14 @@ HTML;
 		*/
 	}
 
-	public function menuLiChild($link, $class, $menu_data = null)
+	public function menuLiChild($link, $class, $node_data = null)
 	{
         /**
 		 * Class types:
 		 * current
 		 * inactive
 		 */
-		$id = empty($menu_data['menu_id']) ? '' : ' id="menu_'.PU_safeName($menu_data['menu_id']).'"';
+		$id = empty($node_data['node_id']) ? '' : ' id="node_'.PU_safeName($node_data['node_id']).'"';
 		return <<<HTML
 
 			<li class="{$class}" {$id}>{$link}</li>
@@ -620,14 +620,14 @@ HTML;
 HTML;
 	}
 
-	public function subMenuLiChild($link, $class, $menu_data = null)
+	public function subMenuLiChild($link, $class, $node_data = null)
 	{
 		/**
 		 * Class types:
 		 * current
 		 * inactive
 		 */
-		$id = empty($menu_data['menu_id']) ? '' : ' id="menu_'.PU_safeName($menu_data['menu_id']).'"';
+		$id = empty($node_data['node_id']) ? '' : ' id="menu_'.PU_safeName($node_data['node_id']).'"';
 		return <<<HTML
 
 			<li class="{$class}" {$id}>{$link}</li>
@@ -637,17 +637,17 @@ HTML;
 
 	public function menuASubNav($mr)
 	{
-		return '<a href="' . $mr['href'] . '">' . $mr['menu_name'] . '</a>';
+		return '<a href="' . $mr['href'] . '">' . $mr['node_name'] . '</a>';
 	}
 
-	public function subNavMenuLi($link, $class, $menu_data = null)
+	public function subNavMenuLi($link, $class, $node_data = null)
 	{
 		/**
 		 * Class types:
 		 * active
 		 * inactive
 		 */
-		$id = empty($menu_data['menu_id']) ? '' : ' id="menu_'.PU_safeName($menu_data['menu_id']).'"';
+		$id = empty($node_data['node_id']) ? '' : ' id="menu_'.PU_safeName($node_data['node_id']).'"';
 		return <<<HTML
 
 			<li class="{$class}" {$id}>{$link}</li>
@@ -880,13 +880,13 @@ HTML;
         return $treehtml;
     }
 
-    public function liCheckbox($menu_id, $inputname, $menu_name, $checked)
+    public function liCheckbox($node_id, $inputname, $node_name, $checked)
     {
         $checkbox = <<<HTML
 
             <li>
                 <label class="checkbox">
-                    <input type="checkbox" name="{$inputname}[{$menu_id}]" $checked> {$menu_name}
+                    <input type="checkbox" name="{$inputname}[{$node_id}]" $checked> {$node_name}
                 </label>
             </li>
 HTML;

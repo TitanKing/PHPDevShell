@@ -2,7 +2,7 @@
 CREATE TABLE `pds_core_filter` (
 	`search_id` int(255) unsigned NOT NULL AUTO_INCREMENT,
 	`user_id` int(20) DEFAULT NULL,
-	`menu_id` varchar(64) NOT NULL,
+	`node_id` varchar(64) NOT NULL,
 	`filter_search` varchar(255) DEFAULT NULL,
 	`filter_order` varchar(5) DEFAULT NULL,
 	`filter_by` varchar(255) DEFAULT NULL,
@@ -18,88 +18,91 @@ CREATE TABLE `pds_core_logs` (
 	`log_time` int(10) DEFAULT NULL,
 	`user_id` int(30) DEFAULT NULL,
 	`user_display_name` varchar(255) DEFAULT NULL,
-	`menu_id` varchar(64) NOT NULL,
+	`node_id` varchar(64) NOT NULL,
 	`file_name` varchar(255) DEFAULT NULL,
-	`menu_name` varchar(255) DEFAULT NULL,
+	`node_name` varchar(255) DEFAULT NULL,
 	`user_ip` varchar(30) DEFAULT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
--- Create table for default menu items.;
-CREATE TABLE `pds_core_menu_items` (
-	`menu_id` varchar(64) NOT NULL,
-	`parent_menu_id` varchar(64) DEFAULT NULL,
-	`menu_name` varchar(255) DEFAULT NULL,
-	`menu_link` varchar(255) DEFAULT NULL,
+-- Create table for default node items.;
+CREATE TABLE `pds_core_node_items` (
+	`node_id` varchar(64) NOT NULL,
+	`parent_node_id` varchar(64) DEFAULT NULL,
+	`node_name` varchar(255) DEFAULT NULL,
+	`node_link` varchar(255) DEFAULT NULL,
 	`plugin` varchar(255) DEFAULT NULL,
-	`menu_type` int(1) DEFAULT NULL,
+	`node_type` int(1) DEFAULT NULL,
 	`extend` varchar(255) DEFAULT NULL,
 	`new_window` int(1) DEFAULT NULL,
 	`rank` int(100) DEFAULT NULL,
 	`hide` int(1) DEFAULT NULL,
-	`template_id` varchar(64) unsigned DEFAULT NULL,
+	`template_id` varchar(64) DEFAULT NULL,
 	`alias` varchar(255) DEFAULT NULL,
 	`layout` varchar(255) DEFAULT NULL,
 	`params` varchar(1024) DEFAULT NULL,
-	PRIMARY KEY (`menu_id`),
-	KEY `index` (`parent_menu_id`,`menu_link`,`plugin`,`alias`),
+	PRIMARY KEY (`node_id`),
+	KEY `index` (`parent_node_id`,`node_link`,`plugin`,`alias`),
 	KEY `params` (`params`(255)) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Insert default menu items.;
-INSERT INTO `pds_core_menu_items` VALUES ('readme', '0', 'Readme', 'readme.php', 'About', '1', null, '0', '1', '0', 'default', 'readme', null, null);
+-- Insert default node items.;
+INSERT INTO `pds_core_node_items` VALUES ('readme', '0', 'Readme', 'readme.php', 'About', '1', null, '0', '1', '0', 'default', 'readme', null, null);
 
-INSERT INTO `pds_core_menu_items` VALUES ('admin', '0', 'Admin', 'user/admin.system-admin', 'AdminTools', '2', 'system-settings', '0', '2', '0', 'default', 'admin', null, null);
-INSERT INTO `pds_core_menu_items` VALUES ('system-settings', 'admin', 'Settings', 'system-admin/general-settings.php', 'AdminTools', '1', null, '0', '1', '0', 'default', 'system-settings', null, null);
-INSERT INTO `pds_core_menu_items` VALUES ('config-manager', 'admin', 'Config', 'system-admin/config-manager.php', 'AdminTools', '1', null, '0', '2', '0', 'default', 'config-manager', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('admin', '0', 'Admin', 'user/admin.system-admin', 'AdminTools', '2', 'system-settings', '0', '2', '0', 'default', 'admin', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('system-settings', 'admin', 'Settings', 'system-admin/general-settings.php', 'AdminTools', '1', null, '0', '1', '0', 'default', 'system-settings', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('config-manager', 'admin', 'Config', 'system-admin/config-manager.php', 'AdminTools', '1', null, '0', '2', '0', 'default', 'config-manager', null, null);
 
-INSERT INTO `pds_core_menu_items` VALUES ('user-admin-list', 'admin', 'Users', 'user-admin/user-admin-list.php', 'AdminTools', '1', null, '0', '3', '0', 'default', 'user-admin-list', null, null);
-INSERT INTO `pds_core_menu_items` VALUES ('user-admin', 'admin', 'User', 'user-admin/user-admin.php', 'AdminTools', '1', null, '0', '4', '3', 'default', 'user-admin', null, null);
-INSERT INTO `pds_core_menu_items` VALUES ('group-admin-list', 'admin', 'Groups', 'user-admin/user-group-admin-list.php', 'AdminTools', '1', null, '0', '5', '0', 'default', 'group-admin-list', null, null);
-INSERT INTO `pds_core_menu_items` VALUES ('group-admin', 'admin', 'Group', 'user-admin/user-group-admin.php', 'AdminTools', '1', null, '0', '6', '3', 'default', 'group-admin', null, null);
-INSERT INTO `pds_core_menu_items` VALUES ('roles-admin-list', 'admin', 'Roles', 'user-admin/user-role-admin-list.php', 'AdminTools', '1', null, '0', '7', '0', 'default', 'roles-admin-list', null, null);
-INSERT INTO `pds_core_menu_items` VALUES ('role-admin', 'admin', 'Role', 'user-admin/user-role-admin.php', 'AdminTools', '1', null, '0', '8', '3', 'default', 'role-admin', null, null);
-INSERT INTO `pds_core_menu_items` VALUES ('menu-admin-list', 'admin', 'Menus', 'menu-admin/menu-item-admin-list.php', 'AdminTools', '1', null, '0', '9', '0', 'default', 'menu-admin-list', null, null);
-INSERT INTO `pds_core_menu_items` VALUES ('menu-admin', 'admin', 'Menu', 'menu-admin/menu-item-admin.php', 'AdminTools', '1', null, '0', '10', '3', 'default', 'menu-admin', null, null);
-INSERT INTO `pds_core_menu_items` VALUES ('tags-admin', 'admin', 'Tags', 'tagger-admin/tagger-admin.php', 'AdminTools', '1', null, '0', '11', '0', 'default', 'tags-admin', null, null);
-INSERT INTO `pds_core_menu_items` VALUES ('themes-admin', 'admin', 'Themes', 'template-admin/template-admin-list.php', 'AdminTools', '1', null, '0', '12', '0', 'default', 'theme-admin', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('user-admin-list', 'admin', 'Users', 'user-admin/user-admin-list.php', 'AdminTools', '1', null, '0', '3', '0', 'default', 'user-admin-list', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('user-admin', 'admin', 'User', 'user-admin/user-admin.php', 'AdminTools', '1', null, '0', '4', '3', 'default', 'user-admin', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('group-admin-list', 'admin', 'Groups', 'user-admin/user-group-admin-list.php', 'AdminTools', '1', null, '0', '5', '0', 'default', 'group-admin-list', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('group-admin', 'admin', 'Group', 'user-admin/user-group-admin.php', 'AdminTools', '1', null, '0', '6', '3', 'default', 'group-admin', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('role-admin-list', 'admin', 'Roles', 'user-admin/user-role-admin-list.php', 'AdminTools', '1', null, '0', '7', '0', 'default', 'role-admin-list', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('role-admin', 'admin', 'Role', 'user-admin/user-role-admin.php', 'AdminTools', '1', null, '0', '8', '3', 'default', 'role-admin', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('node-admin-list', 'admin', 'Nodes', 'node-admin/node-item-admin-list.php', 'AdminTools', '1', null, '0', '9', '0', 'default', 'node-admin-list', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('node-admin', 'admin', 'Node', 'node-admin/node-item-admin.php', 'AdminTools', '1', null, '0', '10', '3', 'default', 'node-admin', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('tag-admin', 'admin', 'Tags', 'tagger-admin/tagger-admin.php', 'AdminTools', '1', null, '0', '11', '0', 'default', 'tag-admin', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('theme-admin', 'admin', 'Themes', 'template-admin/template-admin-list.php', 'AdminTools', '1', null, '0', '12', '0', 'default', 'theme-admin', null, null);
 
-INSERT INTO `pds_core_menu_items` VALUES ('file-logs', 'admin', 'File Logs', 'logs-admin/file-log-viewer.php', 'AdminTools', '1', null, '0', '13', '0', 'default', 'file-logs', null, null);
-INSERT INTO `pds_core_menu_items` VALUES ('sys-logs', 'admin', 'Sys Logs', 'logs-admin/system-logs.php', 'AdminTools', '1', null, '0', '14', '0', 'default', 'sys-logs', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('sys-logs', 'admin', 'Sys Logs', 'logs-admin/system-logs.php', 'AdminTools', '1', null, '0', '13', '0', 'default', 'sys-logs', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('file-logs', 'admin', 'File Logs', 'logs-admin/file-log-viewer.php', 'AdminTools', '1', null, '0', '14', '3', 'default', 'file-logs', null, null);
 
-INSERT INTO `pds_core_menu_items` VALUES ('plugin-admin', 'admin', 'Plugins', 'plugin-activation.php', 'PluginManager', '1', null, '0', '15', '0', 'default', 'plugins-admin', null, null);
-INSERT INTO `pds_core_menu_items` VALUES ('class-registry', 'admin', 'Registry', 'class-registry.php', 'PluginManager', '1', null, '0', '16', '0', 'default', 'class-registry', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('plugin-admin', 'admin', 'Plugins', 'plugin-activation.php', 'PluginManager', '1', null, '0', '15', '0', 'default', 'plugins-admin', null, null);
+INSERT INTO `pds_core_node_items` VALUES ('class-registry', 'admin', 'Registry', 'class-registry.php', 'PluginManager', '1', null, '0', '16', '0', 'default', 'class-registry', null, null);
 
--- Create menu tree structure.;
-CREATE TABLE `pds_core_menu_structure` (
+-- Create node tree structure.;
+CREATE TABLE `pds_core_node_structure` (
 	`id` int(50) unsigned NOT NULL AUTO_INCREMENT,
-	`menu_id` varchar(64) NOT NULL,
+	`node_id` varchar(64) NOT NULL,
 	`is_parent` int(1) DEFAULT NULL,
 	`type` int(1) DEFAULT NULL,
 	PRIMARY KEY (`id`),
-	KEY `index` (`menu_id`)
+	KEY `index` (`node_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Insert menu tree structure.;
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('readme', '0', '2');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('admin', '1', '1');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('system-settings', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('config-manager', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('user-admin-list', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('user-admin', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('group-admin-list', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('group-admin', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('roles-admin-list', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('roles-admin', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('menu-admin-list', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('menu-admin', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('tags-admin', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('themes-admin', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('file-logs', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('sys-logs', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('plugin-admin', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('class-registry', '0', '4');
+-- Insert node tree structure.;
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('readme', '0', '2');
 
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('admin', '1', '1');
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('system-settings', '0', '4');
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('config-manager', '0', '4');
+
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('user-admin-list', '0', '4');
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('user-admin', '0', '4');
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('group-admin-list', '0', '4');
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('group-admin', '0', '4');
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('role-admin-list', '0', '4');
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('role-admin', '0', '4');
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('node-admin-list', '0', '4');
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('node-admin', '0', '4');
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('tag-admin', '0', '4');
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('theme-admin', '0', '4');
+
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('file-logs', '0', '4');
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('sys-logs', '0', '4');
+
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('plugin-admin', '0', '4');
+INSERT INTO `pds_core_node_structure` (node_id, is_parent, type) VALUES ('class-registry', '0', '4');
 
 -- Create plugins table.;
 CREATE TABLE `pds_core_plugin_activation` (
@@ -133,8 +136,8 @@ CREATE TABLE `pds_core_plugin_classes` (
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('pagination', 'PHPDS_pagination', 'Pagination', '1', '1');
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('views', 'PHPDS_views', 'Smarty', '1', '1');
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('iana', 'PHPDS_iana', 'AdminTools', '1', '1');
-INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('menuArray', 'PHPDS_menu_array', 'AdminTools', '1', '1');
-INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('menuStructure', 'PHPDS_menu_structure', 'AdminTools', '1', '1');
+INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('nodeArray', 'PHPDS_node_array', 'AdminTools', '1', '1');
+INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('nodeStructure', 'PHPDS_node_structure', 'AdminTools', '1', '1');
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('pluginManager', 'PHPDS_pluginmanager', 'PluginManager', '1', '1');
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('timeZone', 'PHPDS_timezone', 'AdminTools', '1', '1');
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('userActions', 'PHPDS_userAction', 'UserActions', '1', '1');
@@ -188,7 +191,7 @@ INSERT INTO `pds_core_settings` VALUES ('AdminTools_email_option', 'smtp', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_footer_notes', 'PHPDevShell.org (c) 2011 GNU/GPL License.', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_from_email', 'no-reply@phphdevshell.org', 'From Email address.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_front_page_id', 'readme', 'The page to show when site is access.');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_front_page_id_in', 'cp', 'The page to show when logged in and home or page is accessed.');
+INSERT INTO `pds_core_settings` VALUES ('AdminTools_front_page_id_in', 'readme', 'The page to show when logged in and home or page is accessed.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_ftp_enable', '1', 'Should ftp be enabled.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_ftp_host', 'localhost', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_ftp_password', '', '');
@@ -208,7 +211,7 @@ INSERT INTO `pds_core_settings` VALUES ('AdminTools_meta_description', 'Administ
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_meta_keywords', 'administrative, administrator, AdminTools, interface, ui, user', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_printable_template', 'default', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_queries_count', '1', 'Should queries be counted and info show.');
-INSERT INTO `pds_core_settings` VALUES ('AdminTools_redirect_login', 'login', 'When a user logs in, where should he be redirected to?');
+INSERT INTO `pds_core_settings` VALUES ('AdminTools_redirect_login', 'readme', 'When a user logs in, where should he be redirected to?');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_region', 'US', 'Region settings.');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_regions_available', 'US', '');
 INSERT INTO `pds_core_settings` VALUES ('AdminTools_resize_adaptive_dimension', '250,150', '');
@@ -253,7 +256,7 @@ CREATE TABLE `pds_core_tags` (
 
 -- Create themes table to store installed themes.;
 CREATE TABLE `pds_core_templates` (
-	`template_id` varchar(64) unsigned NOT NULL,
+	`template_id` varchar(64) NOT NULL,
 	`template_folder` varchar(255) DEFAULT NULL,
 	PRIMARY KEY (`template_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -315,198 +318,34 @@ INSERT INTO `pds_core_user_roles` VALUES ('9', 'Demo', null);
 -- Create security role permissions table.;
 CREATE TABLE `pds_core_user_role_permissions` (
   `user_role_id` int(10) NOT NULL DEFAULT '0',
-  `menu_id` varchar(64) NOT NULL,
-  PRIMARY KEY (`user_role_id`,`menu_id`)
+  `node_id` varchar(64) NOT NULL,
+  PRIMARY KEY (`user_role_id`,`node_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Insert default user permissions.;
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'edit-cronjob');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'pending-users');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'manage-users');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'system-settings');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'edit-role');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'policy-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'new-user');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'system-logs');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'theme-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'new-group');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'group-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'email-token');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'upload-logs');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'file-log-viewer');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'config-manager');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'token-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'edit-token');
 INSERT INTO pds_core_user_role_permissions VALUES ('1', 'readme');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'edit-group');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'new-role');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'manage-tokens');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'access-logs');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'system-management');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'repair-database');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'role-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'user-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'user-preferences');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'trim-logs');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'manage-menus');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'manage-tags');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'access-control');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'manage-groups');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'edit-menu');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'import-users');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'manage-roles');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'system-status');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'login');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'contact-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'menu-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'manage-cronjobs');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'access-management');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'new-token');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'plugins-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'system-cronjob');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'system-info');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'edit-user');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'cronjob-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'cp');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'new-menu');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'optimize-database');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'system-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'new-password');
-INSERT INTO pds_core_user_role_permissions VALUES ('1', 'class-registry');
 INSERT INTO pds_core_user_role_permissions VALUES ('2', 'readme');
-INSERT INTO pds_core_user_role_permissions VALUES ('2', 'user-preferences');
-INSERT INTO pds_core_user_role_permissions VALUES ('2', 'login');
-INSERT INTO pds_core_user_role_permissions VALUES ('2', 'contact-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('2', 'new-password');
-INSERT INTO pds_core_user_role_permissions VALUES ('2', 'cp');
-INSERT INTO pds_core_user_role_permissions VALUES ('4', 'finish-registration');
-INSERT INTO pds_core_user_role_permissions VALUES ('4', 'readme');
-INSERT INTO pds_core_user_role_permissions VALUES ('4', 'user-preferences');
-INSERT INTO pds_core_user_role_permissions VALUES ('4', 'login');
-INSERT INTO pds_core_user_role_permissions VALUES ('4', 'contact-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('4', 'new-password');
-INSERT INTO pds_core_user_role_permissions VALUES ('4', 'cp');
-INSERT INTO pds_core_user_role_permissions VALUES ('5', 'lost-password');
-INSERT INTO pds_core_user_role_permissions VALUES ('5', 'finish-registration');
 INSERT INTO pds_core_user_role_permissions VALUES ('5', 'readme');
-INSERT INTO pds_core_user_role_permissions VALUES ('5', 'repair-database');
-INSERT INTO pds_core_user_role_permissions VALUES ('5', 'trim-logs');
-INSERT INTO pds_core_user_role_permissions VALUES ('5', 'login');
-INSERT INTO pds_core_user_role_permissions VALUES ('5', 'register-account');
-INSERT INTO pds_core_user_role_permissions VALUES ('5', 'contact-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('5', 'new-password');
-INSERT INTO pds_core_user_role_permissions VALUES ('5', 'system-cronjob');
-INSERT INTO pds_core_user_role_permissions VALUES ('5', 'cp');
-INSERT INTO pds_core_user_role_permissions VALUES ('5', 'optimize-database');
-INSERT INTO pds_core_user_role_permissions VALUES ('6', 'login');
-INSERT INTO pds_core_user_role_permissions VALUES ('6', 'cp');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'pending-users');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'manage-users');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'system-settings');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'policy-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'new-user');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'system-logs');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'new-group');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'group-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'email-token');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'upload-logs');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'file-log-viewer');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'config-manager');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'token-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'edit-token');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'readme');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'edit-group');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'manage-tokens');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'access-logs');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'system-management');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'user-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'user-preferences');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'manage-groups');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'import-users');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'system-status');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'login');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'contact-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'new-password');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'new-token');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'system-info');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'edit-user');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'cp');
-INSERT INTO pds_core_user_role_permissions VALUES ('7', 'system-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'pending-users');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'manage-users');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'policy-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'new-user');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'new-group');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'group-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'email-token');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'token-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'edit-token');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'readme');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'edit-group');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'manage-tokens');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'system-management');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'user-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'user-preferences');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'manage-groups');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'import-users');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'login');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'contact-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'new-password');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'new-token');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'edit-user');
-INSERT INTO pds_core_user_role_permissions VALUES ('8', 'cp');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'edit-cronjob');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'pending-users');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'manage-users');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'system-settings');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'edit-role');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'policy-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'new-user');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'system-logs');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'theme-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'new-group');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'group-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'email-token');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'lost-password');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'upload-logs');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'file-log-viewer');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'config-manager');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'token-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'edit-token');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'readme');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'edit-group');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'new-role');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'manage-tokens');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'access-logs');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'system-management');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'repair-database');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'role-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'user-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'user-preferences');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'trim-logs');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'manage-menus');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'manage-tags');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'access-control');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'manage-groups');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'edit-menu');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'import-users');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'manage-roles');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'system-status');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'login');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'register-account');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'contact-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'menu-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'manage-cronjobs');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'access-management');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'new-password');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'new-token');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'plugins-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'system-cronjob');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'system-info');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'edit-user');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'cronjob-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'cp');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'new-menu');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'optimize-database');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'system-admin');
-INSERT INTO pds_core_user_role_permissions VALUES ('9', 'class-registry');
+
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'admin');
+
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'system-settings');
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'config-manager');
+
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'user-admin-list');
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'user-admin');
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'group-admin-list');
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'group-admin');
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'role-admin-list');
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'role-admin');
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'node-admin-list');
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'node-admin');
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'tag-admin');
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'theme-admin');
+
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'file-logs');
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'sys-logs');
+
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'plugin-admin');
+INSERT INTO pds_core_user_role_permissions VALUES ('1', 'class-registry');
+

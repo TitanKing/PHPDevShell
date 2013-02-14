@@ -43,7 +43,7 @@ Detail on reports can viewed at https://bugs.launchpad.net/phpdevshell/
 [Improved] Multi-select and select fields.
 [New] New /other/sync.sh to update third party projects with latest version of PHPDevShell.
 [Improved] Exception reports was greatly improved allowing logging of full exceptions.
-[Improved] Menus now allows a custom menu id, it also does not create duplicated menus anymore when id changes.
+[Improved] Nodes now allows a custom node id, it also does not create duplicated nodes anymore when id changes.
 [Improved] Theme styling and modification is now easier.
 [Improved] Mods system and new mods to override.
 [Improved] Example plugin.
@@ -54,17 +54,17 @@ Detail on reports can viewed at https://bugs.launchpad.net/phpdevshell/
 [Bug] #997580 Silent exception reporting, reporting nothing that can help find the bug.
 [Bug] #1005822 login.php blank bug.
 [Bug] #1006308 On a session timeout, the login theme is displayed using default theme instead of selected theme.
-[Bug] #1007191 can't choose several roles for a menu access.
+[Bug] #1007191 can't choose several roles for a node access.
 [Bug] #929395 <span> end tag missing in themes.
-[Bug] #929992 Complex symlink to parent menu configuration bug.
+[Bug] #929992 Complex symlink to parent node configuration bug.
 [Bug] #942449 Cronjob executer should be themeless.
 [Bug] #949314 ReadBean ORM plugin does not take into account the database server.
 [Bug] #949381 legacyConnecter::free() not returning with result.
 [Bug] #968152 iana additional functionality needed.
-[Bug] #977958 Option to dictate menu id.
-[Bug] #985480 Control Panel menu's in rare conditions rendered more than once.
+[Bug] #977958 Option to dictate node id.
+[Bug] #985480 Control Panel node's in rare conditions rendered more than once.
 [Bug] #986123 JQuery Multiselect widget clicking not working that great.
-[Bug] #997547 Duplicating menus when changing menu id or path.
+[Bug] #997547 Duplicating nodes when changing node id or path.
 [Bug] #921467 Edit a cronjob in the cronjob manager.
 [Bug] #932167 Confusing details about caching in PHPDS-defaults.config.php.
 [Bug] #932577 getSettings should not return undefined settings, it should set it to NULL.
@@ -90,7 +90,7 @@ Minor maintenance release focusing on stability.
 
 Detail on reports can viewed at https://bugs.launchpad.net/phpdevshell/
 
-* [Bug] #863646 When using the +New button on groups, roles, users and menus sometimes linked tags gets deleted.
+* [Bug] #863646 When using the +New button on groups, roles, users and nodes sometimes linked tags gets deleted.
 * [Improved] #915873 When a template file cant be found, default cloud should be used.
 * [Improved] #915878 Autoloader should dig deeper to find unregistered plugin class.
 * [Improved] Error reporting on missing module methods.
@@ -115,14 +115,14 @@ Detail on reports can viewed at https://bugs.launchpad.net/phpdevshell/
 * [Improved] 90% of forms was moved to PHPDevShell CRUD system.
 * [Improved] General UI forms now does better validation.
 * [Bug] #902123 Various registration bugs.
-* [Improved] #894291 Improvement to menu href link generation logic.
-* [Improved] #906355 Option was added to stick to root menu line of menus.
+* [Improved] #894291 Improvement to node href link generation logic.
+* [Improved] #906355 Option was added to stick to root node line of nodes.
 * [Bug] #902126 Enterering deeper into dashboard tree shows no breadcrumbs.
 * [Improved] Control panel was rewritten to be more consistent and folder like in behaviour.
 * [New] Added new UI class registry manager.
 * [Improved] Performance by dropping old legacy classes.
 * [Improved] General theme improvements.
-* [Improved] #894315 Menus can now contain advanced parameter data.
+* [Improved] #894315 Nodes can now contain advanced parameter data.
 * [Bug] #902124 Not using sef produces no page errors.
 * [Bug] #906556 Class alias declaration fails on rank="first".
 * [Improved] Rewrote mods theme system again by converting it into a class system.
@@ -146,10 +146,10 @@ Detail on reports can viewed at https://bugs.launchpad.net/phpdevshell/
 * [Security] Fixed Flaw 887044 (gzip).
 * [Bug] #882589 Information text on some UI screens was not informative.
 * [New] #885201 Include support for alias groups to allow specific action permission within a page if ($user->groupCan('edit'))...
-* [New] #757594 Changing menu path now allows to delete old menu as ID will change.
+* [New] #757594 Changing node path now allows to delete old node as ID will change.
 * [Bug] #839592 When setting the login redirect in General Settings UI, to something other then Login-Logout, when incorrect user/password is used it just posts to the newly selected redirect login page without displaying incorrect login details.
-* [New] #804365 When editing a menu item which is a link to another item, it would be nice to have a direct link to go editing the target menu item.
-* [Bug] #808784 Fixed error when editing a menu with a ' (single quote).
+* [New] #804365 When editing a node item which is a link to another item, it would be nice to have a direct link to go editing the target node item.
+* [Bug] #808784 Fixed error when editing a node with a ' (single quote).
 * [Bug] #856746 Fixed PHP_VERSION check bug in class.phpmailer.php
 * [Bug] #869128 Fixed output buffering issue when error occurs during Plugin Upgrade.
 * [Bug] #854559 Fixed pending users wont always clear when approving them.
@@ -157,14 +157,14 @@ Detail on reports can viewed at https://bugs.launchpad.net/phpdevshell/
 * [Bug]	#716823 Fixed problem with absolute session directory.
 * [Bug] #719390	User extra groups/roles are not unique.
 * [New] #721090 Move the password pref to a separate page.
-* [Improved] #737356 Optimize menu database query.
+* [Improved] #737356 Optimize node database query.
 * [Bug] #783909 Fixed redirect Login setting not working.
 * [Bug] #767248 Fixed function tagList($name, $object, $target = null) broken.
-* [Bug] #778150 Fixed Exception when removing a plugin without any menu's.
-* [Bug] #863646 Fixed editing a menu wipes out all its tags.
-* [Bug] #881397 Fixed menus access error reporting broken.
-* [Improved] #881418 Ending "l" at end of menus ugly.
-* [Bug] #881438 Fixed editing menu reports warning falsely.
+* [Bug] #778150 Fixed Exception when removing a plugin without any node's.
+* [Bug] #863646 Fixed editing a node wipes out all its tags.
+* [Bug] #881397 Fixed nodes access error reporting broken.
+* [Improved] #881418 Ending "l" at end of nodes ugly.
+* [Bug] #881438 Fixed editing node reports warning falsely.
 * [Bug] #882587 Fixed cronjob should log as done earlier.
 * [Improved] #884664 Better Firephp header send check.
 * [Bug] #884665 Fixed uninstall does not execute uninstall queries.
@@ -173,7 +173,7 @@ Detail on reports can viewed at https://bugs.launchpad.net/phpdevshell/
 * [Improved] #884726 Improve theme ui understanding and icons.
 * [New] #887470 Add widget, lightbox and ajax node types with easy call.
 * [Bug] #887473 Fixed 404 and 403 errors not returning correct codes.
-* [Bug] #887477 Reinstalling menu's looses all previous menu edits.
+* [Bug] #887477 Reinstalling node's looses all previous node edits.
 * [Improved] #887902 Rewrite modules system making it lighter, more powerful and easier to use.
 * [Improved] #887903 Logged in page shows too much info.
 * [Improved] General performance.
@@ -189,7 +189,7 @@ Maintenance release focused mostly on performance and stability.
 * [New] Added small PHP memory usage with query usage.
 * [Updated] To latest JQuery, TinyMCE, FirePHP and Smarty.
 * [New] CDN where you now have the ability to show images and other static scripts from a light CDN server improving performance.
-* [Bug] Fixed menus showing incorrectly on darker themes. Top and bottom of dropdown only is now rounded.
+* [Bug] Fixed nodes showing incorrectly on darker themes. Top and bottom of dropdown only is now rounded.
 * [Improved] General loading times of pages.
 * [Improved] Caching mechanism was rewritten to allow support for other cache engines with performance improvements.
 * [New] Added notes column to add notes with settings, can also pass notes from plugin configuration xml.
@@ -211,15 +211,15 @@ PHPDevShell V 3.0.3-Stable-DB-3002 (Revision-bzr 685)
 Information:
 Maintenance release focusing on stability.
 
-* [New] Tagger UI with tagging option in UI for Users, Groups, Roles and Menus.
+* [New] Tagger UI with tagging option in UI for Users, Groups, Roles and Nodes.
 * [Bug] Fixed user import bug where imported file could not be found (Jozefus).
 * [Bug] Fixed and improved query for getGroups to include child groups for a user who belongs to parent.
 * [Improved] Improved query for getRoles.
 * [Bug] Assigning correct permission on fresh install.
-* [Bug] Fixed Ajax not working correctly on menu ui.
-* [Bug] Fixed phantom menu that will display ul tags when permission for children was not set.
+* [Bug] Fixed Ajax not working correctly on node ui.
+* [Bug] Fixed phantom node that will display ul tags when permission for children was not set.
 * [Bug] Fixed serious issue with smarty sections not displaying results correctly and dropping rows.
-* [Bug] Fixed bug where plugin without menus cant be uninstalled.
+* [Bug] Fixed bug where plugin without nodes cant be uninstalled.
 * [New] Added native methods newQuery and sqlQuery to do direct sql queries without the need for models.
 * [Bug] Other minor bugs fixed...
 
@@ -302,8 +302,8 @@ Bugfixes and optimizations. This is the last beta of the 3.0.0 branch. RC-1 will
 * [Update] JQuery and UI updated to latest versions.
 * [New] #656920 Add 404 - not found page.
 * [Bug] #663125 Mail and accentuated chars.
-* [Bug] #673640 Error when going up one Menu item to placeholder only.
-* [Bug] #680490 $this->navigation->menuFile() does not return full path to file.
+* [Bug] #673640 Error when going up one Node item to placeholder only.
+* [Bug] #680490 $this->navigation->nodeFile() does not return full path to file.
 * [Bug] #673618 Malformed email error.
 * [Bug] #664401 All items can now be saved by clicking on new, while it will base the next entry on the core settings of previous entry.
 * [Bug] #677910 Undefined variable extend_to when installing new plugin.
@@ -335,7 +335,7 @@ General beta maintenance and bug fix release.
 * [Improved] Installer and upgrader.
 * [Bug] Database charset with option to set it at runtime.
 * [Update] JQuery from 1.4.2 to 1.4.3.
-* [Bug] #658763 Cannot change assigned User Roles under Edit Menu Item.
+* [Bug] #658763 Cannot change assigned User Roles under Edit Node Item.
 * [Bug] #659198 Serious bug under windows where system wont install or run (Can't find any 'template' because dependancy is wrong).
 * [Bug] #660958 Default install values not loaded in Windows.
 * [Bug] #659198 Improved error handler.
@@ -386,7 +386,7 @@ PHPDevShell V 3.0.0 is almost a full rewrite.
 * [Improved] Configuration system.
 * [Removed] Hooks, will soon be replaced by more advanced widget system.
 
-Note, we tried to make old plugins still work on PHPDevShell V3.0.0 however, you will have to switch your theme to oldlegacy2 for your custom administration menus. Backwards compatibility
+Note, we tried to make old plugins still work on PHPDevShell V3.0.0 however, you will have to switch your theme to oldlegacy2 for your custom administration nodes. Backwards compatibility
 will improve throughout the betas.
 
 PHPDevShell V 2.8.1-Stable-DB-2800 (Revision-bzr 262)
@@ -411,11 +411,11 @@ PHPDevShell V 2.8.0 is a massive release, adding both to features and flexibilit
 * [Improved] General settings is now neatly tabbed.
 * [Improved] JQuery UI theme improved to better sync with templates.
 * [Bug] #400694 Warning when adding a new hook.
-* [Bug] #401964 Use of local language when adding menu.
+* [Bug] #401964 Use of local language when adding node.
 * [New] Complete FirePHP/FireBug support added.
 * [Improved] Readme to include left out open-source projects in thanks.
 * [Improved] Performance by removing constant assignment.
-* [Improved] Performance by improving menu name indexing.
+* [Improved] Performance by improving node name indexing.
 * [New] Smarty template engine support added with PHPDevShell templates split.
 * [New] Ability to have multiple template layouts per script.
 * [Update] TinyMCE 3.2.5
@@ -424,7 +424,7 @@ PHPDevShell V 2.8.0 is a massive release, adding both to features and flexibilit
 * [New] Master ErrorHandler class with error handling capabilities.
 * [Improved] Refactored writable directories.
 * [Bug] #393741 Ability to filter by group/role name in user list.
-* [Bug] #383426 When editing a menu with an error, user role doesn't stick.
+* [Bug] #383426 When editing a node with an error, user role doesn't stick.
 * [Bug] #385491 Dynamic prefix in plugin install.
 * [Bug] #393344 Gettext error in Windows.
 * [Improved] Header handling.
@@ -455,16 +455,16 @@ Most significant changes:
 * [New] Ability to delete users per group.
 * [New] 376341 Show search filter is engaged.
 * [Bug] 374895 Inconsistant behaviour in Login screen.
-* [Bug] 374898 Plugin GUI wrong menu language file check.
+* [Bug] 374898 Plugin GUI wrong node language file check.
 * [Bug] 374904 Future and past $core->user_server_tz_diff dst failure.
 * [Bug] 375138 Imported field not unquoted.
 * [Bug] 375288 PHP DateTime bug may cause problems within PHPDevShell.
 * [Bug] 375294 Multiple coding typographical errors.
 * [Improved] 376480 Less conspicuous Immediate Halt message.
-* [Bug] 375290 Edit menus does not show on some items.
+* [Bug] 375290 Edit nodes does not show on some items.
 * [Bug] 375292 Mandatory fields unclear.
 * [Bug] 375298 Warnings.
-* [Bug] 376458 New menu mandatory fields problem .
+* [Bug] 376458 New node mandatory fields problem .
 * [Bug] Incorrect plugin path info with double // slashes.
 * [Bug] Undefined variable assigned.
 * Various other improvements and fixes done.
@@ -504,11 +504,11 @@ Most significant changes:
 * [New] Full memcache support was added as a caching system.
 * [New] Extra gui setting to choose the login and logout screen if user has custom screen.
 * [Bug] Fixed login and logout shortcut to enable seo.
-* [Bug] Fixed long name menus wrapping.
-* [Improved] Menu navigation easier.
+* [Bug] Fixed long name nodes wrapping.
+* [Improved] Node navigation easier.
 * [Improved] Improved Google Chrome browser compatibility.
 * [Bug] Fixed broken pagination navigation when seo is enabled.
-* [Bug] Fixed breadcrumb seo navigation menus.
+* [Bug] Fixed breadcrumb seo navigation nodes.
 * [Improved] Dramatically improved timezone system with included DST calculations.
 * [New] Added short date format in gui settings.
 * [Bug] Fixed broken logout button in logout/in script.
@@ -531,15 +531,15 @@ Most significant changes:
 * [Bug] When a branch admin wanted to approve a pending queue registration he/she must belong to the pending status group instead of the result group after approved.
 * [Bug] The login gui randomly said the script was not validating.
 * [Improved] An improved tooltip system was introduced bring better browser compatibility.
-* [New] The possibility to create a menu alias and have it as a search friendly menu item.
-* [Bug] Classes did not autoload in menu type cronjobs on auto execution from system.
+* [New] The possibility to create a node alias and have it as a search friendly node item.
+* [Bug] Classes did not autoload in node type cronjobs on auto execution from system.
 * [Bug] When a template was removed, it still shows in the dropdown when assigning templates in template listing.
 * [Bug] Special characters like the pound sign returns scramble if saved through a form to the database.
 * [Bug] output_language bug in template class.
 * [Improved] Added the new PHPDevShell logo.
-* [Bug] When a user jumped to a deeper menu item, where he does not have access to parent, the breadcrumb showed empty.
-* [Bug] The dropdown menus when vertical enough hovers under the info icons when activated.
-* [Improved] The menu system should now have the ability to dropdown until last child menu item is seen. Also with a more W3C approved approach which also allows vertical menus.
+* [Bug] When a user jumped to a deeper node item, where he does not have access to parent, the breadcrumb showed empty.
+* [Bug] The dropdown nodes when vertical enough hovers under the info icons when activated.
+* [Improved] The node system should now have the ability to dropdown until last child node item is seen. Also with a more W3C approved approach which also allows vertical nodes.
 * [Improved] Cleanup of PHP E_ALL notices, many notices showed when using the E_ALL reporting of PHP.
 * [Improved] The crypt key changes everytime you save, this should not happen as sometime you depend on a fixed crypt key.
 * [Bug] The session setting that was broken was fixed, the setting itself was moved back into the config file.
@@ -583,8 +583,8 @@ Most significant changes:
 * More robust plugin manager handling errors appropriately.
 * Plugins can now have their own autoload functions.
 * Improved hooks system with various multiple hook point bug fixed.
-* Menu structure improvements made.
-* Bug fixed in menu delete method where multiple menus needs deleting.
+* Node structure improvements made.
+* Bug fixed in node delete method where multiple nodes needs deleting.
 * Database class now handles errors better.
 * Multiple small bugs were fixed.
 * Additional improvements made to PHPDevShell plugin.
@@ -599,19 +599,19 @@ Chrome template and a new theme manager.
 
 Most significant changes:
 -IMPROVED: When deleting access or system logs counter starts from 0 again.
--NEW: Function added to check if menu is used in settings before deleting it.
+-NEW: Function added to check if node is used in settings before deleting it.
 -IMPROVED: No results found updated in Chrome.
 -NEW: Added option to have a message displayed in the registration and login screen.
 -NEW: Added ability to link to items from other plugins and own plugin.
 -IMPROVED: Navigation and execution system dramatically improved!
 -UPDATE: DB Class improved to handle errors better and ability to amend html to filter box. [Thanks Maximus]
--IMPROVED: New improved menu system with added ability to link any menu type and not only certain types.
--UPDATE: Improved navigation and menu handling.
+-IMPROVED: New improved node system with added ability to link any node type and not only certain types.
+-UPDATE: Improved navigation and node handling.
 -IMPROVED: Improved login and logout screens.
 -IMPROVED: Improved template manager and removed not needed string in plugin manager.
--UPDATE: Updated config for new menu structure with removed template screens.
+-UPDATE: Updated config for new node structure with removed template screens.
 -IMPROVED: New template manager introduced.
--NEW: Added template config files and added ability to assign default template to all menus at once.
+-NEW: Added template config files and added ability to assign default template to all nodes at once.
 -REMOVED: Dead icons in Chrome Template.
 -IMPROVED: Improved system status layout.
 -NEW: Added say thanks button on readme page.
@@ -620,8 +620,8 @@ Most significant changes:
 -LOW LEVEL BUG FIX: Added missing mootools date picker gif files.
 -CRITICAL BUG FIX: Front-page link did not work according to admin settings.
 -LOW LEVEL BUG FIX: Removed stupid Thumbs files.
--LOW LEVEL BUG FIX: Fixed _Blank description in menu admin.
--LOW LEVEL BUG FIX: Control panel was made to only show relevant menus in its group.
+-LOW LEVEL BUG FIX: Fixed _Blank description in node admin.
+-LOW LEVEL BUG FIX: Control panel was made to only show relevant nodes in its group.
 -LOW LEVEL BUG FIX: Fixed ability to add parent plugin when creating a control panel for external plugin.
 
 Please submit bugs at http://phpdevshell.org
@@ -633,7 +633,7 @@ PHPDevShell V 1.1.1-Stable is a stable release with various improvements and fea
 The most notible is the new Registration token and approval system.
 
 Most significant changes:
--LOW LEVEL BUG FIX: Fixed plugin manager where core plugin produced a database error when deleting menu items.
+-LOW LEVEL BUG FIX: Fixed plugin manager where core plugin produced a database error when deleting node items.
 -UPDATE: Updated plugin upgrade script.
 -UPDATE: Updated upgrade and install sql scripts.
 -LOW LEVEL BUG FIX: Fixed token that displayd deleted when false id is entered for deletion.
@@ -641,20 +641,20 @@ Most significant changes:
 -REMOVED: Removed not needed icons.
 -UPDATE: Updated some text in classes.
 -IMPROVED: Added checks to see if gui can delete and does not return a false message.
--NEW: Added funtion to quickly check access permission on a menu item.
+-NEW: Added funtion to quickly check access permission on a node item.
 -UPDATE: Updated say thanks link.
 -CRITICAL BUG FIX: Fixed query email to admin bug where all email was send to user instead of admin!
 -LOW LEVEL BUG FIX: Fixed text used in template class.
 -NEW: Added login and logout animated graphics to improve user experience.
 -IMPROVED: User login and logout.
 -UPDATE: Removed thumbs directory.
--IMPROVED: Improved menu graphics and icons.
+-IMPROVED: Improved node graphics and icons.
 -NEW: Added IE6 Warning to template.
 -IMPROVED: Improved control panel with improved message backgrounds.
 -UPDATE: Added message function. Will display only a message style.
--IMPROVED: Improved PHPDevShell menu structure.
+-IMPROVED: Improved PHPDevShell node structure.
 -NEW: Added images for token control.
--UPDATE: Control panel updated to allow lower level icons when placed in sub menu system.
+-UPDATE: Control panel updated to allow lower level icons when placed in sub node system.
 -NEW: System now allows multiple host/domain installations from single core.
 -UPDATE: Configuration file now sits in unique directory.
 -NEW: New config folder.
@@ -702,7 +702,7 @@ PHPDevShell V 1.0.0-Stable is the stable release with various improvements and f
 Most significant changes:
 -IMPROVED: Improved security features added to protect core properties.
 -IMPROVED: Critical improved SMTP and other email options with encryption added.
--LOW LEVEL BUG FIX: Hooks edit did not point to correct menu item.
+-LOW LEVEL BUG FIX: Hooks edit did not point to correct node item.
 -LOW LEVEL BUG FIX: Fixed force core changes off as default installation.
 -UPDATE: Fixed CSS where input boxes resided on warning message.
 -NEW: Mootloos date picker added to system for easy date picking capabilities.
@@ -710,7 +710,7 @@ Most significant changes:
 -LOW LEVEL BUG FIX: Message returns returned empty.
 -UPDATE: Visual improvements made.
 -LOW LEVEL BUG FIX: Message returns returned empty.
--UPDATE: Generic glossy shine fixed with improved menu dropdowns.
+-UPDATE: Generic glossy shine fixed with improved node dropdowns.
 -CRITICAL BUG FIX: Hooks did not work correctly with cache, cache on hooks improved.
 
 Roadmap:
@@ -725,14 +725,14 @@ PHPDevShell V 1.0.0-RC-1 is a maintenance release towards stable.
 Most significant changes:
 -UPDATE: Email message to admin gets decoded to correct html character.
 -UPDATE: Improved CSS tooltip.
--NEW: When creating or editing a Role, permission to menu items can be assigned on the fly in the GUI.
+-NEW: When creating or editing a Role, permission to node items can be assigned on the fly in the GUI.
 -LOW LEVEL BUG FIX: System now allows admins to bypass system set to down if his session expired.
 -UPDATE: Method added to enable decoding of html entities that was encoded to their correct html character.
 -UPDATE: Control panel names now accepts longer names.
 -LOW LEVEL BUG FIX: When logging in and wrong login details was used, system now redirects to login correctly.
 -CRITICAL BUG FIX: Search filter listed more then it should when used.
 -UPDATE: Improved method to prevent SQL injection while still allowing quotes.
--NEW: Plugin menu install now accepts "parent_plugin" property to modify menu owner. This allows you to install a menu item to another plugins directory structure.
+-NEW: Plugin node install now accepts "parent_plugin" property to modify node owner. This allows you to install a node item to another plugins directory structure.
 -NEW: CSS, HTML and images is now correctly handled by gzip.
 
 Roadmap:
@@ -766,7 +766,7 @@ Improvements:
 -IMPROVED: Database error handling.
 -NEW: Demo capabilities added.
 -NEW: Database Transactions with Rollback and Commit.
--NEW: Menu access log disable option was added in General Settings GUI.
+-NEW: Node access log disable option was added in General Settings GUI.
 
 Database Changes (092):
 Most table was modified to Engine InnoDB.
@@ -784,12 +784,12 @@ Improvements:
 -IMPROVED: Configuration System.
 -IMPROVED: Control Panel.
 -BUG-FIX: a Minor bug was fixed where the filter system did not work with magic_quotes_enabled.
--NEW: Menu access log system was added.
+-NEW: Node access log system was added.
 -UPDATE: TinyMCE was updated to latest stable version (3.0.5).
 -NEW: The PHPDevShell logo was updated with new logo.
 
 Database Changes (091):
-CREATE TABLE `pds_core_menu_access_logs`...
+CREATE TABLE `pds_core_node_access_logs`...
 
 Roadmap:
 24 hour bug fixes from time of report.
@@ -849,7 +849,7 @@ Ships with improved logging system as well. Upgrading is highly recommended.
 Improvements:
 -SECURITY IMPROVEMENT: System can now run securely protecting itself and all scripts from SQL injections with PHP magic quotes switched off. (TitanKing)
 -IMPROVED: "Contact admin" now tries to create a from address first, before asking address field. (TitanKing)
--IMPROVED: Filter rows now also gets deleted when menu item gets deleted. (TitanKing)
+-IMPROVED: Filter rows now also gets deleted when node item gets deleted. (TitanKing)
 -IMPROVED: Improved logging system, user_logs merged with new logging system. (TitanKing)
 -IMPROVED: On the log-in screen users can now see their history. (TitanKing)
 -IMPROVED: Filter & search system can now be filtered by exact match as well. (TitanKing)
@@ -870,7 +870,7 @@ Language files modified or added;
 * M /branches/0.8.x/plugins/PHPDevShell/language/en/en.register.php
 * M /branches/0.8.x/plugins/PHPDevShell/language/en/en.email_admin.php
 * M /branches/0.8.x/plugins/PHPDevShell/language/en/en.login_page.php
-* M /branches/0.8.x/plugins/PHPDevShell/language/en/en.menu.php
+* M /branches/0.8.x/plugins/PHPDevShell/language/en/en.node.php
 * M /branches/0.8.x/plugins/PHPDevShell/language/en/en.system_logs.php
 * D /branches/0.8.x/plugins/PHPDevShell/language/en/en.user_logs_admin.php
 * M /branches/0.8.x/language/en/en.engine.php
@@ -923,9 +923,9 @@ A /branches/0.8.x/language/en/en.timezone.php
 M /branches/0.8.x/plugins/PHPDevShell/language/en/en.edit_preferences.php
 M /branches/0.8.x/plugins/PHPDevShell/language/en/en.register.php
 M /branches/0.8.x/plugins/PHPDevShell/language/en/en.user_admin.php
-M /branches/0.8.x/plugins/PHPDevShell/language/en/en.menu.php
+M /branches/0.8.x/plugins/PHPDevShell/language/en/en.node.php
 A /branches/0.8.x/plugins/SimplePhonebook/language/en/en.login_count.ajax.php
-M /branches/0.8.x/plugins/SimplePhonebook/language/en/en.menu.php
+M /branches/0.8.x/plugins/SimplePhonebook/language/en/en.node.php
 
 PHPDevShell V 0.8.1-Stable
 --------------------------
@@ -984,10 +984,10 @@ Improvements:
 * Modular hook system was developed for PHPDevShell.
 * Footer does not include hard coded PHPDevshell version anymore.
 * Changed headed td tags into th tags where needed.
-* Looped url functions changed to call only once when listing menu items.
+* Looped url functions changed to call only once when listing node items.
 * Changed the way queries are displayed in footer.
-* In menu admin, the load_page happend inside the loop, this should happen only once.
-* Added option to allow opening of menu items in _blank/new pages.
+* In node admin, the load_page happend inside the loop, this should happen only once.
+* Added option to allow opening of node items in _blank/new pages.
 * Added option to email admin on critical errors.
 * Upgraded PHPMailer class to PHPMailer 2.0.0-Stable.
 * Ability to add multiple admin emails for notifications.
@@ -1002,8 +1002,8 @@ Improvements:
 * Plugin manager now check dependencies.
 * Removed standout look from input fields when hovering over them.
 * Improved phonebook system to better support hook demo.
-* Removed plugin names from heading in jump menu, we dont want everyone to see what plugins are used.
-* Jump/Sitemap menu improved.
+* Removed plugin names from heading in jump node, we dont want everyone to see what plugins are used.
+* Jump/Sitemap node improved.
 * Better error checking in general settings.
 * Updated Tinymce to V2.1.3.
 * Improved error checking.
@@ -1014,14 +1014,14 @@ Improvements:
 
 Bugs Fixed:
 * NO security vulnerabilities was found!
-* Fixed menu items that wont delete even if core changes are set to true.
+* Fixed node items that wont delete even if core changes are set to true.
 * Added fix to not list .svn directories in plugin installation.
 * Fixed type true (truez) in $template->warning.
 * Query split used at incorrect location.
-* Bug fixed in menu system, when user belongs to multiple roles, it duplicated the menu items.
+* Bug fixed in node system, when user belongs to multiple roles, it duplicated the node items.
 * Bug that will not save primary group in user admin was fixed.
 * Bug in registration fixed where user password comparing was incorrect.
-* Fixed bug in menu admin where name was always determined.
+* Fixed bug in node admin where name was always determined.
 
 Database changes:
 Added _db_core_hooks table.
@@ -1031,23 +1031,23 @@ Language files modified or added;
 * /language/en/en.engine.php
 * /language/en/en.icon.php
 * /plugins/PHPDevShell/language/en/en.user_group_admin.php
-* /plugins/PHPDevShell/language/en/en.menu.php
+* /plugins/PHPDevShell/language/en/en.node.php
 * /plugins/PHPDevShell/language/en/en.general_settings.php
-* /plugins/PHPDevShell/language/en/en.jump_menu.php
-* /plugins/PHPDevShell/language/en/en.menu_item_admin_permissions.php
-* /plugins/PHPDevShell/language/en/en.menu_item_admin_template.php
+* /plugins/PHPDevShell/language/en/en.jump_node.php
+* /plugins/PHPDevShell/language/en/en.node_item_admin_permissions.php
+* /plugins/PHPDevShell/language/en/en.node_item_admin_template.php
 * /plugins/SimplePhonebook/language/en/en.icon.php
 * /plugins/SimplePhonebook/language/en/en.manage_entry.php
-* /plugins/SimplePhonebook/language/en/en.menu.php
+* /plugins/SimplePhonebook/language/en/en.node.php
 * /plugins/SimplePhonebook/language/en/en.plugin.php
 * /plugins/SimplePhonebook/language/en/en.preferences.hook.php
 * /plugins/SimplePhonebook/language/en/en.register.hook.php
 * /plugins/PHPDevShell/language/en/en.plugin_activation.php
 * /plugins/PHPDevShell/language/en/en.template_admin.php
 * /plugins/PHPDevShell/language/en/en.template_admin_list.php
-* /plugins/PHPDevShell/language/en/en.menu_item_admin_new_window.php
-* /plugins/PHPDevShell/language/en/en.menu_item_admin_open.php
-* /plugins/PHPDevShell/language/en/en.menu_item_admin.php
+* /plugins/PHPDevShell/language/en/en.node_item_admin_new_window.php
+* /plugins/PHPDevShell/language/en/en.node_item_admin_open.php
+* /plugins/PHPDevShell/language/en/en.node_item_admin.php
 * /plugins/PHPDevShell/language/en/en.hooks_source_view.php (NEW)
 * /plugins/PHPDevShell/language/en/en.hooks_admin_list.php (NEW)
 * /plugins/PHPDevShell/language/en/en.hooks_admin.php (NEW)
@@ -1088,13 +1088,13 @@ Improvements:
 * Ability to update extra groups, roles and user display name on the fly through user listing.
 * Ability to add user group notes and role notes.
 * Method to pull all users role id's with given user id.
-* System menu controller was reduced with 1 query.
+* System node controller was reduced with 1 query.
 * Improved logout security.
 * Methods added to check if records in database already exists.
 * Language system dramatically enhanced.
 * Languages can now be selected on user basis with bulletproof fallback.
 * a Debug variable was added. Place $template->debug = 'Anything'; anywhere in your script and that debug message will be parsed out to the browser, usefull for debugging scripts.
-* Menu item language are now loaded from files and not preset in database.
+* Node item language are now loaded from files and not preset in database.
 * Truly multilingual capabilities added.
 * Default emails was changed from html emails to text emails.
 * Verification email url is now encrypted.
@@ -1108,7 +1108,7 @@ Improvements:
 * Option to keep logs trimmed to a specified number, deleting oldest logs first.
 * Page splitting now shows total number of records.
 * New example plugin developed, simple phonebook!
-* Added 2-click menu system, run any script in 2 clicks from anywhere!
+* Added 2-click node system, run any script in 2 clicks from anywhere!
 * CSS Improved in breadcrumbs links area.
 * Active link dropped, it was display twice.
 * Permissions correctly set for default installation.
@@ -1120,14 +1120,14 @@ Bugs Fixed:
 * Small bug fixed with repair_database that stopped working when ran as system cron.
 * Minor security bug in repair & optimize database.
 * Security bug fixed in edit preferences.
-* Menu bug fixed where hidden menu was still shown in dropdown.
+* Node bug fixed where hidden node was still shown in dropdown.
 * Jumpy links fixed in broken IE7.
 * Bug fixed in User Preferences where details did not get updated!
 
 Other:
 * Template $template->output_version_number changed to $template->output_active_info.
 * Template $template->breadcrumbs changed to $template->output_breadcrumbs.
-* Template $template->menu changed to $template->output_menu.
+* Template $template->node changed to $template->output_node.
 * Language changes made to en.cronjob_admin_list.
 * User id was always called with $user_id = $security->decrypt($_SESSION['user_id']), now only $configuration['user_id'] or $_SESSION['user_id'] is needed.
 * Crypt warning message was removed.
@@ -1209,9 +1209,9 @@ Improvements:
 * Users can now select multiple or single setting from the core->get_settings class.
 * System checks for default encrypt key, for optimal security.
 * Encryption for user id added, improves security, this prevents session hijacking.
-* Templates can now be selected from a dropdown list for menus, each script can use its own template.
+* Templates can now be selected from a dropdown list for nodes, each script can use its own template.
 * a Template manager was added.
-* Dropdown for custom templates added in Menu Admin.
+* Dropdown for custom templates added in Node Admin.
 * Ability to set default template style in configuration.
 * User gets notified by email when he/she updates user profile.
 * Password recovery security was improved.
@@ -1228,14 +1228,14 @@ Bugs Fixed:
 * Minor bugs or scripting.
 * Plugin activation gave template_folder error.
 * Dropdown cut off fixed.
-* Fixed foreach bug in Menu Admin when no groups are selected.
+* Fixed foreach bug in Node Admin when no groups are selected.
 
 Other:
 * Ran all system functions to test stability.
 * Created core_templates table.
 * Added default template to core_template table.
 * Changed core_item_templates column type to integer and changed template_folder to template_id.
-* Added 2 new template admin menu items.
+* Added 2 new template admin node items.
 * Configuration 'default_template' was removed from configuration.php
 * Added setting to gui system configuration.
 
@@ -1255,11 +1255,11 @@ Tested Scripts:
 * System Logs - OK
 * User Logs - OK
 * General Settings - OK
-* Menu Admin - FIXED
-* Menu Visibility - OK
-* Menu Permission - OK
-* Menu Template - OK
-* Menu Rank - OK
+* Node Admin - FIXED
+* Node Visibility - OK
+* Node Permission - OK
+* Node Template - OK
+* Node Rank - OK
 * Template Admin - OK
 * Template List - OK
 * Cronjob Admin - OK
@@ -1274,9 +1274,9 @@ Tested Functions:
 * CSS Help Tooltip - OK
 * Install Plugin - OK
 * Uninstall Plugin - OK
-* Reinstall Menus - OK
+* Reinstall Nodes - OK
 * Search Engine - OK
-* Hiding a menu item - OK
+* Hiding a node item - OK
 * Manual Cronjob Execution - OK
 * Auto Cronjob Execution - OK
 
@@ -1305,12 +1305,12 @@ PHPDevShell V0.5.1-Stable
 Improvements:
 * DB V51
 * Small clean up to engine script done.
-* Menu item structure build now only happens when item is actually deleted.
+* Node item structure build now only happens when item is actually deleted.
 * Improved load page method, with ability to add extra $_GET vars.
 * Major improvements to the default template.
-* "List Menu" was removed, delete and edit can now be done with any menu manipulation listing script.
+* "List Node" was removed, delete and edit can now be done with any node manipulation listing script.
 * When submitting edit/delete $_POST was used, it was changed back to $_GET, allowing the use of other input forms.
-* Menu system now shows parent as a menu as well when in active menu group, this helps make navigation easier.
+* Node system now shows parent as a node as well when in active node group, this helps make navigation easier.
 * Cronjob system listing was replaced with $_GET actions, modified $_GET variables.
 * Users can now select from a multi select box to choose which groups can access what scripts.
 
@@ -1321,7 +1321,7 @@ Bugs Fixed:
 PHPDevShell V0.5.0-Stable
 -------------------------
 Improvements:
-* Breadcrumbs are now first followed by menu items, for improved navigation.
+* Breadcrumbs are now first followed by node items, for improved navigation.
 * Language file added to readme.php
 * All methods made public or private according to there type and structure.
 * Interface was made touch screen friendly.
@@ -1341,8 +1341,8 @@ PHPDevShell V0.4.8-Stable
 -------------------------
 Improvements:
 * Less configuration data information is required in configuration.php
-* Less admin is required on menu items, as some processes are determined automaticly now.
-* Ability to add an array of menu items to be deleted on upgrade through plugin manager.
+* Less admin is required on node items, as some processes are determined automaticly now.
+* Ability to add an array of node items to be deleted on upgrade through plugin manager.
 * Example plugin config was updated.
 * Added images to login page.
 
@@ -1351,16 +1351,16 @@ Bugs Fixed:
 
 Other:
 * Removed table pds_core_item_groups, pds_core_item_owner as groups are now determined by plugin folder.
-* Removed menu item 2110163404, 3554126791 and 3558205398 as groups are now determined by plugin folder.
+* Removed node item 2110163404, 3554126791 and 3558205398 as groups are now determined by plugin folder.
 
 PHPDevShell V0.4.7-Stable
 -------------------------
 Improvements:
 * TinyMCE WYSIWYG updated to V 2.1.2 from V 2.1.1
-* Leapfrog menu system with single level dropdown added.
+* Leapfrog node system with single level dropdown added.
 * Core plugin structure changed.
 * Css updated.
-* Menu language system improved.
+* Node language system improved.
 * PHPDevShell Core Upgrade system added through plugin manager.
 * Breadcrumb system improved.
 
@@ -1383,6 +1383,6 @@ Improvements:
 
 Bugs Fixed:
 * System Error produced when accessing an illegal page.
-* Ranking by which menu items was saved was not according to user input when selecting rank last.
+* Ranking by which node items was saved was not according to user input when selecting rank last.
 * Username not displaying in system logs.
 * Username not displaying in user logs.

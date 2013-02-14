@@ -3,7 +3,7 @@
 class PHPDS_tagger extends PHPDS_dependant
 {
 	const tag_user = 'user';
-	const tag_menu = 'menu';
+	const tag_node = 'node';
 	const tag_role = 'role';
 	const tag_group = 'group';
 
@@ -30,17 +30,17 @@ class PHPDS_tagger extends PHPDS_dependant
 			return $this->db->invokeQueryWith('PHPDS_taggerLookupQuery', $parameters);
 		}
 	}
-	
+
 	/**
 	 * Lookup tags based on criterias ; returns an array
-	 * 
+	 *
 	 * @param string $object (optional)
 	 * @param string $name (optional)
 	 * @param string $target (optional)
 	 * @param string $value (optional)
-	 * 
+	 *
 	 * @return string|nothing
-	 * 
+	 *
 	 * @version 1.0
 	 * @author greg
 	 * @date 20120105 (v1.0) (greg) added
@@ -48,7 +48,7 @@ class PHPDS_tagger extends PHPDS_dependant
 	public function tagLookup($object = null, $name = null, $target = null, $value = null)
 	{
 		$parameters = array('object' => $object, 'name' => $name, 'target' => $target, 'value' => $value);
-		
+
 		return $this->db->invokeQueryWith('PHPDS_taggerLookupQuery', $parameters);
 	}
 
@@ -92,28 +92,28 @@ class PHPDS_tagger extends PHPDS_dependant
 	}
 
 	/**
-	 * Tag (set/get) the menu specified in $target
+	 * Tag (set/get) the node specified in $target
 	 *
 	 * @param $name
 	 * @param $target
 	 * @param $value
 	 */
-	public function tagMenu($name, $target, $value = null)
+	public function tagNode($name, $target, $value = null)
 	{
-		return $this->tag(PHPDS_tagger::tag_menu, $name, $target, $value);
+		return $this->tag(PHPDS_tagger::tag_node, $name, $target, $value);
 	}
 
 	/**
-	 * Tag (set/get) the current menu
+	 * Tag (set/get) the current node
 	 *
 	 * @param $name
 	 * @param $value
 	 */
 	public function tagHere($name, $value = null)
 	{
-		$here = $this->navigation->currentMenuID();
+		$here = $this->navigation->currentNodeID();
 		if (empty($here)) return false;
-		return $this->tag(PHPDS_tagger::tag_menu, $name, $here, $value);
+		return $this->tag(PHPDS_tagger::tag_node, $name, $here, $value);
 	}
 
 	/**

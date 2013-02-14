@@ -9,18 +9,18 @@ class PHPDS_listCronjobAdminQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
-			t1.menu_id, t1.menu_name, t1.menu_type, t1.menu_link, t1.plugin,
-			t2.menu_id as cron_id, t2.cron_desc, t2.cron_type, t2.log_cron, t2.last_execution, t2.year, t2.month, t2.day, t2.hour, t2.minute
+			t1.node_id, t1.node_name, t1.node_type, t1.node_link, t1.plugin,
+			t2.node_id as cron_id, t2.cron_desc, t2.cron_type, t2.log_cron, t2.last_execution, t2.year, t2.month, t2.day, t2.hour, t2.minute
 		FROM
-			_db_core_menu_items t1
+			_db_core_node_items t1
 		%s
 			_db_core_cron t2
 		ON
-			t2.menu_id = t1.menu_id
+			t2.node_id = t1.node_id
 		WHERE
-			t1.menu_type = 8
+			t1.node_type = 8
 		OR
-			t1.menu_id IS NULL
+			t1.node_id IS NULL
 	";
 
 	/**
@@ -64,21 +64,21 @@ class PHPDS_listCronjobAdminQuery extends PHPDS_query
 		if (empty($cronjobs_list_db)) $cronjobs_list_db = array();
 		foreach ($cronjobs_list_db as $edit) {
 			// Create cron rows.
-			if (empty($edit['menu_link'])) {
+			if (empty($edit['node_link'])) {
 				$edit['cron_name'] = $broken_cron_icon;
 				$edit['plugin'] = $broken_cron_icon;
-				if (!empty($edit['menu_id'])) {
-					$edit['menu_id'] = $edit['cron_id'];
+				if (!empty($edit['node_id'])) {
+					$edit['node_id'] = $edit['cron_id'];
 				} else {
-					$edit['menu_id'] = '';
+					$edit['node_id'] = '';
 				}
 				// script-import
-				$edit_ = '<a href="' . $dc . $edit['menu_id'] . '" class="button">' . $delete_cron_icon . '</a>';
+				$edit_ = '<a href="' . $dc . $edit['node_id'] . '" class="button">' . $delete_cron_icon . '</a>';
 				$run_ = $edit_;
 			} else {
-				$edit['cron_name'] = $navigation->determineMenuName($edit['menu_name'], $edit['menu_link'], $edit['menu_id']);
-				$edit_ = "<a href=\"{$page_edit}{$edit['menu_id']}\" class=\"button\">{$edit_cron_icon}</a>";
-				$run_ = "<a href=\"{$navigation->buildURL($edit['menu_id'], false, true)}\" {$core->confirmLink(sprintf(__('Are you sure you want to EXECUTE cronjob %s?'), $edit['cron_name']))} class=\"button\">{$run_cron_icon}</a>";
+				$edit['cron_name'] = $navigation->determineNodeName($edit['node_name'], $edit['node_link'], $edit['node_id']);
+				$edit_ = "<a href=\"{$page_edit}{$edit['node_id']}\" class=\"button\">{$edit_cron_icon}</a>";
+				$run_ = "<a href=\"{$navigation->buildURL($edit['node_id'], false, true)}\" {$core->confirmLink(sprintf(__('Are you sure you want to EXECUTE cronjob %s?'), $edit['cron_name']))} class=\"button\">{$run_cron_icon}</a>";
 			}
 			// Log Cron Icon.
 			($edit['log_cron'] == 1) ? $log_cron_icon = $do_log_cron_icon : $log_cron_icon = $dont_log_cron_icon;

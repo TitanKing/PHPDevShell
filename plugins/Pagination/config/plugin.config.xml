@@ -50,20 +50,20 @@
 	<!-- Below is a series of example upgrade procedures. -->
 	<install version="1000">
 		<!--
-		[contains][All query, menu, hooks, settings installation tags.]
+		[contains][All query, node, hooks, settings installation tags.]
 			[param][version][int][mandatory][The latest database version in numbers only.]
 			[note][This is how the plugin manager will know to what version upgrade scripts should be executed.]
-			[note][Always keep install maintained to the latest menu, query, hooks and setting versions.]
+			[note][Always keep install maintained to the latest node, query, hooks and setting versions.]
 		-->
 		<classes>
 			<class name="pagination" alias="PHPDS_pagination" plugin="Pagination" rank="last" />
 		</classes>
 	</install>
-		
+
 	<uninstall>
 		<!--
 		[contains][All actions that will be executed on uninstalling a plugin.]
-		[note][Menus, settings and hooks will be uninstalled automatically for this plugin.]
+		[note][Nodes, settings and hooks will be uninstalled automatically for this plugin.]
 		-->
 	</uninstall>
 </config>
