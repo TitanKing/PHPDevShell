@@ -1,6 +1,6 @@
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#bg").getDelete();
+        $("#bg").getAjaxDelete();
     });
 </script>
 <div class="row-fluid">

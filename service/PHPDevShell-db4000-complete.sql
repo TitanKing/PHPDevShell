@@ -1,23 +1,3 @@
--- Creating table for cron management and automated jobs.;
-CREATE TABLE `pds_core_cron` (
-	`menu_id` varchar(64) NOT NULL,
-	`cron_desc` varchar(255) DEFAULT NULL,
-	`cron_type` int(1) DEFAULT NULL,
-	`log_cron` int(1) DEFAULT NULL,
-	`last_execution` int(50) DEFAULT NULL,
-	`year` int(4) DEFAULT NULL,
-	`month` int(2) DEFAULT NULL,
-	`day` int(2) DEFAULT NULL,
-	`hour` int(2) DEFAULT NULL,
-	`minute` int(2) DEFAULT NULL,
-	PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Insert default data in cron management.;
-INSERT INTO `pds_core_cron` VALUES ('optimize-database', '', '2', '1', '1284101654', '1', '0', '0', '0', '0');
-INSERT INTO `pds_core_cron` VALUES ('repair-database', '', '0', '1', '1284101669', '0', '0', '0', '0', '0');
-INSERT INTO `pds_core_cron` VALUES ('trim-logs', '', '2', '1', '1284101680', '0', '0', '0', '1', '0');
-
 -- Create filters for search.;
 CREATE TABLE `pds_core_filter` (
 	`search_id` int(255) unsigned NOT NULL AUTO_INCREMENT,
@@ -57,7 +37,7 @@ CREATE TABLE `pds_core_menu_items` (
 	`new_window` int(1) DEFAULT NULL,
 	`rank` int(100) DEFAULT NULL,
 	`hide` int(1) DEFAULT NULL,
-	`template_id` int(32) unsigned DEFAULT NULL,
+	`template_id` varchar(64) unsigned DEFAULT NULL,
 	`alias` varchar(255) DEFAULT NULL,
 	`layout` varchar(255) DEFAULT NULL,
 	`params` varchar(1024) DEFAULT NULL,
@@ -67,31 +47,28 @@ CREATE TABLE `pds_core_menu_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Insert default menu items.;
-INSERT INTO `pds_core_menu_items` VALUES ('users-admin', 'user-admin', 'Users', 'user-admin/user-admin-list.php', 'AdminTools', '1', '', '0', '1', '0', 'default', 'manage-users', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('system-settings', 'system-admin', 'Settings', 'system-admin/general-settings.php', 'AdminTools', '1', '', '0', '1', '0', 'default', 'system-settings', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('user-admin', 'user-admin', 'User', 'user-admin/user-admin.php', 'AdminTools', '1', '', '0', '2', '0', 'default', 'new-user', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('system-logs', 'system-status', 'Sys Logs', 'logs-admin/system-logs.php', 'AdminTools', '1', '', '0', '2', '0', 'default', 'system-logs', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('themes-admin', 'system-admin', 'Themes', 'template-admin/template-admin-list.php', 'AdminTools', '1', '', '0', '4', '0', 'default', 'theme-admin', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('group-admin', 'group-admin', 'Group', 'user-admin/user-group-admin.php', 'AdminTools', '1', '', '0', '2', '0', 'default', 'new-group', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('lost-password', '0', 'Lost Password', 'user/lost-password.php', 'AdminTools', '1', '', '0', '3', '0', 'default', 'lost-password', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('log-viewer', 'system-status', 'File Logs', 'logs-admin/file-log-viewer.php', 'AdminTools', '1', '', '0', '5', '0', 'default', 'file-log-viewer', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('config-manager', 'system-admin', 'Config Manager', 'system-admin/config-manager.php', 'AdminTools', '1', '', '0', '2', '0', 'default', 'config-manager', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('readme', '0', 'Readme', 'user/readme.php', 'AdminTools', '1', '', '0', '1', '0', 'default', 'readme', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('role', 'role-admin', 'Role', 'user-admin/user-role-admin.php', 'AdminTools', '1', '', '0', '2', '0', 'default', 'new-role', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('cron-repair-database', 'cronjob-admin', 'Cron Repair DB', 'cron/repair-database.php', 'AdminTools', '8', '', '0', '5', '1', 'default', 'repair-database', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('cron-trim-logs', 'cronjob-admin', 'Cron Trimmer', 'cron/trim-logs.php', 'AdminTools', '8', '', '0', '4', '1', 'default', 'trim-logs', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('menus-admin', 'manage-menus', 'Menus', 'menu-admin/menu-item-admin-list.php', 'AdminTools', '1', '', '0', '1', '0', 'default', 'manage-menus', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('tags-admin', 'policy-admin', 'Tags', 'tagger-admin/tagger-admin.php', 'AdminTools', '1', '', '0', '6', '0', 'default', 'manage-tags', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('groups-admin', 'group-admin', 'Groups', 'user-admin/user-group-admin-list.php', 'AdminTools', '1', '', '0', '1', '0', 'default', 'manage-groups', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('roles-admin', 'role-admin', 'Roles', 'user-admin/user-role-admin-list.php', 'AdminTools', '1', '', '0', '1', '0', 'default', 'manage-roles', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('login', '0', 'Log In|Out', 'user/login-page.php', 'AdminTools', '1', '', '0', '4', '0', 'default', 'login', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('cronjobs-admin', 'cronjob-admin', 'Cronjobs', 'cron-admin/cronjob-admin-list.php', 'AdminTools', '1', '', '0', '1', '0', 'default', 'manage-cronjobs', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('plugins-admin', 'system-admin', 'Plugins', 'plugin-admin/plugin-activation.php', 'AdminTools', '1', '', '0', '3', '0', 'default', 'plugins-admin', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('execute-cronjob', 'cronjob-admin', 'Cron Executor', 'cron-admin/run-cron.php', 'AdminTools', '1', '', '0', '3', '1', 'default', 'system-cronjob', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('system-info', 'system-status', 'System Info', 'system-admin/admin.php', 'AdminTools', '1', '', '0', '1', '0', 'default', 'system-info', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('menu', 'manage-menus', 'Menu', 'menu-admin/menu-item-admin.php', 'AdminTools', '1', '', '0', '2', '0', 'default', 'new-menu', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('cron optimize-database', 'cronjob-admin', 'Cron Optimize Database', 'cron/optimize-database.php', 'AdminTools', '8', '', '0', '6', '1', 'default', 'optimize-database', '', null);
-INSERT INTO `pds_core_menu_items` VALUES ('class-registry', 'system-admin', 'Class Registry', 'plugin-admin/class-registry.php', 'AdminTools', '1', '', '0', '4', '0', 'default', 'class-registry', '', '');
+INSERT INTO `pds_core_menu_items` VALUES ('readme', '0', 'Readme', 'readme.php', 'About', '1', null, '0', '1', '0', 'default', 'readme', null, null);
+
+INSERT INTO `pds_core_menu_items` VALUES ('admin', '0', 'Admin', 'user/admin.system-admin', 'AdminTools', '2', 'system-settings', '0', '2', '0', 'default', 'admin', null, null);
+INSERT INTO `pds_core_menu_items` VALUES ('system-settings', 'admin', 'Settings', 'system-admin/general-settings.php', 'AdminTools', '1', null, '0', '1', '0', 'default', 'system-settings', null, null);
+INSERT INTO `pds_core_menu_items` VALUES ('config-manager', 'admin', 'Config', 'system-admin/config-manager.php', 'AdminTools', '1', null, '0', '2', '0', 'default', 'config-manager', null, null);
+
+INSERT INTO `pds_core_menu_items` VALUES ('user-admin-list', 'admin', 'Users', 'user-admin/user-admin-list.php', 'AdminTools', '1', null, '0', '3', '0', 'default', 'user-admin-list', null, null);
+INSERT INTO `pds_core_menu_items` VALUES ('user-admin', 'admin', 'User', 'user-admin/user-admin.php', 'AdminTools', '1', null, '0', '4', '3', 'default', 'user-admin', null, null);
+INSERT INTO `pds_core_menu_items` VALUES ('group-admin-list', 'admin', 'Groups', 'user-admin/user-group-admin-list.php', 'AdminTools', '1', null, '0', '5', '0', 'default', 'group-admin-list', null, null);
+INSERT INTO `pds_core_menu_items` VALUES ('group-admin', 'admin', 'Group', 'user-admin/user-group-admin.php', 'AdminTools', '1', null, '0', '6', '3', 'default', 'group-admin', null, null);
+INSERT INTO `pds_core_menu_items` VALUES ('roles-admin-list', 'admin', 'Roles', 'user-admin/user-role-admin-list.php', 'AdminTools', '1', null, '0', '7', '0', 'default', 'roles-admin-list', null, null);
+INSERT INTO `pds_core_menu_items` VALUES ('role-admin', 'admin', 'Role', 'user-admin/user-role-admin.php', 'AdminTools', '1', null, '0', '8', '3', 'default', 'role-admin', null, null);
+INSERT INTO `pds_core_menu_items` VALUES ('menu-admin-list', 'admin', 'Menus', 'menu-admin/menu-item-admin-list.php', 'AdminTools', '1', null, '0', '9', '0', 'default', 'menu-admin-list', null, null);
+INSERT INTO `pds_core_menu_items` VALUES ('menu-admin', 'admin', 'Menu', 'menu-admin/menu-item-admin.php', 'AdminTools', '1', null, '0', '10', '3', 'default', 'menu-admin', null, null);
+INSERT INTO `pds_core_menu_items` VALUES ('tags-admin', 'admin', 'Tags', 'tagger-admin/tagger-admin.php', 'AdminTools', '1', null, '0', '11', '0', 'default', 'tags-admin', null, null);
+INSERT INTO `pds_core_menu_items` VALUES ('themes-admin', 'admin', 'Themes', 'template-admin/template-admin-list.php', 'AdminTools', '1', null, '0', '12', '0', 'default', 'theme-admin', null, null);
+
+INSERT INTO `pds_core_menu_items` VALUES ('file-logs', 'admin', 'File Logs', 'logs-admin/file-log-viewer.php', 'AdminTools', '1', null, '0', '13', '0', 'default', 'file-logs', null, null);
+INSERT INTO `pds_core_menu_items` VALUES ('sys-logs', 'admin', 'Sys Logs', 'logs-admin/system-logs.php', 'AdminTools', '1', null, '0', '14', '0', 'default', 'sys-logs', null, null);
+
+INSERT INTO `pds_core_menu_items` VALUES ('plugin-admin', 'admin', 'Plugins', 'plugin-activation.php', 'PluginManager', '1', null, '0', '15', '0', 'default', 'plugins-admin', null, null);
+INSERT INTO `pds_core_menu_items` VALUES ('class-registry', 'admin', 'Registry', 'class-registry.php', 'PluginManager', '1', null, '0', '16', '0', 'default', 'class-registry', null, null);
 
 -- Create menu tree structure.;
 CREATE TABLE `pds_core_menu_structure` (
@@ -105,61 +82,24 @@ CREATE TABLE `pds_core_menu_structure` (
 
 -- Insert menu tree structure.;
 INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('readme', '0', '2');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('register-account', '0', '2');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('lost-password', '0', '2');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('login', '0', '2');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('contact-admin', '0', '2');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('user-preferences', '1', '1');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('new-password', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('cp', '0', '2');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('finish-registration', '0', '2');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('system-management', '1', '1');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('system-status', '1', '3');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('system-info', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('system-logs', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('access-logs', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('upload-logs', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('file-log-viewer', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('system-admin', '1', '3');
+INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('admin', '1', '1');
 INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('system-settings', '0', '4');
 INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('config-manager', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('plugins-admin', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('theme-admin', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('class-registry', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('cronjob-admin', '1', '3');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('manage-cronjobs', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('edit-cronjob', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('system-cronjob', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('trim-logs', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('repair-database', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('optimize-database', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('menu-admin', '1', '3');
+INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('user-admin-list', '0', '4');
+INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('user-admin', '0', '4');
+INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('group-admin-list', '0', '4');
+INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('group-admin', '0', '4');
+INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('roles-admin-list', '0', '4');
+INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('roles-admin', '0', '4');
+INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('menu-admin-list', '0', '4');
 INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('menu-admin', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('new-menu', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('edit-menu', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('access-control', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('policy-admin', '1', '3');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('access-management', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('user-admin', '1', '3');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('manage-users', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('new-user', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('edit-user', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('pending-users', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('import-users', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('role-admin', '1', '3');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('manage-roles', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('new-role', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('edit-role', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('group-admin', '1', '3');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('manage-groups', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('new-group', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('edit-group', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('token-admin', '1', '3');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('manage-tokens', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('new-token', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('edit-token', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('email-token', '0', '4');
-INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('manage-tags', '0', '4');
+INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('tags-admin', '0', '4');
+INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('themes-admin', '0', '4');
+INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('file-logs', '0', '4');
+INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('sys-logs', '0', '4');
+INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('plugin-admin', '0', '4');
+INSERT INTO `pds_core_menu_structure` (menu_id, is_parent, type) VALUES ('class-registry', '0', '4');
+
 
 -- Create plugins table.;
 CREATE TABLE `pds_core_plugin_activation` (
@@ -172,9 +112,8 @@ CREATE TABLE `pds_core_plugin_activation` (
 
 -- Insert available default plugins.;
 INSERT INTO `pds_core_plugin_activation` VALUES ('Pagination', 'install', '1000', '0');
-INSERT INTO `pds_core_plugin_activation` VALUES ('PHPMailer', 'install', '1000', '0');
 INSERT INTO `pds_core_plugin_activation` VALUES ('Smarty', 'install', '1000', '0');
-INSERT INTO `pds_core_plugin_activation` VALUES ('userActions', 'install', '1000', '0');
+INSERT INTO `pds_core_plugin_activation` VALUES ('UserActions', 'install', '1000', '0');
 INSERT INTO `pds_core_plugin_activation` VALUES ('StandardLogin', 'install', '1000', '0');
 INSERT INTO `pds_core_plugin_activation` VALUES ('CRUD', 'install', '1000', '0');
 
@@ -191,15 +130,14 @@ CREATE TABLE `pds_core_plugin_classes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Insert classes available from default plugins.;
-INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('mailer', 'PHPDS_mailer', 'PHPMailer', '1', '1');
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('pagination', 'PHPDS_pagination', 'Pagination', '1', '1');
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('views', 'PHPDS_views', 'Smarty', '1', '1');
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('iana', 'PHPDS_iana', 'AdminTools', '1', '1');
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('menuArray', 'PHPDS_menu_array', 'AdminTools', '1', '1');
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('menuStructure', 'PHPDS_menu_structure', 'AdminTools', '1', '1');
-INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('pluginManager', 'PHPDS_pluginmanager', 'AdminTools', '1', '1');
+INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('pluginManager', 'PHPDS_pluginmanager', 'PluginManager', '1', '1');
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('timeZone', 'PHPDS_timezone', 'AdminTools', '1', '1');
-INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('userActions', 'PHPDS_userAction', 'userActions', '1', '1');
+INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('userActions', 'PHPDS_userAction', 'UserActions', '1', '1');
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('StandardLogin', 'PHPDS_login', 'StandardLogin', '1', '1');
 INSERT INTO `pds_core_plugin_classes` (class_name, alias, plugin_folder, enable, rank) VALUES ('crud', 'PHPDS_crud', 'CRUD', '1', '1');
 
@@ -304,13 +242,13 @@ INSERT INTO `pds_core_settings` VALUES ('AdminTools_url_append', '.html', 'The u
 
 -- Create tags table for tagging data.;
 CREATE TABLE `pds_core_tags` (
-	`tagID` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`tagObject` varchar(45) DEFAULT NULL,
-	`tagName` varchar(45) DEFAULT NULL,
-	`tagTarget` varchar(45) DEFAULT NULL,
-	`tagValue` text,
-	PRIMARY KEY (`tagID`),
-	UNIQUE KEY `UNIQUE` (`tagObject`,`tagName`,`tagTarget`)
+	`tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	`tag_object` varchar(45) DEFAULT NULL,
+	`tag_name` varchar(45) DEFAULT NULL,
+	`tag_target` varchar(45) DEFAULT NULL,
+	`tag_value` text,
+	PRIMARY KEY (`tag_id`),
+	UNIQUE KEY `UNIQUE` (`tag_object`,`tag_name`,`tag_target`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Create themes table to store installed themes.;

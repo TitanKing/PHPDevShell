@@ -4,19 +4,19 @@ class PHPDS_taggerListQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
-			tagID, tagObject, tagName, tagTarget, tagValue
+			tag_id, tag_object, tag_name, tag_target, tag_value
 		FROM
-			_db_core_tags"; // WHERE tagTarget = '%s', tagObject = '%s', tagName = '%s', tagValue = '%s' ";
+			_db_core_tags";
 
 	protected $where = '1';
 	protected $autoProtect = true;
 
 	public function extraBuild($parameters = null)
 	{
-		if (!empty($parameters['object'])) $this->addWhere("tagObject = '%(object)s'");
-		if (!empty($parameters['name'])) $this->addWhere("tagName = '%(name)s'");
-		if (!empty($parameters['target'])) $this->addWhere("tagTarget = '%(target)s'");
-		if (!empty($parameters['value'])) $this->addWhere("tagValue = '%(value)s'");
+		if (!empty($parameters['object'])) $this->addWhere("tag_object = '%(object)s'");
+		if (!empty($parameters['name'])) $this->addWhere("tag_name = '%(name)s'");
+		if (!empty($parameters['target'])) $this->addWhere("tag_target = '%(target)s'");
+		if (!empty($parameters['value'])) $this->addWhere("tag_value = '%(value)s'");
 
 		return parent::extraBuild($parameters);
 	}
@@ -26,7 +26,7 @@ class PHPDS_taggerListQuery extends PHPDS_query
 class PHPDS_taggerLookupQuery extends  PHPDS_taggerListQuery
 {
 	protected $singleRow = true;
-	protected $focus = 'tagValue';
+	protected $focus = 'tag_value';
 
 	public function getResults()
 	{
@@ -40,7 +40,7 @@ class PHPDS_taggerMarkQuery extends PHPDS_query
 		REPLACE INTO
 			_db_core_tags
 		SET
-			tagObject = '%(object)s', tagName = '%(name)s', tagTarget = '%(target)s'
+			tag_object = '%(object)s', tag_name = '%(name)s', tag_target = '%(target)s'
 	";
 	protected $autoProtect = true;
 
@@ -48,9 +48,9 @@ class PHPDS_taggerMarkQuery extends PHPDS_query
 	{
 		if (!isset($parameters['value']) || is_null($parameters['value'])) {
 			$parameter['value'] = 'NULL';
-			$this->sql .= ', tagValue = NULL';
+			$this->sql .= ', tag_value = NULL';
 		} else {
-			$this->sql .= ", tagValue = '%(value)s'";
+			$this->sql .= ", tag_value = '%(value)s'";
 		}
 		return true;
 	}
@@ -60,13 +60,13 @@ class PHPDS_taggerListTargetQuery extends PHPDS_query
 {
 	protected $sql = "
 		SELECT
-			tagID, tagName, tagValue
+			tag_id, tag_name, tag_value
 		FROM
 			_db_core_tags
 		WHERE
-			tagTarget = '%s'
+			tag_target = '%s'
 		AND
-			tagObject = '%s'
+			tag_object = '%s'
 		";
 }
 
@@ -76,9 +76,9 @@ class PHPDS_deleteTagsQuery extends PHPDS_query
 		DELETE FROM
 			_db_core_tags
 		WHERE
-			tagObject = '%s'
+			tag_object = '%s'
 		AND
-			tagTarget = '%s'
+			tag_target = '%s'
 		";
 	protected $autoProtect = true;
 }
@@ -89,11 +89,11 @@ class PHPDS_deleteStrictTagsQuery extends PHPDS_query
 		DELETE FROM
 			_db_core_tags
 		WHERE
-			tagObject = '%s'
+			tag_object = '%s'
 		AND
-			tagTarget = '%s'
+			tag_target = '%s'
 	    AND
-	        tagName = '%s'
+	        tag_name = '%s'
 		";
     protected $autoProtect = true;
 }
@@ -102,7 +102,7 @@ class PHPDS_updateTagsQuery extends PHPDS_query
 {
     protected $sql = "
 		REPLACE INTO
-			_db_core_tags (tagID, tagObject, tagName, tagTarget, tagValue)
+			_db_core_tags (tag_id, tag_object, tag_name, tag_target, tag_value)
 		VALUES
 	      %s
 	";

@@ -37,7 +37,7 @@ function displaySuccess()
 {
 	global $aurl;
 	okPrint("The installation was successful.");
-	notePrint("You might want to erase the install.php file and <a href=\"{$aurl}\">check your new installation.</a>.");
+	notePrint("You might want to erase the /service directory and <a href=\"{$aurl}\">check your new installation.</a>");
 }
 
 function displayFields()

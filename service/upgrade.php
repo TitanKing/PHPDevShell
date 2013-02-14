@@ -38,7 +38,7 @@ function displaySuccess()
 	global $aurl;
 
 	okPrint("The upgrade was successful.");
-	notePrint("You might want to erase the upgrade.php file and <a href=\"$aurl\">check your upgrade.</a>. Also use the plugin manager and click on upgrade to upgrade your menus.");
+	notePrint("You might want to erase the /service directory and <a href=\"$aurl\">check your upgrade.</a> Also use the plugin manager and click on upgrade to upgrade your menus.");
 }
 
 function displayFields()

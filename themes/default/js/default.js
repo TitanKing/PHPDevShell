@@ -76,7 +76,7 @@ function PHPDS_documentReady (root) {
 }
 
 (function ($) {
-    $.fn.getDelete = function () {
+    $.fn.getAjaxDelete = function () {
         var bg = this;
         bg.on('click', ".first-click", function () {
             var first = this;
