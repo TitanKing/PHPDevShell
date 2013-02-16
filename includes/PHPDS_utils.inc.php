@@ -259,67 +259,59 @@ if (function_exists('gettext')) {
 	/**
 	 * Wrapper for $core->__() method.
 	 * Converts text to use gettext PO system. Does the same as $core->__();
-	 *
-	 * @param string $say_what The string required to output or convert.
-	 * @param string $domain Override textdomain that should be looked under for this text string.
-	 * @return string Will return converted string or same string if not available.
 	 * @author Jason Schoeman
+     *
+	 * @param string $gettext what The string required to output or convert.
+	 * @param string $domain Override textdomain that should be looked under for this text string.
+     *
+	 * @return string Will return converted string or same string if not available.
 	 */
-	function __($gettext, $domain = false)
+	function __($gettext, $domain = '')
 	{
-		$gettext = html_entity_decode($gettext, ENT_COMPAT, 'UTF-8');
 		if (empty($domain)) {
-			return gettext("$gettext");
+			return gettext($gettext);
 		} else {
-			return dgettext("$domain", "$gettext");
+			return dgettext($domain, $gettext);
 		}
 	}
 
 	/**
 	 * Specifically meant for core translation domain.
 	 *
-	 * @param string $say_what The string required to output or convert.
+	 * @param string $gettext The string required to output or convert.
+     *
 	 * @return string
 	 */
 	function ___($gettext)
 	{
-		$gettext = html_entity_decode($gettext, ENT_COMPAT, 'UTF-8');
-		return dgettext('core.lang', "$gettext");
+		return dgettext('core.lang', $gettext);
 	}
 
 	/**
 	 * This function echos the returning text.
 	 *
-	 * @param text $text
+	 * @param string $text
 	 */
 	function _e($text)
 	{
-		$text = html_entity_decode($text, ENT_COMPAT, 'UTF-8');
 		echo gettext($text);
 	}
 
 	/**
 	 * This function echos the returning text inside a domain.
 	 *
-	 * @param text $text
+	 * @param string $text
+     * @oaram string $domain
 	 */
 	function __e($text, $domain)
 	{
-		$text = html_entity_decode($text);
 		echo dgettext($domain, $text);
 	}
-
 } else {
 
-	/**
-	 * Specifically meant for core translation domain.
-	 *
-	 * @param string $say_what The string required to output or convert.
-	 * @return string
-	 */
 	function ___($gettext)
 	{
-		return dgettext('core.lang', "$gettext");
+		return dgettext('core.lang', $gettext);
 	}
 
 	function gettext($text)
@@ -361,9 +353,7 @@ if (function_exists('gettext')) {
 
 /**
  * Outputs an array in html
- *
  * A slightly better version of print_r()
- *
  * Note: this output is html
  *
  * @version 2.0
@@ -376,8 +366,10 @@ if (function_exists('gettext')) {
  * @param array $a
  * @param string $title
  * @param boolean $htmlize (default to false) if true html is escaped to be displayed as source
+ *
+ * @return string
  */
-function PU_dumpArray($a, $title = null, $htmlize = false)
+function PU_dumpArray($a, $title = '', $htmlize = false)
 {
 	$s = $title ? "<p>$title</p>" : '';
 

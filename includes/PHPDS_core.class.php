@@ -512,9 +512,13 @@ class PHPDS_core extends PHPDS_dependant
 	 * @date 20120606 (v1.0.2) (greg) add the "includes/" folder of the plugin in the include path
 	 *
 	 * @author Jason Schoeman
+     *
 	 * @param int $node_id
-	 * @param string|boolean $include_model if set, load the model file before the controller is run (either a prefix or true for default "query" prefix) - default is not to
-	 * @param string|boolean $include_view $include_model if set, run the view file after the controller is run (a prefix) ; default is the "view" prefix)
+	 * @param mixed $include_model |boolean $include_model if set, load the model file before the controller is run (either a prefix or true for default "query" prefix) - default is not to
+	 * @param mixed $include_view |boolean $include_view if set, run the view file after the controller is run (a prefix) ; default is the "view" prefix)
+     *
+     * @throws PHPDS_exception
+     * @return string
 	 */
 	public function loadControllerFile ($node_id, $include_model = false, $include_view = 'view')
 	{
@@ -549,7 +553,6 @@ class PHPDS_core extends PHPDS_dependant
 					$view->run();
 				}
 			}
-
 			set_include_path($old_include_path);
 		}
 		if ($result_ === false && empty($this->haltController)) {
@@ -563,8 +566,10 @@ class PHPDS_core extends PHPDS_dependant
 	 *
 	 * @param string $load_view
 	 * @param string $plugin_override If another plugin is to be used in the directory.
+     *
+     * @return string
 	 */
-	public function getTpl($load_view=false, $plugin_override=false)
+	public function getTpl($load_view='', $plugin_override='')
 	{
 		$configuration = $this->configuration;
 		$navigation = $this->navigation;
@@ -590,6 +595,7 @@ class PHPDS_core extends PHPDS_dependant
 		if (empty($load_view) && !empty($navigation->navigation[$configuration['m']]['layout'])) {
 			$load_view = $navigation->navigation[$configuration['m']]['layout'];
 		}
+
 		// Check if we have a custom layout otherwise use default.
 		if (empty($load_view)) {
 			$tpl_dir = str_replace($node_link, '%s/' . str_replace('.php', '.tpl', $node_link), $plugin_folder . $node_link);
@@ -602,8 +608,9 @@ class PHPDS_core extends PHPDS_dependant
 				$tpl_dir = $plugin_folder . '%s/' . $link . '/' . $load_view;
 			}
 		}
+
 		// Log to firephp.
-		$this->_log(__('Loading Template Layout : ', 'core.lang') . $tpl_dir);
+		$this->_log('Loading Template Layout : ' . $tpl_dir);
 
 		// Return file location.
 		if (file_exists(sprintf($tpl_dir, 'views'))) {
@@ -617,7 +624,7 @@ class PHPDS_core extends PHPDS_dependant
 		} else if (file_exists(sprintf($tpl_dir . '.php', 'views'))) {
 			return sprintf($tpl_dir . '.php', 'views');
 		} else {
-			return false;
+			return '';
 		}
 	}
 

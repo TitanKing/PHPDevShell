@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- Please see http://phpdevshell.org for documentation on plugin config xml files. -->
+<config type="plugin">
+
+	<!-- Use a proper plugin name without using special characters. -->
+	<name>Smarty</name>
+
+	<!-- Human readable version number of your plugin. -->
+	<version>3.1.8-Stable</version>
+
+	<!-- a Short description of your plugin. -->
+	<description>This plugin provides a simple to use Template Engine for PHPDevShell.</description>
+
+	<!-- If the plugin/script is modification by you, place the original authors names here. -->
+	<founder>New Digital Group Inc.</founder>
+
+	<!-- Name of the developer for this plugin. -->
+	<author>Jason Schoeman</author>
+
+	<!-- Email address of the developer for this plugin. -->
+	<email>titan@phpdevshell.org</email>
+
+	<!-- Plugin developers web address. -->
+	<homepage>http://www.smarty.net/</homepage>
+
+	<!-- Date the plugin was developed, modified etc, this is up to you. -->
+	<date>20 December 2011</date>
+
+	<!-- Copyright notice you would like to amend to your plugin. -->
+	<copyright>Copyright 2009 PHPDevShell.org All rights reserved.</copyright>
+
+	<!-- License this plugin is released under. -->
+	<license>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html GNU/LGPL</license>
+	<!-- Code Version XML URL check. -->
+	<!-- Version (current) below is used to check for new releases and has little to do with database version. -->
+	<versionurl current="1000"></versionurl>
+
+	<!-- Detailed information and help for this plugin. -->
+	<info>
+		<![CDATA[
+			<p>
+				Although Smarty is known as a "Template Engine", it would be more accurately described as a "Template/Presentation Framework."
+				That is, it provides the programmer and template designer with a wealth of tools to automate tasks commonly dealt with at the presentation layer of an application.
+			</p>
+		]]>
+	</info>
+	<!-- Version here represents the database version that should be install. -->
+	<!-- If your database version needs no update, this number can stay the same. -->
+	<!-- Upgrades further down will only be executed up to this number. -->
+	<!-- This is the current database version that will be installed. -->
+	<!-- Below is a series of example upgrade procedures. -->
+	<install version="1000">
+		<!--
+		[contains][All query, node, hooks, settings installation tags.]
+			[param][version][int][mandatory][The latest database version in numbers only.]
+			[note][This is how the plugin manager will know to what version upgrade scripts should be executed.]
+			[note][Always keep install maintained to the latest node, query, hooks and setting versions.]
+		-->
+		<classes>
+			<class name="views" alias="PHPDS_views" plugin="Smarty" rank="last" />
+		</classes>
+	</install>
+
+	<uninstall>
+		<!--
+		[contains][All actions that will be executed on uninstalling a plugin.]
+		[note][Nodes, settings and hooks will be uninstalled automatically for this plugin.]
+		-->
+	</uninstall>
+</config>

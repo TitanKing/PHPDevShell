@@ -1275,7 +1275,7 @@ class PHPDS_dependant
 	/**
 	 * Send info data to the debug subsystem (console, firebug, ...)
 	 *
-	 * The goal of this function is to be called all thourough the code to be able to track bugs.
+	 * The goal of this function is to be called all throughout the code to be able to track bugs.
 	 *
 	 * @date 20100928 (v1.1) (greg) this function sends data with the DEBUG level
 	 *

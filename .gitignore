@@ -22,6 +22,7 @@ write/upload/*
 write/logs/*.log
 write/logs/*.html
 write/private/*.txt
+write/compile/__view_*.php
 single-site.config.php
 multi-host.config.php
 other/tests/unittests/diag/coverage/*

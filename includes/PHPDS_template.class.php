@@ -1491,8 +1491,10 @@ class PHPDS_template extends PHPDS_dependant
      *
      * @param string $load_view
      * @param string $plugin_override If another plugin is to be used in the directory.
+     *
+     * @return string
      */
-    public function getTpl($load_view = false, $plugin_override = false)
+    public function getTpl($load_view = '', $plugin_override = '')
     {
         return $this->core->getTpl($load_view, $plugin_override);
     }
